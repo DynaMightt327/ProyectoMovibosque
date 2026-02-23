@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class VentanaRegistro extends JFrame {
@@ -29,7 +30,7 @@ public class VentanaRegistro extends JFrame {
 	private JTextField tUsuario;
 	private JTextField tDocumento;
 	private JTextField tTelefono;
-	private JTextField tContrasena;
+	private JPasswordField tContrasena;
 	private JTextField tRol;
 	
 	private JButton bVolver;
@@ -155,7 +156,7 @@ public class VentanaRegistro extends JFrame {
 		//tTelefono.setBorder(null);
 		panelCentral.add(tTelefono);
 		
-		tContrasena = new JTextField();
+		tContrasena = new JPasswordField();
 		tContrasena.setBounds(30, 370, 164, 28);
 		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 15));
 		tContrasena.setForeground(Color.decode("#18093E"));
@@ -323,7 +324,8 @@ public class VentanaRegistro extends JFrame {
 		return tContrasena;
 	}
 
-	public void settContrasena(JTextField tContrasena) {
+
+	public void settContrasena(JPasswordField tContrasena) {
 		this.tContrasena = tContrasena;
 	}
 
