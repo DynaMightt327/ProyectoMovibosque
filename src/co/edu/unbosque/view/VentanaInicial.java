@@ -33,7 +33,7 @@ public class VentanaInicial extends JFrame {
 		titulo.setFont(new Font("Agency FB", Font.BOLD, 120));
 		add(titulo);
 		
-		iniciarSesion = new JButton("REGISTRARSE");
+		iniciarSesion = new JButton("INICIAR SESIÓN");
 		iniciarSesion.setBounds(155, 440, 170, 50);
 		iniciarSesion.setFont(new Font("Agency FB", Font.BOLD, 22));
 		iniciarSesion.setBackground(Color.decode("#8DC1CE"));
@@ -42,7 +42,7 @@ public class VentanaInicial extends JFrame {
 		iniciarSesion.setFocusPainted(false);
 		add(iniciarSesion);
 		
-		registrar = new JButton("INICIAR SESION");
+		registrar = new JButton("REGISTRAR");
 		registrar.setBounds(360, 440, 170, 50);
 		registrar.setFont(new Font("Agency FB", Font.BOLD, 22));
 		registrar.setBackground(Color.decode("#8DC1CE"));
