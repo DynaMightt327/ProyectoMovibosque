@@ -33,6 +33,13 @@ public class Controller implements ActionListener {
 		vr.getbVolver().addActionListener(this);
 		vr.getbVolver().setActionCommand("boton_volver_registrar");
 		
+		vr.getbRegistrar().addActionListener(this);
+		vr.getbRegistrar().setActionCommand("boton_crear_cuenta");
+		
+		//==VENTANA INICIAR SESION==
+		vin.getVolver().addActionListener(this);
+		vin.getVolver().setActionCommand("boton_volver_iniciar_sesion");
+		
 	}
 
 	@Override
@@ -51,14 +58,28 @@ public class Controller implements ActionListener {
 			break;
 			
 		}
+		case "boton_crear_cuenta":{
+			vr.setVisible(false);
+			vin.setVisible(true);
+			break;
+		}
 		
 		case "boton_iniciar_sesion":{
 			vi.setVisible(false);
 			vin.setVisible(true);
-		}
-		default:
 			break;
 		}
+		
+		case "boton_volver_iniciar_sesion":{
+			vin.setVisible(false);
+			vi.setVisible(true);
+			break;
+		}
+		default:{
+			break;
+		}
+		
+	}
 		
 	}
 
