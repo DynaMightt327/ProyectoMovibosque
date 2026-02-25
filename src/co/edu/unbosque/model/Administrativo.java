@@ -15,16 +15,18 @@ public class Administrativo extends Persona{
 		this.annoServicio = annoServicio;
 	}
 
-	public Administrativo(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena,
-			String facultad, String facultad2, int annoServicio) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
+	public Administrativo(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
+			String contrasena, String facultad, String facultad2, int annoServicio) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
 		facultad = facultad2;
 		this.annoServicio = annoServicio;
 	}
+	
+	
 
-	public Administrativo(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena,
-			String facultad) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
+	public Administrativo(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
+			String contrasena, String facultad) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
 		// TODO Auto-generated constructor stub
 	}
 

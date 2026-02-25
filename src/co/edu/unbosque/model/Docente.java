@@ -13,14 +13,16 @@ public class Docente extends Persona {
 		this.numeroMateria = numeroMateria;
 	}
 
-	public Docente(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena, String facultad,
-			int numeroMateria) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
+	public Docente(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
+			String contrasena, String facultad, int numeroMateria) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
 		this.numeroMateria = numeroMateria;
 	}
+	
 
-	public Docente(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena, String facultad) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
+	public Docente(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
+			String contrasena, String facultad) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
 		// TODO Auto-generated constructor stub
 	}
 
