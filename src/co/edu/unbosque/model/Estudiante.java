@@ -4,36 +4,38 @@ public class Estudiante extends Persona{
 	
 	private String carrera;
 	private int semestre;
-	private String facultad;
 	
 	public Estudiante() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Estudiante(String carrera, int semestre, String facultad) {
+	public Estudiante(String carrera, int semestre) {
 		super();
 		this.carrera = carrera;
 		this.semestre = semestre;
-		this.facultad = facultad;
 	}
 
 	public Estudiante(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena,
-			String carrera, int semestre, String facultad) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena);
+			String facultad, String carrera, int semestre) {
+		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
 		this.carrera = carrera;
 		this.semestre = semestre;
-		this.facultad = facultad;
 	}
 
-	public Estudiante(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena);
+	public Estudiante(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena,
+			String facultad) {
+		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "Estudiante: \nCarrera: " + carrera + "\nSemestre: " + semestre + "\nFacultad: " + facultad;
+		return "Estudiante [carrera=" + carrera + ", semestre=" + semestre + "]";
 	}
+	
+	
+
+	
 	
 	
 

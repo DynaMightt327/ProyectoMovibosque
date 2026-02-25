@@ -16,22 +16,24 @@ public class Administrativo extends Persona{
 	}
 
 	public Administrativo(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena,
-			String facultad, int annoServicio) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena);
-		this.facultad = facultad;
+			String facultad, String facultad2, int annoServicio) {
+		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
+		facultad = facultad2;
 		this.annoServicio = annoServicio;
 	}
 
-	public Administrativo(String nombre, String apellido, String correoInst, long id, long telefono,
-			String contrasena) {
-		super(nombre, apellido, correoInst, id, telefono, contrasena);
+	public Administrativo(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena,
+			String facultad) {
+		super(nombre, apellido, correoInst, id, telefono, contrasena, facultad);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "Administrativo: \nFacultad: " + facultad + "\nAños de servicio: " + annoServicio;
+		return "Administrativo [facultad=" + facultad + ", annoServicio=" + annoServicio + "]";
 	}
+
+	
 	
 	
 

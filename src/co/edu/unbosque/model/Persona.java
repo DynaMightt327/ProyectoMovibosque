@@ -8,12 +8,13 @@ public class Persona {
 	private long id;
 	private long telefono;
 	private String contrasena;
+	private String facultad;
 	
 	public Persona() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Persona(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena) {
+	public Persona(String nombre, String apellido, String correoInst, long id, long telefono, String contrasena, String facultad) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -21,6 +22,7 @@ public class Persona {
 		this.id = id;
 		this.telefono = telefono;
 		this.contrasena = contrasena;
+		this.facultad = facultad;
 	}
 
 	public String getNombre() {
@@ -70,12 +72,24 @@ public class Persona {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
+	
+	public String getFacultad() {
+		return facultad;
+	}
+	
+	public void setFacultad(String facultad) {
+		this.facultad = facultad;
+	}
 
 	@Override
 	public String toString() {
-		return "Persona: \nnombres: " + nombre + "\napellidos:" + apellido + "\nCorreo institucional: " + correoInst + "\nNumero de identificacion: " + id
-				+ "\nNumero de celular: " + telefono + "\nContraseña: " + contrasena;
+		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", correoInst=" + correoInst + ", id=" + id
+				+ ", telefono=" + telefono + ", contrasena=" + contrasena + ", facultad=" + facultad + "]";
 	}
+	
+
+	
+
 	
 	
 
