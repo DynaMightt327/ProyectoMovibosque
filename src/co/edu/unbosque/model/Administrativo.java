@@ -30,7 +30,7 @@ public class Administrativo extends Persona{
 
 	@Override
 	public String toString() {
-		return "Administrativo [facultad=" + facultad + ", annoServicio=" + annoServicio + "]";
+		return "Administrativo: \nFacultad: " + facultad + "\naños de servicio: " + annoServicio;
 	}
 
 	

@@ -26,7 +26,7 @@ public class Docente extends Persona {
 
 	@Override
 	public String toString() {
-		return "Docente [numeroMateria=" + numeroMateria + "]";
+		return "Docente: \nNumero de materias: " + numeroMateria;
 	}
 
 	

@@ -30,7 +30,7 @@ public class Estudiante extends Persona{
 
 	@Override
 	public String toString() {
-		return "Estudiante [carrera=" + carrera + ", semestre=" + semestre + "]";
+		return "Estudiante: \nCarrera: " + carrera + "\nSemestre: " + semestre;
 	}
 	
 	
