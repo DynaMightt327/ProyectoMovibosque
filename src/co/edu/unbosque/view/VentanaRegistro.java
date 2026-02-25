@@ -49,132 +49,142 @@ public class VentanaRegistro extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(null);
-		this.getContentPane().setBackground(Color.decode("#1D7486"));
+		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
 		
 		panelCentral = new JPanel();
 		panelCentral.setLayout(null);
 		panelCentral.setBounds(20, 20, 490, 600);
-		panelCentral.setBackground(Color.decode("#FFFFFF"));
+		//panelCentral.setBackground(Color.decode("#98bda0"));
+		panelCentral.setBackground(new Color(152, 189, 160,100));
+		//panelCentral.setOpaque(false); -> por alguna razón, no me funciona bien? :|
 		add(panelCentral);
 		
 		//==LABELS==
 		
 		titulo = new JLabel("¡Crea tu cuenta aquí!");
 		titulo.setBounds(26, 20, 500, 65);
-		titulo.setForeground(Color.decode("#000000"));
+		titulo.setForeground(Color.decode("#111d15"));
 		titulo.setFont(new Font("Agency FB", Font.BOLD, 60));
 		panelCentral.add(titulo);
 		
 		nombre = new JLabel("Nombre:");
 		nombre.setBounds(30, 100, 150, 30);
 		nombre.setFont(new Font("Agency FB", Font.BOLD, 22));
-		nombre.setForeground(Color.decode("#18093E"));
+		nombre.setForeground(Color.decode("#111d15"));
 		panelCentral.add(nombre);
 		
 		apellido = new JLabel("Apellidos:");
 		apellido.setBounds(270, 100, 150, 30);
 		apellido.setFont(new Font("Agency FB", Font.BOLD, 22));
-		apellido.setForeground(Color.decode("#18093E"));
+		apellido.setForeground(Color.decode("#111d15"));
 		panelCentral.add(apellido);
 		
 		correo = new JLabel("Correo Institucional:");
 		correo.setBounds(30, 180, 150, 30);
 		correo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		correo.setForeground(Color.decode("#18093E"));
+		correo.setForeground(Color.decode("#111d15"));
 		panelCentral.add(correo);
 		
 		usuario = new JLabel("Usuario Institucional:");
 		usuario.setBounds(270, 180, 150, 30);
 		usuario.setFont(new Font("Agency FB", Font.BOLD, 22));
-		usuario.setForeground(Color.decode("#18093E"));
+		usuario.setForeground(Color.decode("#111d15"));
 		panelCentral.add(usuario);
 
 		documento = new JLabel("Documento de Identidad:");
 		documento.setBounds(30, 260, 200, 30);
 		documento.setFont(new Font("Agency FB", Font.BOLD, 22));
-		documento.setForeground(Color.decode("#18093E"));
+		documento.setForeground(Color.decode("#111d15"));
 		panelCentral.add(documento);
 		
 		telefono = new JLabel("Número de teléfono:");
 		telefono.setBounds(270, 260, 150, 30);
 		telefono.setFont(new Font("Agency FB", Font.BOLD, 22));
-		telefono.setForeground(Color.decode("#18093E"));
+		telefono.setForeground(Color.decode("#111d15"));
 		panelCentral.add(telefono);
 		
 		contrasena = new JLabel("Contraseña:");
 		contrasena.setBounds(30, 340, 150, 30);
 		contrasena.setFont(new Font("Agency FB", Font.BOLD, 22));
-		contrasena.setForeground(Color.decode("#18093E"));
+		contrasena.setForeground(Color.decode("#111d15"));
 		panelCentral.add(contrasena);
 		
 		rol = new JLabel("Rol Institucional:");
 		rol.setBounds(270, 340, 150, 30);
 		rol.setFont(new Font("Agency FB", Font.BOLD, 22));
-		rol.setForeground(Color.decode("#18093E"));
+		rol.setForeground(Color.decode("#111d15"));
 		panelCentral.add(rol);
 		
 		//==CAMPOS DE TEXTO==
 		tNombre = new JTextField();
-		tNombre.setBounds(30, 130, 164, 25);
-		tNombre.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tNombre.setForeground(Color.decode("#18093E"));
-		//tNombre.setBorder(null);
+		tNombre.setBounds(30, 130, 164, 32);
+		tNombre.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tNombre.setForeground(Color.decode("#111d15"));
+		tNombre.setBackground(Color.decode("#376445"));
+		tNombre.setBorder(null);
 		panelCentral.add(tNombre);
 		
 		tApellido = new JTextField();
-		tApellido.setBounds(270, 130, 164, 28);
-		tApellido.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tApellido.setForeground(Color.decode("#18093E"));
-		//tApellido.setBorder(null);
+		tApellido.setBounds(270, 130, 164, 32);
+		tApellido.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tApellido.setForeground(Color.decode("#111d15"));
+		tApellido.setBackground(Color.decode("#376445"));
+		tApellido.setBorder(null);
 		panelCentral.add(tApellido);
 		
 		tCorreo = new JTextField();
-		tCorreo.setBounds(30, 210, 164, 28);
-		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tCorreo.setForeground(Color.decode("#18093E"));
-		//tCorreo.setBorder(null);
+		tCorreo.setBounds(30, 210, 164, 32);
+		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tCorreo.setForeground(Color.decode("#111d15"));
+		tCorreo.setBackground(Color.decode("#376445"));
+		tCorreo.setBorder(null);
 		panelCentral.add(tCorreo);
 		
 		tUsuario = new JTextField();
-		tUsuario.setBounds(270, 210, 164, 28);
-		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tUsuario.setForeground(Color.decode("#18093E"));
-		//tUsuario.setBorder(null);
+		tUsuario.setBounds(270, 210, 164, 32);
+		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tUsuario.setForeground(Color.decode("#111d15"));
+		tUsuario.setBackground(Color.decode("#376445"));
+		tUsuario.setBorder(null);
 		panelCentral.add(tUsuario);
 		
 		tDocumento = new JTextField();
-		tDocumento.setBounds(30, 290, 164, 28);
-		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tDocumento.setForeground(Color.decode("#18093E"));
-		//tDocumento.setBorder(null);
+		tDocumento.setBounds(30, 290, 164, 32);
+		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tDocumento.setForeground(Color.decode("#111d15"));
+		tDocumento.setBackground(Color.decode("#376445"));
+		tDocumento.setBorder(null);
 		panelCentral.add(tDocumento);
 		
 		tTelefono = new JTextField();
-		tTelefono.setBounds(270, 290, 164, 28);
-		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tTelefono.setForeground(Color.decode("#18093E"));
-		//tTelefono.setBorder(null);
+		tTelefono.setBounds(270, 290, 164, 32);
+		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tTelefono.setForeground(Color.decode("#111d15"));
+		tTelefono.setBackground(Color.decode("#376445"));
+		tTelefono.setBorder(null);
 		panelCentral.add(tTelefono);
 		
 		tContrasena = new JPasswordField();
-		tContrasena.setBounds(30, 370, 164, 28);
-		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tContrasena.setForeground(Color.decode("#18093E"));
-		//tContrasena.setBorder(null);
+		tContrasena.setBounds(30, 370, 164, 32);
+		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tContrasena.setForeground(Color.decode("#111d15"));
+		tContrasena.setBackground(Color.decode("#376445"));
+		tContrasena.setBorder(null);
 		panelCentral.add(tContrasena);
 		
 		tRol = new JTextField();
-		tRol.setBounds(270, 370, 164, 28);
-		tRol.setFont(new Font("Agency FB", Font.BOLD, 15));
-		tRol.setForeground(Color.decode("#18093E"));
-		//tRol.setBorder(null);
+		tRol.setBounds(270, 370, 164, 32);
+		tRol.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tRol.setForeground(Color.decode("#111d15"));
+		tRol.setBackground(Color.decode("#376445"));
+		tRol.setBorder(null);
 		panelCentral.add(tRol);
 		
 		//==BOTONES==
 		bVolver = new JButton("VOLVER");
 		bVolver.setBounds(60, 450, 130, 40);
 		bVolver.setFont(new Font("Agency FB", Font.BOLD, 22));
-		bVolver.setBackground(Color.decode("#130344"));
+		bVolver.setBackground(Color.decode("#376445"));
 		bVolver.setForeground(Color.decode("#ECE7FE"));
 		bVolver.setBorderPainted(false);
 		bVolver.setFocusPainted(false);
@@ -183,7 +193,7 @@ public class VentanaRegistro extends JFrame {
 		bRegistrar = new JButton("GUARDAR");
 		bRegistrar.setBounds(280, 450, 130, 40);
 		bRegistrar.setFont(new Font("Agency FB", Font.BOLD, 22));
-		bRegistrar.setBackground(Color.decode("#130344"));
+		bRegistrar.setBackground(Color.decode("#376445"));
 		bRegistrar.setForeground(Color.decode("#ECE7FE"));
 		bRegistrar.setBorderPainted(false);
 		bRegistrar.setFocusPainted(false);

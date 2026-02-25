@@ -25,18 +25,18 @@ public class VentanaInicial extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(null);
-		this.getContentPane().setBackground(Color.decode("#1D7486"));
+		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
 		
 		titulo = new JLabel("MOVIBOSQUE");
 		titulo.setBounds(80, 230, 590, 125);
-		titulo.setForeground(Color.decode("#FFFFFF"));
+		titulo.setForeground(Color.decode("#f1fcf5"));
 		titulo.setFont(new Font("Agency FB", Font.BOLD, 120));
 		add(titulo);
 		
 		iniciarSesion = new JButton("INICIAR SESIÓN");
 		iniciarSesion.setBounds(155, 440, 170, 50);
 		iniciarSesion.setFont(new Font("Agency FB", Font.BOLD, 22));
-		iniciarSesion.setBackground(Color.decode("#8DC1CE"));
+		iniciarSesion.setBackground(Color.decode("#98bda0"));
 		iniciarSesion.setForeground(Color.decode("#152C32"));
 		iniciarSesion.setBorderPainted(false);
 		iniciarSesion.setFocusPainted(false);
@@ -45,7 +45,7 @@ public class VentanaInicial extends JFrame {
 		registrar = new JButton("REGISTRAR");
 		registrar.setBounds(360, 440, 170, 50);
 		registrar.setFont(new Font("Agency FB", Font.BOLD, 22));
-		registrar.setBackground(Color.decode("#8DC1CE"));
+		registrar.setBackground(Color.decode("#98bda0"));
 		registrar.setForeground(Color.decode("#152C32"));
 		registrar.setBorderPainted(false);
 		registrar.setFocusPainted(false);
