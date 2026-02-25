@@ -15,17 +15,19 @@ public class Estudiante extends Persona{
 		this.semestre = semestre;
 	}
 
+
 	public Estudiante(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
-			String contrasena, String facultad, String carrera, int semestre) {
-		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
+			String contrasena, String facultad, String rol, String carrera, int semestre) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol);
 		this.carrera = carrera;
 		this.semestre = semestre;
 	}
 	
+	
 
 	public Estudiante(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
-			String contrasena, String facultad) {
-		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
+			String contrasena, String facultad, String rol) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol);
 		// TODO Auto-generated constructor stub
 	}
 

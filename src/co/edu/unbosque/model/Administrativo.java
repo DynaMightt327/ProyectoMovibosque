@@ -15,9 +15,10 @@ public class Administrativo extends Persona{
 		this.annoServicio = annoServicio;
 	}
 
+
 	public Administrativo(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
-			String contrasena, String facultad, String facultad2, int annoServicio) {
-		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
+			String contrasena, String facultad, String rol, String facultad2, int annoServicio) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol);
 		facultad = facultad2;
 		this.annoServicio = annoServicio;
 	}
@@ -25,8 +26,8 @@ public class Administrativo extends Persona{
 	
 
 	public Administrativo(String nombre, String apellido, String correoInst, String nUsuario, long id, long telefono,
-			String contrasena, String facultad) {
-		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad);
+			String contrasena, String facultad, String rol) {
+		super(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol);
 		// TODO Auto-generated constructor stub
 	}
 
