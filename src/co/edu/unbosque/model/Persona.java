@@ -29,6 +29,79 @@ public class Persona {
 		this.facultad = facultad;
 		this.rol = rol;
 	}
+	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getCorreoInst() {
+		return correoInst;
+	}
+
+	public void setCorreoInst(String correoInst) {
+		this.correoInst = correoInst;
+	}
+
+	public String getnUsuario() {
+		return nUsuario;
+	}
+
+	public void setnUsuario(String nUsuario) {
+		this.nUsuario = nUsuario;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(long telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	public String getFacultad() {
+		return facultad;
+	}
+
+	public void setFacultad(String facultad) {
+		this.facultad = facultad;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 
 	@Override
 	public String toString() {

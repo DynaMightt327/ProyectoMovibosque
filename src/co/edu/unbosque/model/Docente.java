@@ -27,6 +27,14 @@ public class Docente extends Persona {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getNumeroMateria() {
+		return numeroMateria;
+	}
+
+	public void setNumeroMateria(int numeroMateria) {
+		this.numeroMateria = numeroMateria;
+	}
+
 	@Override
 	public String toString() {
 		return "Docente: \nNumero de materias: " + numeroMateria;
