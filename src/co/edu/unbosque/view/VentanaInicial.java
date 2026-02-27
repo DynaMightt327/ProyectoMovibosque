@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +13,8 @@ public class VentanaInicial extends JFrame {
 	private JLabel titulo;
 	private JButton iniciarSesion;
 	private JButton registrar;
+	
+	private JLabel tita;
 	
 	public VentanaInicial() {
 		initComp();
@@ -26,6 +29,13 @@ public class VentanaInicial extends JFrame {
 		this.setResizable(false);
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
+		//this.getContentPane().setBackground(Color.decode("#FFFFFF"));
+		
+		ImageIcon titaImage = new ImageIcon(getClass().getResource("titaa.png"));
+		tita = new JLabel(titaImage);
+		tita.setBounds(640, 50, 350, 640);
+		tita.setLayout(null);
+		add(tita);
 		
 		titulo = new JLabel("MOVIBOSQUE");
 		titulo.setBounds(80, 230, 590, 125);

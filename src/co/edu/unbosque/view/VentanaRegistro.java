@@ -77,7 +77,7 @@ public class VentanaRegistro extends JFrame {
 		panelCentral.setLayout(null);
 		panelCentral.setBounds(20, 20, 490, 600);
 		// panelCentral.setBackground(Color.decode("#98bda0"));
-		panelCentral.setBackground(new Color(152, 189, 160, 150));
+		panelCentral.setBackground(new Color(152, 189, 160, 180));
 		// panelCentral.setOpaque(false); -> por alguna razón, no me funciona bien? :|
 		background.add(panelCentral);
 
@@ -163,7 +163,7 @@ public class VentanaRegistro extends JFrame {
 		panelCentral.add(semestre);
 
 		annoServicio = new JLabel("Años de servicio:");
-		annoServicio.setBounds(30, 500, 150, 30);
+		annoServicio.setBounds(270, 420, 150, 30);
 		annoServicio.setFont(new Font("Agency FB", Font.BOLD, 22));
 		annoServicio.setForeground(Color.decode("#111d15"));
 		panelCentral.add(annoServicio);
@@ -173,7 +173,7 @@ public class VentanaRegistro extends JFrame {
 		tNombre.setBounds(30, 130, 164, 32);
 		tNombre.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNombre.setForeground(Color.decode("#111d15"));
-		tNombre.setBackground(Color.decode("#376445"));
+		tNombre.setBackground(Color.decode("#e0ebe0"));
 		tNombre.setBorder(null);
 		panelCentral.add(tNombre);
 
@@ -181,7 +181,7 @@ public class VentanaRegistro extends JFrame {
 		tApellido.setBounds(270, 130, 164, 32);
 		tApellido.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tApellido.setForeground(Color.decode("#111d15"));
-		tApellido.setBackground(Color.decode("#376445"));
+		tApellido.setBackground(Color.decode("#e0ebe0"));
 		tApellido.setBorder(null);
 		panelCentral.add(tApellido);
 
@@ -189,7 +189,7 @@ public class VentanaRegistro extends JFrame {
 		tCorreo.setBounds(30, 210, 164, 32);
 		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCorreo.setForeground(Color.decode("#111d15"));
-		tCorreo.setBackground(Color.decode("#376445"));
+		tCorreo.setBackground(Color.decode("#e0ebe0"));
 		tCorreo.setBorder(null);
 		panelCentral.add(tCorreo);
 
@@ -197,7 +197,7 @@ public class VentanaRegistro extends JFrame {
 		tUsuario.setBounds(270, 210, 164, 32);
 		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tUsuario.setForeground(Color.decode("#111d15"));
-		tUsuario.setBackground(Color.decode("#376445"));
+		tUsuario.setBackground(Color.decode("#e0ebe0"));
 		tUsuario.setBorder(null);
 		panelCentral.add(tUsuario);
 
@@ -205,7 +205,7 @@ public class VentanaRegistro extends JFrame {
 		tDocumento.setBounds(30, 290, 164, 32);
 		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tDocumento.setForeground(Color.decode("#111d15"));
-		tDocumento.setBackground(Color.decode("#376445"));
+		tDocumento.setBackground(Color.decode("#e0ebe0"));
 		tDocumento.setBorder(null);
 		panelCentral.add(tDocumento);
 
@@ -213,7 +213,7 @@ public class VentanaRegistro extends JFrame {
 		tTelefono.setBounds(270, 290, 164, 32);
 		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTelefono.setForeground(Color.decode("#111d15"));
-		tTelefono.setBackground(Color.decode("#376445"));
+		tTelefono.setBackground(Color.decode("#e0ebe0"));
 		tTelefono.setBorder(null);
 		panelCentral.add(tTelefono);
 
@@ -221,7 +221,7 @@ public class VentanaRegistro extends JFrame {
 		tContrasena.setBounds(30, 370, 164, 32);
 		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tContrasena.setForeground(Color.decode("#111d15"));
-		tContrasena.setBackground(Color.decode("#376445"));
+		tContrasena.setBackground(Color.decode("#e0ebe0"));
 		tContrasena.setBorder(null);
 		panelCentral.add(tContrasena);
 
@@ -230,7 +230,7 @@ public class VentanaRegistro extends JFrame {
 		tFacultad.setBounds(270, 370, 164, 32);
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tFacultad.setForeground(Color.decode("#111d15"));
-		tFacultad.setBackground(Color.decode("#376445"));
+		tFacultad.setBackground(Color.decode("#e0ebe0"));
 		tFacultad.setBorder(null);
 		panelCentral.add(tFacultad);
 
@@ -238,7 +238,7 @@ public class VentanaRegistro extends JFrame {
 		tRol.setBounds(30, 450, 164, 32);
 		tRol.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tRol.setForeground(Color.decode("#111d15"));
-		tRol.setBackground(Color.decode("#376445"));
+		tRol.setBackground(Color.decode("#e0ebe0"));
 		tRol.setBorder(null);
 		panelCentral.add(tRol);
 
@@ -246,7 +246,7 @@ public class VentanaRegistro extends JFrame {
 		tCarrera.setBounds(270, 450, 164, 32);
 		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCarrera.setForeground(Color.decode("#111d15"));
-		tCarrera.setBackground(Color.decode("#376445"));
+		tCarrera.setBackground(Color.decode("#e0ebe0"));
 		tCarrera.setBorder(null);
 		panelCentral.add(tCarrera);
 
@@ -254,7 +254,7 @@ public class VentanaRegistro extends JFrame {
 		tNumMateria.setBounds(270, 450, 164, 32);
 		tNumMateria.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNumMateria.setForeground(Color.decode("#111d15"));
-		tNumMateria.setBackground(Color.decode("#376445"));
+		tNumMateria.setBackground(Color.decode("#e0ebe0"));
 		tNumMateria.setBorder(null);
 		panelCentral.add(tNumMateria);
 
@@ -262,15 +262,15 @@ public class VentanaRegistro extends JFrame {
 		tSemestre.setBounds(30, 530, 164, 32);
 		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tSemestre.setForeground(Color.decode("#111d15"));
-		tSemestre.setBackground(Color.decode("#376445"));
+		tSemestre.setBackground(Color.decode("#e0ebe0"));
 		tSemestre.setBorder(null);
 		panelCentral.add(tSemestre);
 		
 		tAnnoServicio = new JTextField();
-		tAnnoServicio.setBounds(30, 530, 164, 32);
+		tAnnoServicio.setBounds(270, 450, 164, 32);
 		tAnnoServicio.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tAnnoServicio.setForeground(Color.decode("#111d15"));
-		tAnnoServicio.setBackground(Color.decode("#376445"));
+		tAnnoServicio.setBackground(Color.decode("#e0ebe0"));
 		tAnnoServicio.setBorder(null);
 		panelCentral.add(tAnnoServicio);
 
@@ -278,7 +278,7 @@ public class VentanaRegistro extends JFrame {
 		bVolver = new JButton("VOLVER");
 		bVolver.setBounds(580, 580, 130, 40);
 		bVolver.setFont(new Font("Agency FB", Font.BOLD, 22));
-		bVolver.setBackground(Color.decode("#ECE7FE"));
+		bVolver.setBackground(Color.decode("#6d9a77"));
 		bVolver.setForeground(Color.decode("#376445"));
 		bVolver.setBorderPainted(false);
 		bVolver.setFocusPainted(false);
@@ -287,7 +287,7 @@ public class VentanaRegistro extends JFrame {
 		bRegistrar = new JButton("GUARDAR");
 		bRegistrar.setBounds(730, 580, 130, 40);
 		bRegistrar.setFont(new Font("Agency FB", Font.BOLD, 22));
-		bRegistrar.setBackground(Color.decode("#ECE7FE"));
+		bRegistrar.setBackground(Color.decode("#6d9a77"));
 		bRegistrar.setForeground(Color.decode("#376445"));
 		bRegistrar.setBorderPainted(false);
 		bRegistrar.setFocusPainted(false);
