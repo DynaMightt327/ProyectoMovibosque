@@ -34,6 +34,8 @@ public class Controller implements ActionListener {
 		listaEstudiantes = new ArrayList<>();
 		
 		asignarOyentes();
+		actualizarCamposPorRol();
+		
 	}
 	
 	
@@ -60,6 +62,97 @@ public class Controller implements ActionListener {
 		vin.getIniciar().setActionCommand("boton_entrar_cuenta");
 		
 	}
+	
+	public void actualizarCamposPorRol() {
+		String rol = (String) vr.gettRol().getSelectedItem();
+		
+	
+		if(rol == null){
+			
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+			
+		}else if(rol.equalsIgnoreCase("Estudiante")) {
+			
+			//mostrar los campos de estudainte
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(true);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(true);
+			
+			//ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+		} else if(rol.equalsIgnoreCase("Docente")) {
+			
+			//ocultar los de estudiante
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//mostrar campos de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(true);
+			
+			//ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+		} else if(rol.equalsIgnoreCase("Administrativo")) {
+			
+			//Ocultar los de estudiantes
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//Ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//Mostrar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(true);
+			
+		} else {
+			
+			//Ocultar los de estudiantes
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//Ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//Ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+		}
+		
+		vr.revalidate();
+		vr.repaint();
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -68,6 +161,8 @@ public class Controller implements ActionListener {
 		case "boton_registrar": {
 			vi.setVisible(false);
 			vr.setVisible(true);
+			
+			actualizarCamposPorRol();
 			break;
 			
 		}
@@ -125,6 +220,10 @@ public class Controller implements ActionListener {
 		case "boton_entrar_cuenta":{
 			vin.setVisible(false);
 			vei.setVisible(true);
+			break;
+		}
+		case "cambio rol": {
+			actualizarCamposPorRol();
 			break;
 		}
 		default:{
