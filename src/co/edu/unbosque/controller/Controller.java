@@ -89,13 +89,20 @@ public class Controller implements ActionListener {
 				String facultad = (String) vr.gettFacultad().getSelectedItem();
 				String rol = (String) vr.gettRol().getSelectedItem();
 				
-				if(rol.equalsIgnoreCase("Estudiante")) {
-				//listaEstudiantes.add(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, rol, 0));
 				
+				if(rol.equalsIgnoreCase("Estudiante")) {
+					
+					String carrera = vr.gettCarrera().getText();
+					int semestre = 	Integer.parseInt(vr.gettSemestre().getText());
+					listaEstudiantes.add(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, carrera, semestre));
+					
 				}else if(rol.equalsIgnoreCase("Docente")) {
-				//listaDocentes.add(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, 0));
+					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
+					listaDocentes.add(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, numeroMateria));
+					
 				}else if(rol.equalsIgnoreCase("Administrativo")) {
-				//listaAdmins.add(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, 0));
+					int annoServicio = Integer.parseInt(vr.gettAnnoServicio().getText());
+					listaAdmins.add(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
 				}
 				
 			} catch (Exception e2) {

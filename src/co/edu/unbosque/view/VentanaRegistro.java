@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -26,6 +27,12 @@ public class VentanaRegistro extends JFrame {
 	private JLabel contrasena;
 	private JLabel facultad;
 	private JLabel rol;
+	private JLabel carrera;
+	private JLabel semestre;
+	private JLabel numMateria;
+	private JLabel annoServicio;
+	
+	private JLabel background;
 
 	private JTextField tNombre;
 	private JTextField tApellido;
@@ -36,6 +43,10 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField tContrasena;
 	private JComboBox<String> tFacultad;
 	private JComboBox<String> tRol;
+	private JTextField tCarrera;
+	private JTextField tSemestre;
+	private JTextField tNumMateria;
+	private JTextField tAnnoServicio;
 
 	private JButton bVolver;
 	private JButton bRegistrar;
@@ -54,13 +65,22 @@ public class VentanaRegistro extends JFrame {
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
 
+		// --------- IMAGEN DE FONDO ---------
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("trenueb.png"));
+		background = new JLabel(backgroundImage);
+		background.setBounds(0, 0, 980, 680);
+		background.setLayout(null);
+		add(background);
+		
+		//==PANEL==
 		panelCentral = new JPanel();
 		panelCentral.setLayout(null);
 		panelCentral.setBounds(20, 20, 490, 600);
 		// panelCentral.setBackground(Color.decode("#98bda0"));
-		panelCentral.setBackground(new Color(152, 189, 160, 100));
+		panelCentral.setBackground(new Color(152, 189, 160, 150));
 		// panelCentral.setOpaque(false); -> por alguna razón, no me funciona bien? :|
-		add(panelCentral);
+		background.add(panelCentral);
+
 
 		// ==LABELS==
 
@@ -113,16 +133,40 @@ public class VentanaRegistro extends JFrame {
 		panelCentral.add(contrasena);
 
 		facultad = new JLabel("Facultad:");
-		facultad.setBounds(30, 420, 150, 30);
+		facultad.setBounds(270, 340, 150, 30);
 		facultad.setFont(new Font("Agency FB", Font.BOLD, 22));
 		facultad.setForeground(Color.decode("#111d15"));
 		panelCentral.add(facultad);
 
 		rol = new JLabel("Rol Institucional:");
-		rol.setBounds(270, 340, 150, 30);
+		rol.setBounds(30, 420, 150, 30);
 		rol.setFont(new Font("Agency FB", Font.BOLD, 22));
 		rol.setForeground(Color.decode("#111d15"));
 		panelCentral.add(rol);
+
+		carrera = new JLabel("Carrera:");
+		carrera.setBounds(270, 420, 150, 30);
+		carrera.setFont(new Font("Agency FB", Font.BOLD, 22));
+		carrera.setForeground(Color.decode("#111d15"));
+		panelCentral.add(carrera);
+		
+		numMateria = new JLabel("Número de materias:");
+		numMateria.setBounds(270, 420, 150, 30);
+		numMateria.setFont(new Font("Agency FB", Font.BOLD, 22));
+		numMateria.setForeground(Color.decode("#111d15"));
+		panelCentral.add(numMateria);
+
+		semestre = new JLabel("Semestre:");
+		semestre.setBounds(30, 500, 150, 30);
+		semestre.setFont(new Font("Agency FB", Font.BOLD, 22));
+		semestre.setForeground(Color.decode("#111d15"));
+		panelCentral.add(semestre);
+
+		annoServicio = new JLabel("Años de servicio:");
+		annoServicio.setBounds(30, 500, 150, 30);
+		annoServicio.setFont(new Font("Agency FB", Font.BOLD, 22));
+		annoServicio.setForeground(Color.decode("#111d15"));
+		panelCentral.add(annoServicio);
 
 		// ==CAMPOS DE TEXTO==
 		tNombre = new JTextField();
@@ -183,7 +227,7 @@ public class VentanaRegistro extends JFrame {
 
 		tFacultad = new JComboBox<String>(
 				new String[] { "...", "Ingeniería", "Medicina", "Artes", "Matemáticas", "Otra" });
-		tFacultad.setBounds(30, 450, 164, 32);
+		tFacultad.setBounds(270, 370, 164, 32);
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tFacultad.setForeground(Color.decode("#111d15"));
 		tFacultad.setBackground(Color.decode("#376445"));
@@ -191,31 +235,63 @@ public class VentanaRegistro extends JFrame {
 		panelCentral.add(tFacultad);
 
 		tRol = new JComboBox<String>(new String[] { "...", "Estudiante", "Docente", "Administrativo" });
-		tRol.setBounds(270, 370, 164, 32);
+		tRol.setBounds(30, 450, 164, 32);
 		tRol.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tRol.setForeground(Color.decode("#111d15"));
 		tRol.setBackground(Color.decode("#376445"));
 		tRol.setBorder(null);
 		panelCentral.add(tRol);
 
+		tCarrera = new JPasswordField();
+		tCarrera.setBounds(270, 450, 164, 32);
+		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tCarrera.setForeground(Color.decode("#111d15"));
+		tCarrera.setBackground(Color.decode("#376445"));
+		tCarrera.setBorder(null);
+		panelCentral.add(tCarrera);
+
+		tNumMateria = new JPasswordField();
+		tNumMateria.setBounds(270, 450, 164, 32);
+		tNumMateria.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tNumMateria.setForeground(Color.decode("#111d15"));
+		tNumMateria.setBackground(Color.decode("#376445"));
+		tNumMateria.setBorder(null);
+		panelCentral.add(tNumMateria);
+
+		tSemestre = new JPasswordField();
+		tSemestre.setBounds(30, 530, 164, 32);
+		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tSemestre.setForeground(Color.decode("#111d15"));
+		tSemestre.setBackground(Color.decode("#376445"));
+		tSemestre.setBorder(null);
+		panelCentral.add(tSemestre);
+		
+		tAnnoServicio = new JPasswordField();
+		tAnnoServicio.setBounds(30, 530, 164, 32);
+		tAnnoServicio.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tAnnoServicio.setForeground(Color.decode("#111d15"));
+		tAnnoServicio.setBackground(Color.decode("#376445"));
+		tAnnoServicio.setBorder(null);
+		panelCentral.add(tAnnoServicio);
+
 		// ==BOTONES==
 		bVolver = new JButton("VOLVER");
-		bVolver.setBounds(60, 490, 130, 40);
+		bVolver.setBounds(580, 580, 130, 40);
 		bVolver.setFont(new Font("Agency FB", Font.BOLD, 22));
-		bVolver.setBackground(Color.decode("#376445"));
-		bVolver.setForeground(Color.decode("#ECE7FE"));
+		bVolver.setBackground(Color.decode("#ECE7FE"));
+		bVolver.setForeground(Color.decode("#376445"));
 		bVolver.setBorderPainted(false);
 		bVolver.setFocusPainted(false);
-		panelCentral.add(bVolver);
+		background.add(bVolver);
 
 		bRegistrar = new JButton("GUARDAR");
-		bRegistrar.setBounds(280, 490, 130, 40);
+		bRegistrar.setBounds(730, 580, 130, 40);
 		bRegistrar.setFont(new Font("Agency FB", Font.BOLD, 22));
-		bRegistrar.setBackground(Color.decode("#376445"));
-		bRegistrar.setForeground(Color.decode("#ECE7FE"));
+		bRegistrar.setBackground(Color.decode("#ECE7FE"));
+		bRegistrar.setForeground(Color.decode("#376445"));
 		bRegistrar.setBorderPainted(false);
 		bRegistrar.setFocusPainted(false);
-		panelCentral.add(bRegistrar);
+		background.add(bRegistrar);
 
 	}
 
@@ -394,6 +470,74 @@ public class VentanaRegistro extends JFrame {
 	public void settFacultad(JComboBox<String> tFacultad) {
 		this.tFacultad = tFacultad;
 	}
-	
 
+	public JLabel getCarrera() {
+		return carrera;
+	}
+
+	public void setCarrera(JLabel carrera) {
+		this.carrera = carrera;
+	}
+
+	public JLabel getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(JLabel semestre) {
+		this.semestre = semestre;
+	}
+
+	public JTextField gettCarrera() {
+		return tCarrera;
+	}
+
+	public void settCarrera(JTextField tCarrera) {
+		this.tCarrera = tCarrera;
+	}
+
+	public JTextField gettSemestre() {
+		return tSemestre;
+	}
+
+	public void settSemestre(JTextField tSemestre) {
+		this.tSemestre = tSemestre;
+	}
+
+	public void setBackground(JLabel background) {
+		this.background = background;
+	}
+
+	public JLabel getNumMateria() {
+		return numMateria;
+	}
+
+	public void setNumMateria(JLabel numMateria) {
+		this.numMateria = numMateria;
+	}
+
+	public JTextField gettNumMateria() {
+		return tNumMateria;
+	}
+
+	public void settNumMateria(JTextField tNumMateria) {
+		this.tNumMateria = tNumMateria;
+	}
+
+	public JLabel getAnnoServicio() {
+		return annoServicio;
+	}
+
+	public void setAnnoServicio(JLabel annoServicio) {
+		this.annoServicio = annoServicio;
+	}
+
+	public JTextField gettAnnoServicio() {
+		return tAnnoServicio;
+	}
+
+	public void settAnnoServicio(JTextField tAnnoServicio) {
+		this.tAnnoServicio = tAnnoServicio;
+	}
+
+	
 }
