@@ -242,7 +242,7 @@ public class VentanaRegistro extends JFrame {
 		tRol.setBorder(null);
 		panelCentral.add(tRol);
 
-		tCarrera = new JPasswordField();
+		tCarrera = new JTextField();
 		tCarrera.setBounds(270, 450, 164, 32);
 		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCarrera.setForeground(Color.decode("#111d15"));
@@ -250,7 +250,7 @@ public class VentanaRegistro extends JFrame {
 		tCarrera.setBorder(null);
 		panelCentral.add(tCarrera);
 
-		tNumMateria = new JPasswordField();
+		tNumMateria = new JTextField();
 		tNumMateria.setBounds(270, 450, 164, 32);
 		tNumMateria.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNumMateria.setForeground(Color.decode("#111d15"));
@@ -258,7 +258,7 @@ public class VentanaRegistro extends JFrame {
 		tNumMateria.setBorder(null);
 		panelCentral.add(tNumMateria);
 
-		tSemestre = new JPasswordField();
+		tSemestre = new JTextField();
 		tSemestre.setBounds(30, 530, 164, 32);
 		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tSemestre.setForeground(Color.decode("#111d15"));
@@ -266,7 +266,7 @@ public class VentanaRegistro extends JFrame {
 		tSemestre.setBorder(null);
 		panelCentral.add(tSemestre);
 		
-		tAnnoServicio = new JPasswordField();
+		tAnnoServicio = new JTextField();
 		tAnnoServicio.setBounds(30, 530, 164, 32);
 		tAnnoServicio.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tAnnoServicio.setForeground(Color.decode("#111d15"));
