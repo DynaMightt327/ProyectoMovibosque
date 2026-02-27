@@ -13,115 +13,148 @@ import co.edu.unbosque.view.VentanaInicial;
 import co.edu.unbosque.view.VentanaRegistro;
 
 public class Controller implements ActionListener {
-
+	
 	private VentanaInicial vi;
 	private VentanaRegistro vr;
 	private VentanaIngreso vin;
 	private VentanaEstudianteInicio vei;
-
+	
 	private ArrayList<Estudiante> listaEstudiantes;
 	private ArrayList<Docente> listaDocentes;
 	private ArrayList<Administrativo> listaAdmins;
-
+	
 	public Controller() {
-		// ==VENTANAS==
+		//==VENTANAS==
 		vi = new VentanaInicial();
 		vr = new VentanaRegistro();
 		vin = new VentanaIngreso();
 		vei = new VentanaEstudianteInicio();
-
-		// ==LISTAS==
+		
+		//==LISTAS==
 		listaEstudiantes = new ArrayList<>();
-
+		
 		asignarOyentes();
 		actualizarCamposPorRol();
-
+		
 	}
-
+	
+	
 	public void asignarOyentes() {
-		// ==PRIMERA VENTANA==
+		//==PRIMERA VENTANA==
 		vi.getRegistrar().addActionListener(this);
 		vi.getRegistrar().setActionCommand("boton_registrar");
-
+		
 		vi.getIniciarSesion().addActionListener(this);
 		vi.getIniciarSesion().setActionCommand("boton_iniciar_sesion");
-
-		// ==VENTANA REGISTRO==
+		
+		//==VENTANA REGISTRO==
 		vr.getbVolver().addActionListener(this);
 		vr.getbVolver().setActionCommand("boton_volver_registrar");
-
+		
 		vr.getbRegistrar().addActionListener(this);
 		vr.getbRegistrar().setActionCommand("boton_guardar_cuenta");
-
-		// ==VENTANA INICIAR SESION==
+		
+		//==VENTANA INICIAR SESION==
 		vin.getVolver().addActionListener(this);
 		vin.getVolver().setActionCommand("boton_volver_iniciar_sesion");
-
+		
 		vin.getIniciar().addActionListener(this);
 		vin.getIniciar().setActionCommand("boton_entrar_cuenta");
-
+		
+		vr.gettRol().addActionListener(this);
+		vr.gettRol().setActionCommand("cambio_rol");
+		
 	}
-
+	
 	public void actualizarCamposPorRol() {
-		int indice = vr.gettRol().getSelectedIndex();
-		if (indice == 1) {
-			// mostrar los campos de estudainte
-			vr.getCarrera().setVisible(true);
-			vr.gettCarrera().setVisible(true);
-			vr.getSemestre().setVisible(true);
-			vr.gettSemestre().setVisible(true);
-
-			// ocultar los de docente
-			vr.getNumMateria().setVisible(false);
-			vr.gettNumMateria().setVisible(false);
-
-			// ocultar los de administrativo
-			vr.getAnnoServicio().setVisible(false);
-			vr.gettAnnoServicio().setVisible(false);
-
-		} else if (indice == 2) {
-			// ocultar los de estudiante
-			vr.getCarrera().setVisible(false);
-			vr.gettCarrera().setVisible(false);
-			vr.getSemestre().setVisible(false);
-			vr.gettSemestre().setVisible(false);
-
-			// mostrar campos de docente
-			vr.getNumMateria().setVisible(true);
-			vr.gettNumMateria().setVisible(true);
-
-			// ocultar los de administrativo
-			vr.getAnnoServicio().setVisible(false);
-			vr.gettAnnoServicio().setVisible(false);
-		} else if (indice == 3) {
-			// Ocultar los de estudiantes
-			vr.getCarrera().setVisible(false);
-			vr.gettCarrera().setVisible(false);
-			vr.getSemestre().setVisible(false);
-			vr.gettSemestre().setVisible(false);
-
-			// Ocultar los de docente
-			vr.getNumMateria().setVisible(false);
-			vr.gettNumMateria().setVisible(false);
-
-			// Mostrar los de administrativo
-			vr.getAnnoServicio().setVisible(true);
-			vr.gettAnnoServicio().setVisible(true);
+		String rol = (String) vr.gettRol().getSelectedItem();
+		
+	
+		if(rol == null){
+			
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+			
+		}else if(rol.equalsIgnoreCase("Estudiante")) {
+			
+			//mostrar los campos de estudainte
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(true);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(true);
+			
+			//ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+		} else if(rol.equalsIgnoreCase("Docente")) {
+			
+			//ocultar los de estudiante
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//mostrar campos de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(true);
+			
+			//ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
+		} else if(rol.equalsIgnoreCase("Administrativo")) {
+			
+			//Ocultar los de estudiantes
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//Ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//Mostrar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(true);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(true);
+			
 		} else {
-			vr.getCarrera().setVisible(false);
-			vr.gettCarrera().setVisible(false);
-			vr.getSemestre().setVisible(false);
-			vr.gettSemestre().setVisible(false);
-
-			// ocultar los de docente
-			vr.getNumMateria().setVisible(false);
-			vr.gettNumMateria().setVisible(false);
-
-			// ocultar los de administrativo
-			vr.getAnnoServicio().setVisible(false);
-			vr.gettAnnoServicio().setVisible(false);
+			
+			//Ocultar los de estudiantes
+			if(vr.getCarrera() != null)vr.getCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettCarrera().setVisible(false);
+			if(vr.getCarrera() != null)vr.getSemestre().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettSemestre().setVisible(false);
+			
+			//Ocultar los de docente
+			if(vr.getCarrera() != null)vr.getNumMateria().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettNumMateria().setVisible(false);
+			
+			//Ocultar los de administrativo
+			if(vr.getCarrera() != null)vr.getAnnoServicio().setVisible(false);
+			if(vr.getCarrera() != null)vr.gettAnnoServicio().setVisible(false);
+			
 		}
-
+		
+		vr.revalidate();
+		vr.repaint();
+		
 	}
 
 	@Override
@@ -131,18 +164,19 @@ public class Controller implements ActionListener {
 		case "boton_registrar": {
 			vi.setVisible(false);
 			vr.setVisible(true);
-
+		}
+		case "cambio_rol": {
 			actualizarCamposPorRol();
 			break;
-
+			
 		}
 		case "boton_volver_registrar": {
 			vr.setVisible(false);
 			vi.setVisible(true);
 			break;
-
+			
 		}
-		case "boton_guardar_cuenta": {
+		case "boton_guardar_cuenta":{
 			try {
 				String nombre = vr.gettNombre().getText();
 				String apellido = vr.gettApellido().getText();
@@ -153,117 +187,41 @@ public class Controller implements ActionListener {
 				String contrasena = vr.gettContrasena().getText();
 				String facultad = (String) vr.gettFacultad().getSelectedItem();
 				String rol = (String) vr.gettRol().getSelectedItem();
-
-				int indice = vr.gettRol().getSelectedIndex();
-				if (indice == 1) {
-					// mostrar los campos de estudainte
-					vr.getCarrera().setVisible(true);
-					vr.gettCarrera().setVisible(true);
-					vr.getSemestre().setVisible(true);
-					vr.gettSemestre().setVisible(true);
-
-					// ocultar los de docente
-					vr.getNumMateria().setVisible(false);
-					vr.gettNumMateria().setVisible(false);
-
-					// ocultar los de administrativo
-					vr.getAnnoServicio().setVisible(false);
-					vr.gettAnnoServicio().setVisible(false);
-
+				
+				
+				if(rol.equalsIgnoreCase("Estudiante")) {
+					
 					String carrera = vr.gettCarrera().getText();
-					int semestre = Integer.parseInt(vr.gettSemestre().getText());
-					listaEstudiantes.add(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono,
-							contrasena, facultad, rol, carrera, semestre));
-
-				} else if (indice == 2) {
-					// ocultar los de estudiante
-					vr.getCarrera().setVisible(false);
-					vr.gettCarrera().setVisible(false);
-					vr.getSemestre().setVisible(false);
-					vr.gettSemestre().setVisible(false);
-
-					// mostrar campos de docente
-					vr.getNumMateria().setVisible(true);
-					vr.gettNumMateria().setVisible(true);
-
-					// ocultar los de administrativo
-					vr.getAnnoServicio().setVisible(false);
-					vr.gettAnnoServicio().setVisible(false);
-
+					int semestre = 	Integer.parseInt(vr.gettSemestre().getText());
+					listaEstudiantes.add(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, carrera, semestre));
+					
+				}else if(rol.equalsIgnoreCase("Docente")) {
 					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
-					listaDocentes.add(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
-							facultad, rol, numeroMateria));
-
-				} else if (indice == 3) {
-					// Ocultar los de estudiantes
-					vr.getCarrera().setVisible(false);
-					vr.gettCarrera().setVisible(false);
-					vr.getSemestre().setVisible(false);
-					vr.gettSemestre().setVisible(false);
-
-					// Ocultar los de docente
-					vr.getNumMateria().setVisible(false);
-					vr.gettNumMateria().setVisible(false);
-
-					// Mostrar los de administrativo
-					vr.getAnnoServicio().setVisible(true);
-					vr.gettAnnoServicio().setVisible(true);
+					listaDocentes.add(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, numeroMateria));
+					
+				}else if(rol.equalsIgnoreCase("Administrativo")) {
 					int annoServicio = Integer.parseInt(vr.gettAnnoServicio().getText());
-					listaAdmins.add(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
-							facultad, rol, facultad, annoServicio));
-				} else {
-					vr.getCarrera().setVisible(false);
-					vr.gettCarrera().setVisible(false);
-					vr.getSemestre().setVisible(false);
-					vr.gettSemestre().setVisible(false);
-
-					// ocultar los de docente
-					vr.getNumMateria().setVisible(false);
-					vr.gettNumMateria().setVisible(false);
-
-					// ocultar los de administrativo
-					vr.getAnnoServicio().setVisible(false);
-					vr.gettAnnoServicio().setVisible(false);
+					listaAdmins.add(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
 				}
-
-				// ==================================
-
-				/*
-				 * if(rol.equalsIgnoreCase("Estudiante")) {
-				 * 
-				 * String carrera = vr.gettCarrera().getText(); int semestre =
-				 * Integer.parseInt(vr.gettSemestre().getText()); listaEstudiantes.add(new
-				 * Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
-				 * facultad, rol, carrera, semestre));
-				 * 
-				 * }else if(rol.equalsIgnoreCase("Docente")) { int numeroMateria =
-				 * Integer.parseInt(vr.gettNumMateria().getText()); listaDocentes.add(new
-				 * Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
-				 * facultad, rol, numeroMateria));
-				 * 
-				 * }else if(rol.equalsIgnoreCase("Administrativo")) { int annoServicio =
-				 * Integer.parseInt(vr.gettAnnoServicio().getText()); listaAdmins.add(new
-				 * Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono,
-				 * contrasena, facultad, rol, facultad, annoServicio)); }
-				 */
+				
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}
 			break;
 		}
-
-		case "boton_iniciar_sesion": {
+		
+		case "boton_iniciar_sesion":{
 			vi.setVisible(false);
 			vin.setVisible(true);
 			break;
 		}
-
-		case "boton_volver_iniciar_sesion": {
+		
+		case "boton_volver_iniciar_sesion":{
 			vin.setVisible(false);
 			vi.setVisible(true);
 			break;
 		}
-		case "boton_entrar_cuenta": {
+		case "boton_entrar_cuenta":{
 			vin.setVisible(false);
 			vei.setVisible(true);
 			break;
@@ -272,16 +230,16 @@ public class Controller implements ActionListener {
 			actualizarCamposPorRol();
 			break;
 		}
-		default: {
+		default:{
 			break;
 		}
-
-		}
-
+		
+	}
+		
 	}
 
 	public void iniciar() {
 		vi.setVisible(true);
-
+		
 	}
 }
