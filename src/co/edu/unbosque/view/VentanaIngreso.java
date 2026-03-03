@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,12 +15,14 @@ public class VentanaIngreso extends JFrame {
 	private JLabel titulo;
 	private JLabel usuario;
 	private JLabel contrasena;
-	
+	private JLabel background;
+
 	private JTextField tUsuario;
 	private JPasswordField tContrasena;
-	
+
 	private JButton iniciar;
 	private JButton volver;
+	
 
 	public VentanaIngreso() {
 		setVisible(false);
@@ -35,60 +38,66 @@ public class VentanaIngreso extends JFrame {
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
 
+		// --------- IMAGEN DE FONDO ---------
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("iniciotita.png"));
+		background = new JLabel(backgroundImage);
+		background.setBounds(0, 0, 980, 680);
+		background.setLayout(null);
+		add(background);
+
 		titulo = new JLabel("¡Bienvenido de nuevo!");
 		titulo.setBounds(480, 70, 500, 65);
 		titulo.setForeground(Color.decode("#FFFFFF"));
 		titulo.setFont(new Font("Agency FB", Font.BOLD, 60));
-		add(titulo);
-		
+		background.add(titulo);
+
 		usuario = new JLabel("Usuario Institucional:");
 		usuario.setBounds(650, 240, 190, 30);
 		usuario.setFont(new Font("Agency FB", Font.BOLD, 24));
 		usuario.setForeground(Color.decode("#FFFFFF"));
-		add(usuario);
-		
+		background.add(usuario);
+
 		contrasena = new JLabel("Contraseña:");
 		contrasena.setBounds(650, 340, 150, 30);
 		contrasena.setFont(new Font("Agency FB", Font.BOLD, 24));
 		contrasena.setForeground(Color.decode("#FFFFFF"));
-		add(contrasena);
-		
+		background.add(contrasena);
+
 		tUsuario = new JTextField();
 		tUsuario.setBounds(650, 280, 180, 35);
 		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 15));
 		tUsuario.setForeground(Color.decode("#18093E"));
-		tUsuario.setBackground(Color.decode("#99bc9f"));
+		tUsuario.setBackground(Color.decode("#f2f7f3"));
 		tUsuario.setBorder(null);
-		add(tUsuario);
-		
+		background.add(tUsuario);
+
 		tContrasena = new JPasswordField();
 		tContrasena.setBounds(650, 380, 180, 35);
 		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 15));
 		tContrasena.setForeground(Color.decode("#18093E"));
-		tContrasena.setBackground(Color.decode("#99bc9f"));
+		tContrasena.setBackground(Color.decode("#f2f7f3"));
 		tContrasena.setBorder(null);
-		add(tContrasena);
-		
-		//==BOTONES==
+		background.add(tContrasena);
+
+		// ==BOTONES==
 		iniciar = new JButton("INICIAR SESION");
-		iniciar.setBounds(652, 470, 175, 40);
+		iniciar.setBounds(652, 470, 168, 45);
 		iniciar.setFont(new Font("Agency FB", Font.BOLD, 22));
-		iniciar.setBackground(Color.decode("#99bc9f"));
-		iniciar.setForeground(Color.decode("#376445"));
+		iniciar.setForeground(Color.decode("#ffffff"));
+		iniciar.setBackground(Color.decode("#376445"));
 		iniciar.setBorderPainted(false);
 		iniciar.setFocusPainted(false);
-		add(iniciar);
-		
-		volver = new JButton("<- VOLVER");
-		volver.setBounds(20, 80, 130, 40);
-		volver.setFont(new Font("Agency FB", Font.BOLD, 30));
-		volver.setBackground(Color.decode("#99bc9f"));
-		volver.setForeground(Color.decode("#376445"));
-		volver.setBorderPainted(false);
-		volver.setFocusPainted(false);
-		add(volver);
+		background.add(iniciar);
 
-		
+		ImageIcon imagen1 = new ImageIcon(getClass().getResource("flechavolver.JPG"));
+		JLabel labelImagen1 = new JLabel(imagen1);
+		volver = new JButton(imagen1);
+		volver.setBackground(Color.WHITE);
+		volver.setBounds(20, 40, 63, 65);
+		volver.setFocusPainted(false);
+		volver.setBorderPainted(false);
+		background.add(volver);
+
 	}
 
 	public JLabel getTitulo() {
@@ -146,6 +155,5 @@ public class VentanaIngreso extends JFrame {
 	public void setVolver(JButton volver) {
 		this.volver = volver;
 	}
-	
-	
+
 }
