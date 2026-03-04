@@ -28,38 +28,38 @@ public class VentanaInicial extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(null);
-		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
+		this.getContentPane().setBackground(Color.decode("#99bc9f"));
 		//this.getContentPane().setBackground(Color.decode("#FFFFFF"));
 		
-		ImageIcon titaImage = new ImageIcon(getClass().getResource("titaa.png"));
+		ImageIcon titaImage = new ImageIcon(getClass().getResource("movibosque.png"));
 		tita = new JLabel(titaImage);
-		tita.setBounds(640, 50, 350, 640);
+		tita.setBounds(0,-60, 980, 680);
 		tita.setLayout(null);
 		add(tita);
 		
-		titulo = new JLabel("MOVIBOSQUE");
-		titulo.setBounds(80, 230, 590, 125);
+		titulo = new JLabel("sistema de transporte universitario");
+		titulo.setBounds(250, 500, 500, 45);
 		titulo.setForeground(Color.decode("#f1fcf5"));
-		titulo.setFont(new Font("Agency FB", Font.BOLD, 120));
-		add(titulo);
+		titulo.setFont(new Font("Agency FB", Font.BOLD, 40));
+		tita.add(titulo);
 		
 		iniciarSesion = new JButton("INICIAR SESIÓN");
-		iniciarSesion.setBounds(155, 440, 170, 50);
+		iniciarSesion.setBounds(300, 565, 170, 50);
 		iniciarSesion.setFont(new Font("Agency FB", Font.BOLD, 22));
-		iniciarSesion.setBackground(Color.decode("#98bda0"));
-		iniciarSesion.setForeground(Color.decode("#152C32"));
+		iniciarSesion.setForeground(Color.decode("#ffffff"));
+		iniciarSesion.setBackground(Color.decode("#376445"));
 		iniciarSesion.setBorderPainted(false);
 		iniciarSesion.setFocusPainted(false);
-		add(iniciarSesion);
+		tita.add(iniciarSesion);
 		
 		registrar = new JButton("REGISTRAR");
-		registrar.setBounds(360, 440, 170, 50);
+		registrar.setBounds(520, 565, 170, 50);
 		registrar.setFont(new Font("Agency FB", Font.BOLD, 22));
-		registrar.setBackground(Color.decode("#98bda0"));
-		registrar.setForeground(Color.decode("#152C32"));
+		registrar.setForeground(Color.decode("#ffffff"));
+		registrar.setBackground(Color.decode("#376445"));
 		registrar.setBorderPainted(false);
 		registrar.setFocusPainted(false);
-		add(registrar);
+		tita.add(registrar);
 		
 	}
 
