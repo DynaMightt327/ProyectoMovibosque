@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Administrativo;
 import co.edu.unbosque.model.Docente;
 import co.edu.unbosque.model.Estudiante;
+import co.edu.unbosque.model.persistence.AdministrativoDAO;
+import co.edu.unbosque.model.persistence.DocenteDAO;
+import co.edu.unbosque.model.persistence.EstudianteDAO;
 import co.edu.unbosque.view.VentanaEstudianteInicio;
 import co.edu.unbosque.view.VentanaIngreso;
 import co.edu.unbosque.view.VentanaInicial;
@@ -18,10 +21,10 @@ public class Controller implements ActionListener {
 	private VentanaRegistro vr;
 	private VentanaIngreso vin;
 	private VentanaEstudianteInicio vei;
+	private AdministrativoDAO aDAO;
+	private DocenteDAO dDAO;
+	private EstudianteDAO eDAO;
 	
-	private ArrayList<Estudiante> listaEstudiantes;
-	private ArrayList<Docente> listaDocentes;
-	private ArrayList<Administrativo> listaAdmins;
 	
 	public Controller() {
 		//==VENTANAS==
@@ -31,7 +34,9 @@ public class Controller implements ActionListener {
 		vei = new VentanaEstudianteInicio();
 		
 		//==LISTAS==
-		listaEstudiantes = new ArrayList<>();
+		aDAO = new AdministrativoDAO();
+		dDAO = new DocenteDAO();
+		eDAO = new EstudianteDAO();
 		
 		asignarOyentes();
 		actualizarCamposPorRol();
@@ -193,15 +198,15 @@ public class Controller implements ActionListener {
 					
 					String carrera = vr.gettCarrera().getText();
 					int semestre = 	Integer.parseInt(vr.gettSemestre().getText());
-					listaEstudiantes.add(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, carrera, semestre));
+					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, carrera, semestre));
 					
 				}else if(rol.equalsIgnoreCase("Docente")) {
 					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
-					listaDocentes.add(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, numeroMateria));
+					dDAO.crear(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, numeroMateria));
 					
 				}else if(rol.equalsIgnoreCase("Administrativo")) {
 					int annoServicio = Integer.parseInt(vr.gettAnnoServicio().getText());
-					listaAdmins.add(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
+					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
 				}
 				
 			} catch (Exception e2) {
