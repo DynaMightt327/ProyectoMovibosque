@@ -21,6 +21,7 @@ public class Controller implements ActionListener {
 	private VentanaRegistro vr;
 	private VentanaIngreso vin;
 	private VentanaEstudianteInicio vei;
+	
 	private AdministrativoDAO aDAO;
 	private DocenteDAO dDAO;
 	private EstudianteDAO eDAO;
@@ -68,6 +69,10 @@ public class Controller implements ActionListener {
 		
 		vr.gettRol().addActionListener(this);
 		vr.gettRol().setActionCommand("cambio_rol");
+		
+		//==VENTANA PRINCIPAL PARA ESTUDIANTE==
+		vei.getSalir().addActionListener(this);
+		vei.getSalir().setActionCommand("cerrar_sesion_estudiante");
 		
 	}
 	
@@ -233,6 +238,11 @@ public class Controller implements ActionListener {
 		}
 		case "cambio rol": {
 			actualizarCamposPorRol();
+			break;
+		}
+		case "cerrar_sesion_estudiante": {
+			vei.setVisible(false);
+			vin.setVisible(true);
 			break;
 		}
 		default:{

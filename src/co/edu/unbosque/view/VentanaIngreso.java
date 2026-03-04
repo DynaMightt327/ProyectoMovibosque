@@ -80,8 +80,8 @@ public class VentanaIngreso extends JFrame {
 		background.add(tContrasena);
 
 		// ==BOTONES==
-		iniciar = new JButton("INICIAR SESION");
-		iniciar.setBounds(652, 470, 168, 45);
+		iniciar = new JButton("INGRESAR");
+		iniciar.setBounds(659, 470, 168, 45);
 		iniciar.setFont(new Font("Agency FB", Font.BOLD, 22));
 		iniciar.setForeground(Color.decode("#ffffff"));
 		iniciar.setBackground(Color.decode("#376445"));
