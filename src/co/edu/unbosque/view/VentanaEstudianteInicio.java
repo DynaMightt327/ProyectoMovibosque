@@ -7,10 +7,18 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class VentanaEstudianteInicio extends JFrame {
 
 	private JLabel titulo;
+	private JLabel mensaje;
+	private JLabel lTren;
+	private JLabel lBus;
+	private JLabel lMiReserva;
+	
+	private JTextArea tMensaje;
+	
 	private JPanel menuBar;
 	private JPanel panelSuperior;
 	private JPanel panelUno;
@@ -20,7 +28,9 @@ public class VentanaEstudianteInicio extends JFrame {
 
 	private JButton inicio;
 	private JButton tren;
+	private JButton bTren;
 	private JButton bus;
+	private JButton bBus;
 	private JButton perfil;
 	private JButton reserva;
 	private JButton salir;
@@ -87,13 +97,47 @@ public class VentanaEstudianteInicio extends JFrame {
 		// panelSuperior.setBackground(new Color(152, 189, 160, 180));
 		// panelSuperior.setOpaque(false); -> por alguna razón, no me funciona bien? :|
 		add(panelCuatro);
+		
+		//LABELS
 
 		titulo = new JLabel("Bienvenido, estudiante :D");
-		titulo.setBounds(20, 40, 650, 55);
+		titulo.setBounds(20, 20, 650, 55);
 		titulo.setForeground(Color.WHITE);
 		titulo.setFont(new Font("Arial", Font.BOLD, 50));
 		panelSuperior.add(titulo);
 
+		mensaje = new JLabel("Mensajes y alertas");
+		mensaje.setBounds(20, 10, 250, 20);
+		mensaje.setForeground(Color.BLACK);
+		mensaje.setFont(new Font("Arial", Font.BOLD, 16));
+		panelUno.add(mensaje);
+		
+		lTren = new JLabel("Horarios del tren");
+		lTren.setBounds(45, 235, 250, 20);
+		lTren.setForeground(Color.BLACK);
+		lTren.setFont(new Font("Arial", Font.BOLD, 16));
+		panelDos.add(lTren);
+		
+		lBus = new JLabel("Horarios de buses");
+		lBus.setBounds(40, 235, 250, 20);
+		lBus.setForeground(Color.BLACK);
+		lBus.setFont(new Font("Arial", Font.BOLD, 16));
+		panelTres.add(lBus);
+		
+		lMiReserva = new JLabel("Mis Reservas");
+		lMiReserva.setBounds(90, 10, 250, 20);
+		lMiReserva.setForeground(Color.BLACK);
+		lMiReserva.setFont(new Font("Arial", Font.BOLD, 16));
+		panelCuatro.add(lMiReserva);
+		
+		tMensaje = new JTextArea();
+		tMensaje.setBounds(15, 45, 428, 100);
+		tMensaje.setBackground(Color.decode("#e0ebe0"));
+		tMensaje.setEditable(false);
+		panelUno.add(tMensaje);
+		
+		//BOTONES
+				
 		inicio = new JButton("Home");
 		inicio.setBounds(31, 50, 80, 25);
 		inicio.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -111,6 +155,15 @@ public class VentanaEstudianteInicio extends JFrame {
 		tren.setBorderPainted(false);
 		tren.setFocusPainted(false);
 		menuBar.add(tren);
+
+		bTren = new JButton("TREEEN");
+		bTren.setBounds(18, 80, 200, 100);
+		bTren.setFont(new Font("Agency FB", Font.BOLD, 45));
+		bTren.setForeground(Color.decode("#376445"));
+		bTren.setBackground(Color.decode("#99bc9f"));
+		bTren.setBorderPainted(false);
+		bTren.setFocusPainted(false);
+		panelDos.add(bTren);
 
 		bus = new JButton("Rutas buses");
 		bus.setBounds(18, 250, 110, 25);
