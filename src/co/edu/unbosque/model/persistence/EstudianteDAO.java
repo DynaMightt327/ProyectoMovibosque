@@ -69,6 +69,15 @@ public class EstudianteDAO implements DAO<Estudiante>{
 		this.listaEstudiantes = listaEstudiantes;
 	}
 	
+	public Estudiante buscarPorCredencial(String nUsuario, String contrasena) {
+		for(Estudiante estudiante  : listaEstudiantes) {
+			if(estudiante.getnUsuario().equals(nUsuario) && estudiante.getContrasena().equals(contrasena)) {
+				return estudiante;
+			}
+		}
+		return null;
+	}
+	
 	
 
 }

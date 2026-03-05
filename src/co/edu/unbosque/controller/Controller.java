@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.security.auth.login.CredentialException;
+
 import co.edu.unbosque.model.Administrativo;
 import co.edu.unbosque.model.Docente;
 import co.edu.unbosque.model.Estudiante;
@@ -251,6 +253,7 @@ public class Controller implements ActionListener {
 					int semestre = 	Integer.parseInt(vr.gettSemestre().getText());
 					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, carrera, semestre));
 					
+					
 				}else if(rol.equalsIgnoreCase("Docente")) {
 					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
 					dDAO.crear(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, numeroMateria));
@@ -260,8 +263,13 @@ public class Controller implements ActionListener {
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
 				}
 				
+				javax.swing.JOptionPane.showMessageDialog(vr, "Cuenta creada exitosamente", "Registro completado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+				
+				vr.setVisible(false);
+				vi.setVisible(true);
+				
 			} catch (Exception e2) {
-				// TODO: handle exception
+				javax.swing.JOptionPane.showMessageDialog(vr, "Error al registrar cuenta. Verifique datos", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		}
@@ -278,10 +286,29 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "boton_entrar_cuenta":{
-			vin.setVisible(false);
-			vei.setVisible(true);
-			break;
-		}
+			try {
+				String usuario = vin.gettUsuario().getText();
+				String contrasena = vin.gettContrasena().getText();
+				
+				Estudiante estudiante = eDAO.buscarPorCredencial(usuario, contrasena);
+				
+				if(estudiante == null) {
+					throw new CredentialException("Usuario o contraseña incorrectos");
+				}
+				
+				if(!estudiante.getRol().equalsIgnoreCase("Estudiante")) {
+					throw new CredentialException("El usuario no pertenece al rol de estudiante");
+				}	
+					vin.setVisible(false);
+					vei.setVisible(true);
+				} catch (CredentialException ex) {
+					javax.swing.JOptionPane.showMessageDialog(vin,ex.getMessage(), "Error de autenticacion", javax.swing.JOptionPane.ERROR_MESSAGE);
+				} catch (Exception ex) {
+					javax.swing.JOptionPane.showMessageDialog(vin, "Ocurrio un error al iniciar sesion", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+					ex.printStackTrace();
+				}
+				break;
+			}
 		case "cambio rol": {
 			actualizarCamposPorRol();
 			break;
