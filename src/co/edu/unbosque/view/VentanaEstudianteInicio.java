@@ -5,10 +5,13 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class VentanaEstudianteInicio extends JFrame {
 
@@ -43,7 +46,34 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JButton flechaIzqUnoBus;
 	private JButton flechaDerDosBus;
 	private JButton flechaIzqDosBus;
+	
+	//mi perfil
+	private JPanel panelMiPerfil;
+	private JLabel dato;
+	private JLabel nombre;
+	private JLabel apellido;
+	private JLabel correo;
+	private JLabel usuario;
+	private JLabel documento;
+	private JLabel telefono;
+	private JLabel facultad;
+	private JLabel carrera;
+	private JLabel semestre;
+	private JTextField tNombre;
+	private JTextField tApellido;
+	private JTextField tCorreo;
+	private JTextField tUsuario;
+	private JTextField tDocumento;
+	private JTextField tTelefono;
+	private JTextField tFacultad;
+	private JTextField tCarrera;
+	private JTextField tSemestre;
+	
+	//reservas
+	private JPanel panelReserva;
+	
 
+	//botones de la barra lateral
 	private JButton inicio;
 	private JButton tren;
 	private JButton bTren;
@@ -53,9 +83,6 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JButton reserva;
 	private JButton salir;
 	
-	
-	
-
 	public VentanaEstudianteInicio() {
 		setVisible(false);
 		initComp();
@@ -84,6 +111,20 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelPrincipal.setBounds(0, 0, 980, 680);
 		panelPrincipal.setBackground(Color.decode("#99bc9f"));
 		add(panelPrincipal);
+
+		panelMiPerfil = new JPanel();
+		panelMiPerfil.setLayout(null);
+		panelMiPerfil.setBounds(520, 50, 400, 540);
+		panelMiPerfil.setBackground(Color.decode("#ffffff"));
+		panelMiPerfil.setVisible(false);
+		add(panelMiPerfil);
+
+		panelReserva = new JPanel();
+		panelReserva.setLayout(null);
+		panelReserva.setBounds(180, 20, 760, 606);
+		panelReserva.setBackground(Color.decode("#ffffff"));
+		panelReserva.setVisible(false);
+		add(panelReserva);
 
 		panelSuperior = new JPanel();
 		panelSuperior.setLayout(null);
@@ -358,6 +399,140 @@ public class VentanaEstudianteInicio extends JFrame {
 		flechaIzqDosBus.setFocusPainted(false);
 		flechaIzqDosBus.setBorderPainted(false);
 		horarioRegresoBus.add(flechaIzqDosBus);
+		
+		//==TODO LO DE MI PERFIL==
+		
+		dato = new JLabel("Mi información");
+		dato.setBounds(95, 20, 250, 35);
+		dato.setForeground(Color.BLACK);
+		dato.setFont(new Font("Arial", Font.BOLD, 30));
+		panelMiPerfil.add(dato);
+		
+		nombre = new JLabel("Nombre:");
+		nombre.setBounds(30, 90, 150, 25);
+		nombre.setFont(new Font("Agency FB", Font.BOLD, 20));
+		nombre.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(nombre);
+
+		tNombre = new JTextField();
+		tNombre.setBounds(200, 90, 164, 25);
+		tNombre.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tNombre.setForeground(Color.decode("#111d15"));
+		tNombre.setBackground(Color.decode("#e0ebe0"));
+		tNombre.setBorder(null);
+		panelMiPerfil.add(tNombre);
+
+		apellido = new JLabel("Apellidos:");
+		apellido.setBounds(30, 130, 150, 25);
+		apellido.setFont(new Font("Agency FB", Font.BOLD, 20));
+		apellido.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(apellido);
+		
+		tApellido = new JTextField();
+		tApellido.setBounds(200, 130, 164, 25);
+		tApellido.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tApellido.setForeground(Color.decode("#111d15"));
+		tApellido.setBackground(Color.decode("#e0ebe0"));
+		tApellido.setBorder(null);
+		panelMiPerfil.add(tApellido);
+
+		correo = new JLabel("Correo Institucional:");
+		correo.setBounds(30, 160, 150, 25);
+		correo.setFont(new Font("Agency FB", Font.BOLD, 20));
+		correo.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(correo);
+
+		tCorreo = new JTextField();
+		tCorreo.setBounds(200, 160, 164, 25);
+		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tCorreo.setForeground(Color.decode("#111d15"));
+		tCorreo.setBackground(Color.decode("#e0ebe0"));
+		tCorreo.setBorder(null);
+		panelMiPerfil.add(tCorreo);
+		
+		usuario = new JLabel("Usuario Institucional:");
+		usuario.setBounds(30, 200, 150, 25);
+		usuario.setFont(new Font("Agency FB", Font.BOLD, 20));
+		usuario.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(usuario);
+
+		tUsuario = new JTextField();
+		tUsuario.setBounds(200, 200, 164, 25);
+		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tUsuario.setForeground(Color.decode("#111d15"));
+		tUsuario.setBackground(Color.decode("#e0ebe0"));
+		tUsuario.setBorder(null);
+		panelMiPerfil.add(tUsuario);
+
+		documento = new JLabel("Documento de Identidad:");
+		documento.setBounds(30, 240, 200, 25);
+		documento.setFont(new Font("Agency FB", Font.BOLD, 20));
+		documento.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(documento);
+
+		tDocumento = new JTextField();
+		tDocumento.setBounds(200, 240, 164, 25);
+		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tDocumento.setForeground(Color.decode("#111d15"));
+		tDocumento.setBackground(Color.decode("#e0ebe0"));
+		tDocumento.setBorder(null);
+		panelMiPerfil.add(tDocumento);
+		
+		telefono = new JLabel("Número de teléfono:");
+		telefono.setBounds(30, 280, 150, 25);
+		telefono.setFont(new Font("Agency FB", Font.BOLD, 20));
+		telefono.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(telefono);
+
+		tTelefono = new JTextField();
+		tTelefono.setBounds(200, 280, 164, 25);
+		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tTelefono.setForeground(Color.decode("#111d15"));
+		tTelefono.setBackground(Color.decode("#e0ebe0"));
+		tTelefono.setBorder(null);
+		panelMiPerfil.add(tTelefono);
+
+		facultad = new JLabel("Facultad:");
+		facultad.setBounds(30, 320, 150, 25);
+		facultad.setFont(new Font("Agency FB", Font.BOLD, 20));
+		facultad.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(facultad);
+		
+		tFacultad = new JTextField();
+		tFacultad.setBounds(200, 320, 164, 25);
+		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tFacultad.setForeground(Color.decode("#111d15"));
+		tFacultad.setBackground(Color.decode("#e0ebe0"));
+		tFacultad.setBorder(null);
+		panelMiPerfil.add(tFacultad);
+		
+		carrera = new JLabel("Carrera:");
+		carrera.setBounds(30, 360, 150, 25);
+		carrera.setFont(new Font("Agency FB", Font.BOLD, 20));
+		carrera.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(carrera);
+
+		tCarrera = new JTextField();
+		tCarrera.setBounds(200, 360, 164, 25);
+		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tCarrera.setForeground(Color.decode("#111d15"));
+		tCarrera.setBackground(Color.decode("#e0ebe0"));
+		tCarrera.setBorder(null);
+		panelMiPerfil.add(tCarrera);
+
+		semestre = new JLabel("Semestre:");
+		semestre.setBounds(30, 400, 150, 25);
+		semestre.setFont(new Font("Agency FB", Font.BOLD, 20));
+		semestre.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(semestre);
+		
+		tSemestre = new JTextField();
+		tSemestre.setBounds(200, 400, 164, 25);
+		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tSemestre.setForeground(Color.decode("#111d15"));
+		tSemestre.setBackground(Color.decode("#e0ebe0"));
+		tSemestre.setBorder(null);
+		panelMiPerfil.add(tSemestre);
 
 	}
 
@@ -623,6 +798,174 @@ public class VentanaEstudianteInicio extends JFrame {
 
 	public void setPanelPrincipal(JPanel panelPrincipal) {
 		this.panelPrincipal = panelPrincipal;
+	}
+
+	public JPanel getPanelMiPerfil() {
+		return panelMiPerfil;
+	}
+
+	public void setPanelMiPerfil(JPanel panelMiPerfil) {
+		this.panelMiPerfil = panelMiPerfil;
+	}
+
+	public JLabel getDato() {
+		return dato;
+	}
+
+	public void setDato(JLabel dato) {
+		this.dato = dato;
+	}
+
+	public JLabel getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(JLabel nombre) {
+		this.nombre = nombre;
+	}
+
+	public JLabel getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(JLabel apellido) {
+		this.apellido = apellido;
+	}
+
+	public JLabel getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(JLabel correo) {
+		this.correo = correo;
+	}
+
+	public JLabel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(JLabel usuario) {
+		this.usuario = usuario;
+	}
+
+	public JLabel getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(JLabel documento) {
+		this.documento = documento;
+	}
+
+	public JLabel getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(JLabel telefono) {
+		this.telefono = telefono;
+	}
+
+	public JLabel getFacultad() {
+		return facultad;
+	}
+
+	public void setFacultad(JLabel facultad) {
+		this.facultad = facultad;
+	}
+
+	public JLabel getCarrera() {
+		return carrera;
+	}
+
+	public void setCarrera(JLabel carrera) {
+		this.carrera = carrera;
+	}
+
+	public JLabel getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(JLabel semestre) {
+		this.semestre = semestre;
+	}
+
+	public JTextField gettNombre() {
+		return tNombre;
+	}
+
+	public void settNombre(JTextField tNombre) {
+		this.tNombre = tNombre;
+	}
+
+	public JTextField gettApellido() {
+		return tApellido;
+	}
+
+	public void settApellido(JTextField tApellido) {
+		this.tApellido = tApellido;
+	}
+
+	public JTextField gettCorreo() {
+		return tCorreo;
+	}
+
+	public void settCorreo(JTextField tCorreo) {
+		this.tCorreo = tCorreo;
+	}
+
+	public JTextField gettUsuario() {
+		return tUsuario;
+	}
+
+	public void settUsuario(JTextField tUsuario) {
+		this.tUsuario = tUsuario;
+	}
+
+	public JTextField gettDocumento() {
+		return tDocumento;
+	}
+
+	public void settDocumento(JTextField tDocumento) {
+		this.tDocumento = tDocumento;
+	}
+
+	public JTextField gettTelefono() {
+		return tTelefono;
+	}
+
+	public void settTelefono(JTextField tTelefono) {
+		this.tTelefono = tTelefono;
+	}
+
+	public JTextField gettFacultad() {
+		return tFacultad;
+	}
+
+	public void settFacultad(JTextField tFacultad) {
+		this.tFacultad = tFacultad;
+	}
+
+	public JTextField gettCarrera() {
+		return tCarrera;
+	}
+
+	public void settCarrera(JTextField tCarrera) {
+		this.tCarrera = tCarrera;
+	}
+
+	public JTextField gettSemestre() {
+		return tSemestre;
+	}
+
+	public void settSemestre(JTextField tSemestre) {
+		this.tSemestre = tSemestre;
+	}
+
+	public JPanel getPanelReserva() {
+		return panelReserva;
+	}
+
+	public void setPanelReserva(JPanel panelReserva) {
+		this.panelReserva = panelReserva;
 	}
 
 /*	public JPanel getMenuBar() {
