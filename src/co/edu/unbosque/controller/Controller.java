@@ -14,8 +14,6 @@ import co.edu.unbosque.view.VentanaEstudianteInicio;
 import co.edu.unbosque.view.VentanaIngreso;
 import co.edu.unbosque.view.VentanaInicial;
 import co.edu.unbosque.view.VentanaRegistro;
-import co.edu.unbosque.view.VentanaRutaBus;
-import co.edu.unbosque.view.VentanaRutaTren;
 
 public class Controller implements ActionListener {
 	
@@ -23,8 +21,6 @@ public class Controller implements ActionListener {
 	private VentanaRegistro vr;
 	private VentanaIngreso vin;
 	private VentanaEstudianteInicio vei;
-	private VentanaRutaTren vrt;
-	private VentanaRutaBus vrb;
 	
 	private AdministrativoDAO aDAO;
 	private DocenteDAO dDAO;
@@ -37,8 +33,6 @@ public class Controller implements ActionListener {
 		vr = new VentanaRegistro();
 		vin = new VentanaIngreso();
 		vei = new VentanaEstudianteInicio();
-		vrt = new VentanaRutaTren();
-		vrb = new VentanaRutaBus();
 		
 		//==LISTAS==
 		aDAO = new AdministrativoDAO();
@@ -80,6 +74,9 @@ public class Controller implements ActionListener {
 		vei.getSalir().addActionListener(this);
 		vei.getSalir().setActionCommand("cerrar_sesion_estudiante");
 		
+		vei.getInicio().addActionListener(this);
+		vei.getInicio().setActionCommand("ver_principal_estudiante");
+		
 		vei.getbTren().addActionListener(this);
 		vei.getbTren().setActionCommand("ver_rutas_tren");
 		
@@ -90,29 +87,32 @@ public class Controller implements ActionListener {
 		vei.getbBus().setActionCommand("ver_rutas_bus");
 		
 		vei.getBus().addActionListener(this);
-		vei.getBus().setActionCommand("ver_rutas_bus");
+		vei.getBus().setActionCommand("ver_rutas_bus_dos");
 		
-		//==VENTANA RUTAS Y HORARIOS DEL TREN==
-		vrt.getInicio().addActionListener(this);
-		vrt.getInicio().setActionCommand("volver_rutas_tren");
+		vei.getFlechaDerechaUno().addActionListener(this);
+		vei.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren");
 		
-		vrt.getFlechaDerechaUno().addActionListener(this);
-		vrt.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha");
-		
-		vrt.getFlechaIzquierdaUno().addActionListener(this);
-		vrt.getFlechaIzquierdaUno().setActionCommand("usar_flecha_izquierda");
+		vei.getFlechaIzquierdaUno().addActionListener(this);
+		vei.getFlechaIzquierdaUno().setActionCommand("usar_flecha_izquierda_tren");
 
-		vrt.getFlechaDerechaDos().addActionListener(this);
-		vrt.getFlechaDerechaDos().setActionCommand("usar_flecha_derecha");
+		vei.getFlechaDerechaDos().addActionListener(this);
+		vei.getFlechaDerechaDos().setActionCommand("usar_flecha_derecha_tren");
 		
-		vrt.getFlechaIzquierdaDos().addActionListener(this);
-		vrt.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda");
+		vei.getFlechaIzquierdaDos().addActionListener(this);
+		vei.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren");
 		
 		
+		vei.getFlechaDerUnoBus().addActionListener(this);
+		vei.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus");
 		
-		//==VENTANA RUTAS Y HORARIOS DEL BUS==
-		vrb.getInicio().addActionListener(this);
-		vrb.getInicio().setActionCommand("volver_rutas_bus");
+		vei.getFlechaIzqUnoBus().addActionListener(this);
+		vei.getFlechaIzqUnoBus().setActionCommand("usar_flecha_izquierda_bus");
+
+		vei.getFlechaDerDosBus().addActionListener(this);
+		vei.getFlechaDerDosBus().setActionCommand("usar_flecha_derecha_bus");
+		
+		vei.getFlechaIzqDosBus().addActionListener(this);
+		vei.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus");
 		
 		
 	}
@@ -287,35 +287,50 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "ver_rutas_tren":{
-			vei.setVisible(false);
-			vrt.setVisible(true);
-			break;
-		}
-		case "volver_rutas_tren":{
-			vrt.setVisible(false);
-			vei.setVisible(true);
+			vei.getPanelPrincipal().setVisible(false);
+			vei.getHorarioIda().setVisible(true);
+			vei.getHorarioRegreso().setVisible(false);
+			vei.getHorarioIdaBus().setVisible(false);
+			vei.getHorarioRegresoBus().setVisible(false);
 			break;
 		}
 		case "ver_rutas_bus":{
-			vei.setVisible(false);
-			vrb.setVisible(true);
+			vei.getPanelPrincipal().setVisible(false);
+			vei.getHorarioIda().setVisible(false);
+			vei.getHorarioRegreso().setVisible(false);
+			vei.getHorarioIdaBus().setVisible(true);
+			vei.getHorarioRegresoBus().setVisible(false);
 			break;
 		}
-		case "volver_rutas_bus":{
-			vrb.setVisible(false);
-			vei.setVisible(true);
+		case "ver_principal_estudiante":{
+			vei.getPanelPrincipal().setVisible(true);
+			vei.getHorarioIda().setVisible(false);
+			vei.getHorarioRegreso().setVisible(false);
+			vei.getHorarioIdaBus().setVisible(false);
+			vei.getHorarioRegresoBus().setVisible(false);
 			break;
 		}
-		case "usar_flecha_derecha":{
-			vrt.getHorarioIda().setVisible(false);
-			vrt.getHorarioRegreso().setVisible(true);
+		case "usar_flecha_derecha_tren":{
+			vei.getHorarioIda().setVisible(false);
+			vei.getHorarioRegreso().setVisible(true);
 			break;
 		}
-		case "usar_flecha_izquierda":{			
-			vrt.getHorarioRegreso().setVisible(false);
-			vrt.getHorarioIda().setVisible(true);
+		case "usar_flecha_izquierda_tren":{			
+			vei.getHorarioRegreso().setVisible(false);
+			vei.getHorarioIda().setVisible(true);
 			break;
 		}
+		case "usar_flecha_derecha_bus":{
+			vei.getHorarioIdaBus().setVisible(false);
+			vei.getHorarioRegresoBus().setVisible(true);
+			break;
+		}
+		case "usar_flecha_izquierda_bus":{			
+			vei.getHorarioRegresoBus().setVisible(false);
+			vei.getHorarioIdaBus().setVisible(true);
+			break;
+		}
+		
 		
 		default:{
 			break;
