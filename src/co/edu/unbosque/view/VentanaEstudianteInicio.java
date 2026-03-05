@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -101,7 +102,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		//LABELS
 
 		titulo = new JLabel("Bienvenido, estudiante :D");
-		titulo.setBounds(20, 20, 650, 55);
+		titulo.setBounds(20, 50, 650, 55);
 		titulo.setForeground(Color.WHITE);
 		titulo.setFont(new Font("Arial", Font.BOLD, 50));
 		panelSuperior.add(titulo);
@@ -113,13 +114,13 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelUno.add(mensaje);
 		
 		lTren = new JLabel("Horarios del tren");
-		lTren.setBounds(45, 235, 250, 20);
+		lTren.setBounds(45, 227, 250, 20);
 		lTren.setForeground(Color.BLACK);
 		lTren.setFont(new Font("Arial", Font.BOLD, 16));
 		panelDos.add(lTren);
 		
 		lBus = new JLabel("Horarios de buses");
-		lBus.setBounds(40, 235, 250, 20);
+		lBus.setBounds(40, 227, 250, 20);
 		lBus.setForeground(Color.BLACK);
 		lBus.setFont(new Font("Arial", Font.BOLD, 16));
 		panelTres.add(lBus);
@@ -130,7 +131,9 @@ public class VentanaEstudianteInicio extends JFrame {
 		lMiReserva.setFont(new Font("Arial", Font.BOLD, 16));
 		panelCuatro.add(lMiReserva);
 		
-		tMensaje = new JTextArea();
+		//TEXT AREA
+		
+		tMensaje = new JTextArea(" No hay actualizaciones. El sistema de transporte está funcionando con\n normalidad");
 		tMensaje.setBounds(15, 45, 428, 100);
 		tMensaje.setBackground(Color.decode("#e0ebe0"));
 		tMensaje.setEditable(false);
@@ -156,11 +159,12 @@ public class VentanaEstudianteInicio extends JFrame {
 		tren.setFocusPainted(false);
 		menuBar.add(tren);
 
-		bTren = new JButton("TREEEN");
-		bTren.setBounds(18, 80, 200, 100);
+		ImageIcon imagen2 = new ImageIcon(getClass().getResource("tren.png"));
+		JLabel labelImagen2 = new JLabel(imagen2);
+		bTren = new JButton(imagen2);
+		bTren.setBounds(5, 34, 220, 170);
 		bTren.setFont(new Font("Agency FB", Font.BOLD, 45));
-		bTren.setForeground(Color.decode("#376445"));
-		bTren.setBackground(Color.decode("#99bc9f"));
+		bTren.setBackground(Color.decode("#ffffff"));
 		bTren.setBorderPainted(false);
 		bTren.setFocusPainted(false);
 		panelDos.add(bTren);
@@ -173,6 +177,16 @@ public class VentanaEstudianteInicio extends JFrame {
 		bus.setBorderPainted(false);
 		bus.setFocusPainted(false);
 		menuBar.add(bus);
+		
+		ImageIcon imagen1 = new ImageIcon(getClass().getResource("bus.png"));
+		JLabel labelImagen = new JLabel(imagen1);
+		bBus = new JButton(imagen1);
+		bBus.setBounds(0, 35, 220, 150);
+		bBus.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bBus.setBackground(Color.decode("#ffffff"));
+		bBus.setBorderPainted(false);
+		bBus.setFocusPainted(false);
+		panelTres.add(bBus);		
 
 		perfil = new JButton("Mi Perfil");
 		perfil.setBounds(23, 350, 100, 25);
@@ -267,4 +281,104 @@ public class VentanaEstudianteInicio extends JFrame {
 		this.salir = salir;
 	}
 
+	public JLabel getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(JLabel mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public JLabel getlTren() {
+		return lTren;
+	}
+
+	public void setlTren(JLabel lTren) {
+		this.lTren = lTren;
+	}
+
+	public JLabel getlBus() {
+		return lBus;
+	}
+
+	public void setlBus(JLabel lBus) {
+		this.lBus = lBus;
+	}
+
+	public JLabel getlMiReserva() {
+		return lMiReserva;
+	}
+
+	public void setlMiReserva(JLabel lMiReserva) {
+		this.lMiReserva = lMiReserva;
+	}
+
+	public JTextArea gettMensaje() {
+		return tMensaje;
+	}
+
+	public void settMensaje(JTextArea tMensaje) {
+		this.tMensaje = tMensaje;
+	}
+
+	public JPanel getPanelSuperior() {
+		return panelSuperior;
+	}
+
+	public void setPanelSuperior(JPanel panelSuperior) {
+		this.panelSuperior = panelSuperior;
+	}
+
+	public JPanel getPanelUno() {
+		return panelUno;
+	}
+
+	public void setPanelUno(JPanel panelUno) {
+		this.panelUno = panelUno;
+	}
+
+	public JPanel getPanelDos() {
+		return panelDos;
+	}
+
+	public void setPanelDos(JPanel panelDos) {
+		this.panelDos = panelDos;
+	}
+
+	public JPanel getPanelTres() {
+		return panelTres;
+	}
+
+	public void setPanelTres(JPanel panelTres) {
+		this.panelTres = panelTres;
+	}
+
+	public JPanel getPanelCuatro() {
+		return panelCuatro;
+	}
+
+	public void setPanelCuatro(JPanel panelCuatro) {
+		this.panelCuatro = panelCuatro;
+	}
+
+	public JButton getbTren() {
+		return bTren;
+	}
+
+	public void setbTren(JButton bTren) {
+		this.bTren = bTren;
+	}
+
+	public JButton getbBus() {
+		return bBus;
+	}
+
+	public void setbBus(JButton bBus) {
+		this.bBus = bBus;
+	}
+
+/*	public JPanel getMenuBar() {
+		return menuBar;
+	}
+*/
 }
