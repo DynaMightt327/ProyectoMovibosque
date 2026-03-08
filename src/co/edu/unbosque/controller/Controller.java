@@ -273,7 +273,6 @@ public class Controller implements ActionListener {
 				vi.setVisible(true);
 				
 			} catch (Exception e2) {
-				e2.printStackTrace();
 				javax.swing.JOptionPane.showMessageDialog(vr, "Error al registrar cuenta. Verifique datos", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
 			}
 			break;
