@@ -9,6 +9,10 @@ public class DocenteDAO implements DAO<Docente> {
 	
 	private ArrayList<Docente> listaDocentes;
 
+	public DocenteDAO() {
+		listaDocentes = new ArrayList<>();
+	}
+	
 	@Override
 	public void crear(Docente nuevoDato) {
 		listaDocentes.add(nuevoDato);
@@ -61,5 +65,14 @@ public class DocenteDAO implements DAO<Docente> {
 
 	public void setListaDocente(ArrayList<Docente> listaDocente) {
 		this.listaDocentes = listaDocente;
-	};
+	}
+	
+	public Docente buscarPorCredencial(String nUsuario, String contrasena) {
+		for(Docente docente  : listaDocentes) {
+			if(docente.getnUsuario().equals(nUsuario) && docente.getContrasena().equals(contrasena)) {
+				return docente;
+			}
+		}
+		return null;
+	}
 }
