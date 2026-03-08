@@ -122,6 +122,7 @@ public class Controller implements ActionListener {
 		vei.getReserva().addActionListener(this);
 		vei.getReserva().setActionCommand("ver_reserva");
 		
+		
 	}
 	
 	public void actualizarCamposPorRol() {

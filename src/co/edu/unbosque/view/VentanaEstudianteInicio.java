@@ -2,7 +2,9 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Calendar;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,8 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 
 public class VentanaEstudianteInicio extends JFrame {
 
@@ -71,8 +77,26 @@ public class VentanaEstudianteInicio extends JFrame {
 	
 	//reservas
 	private JPanel panelReserva;
+	private JPanel panelRuta;
+	private JPanel infoCosto;
+	private JTextArea info;
+	private JLabel tituloReserva;
+	private JLabel fecha;
+	private JLabel transporte;
+	private JLabel ruta;
+	private JLabel infoRuta;
+	private JLabel costo;
+	private JRadioButton rBus;
+	private JRadioButton rTren;
+	private JRadioButton rUsaquen;
+	private JRadioButton rChia;
+	private JButton pagar;
+	private ButtonGroup grupoTransporte;
+	private ButtonGroup grupoRuta;
+	private JPanel calendario;
+	private JDateChooser calendar;
+	private JTextField plata;
 	
-
 	//botones de la barra lateral
 	private JButton inicio;
 	private JButton tren;
@@ -118,6 +142,8 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.setBackground(Color.decode("#ffffff"));
 		panelMiPerfil.setVisible(false);
 		add(panelMiPerfil);
+		
+		//===============
 
 		panelReserva = new JPanel();
 		panelReserva.setLayout(null);
@@ -126,6 +152,10 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelReserva.setVisible(false);
 		add(panelReserva);
 
+		
+	
+		
+		//===============================
 		panelSuperior = new JPanel();
 		panelSuperior.setLayout(null);
 		panelSuperior.setBounds(180, 18, 760, 150);
@@ -254,7 +284,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		perfil.setFocusPainted(false);
 		menuBar.add(perfil);
 
-		reserva = new JButton("Mis reservas");
+		reserva = new JButton("Reservar");
 		reserva.setBounds(15, 450, 120, 25);
 		reserva.setFont(new Font("Agency FB", Font.BOLD, 20));
 		reserva.setForeground(Color.decode("#ffffff"));
@@ -533,7 +563,128 @@ public class VentanaEstudianteInicio extends JFrame {
 		tSemestre.setBackground(Color.decode("#e0ebe0"));
 		tSemestre.setBorder(null);
 		panelMiPerfil.add(tSemestre);
+		
+		//==TODO LO DE RESERVAS==
+		
+		tituloReserva = new JLabel("Nueva Reserva");
+		tituloReserva.setBounds(95, 20, 250, 38);
+		tituloReserva.setForeground(Color.BLACK);
+		tituloReserva.setFont(new Font("Arial", Font.BOLD, 35));
+		panelReserva.add(tituloReserva);
 
+		info = new JTextArea("*Recuerde llegar 10 minutos antes de la hora \nde la reservación y presentar la captura de esta. \nNo puede reservar sin pagar :)");
+		info.setBounds(490, 558, 250, 40);
+		info.setForeground(Color.BLACK);
+		info.setFont(new Font("Arial", Font.BOLD, 10));
+		panelReserva.add(info);
+		
+		transporte = new JLabel("Tipo transporte");
+		transporte.setBounds(45, 70, 250, 20);
+		transporte.setForeground(Color.BLACK);
+		transporte.setFont(new Font("Arial", Font.BOLD, 18));
+		panelReserva.add(transporte);
+
+		transporte = new JLabel("Horario de viaje");
+		transporte.setBounds(235, 70, 250, 20);
+		transporte.setForeground(Color.BLACK);
+		transporte.setFont(new Font("Arial", Font.BOLD, 18));
+		panelReserva.add(transporte);
+		
+		rBus = new JRadioButton("Bus");
+		rBus.setBounds(50, 100, 120, 25);
+		rBus.setFont(new Font("Agency FB", Font.BOLD, 20));
+		rBus.setForeground(Color.decode("#ffffff"));
+		rBus.setBackground(Color.decode("#376445"));
+		rBus.setBorderPainted(false);
+		rBus.setFocusPainted(false);
+		panelReserva.add(rBus);
+		
+		rTren = new JRadioButton("Tren");
+		rTren.setBounds(50, 140, 120, 25);
+		rTren.setFont(new Font("Agency FB", Font.BOLD, 20));
+		rTren.setForeground(Color.decode("#ffffff"));
+		rTren.setBackground(Color.decode("#376445"));
+		rTren.setBorderPainted(false);
+		rTren.setFocusPainted(false);
+		panelReserva.add(rTren);
+
+		rUsaquen = new JRadioButton("Usaquén - Chía");
+		rUsaquen.setBounds(230, 100, 180, 25);
+		rUsaquen.setFont(new Font("Agency FB", Font.BOLD, 20));
+		rUsaquen.setForeground(Color.decode("#ffffff"));
+		rUsaquen.setBackground(Color.decode("#376445"));
+		rUsaquen.setBorderPainted(false);
+		rUsaquen.setFocusPainted(false);
+		panelReserva.add(rUsaquen);
+		
+		rChia = new JRadioButton("Chía - Usaquen");
+		rChia.setBounds(230, 140, 180, 25);
+		rChia.setFont(new Font("Agency FB", Font.BOLD, 20));
+		rChia.setForeground(Color.decode("#ffffff"));
+		rChia.setBackground(Color.decode("#376445"));
+		rChia.setBorderPainted(false);
+		rChia.setFocusPainted(false);
+		panelReserva.add(rChia);
+		
+		grupoTransporte = new ButtonGroup();
+		grupoTransporte.add(rBus);
+		grupoTransporte.add(rTren);
+		
+		grupoRuta = new ButtonGroup();
+		grupoTransporte.add(rUsaquen);
+		grupoTransporte.add(rChia);
+		
+		calendario = new JPanel();
+		calendario.setLayout(null);
+		calendario.setBounds(490, 50, 235, 260);
+		calendario.setBackground(Color.decode("#99bc9f"));
+		panelReserva.add(calendario);
+		
+		fecha = new JLabel("Seleccione la fecha del viaje");
+		fecha.setBounds(12, 18, 250, 20);
+		fecha.setForeground(Color.BLACK);
+		fecha.setFont(new Font("Arial", Font.BOLD, 15));
+		calendario.add(fecha);
+		
+		calendar = new JDateChooser();
+		calendar.setBounds(32, 48, 180, 30);
+		calendar.setBackground(Color.decode("#e0ebe0"));
+		calendario.add(calendar);
+
+		panelRuta = new JPanel();
+		panelRuta.setLayout(null);
+		panelRuta.setBounds(20, 180, 430, 410);
+		panelRuta.setBackground(Color.decode("#99bc9f"));
+		panelReserva.add(panelRuta);
+		
+		infoCosto = new JPanel();
+		infoCosto.setLayout(null);
+		infoCosto.setBounds(490, 340, 235, 140);
+		infoCosto.setBackground(Color.decode("#99bc9f"));
+		panelReserva.add(infoCosto);
+
+		costo = new JLabel("Costo de la reserva");
+		costo.setBounds(37, 18, 250, 20);
+		costo.setForeground(Color.BLACK);
+		costo.setFont(new Font("Arial", Font.BOLD, 17));
+		infoCosto.add(costo);
+		
+		plata = new JTextField();
+		plata.setBounds(60, 57, 120, 50);
+		plata.setFont(new Font("Agency FB", Font.BOLD, 20));
+		plata.setForeground(Color.decode("#111d15"));
+		plata.setBackground(Color.decode("#e0ebe0"));
+		plata.setBorder(null);
+		infoCosto.add(plata);
+		
+		pagar = new JButton("Pagar y reservar");
+		pagar.setBounds(535, 505, 150, 45);
+		pagar.setFont(new Font("Agency FB", Font.BOLD, 20));
+		pagar.setForeground(Color.decode("#ffffff"));
+		pagar.setBackground(Color.decode("#376445"));
+		pagar.setBorderPainted(false);
+		pagar.setFocusPainted(false);
+		panelReserva.add(pagar);
 	}
 
 	public JLabel getTitulo() {
@@ -543,10 +694,6 @@ public class VentanaEstudianteInicio extends JFrame {
 	public void setTitulo(JLabel titulo) {
 		this.titulo = titulo;
 	}
-
-	/*
-	 * public JPanel getMenuBar() { return menuBar; }
-	 */
 
 	public void setMenuBar(JPanel menuBar) {
 		this.menuBar = menuBar;
@@ -968,10 +1115,133 @@ public class VentanaEstudianteInicio extends JFrame {
 		this.panelReserva = panelReserva;
 	}
 
-/*	public JPanel getMenuBar() {
-		return menuBar;
+	public JPanel getPanelRuta() {
+		return panelRuta;
 	}
-*/
-	
+
+	public void setPanelRuta(JPanel panelRuta) {
+		this.panelRuta = panelRuta;
+	}
+
+	public JPanel getInfoCosto() {
+		return infoCosto;
+	}
+
+	public void setInfoCosto(JPanel infoCosto) {
+		this.infoCosto = infoCosto;
+	}
+
+	public JLabel getTituloReserva() {
+		return tituloReserva;
+	}
+
+	public void setTituloReserva(JLabel tituloReserva) {
+		this.tituloReserva = tituloReserva;
+	}
+
+	public JLabel getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(JLabel fecha) {
+		this.fecha = fecha;
+	}
+
+	public JLabel getTransporte() {
+		return transporte;
+	}
+
+	public void setTransporte(JLabel transporte) {
+		this.transporte = transporte;
+	}
+
+	public JLabel getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(JLabel ruta) {
+		this.ruta = ruta;
+	}
+
+	public JLabel getInfoRuta() {
+		return infoRuta;
+	}
+
+	public void setInfoRuta(JLabel infoRuta) {
+		this.infoRuta = infoRuta;
+	}
+
+	public JLabel getCosto() {
+		return costo;
+	}
+
+	public void setCosto(JLabel costo) {
+		this.costo = costo;
+	}
+
+	public JRadioButton getrBus() {
+		return rBus;
+	}
+
+	public void setrBus(JRadioButton rBus) {
+		this.rBus = rBus;
+	}
+
+	public JRadioButton getrTren() {
+		return rTren;
+	}
+
+	public void setrTren(JRadioButton rTren) {
+		this.rTren = rTren;
+	}
+
+	public JRadioButton getrUsaquen() {
+		return rUsaquen;
+	}
+
+	public void setrUsaquen(JRadioButton rUsaquen) {
+		this.rUsaquen = rUsaquen;
+	}
+
+	public JRadioButton getrChia() {
+		return rChia;
+	}
+
+	public void setrChia(JRadioButton rChia) {
+		this.rChia = rChia;
+	}
+
+	public JButton getPagar() {
+		return pagar;
+	}
+
+	public void setPagar(JButton pagar) {
+		this.pagar = pagar;
+	}
+
+	public ButtonGroup getGrupoTransporte() {
+		return grupoTransporte;
+	}
+
+	public void setGrupoTransporte(ButtonGroup grupoTransporte) {
+		this.grupoTransporte = grupoTransporte;
+	}
+
+	public ButtonGroup getGrupoRuta() {
+		return grupoRuta;
+	}
+
+	public void setGrupoRuta(ButtonGroup grupoRuta) {
+		this.grupoRuta = grupoRuta;
+	}
+
+	public JPanel getCalendario() {
+		return calendario;
+	}
+
+	public void setCalendario(JPanel calendario) {
+		this.calendario = calendario;
+	}
+
 	
 }
