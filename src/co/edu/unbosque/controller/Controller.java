@@ -12,6 +12,7 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
+import co.edu.unbosque.view.VentanaAdminInicio;
 import co.edu.unbosque.view.VentanaDocenteInicio;
 import co.edu.unbosque.view.VentanaEstudianteInicio;
 import co.edu.unbosque.view.VentanaIngreso;
@@ -25,6 +26,7 @@ public class Controller implements ActionListener {
 	private VentanaIngreso vin;
 	private VentanaEstudianteInicio vei;
 	private VentanaDocenteInicio vdi;
+	private VentanaAdminInicio vai;
 	
 	private AdministrativoDAO aDAO;
 	private DocenteDAO dDAO;
@@ -38,6 +40,7 @@ public class Controller implements ActionListener {
 		vin = new VentanaIngreso();
 		vei = new VentanaEstudianteInicio();
 		vdi = new VentanaDocenteInicio();
+		vai = new VentanaAdminInicio();
 		
 		//==DAO==
 		aDAO = new AdministrativoDAO();

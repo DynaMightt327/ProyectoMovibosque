@@ -183,7 +183,7 @@ public class VentanaDocenteInicio extends JFrame{
 		
 		//LABELS
 
-		titulo = new JLabel("Bienvenido, estudiante :D");
+		titulo = new JLabel("Bienvenido, docente :D");
 		titulo.setBounds(20, 50, 650, 55);
 		titulo.setForeground(Color.WHITE);
 		titulo.setFont(new Font("Arial", Font.BOLD, 50));
