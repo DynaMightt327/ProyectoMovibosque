@@ -10,6 +10,10 @@ public class AdministrativoDAO implements DAO<Administrativo>{
 	private ArrayList<Administrativo> listaAdmins;
 	
 	
+	public AdministrativoDAO() {
+		listaAdmins = new ArrayList<>();
+	}
+	
 	@Override
 	public void crear(Administrativo nuevoDato) {
 		listaAdmins.add(nuevoDato);

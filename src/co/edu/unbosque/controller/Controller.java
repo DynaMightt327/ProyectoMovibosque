@@ -12,6 +12,7 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
+import co.edu.unbosque.view.VentanaDocenteInicio;
 import co.edu.unbosque.view.VentanaEstudianteInicio;
 import co.edu.unbosque.view.VentanaIngreso;
 import co.edu.unbosque.view.VentanaInicial;
@@ -23,6 +24,7 @@ public class Controller implements ActionListener {
 	private VentanaRegistro vr;
 	private VentanaIngreso vin;
 	private VentanaEstudianteInicio vei;
+	private VentanaDocenteInicio vdi;
 	
 	private AdministrativoDAO aDAO;
 	private DocenteDAO dDAO;
@@ -35,8 +37,9 @@ public class Controller implements ActionListener {
 		vr = new VentanaRegistro();
 		vin = new VentanaIngreso();
 		vei = new VentanaEstudianteInicio();
+		vdi = new VentanaDocenteInicio();
 		
-		//==LISTAS==
+		//==DAO==
 		aDAO = new AdministrativoDAO();
 		dDAO = new DocenteDAO();
 		eDAO = new EstudianteDAO();
@@ -270,6 +273,7 @@ public class Controller implements ActionListener {
 				vi.setVisible(true);
 				
 			} catch (Exception e2) {
+				e2.printStackTrace();
 				javax.swing.JOptionPane.showMessageDialog(vr, "Error al registrar cuenta. Verifique datos", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
 			}
 			break;
@@ -289,31 +293,36 @@ public class Controller implements ActionListener {
 		case "boton_entrar_cuenta":{
 			try {
 				String usuario = vin.gettUsuario().getText();
-				String contrasena = vin.gettContrasena().getText();
+				String contrasena = new String(vin.gettContrasena().getPassword());
 				
 				Estudiante estudiante = eDAO.buscarPorCredencial(usuario, contrasena);
 				
-				if(estudiante == null) {
-					throw new CredentialException("Usuario o contraseña incorrectos");
-				}
-				
-				if(!estudiante.getRol().equalsIgnoreCase("Estudiante")) {
-					throw new CredentialException("El usuario no pertenece al rol de estudiante");
-				}	
+				if(estudiante != null) {
+					if(!estudiante.getRol().equalsIgnoreCase("Estudiante")) {
+						throw new CredentialException("El usuario no pertenece a estudiante");
+					}
 					vin.setVisible(false);
 					vei.setVisible(true);
-				} catch (CredentialException ex) {
-					javax.swing.JOptionPane.showMessageDialog(vin,ex.getMessage(), "Error de autenticacion", javax.swing.JOptionPane.ERROR_MESSAGE);
-				} catch (Exception ex) {
-					javax.swing.JOptionPane.showMessageDialog(vin, "Ocurrio un error al iniciar sesion", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-					ex.printStackTrace();
+					break;
 				}
-				break;
+				
+				Docente docente = dDAO.buscarPorCredencial(usuario, contrasena);
+				
+				if(docente != null) {
+					if(!docente.getRol().equalsIgnoreCase("Docente")) {
+						throw new CredentialException("El usuario no pertenece a docente");
+					}
+					vin.setVisible(false);
+					vdi.setVisible(true);
+					break;
+				}
+				
+				//Administrativo administrativo = aDAO.
+				
+			} catch (CredentialException ex) {
+				javax.swing.JOptionPane.showMessageDialog(vin, "Ocurrio un error al iniciar sesion");
 			}
-		case "cambio rol": {
-			actualizarCamposPorRol();
-			break;
-		}
+			}
 		case "cerrar_sesion_estudiante": {
 			vei.setVisible(false);
 			vin.setVisible(true);
