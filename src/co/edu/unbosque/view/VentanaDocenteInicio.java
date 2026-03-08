@@ -2,25 +2,21 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
-public class VentanaEstudianteInicio extends JFrame {
-
+public class VentanaDocenteInicio extends JFrame{
+	
 	private JLabel titulo;
 	private JLabel mensaje;
 	private JLabel lTren;
@@ -63,8 +59,7 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JLabel documento;
 	private JLabel telefono;
 	private JLabel facultad;
-	private JLabel carrera;
-	private JLabel semestre;
+	private JLabel numeroMateria;
 	private JTextField tNombre;
 	private JTextField tApellido;
 	private JTextField tCorreo;
@@ -72,8 +67,8 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JTextField tDocumento;
 	private JTextField tTelefono;
 	private JTextField tFacultad;
-	private JTextField tCarrera;
-	private JTextField tSemestre;
+	private JTextField tNumeroMateria;
+	
 	
 	//reservas
 	private JPanel panelReserva;
@@ -107,14 +102,14 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JButton reserva;
 	private JButton salir;
 	
-	public VentanaEstudianteInicio() {
+	public VentanaDocenteInicio() {
 		setVisible(false);
 		initComp();
 	}
-
+	
 	public void initComp() {
 		// CONFIGURACION DE LA VENTANA
-		this.setTitle("MoviBosque - Ventana principal de estudiante");
+		this.setTitle("MoviBosque - Ventana principal de docente");
 		this.setBounds(250, 30, 980, 680);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
@@ -536,34 +531,20 @@ public class VentanaEstudianteInicio extends JFrame {
 		tFacultad.setBorder(null);
 		panelMiPerfil.add(tFacultad);
 		
-		carrera = new JLabel("Carrera:");
-		carrera.setBounds(30, 360, 150, 25);
-		carrera.setFont(new Font("Agency FB", Font.BOLD, 20));
-		carrera.setForeground(Color.decode("#111d15"));
-		panelMiPerfil.add(carrera);
+		numeroMateria = new JLabel("Cantidad de materias:");
+		numeroMateria.setBounds(30, 360, 150, 25);
+		numeroMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
+		numeroMateria.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(numeroMateria);
 
-		tCarrera = new JTextField();
-		tCarrera.setBounds(200, 360, 164, 25);
-		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 20));
-		tCarrera.setForeground(Color.decode("#111d15"));
-		tCarrera.setBackground(Color.decode("#e0ebe0"));
-		tCarrera.setBorder(null);
-		panelMiPerfil.add(tCarrera);
+		tNumeroMateria = new JTextField();
+		tNumeroMateria.setBounds(200, 360, 164, 25);
+		tNumeroMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tNumeroMateria.setForeground(Color.decode("#111d15"));
+		tNumeroMateria.setBackground(Color.decode("#e0ebe0"));
+		tNumeroMateria.setBorder(null);
+		panelMiPerfil.add(tNumeroMateria);
 
-		semestre = new JLabel("Semestre:");
-		semestre.setBounds(30, 400, 150, 25);
-		semestre.setFont(new Font("Agency FB", Font.BOLD, 20));
-		semestre.setForeground(Color.decode("#111d15"));
-		panelMiPerfil.add(semestre);
-		
-		tSemestre = new JTextField();
-		tSemestre.setBounds(200, 400, 164, 25);
-		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 20));
-		tSemestre.setForeground(Color.decode("#111d15"));
-		tSemestre.setBackground(Color.decode("#e0ebe0"));
-		tSemestre.setBorder(null);
-		panelMiPerfil.add(tSemestre);
-		
 		//==TODO LO DE RESERVAS==
 		
 		tituloReserva = new JLabel("Nueva Reserva");
@@ -675,7 +656,6 @@ public class VentanaEstudianteInicio extends JFrame {
 		plata.setForeground(Color.decode("#111d15"));
 		plata.setBackground(Color.decode("#e0ebe0"));
 		plata.setBorder(null);
-		plata.setEditable(false);
 		infoCosto.add(plata);
 		
 		pagar = new JButton("Pagar y reservar");
@@ -688,585 +668,5 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelReserva.add(pagar);
 	}
 
-	public JLabel getTitulo() {
-		return titulo;
-	}
 
-	public void setTitulo(JLabel titulo) {
-		this.titulo = titulo;
-	}
-
-	public void setMenuBar(JPanel menuBar) {
-		this.menuBar = menuBar;
-	}
-
-	public JButton getInicio() {
-		return inicio;
-	}
-
-	public void setInicio(JButton inicio) {
-		this.inicio = inicio;
-	}
-
-	public JButton getTren() {
-		return tren;
-	}
-
-	public void setTren(JButton tren) {
-		this.tren = tren;
-	}
-
-	public JButton getBus() {
-		return bus;
-	}
-
-	public void setBus(JButton bus) {
-		this.bus = bus;
-	}
-
-	public JButton getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(JButton perfil) {
-		this.perfil = perfil;
-	}
-
-	public JButton getReserva() {
-		return reserva;
-	}
-
-	public void setReserva(JButton reserva) {
-		this.reserva = reserva;
-	}
-
-	public JButton getSalir() {
-		return salir;
-	}
-
-	public void setSalir(JButton salir) {
-		this.salir = salir;
-	}
-
-	public JLabel getMensaje() {
-		return mensaje;
-	}
-
-	public void setMensaje(JLabel mensaje) {
-		this.mensaje = mensaje;
-	}
-
-	public JLabel getlTren() {
-		return lTren;
-	}
-
-	public void setlTren(JLabel lTren) {
-		this.lTren = lTren;
-	}
-
-	public JLabel getlBus() {
-		return lBus;
-	}
-
-	public void setlBus(JLabel lBus) {
-		this.lBus = lBus;
-	}
-
-	public JLabel getlMiReserva() {
-		return lMiReserva;
-	}
-
-	public void setlMiReserva(JLabel lMiReserva) {
-		this.lMiReserva = lMiReserva;
-	}
-
-	public JTextArea gettMensaje() {
-		return tMensaje;
-	}
-
-	public void settMensaje(JTextArea tMensaje) {
-		this.tMensaje = tMensaje;
-	}
-
-	public JPanel getPanelSuperior() {
-		return panelSuperior;
-	}
-
-	public void setPanelSuperior(JPanel panelSuperior) {
-		this.panelSuperior = panelSuperior;
-	}
-
-	public JPanel getPanelUno() {
-		return panelUno;
-	}
-
-	public void setPanelUno(JPanel panelUno) {
-		this.panelUno = panelUno;
-	}
-
-	public JPanel getPanelDos() {
-		return panelDos;
-	}
-
-	public void setPanelDos(JPanel panelDos) {
-		this.panelDos = panelDos;
-	}
-
-	public JPanel getPanelTres() {
-		return panelTres;
-	}
-
-	public void setPanelTres(JPanel panelTres) {
-		this.panelTres = panelTres;
-	}
-
-	public JPanel getPanelCuatro() {
-		return panelCuatro;
-	}
-
-	public void setPanelCuatro(JPanel panelCuatro) {
-		this.panelCuatro = panelCuatro;
-	}
-
-	public JButton getbTren() {
-		return bTren;
-	}
-
-	public void setbTren(JButton bTren) {
-		this.bTren = bTren;
-	}
-
-	public JButton getbBus() {
-		return bBus;
-	}
-
-	public void setbBus(JButton bBus) {
-		this.bBus = bBus;
-	}
-
-	public JPanel getHorarioIda() {
-		return horarioIda;
-	}
-
-	public void setHorarioIda(JPanel horarioIda) {
-		this.horarioIda = horarioIda;
-	}
-
-	public JPanel getHorarioRegreso() {
-		return horarioRegreso;
-	}
-
-	public void setHorarioRegreso(JPanel horarioRegreso) {
-		this.horarioRegreso = horarioRegreso;
-	}
-
-	public JButton getFlechaDerechaUno() {
-		return flechaDerechaUno;
-	}
-
-	public void setFlechaDerechaUno(JButton flechaDerechaUno) {
-		this.flechaDerechaUno = flechaDerechaUno;
-	}
-
-	public JButton getFlechaIzquierdaUno() {
-		return flechaIzquierdaUno;
-	}
-
-	public void setFlechaIzquierdaUno(JButton flechaIzquierdaUno) {
-		this.flechaIzquierdaUno = flechaIzquierdaUno;
-	}
-
-	public JButton getFlechaDerechaDos() {
-		return flechaDerechaDos;
-	}
-
-	public void setFlechaDerechaDos(JButton flechaDerechaDos) {
-		this.flechaDerechaDos = flechaDerechaDos;
-	}
-
-	public JButton getFlechaIzquierdaDos() {
-		return flechaIzquierdaDos;
-	}
-
-	public void setFlechaIzquierdaDos(JButton flechaIzquierdaDos) {
-		this.flechaIzquierdaDos = flechaIzquierdaDos;
-	}
-
-	public JPanel getHorarioIdaBus() {
-		return horarioIdaBus;
-	}
-
-	public void setHorarioIdaBus(JPanel horarioIdaBus) {
-		this.horarioIdaBus = horarioIdaBus;
-	}
-
-	public JPanel getHorarioRegresoBus() {
-		return horarioRegresoBus;
-	}
-
-	public void setHorarioRegresoBus(JPanel horarioRegresoBus) {
-		this.horarioRegresoBus = horarioRegresoBus;
-	}
-
-	public JButton getFlechaDerUnoBus() {
-		return flechaDerUnoBus;
-	}
-
-	public void setFlechaDerUnoBus(JButton flechaDerUnoBus) {
-		this.flechaDerUnoBus = flechaDerUnoBus;
-	}
-
-	public JButton getFlechaIzqUnoBus() {
-		return flechaIzqUnoBus;
-	}
-
-	public void setFlechaIzqUnoBus(JButton flechaIzqUnoBus) {
-		this.flechaIzqUnoBus = flechaIzqUnoBus;
-	}
-
-	public JButton getFlechaDerDosBus() {
-		return flechaDerDosBus;
-	}
-
-	public void setFlechaDerDosBus(JButton flechaDerDosBus) {
-		this.flechaDerDosBus = flechaDerDosBus;
-	}
-
-	public JButton getFlechaIzqDosBus() {
-		return flechaIzqDosBus;
-	}
-
-	public void setFlechaIzqDosBus(JButton flechaIzqDosBus) {
-		this.flechaIzqDosBus = flechaIzqDosBus;
-	}
-
-	public JPanel getPanelPrincipal() {
-		return panelPrincipal;
-	}
-
-	public void setPanelPrincipal(JPanel panelPrincipal) {
-		this.panelPrincipal = panelPrincipal;
-	}
-
-	public JPanel getPanelMiPerfil() {
-		return panelMiPerfil;
-	}
-
-	public void setPanelMiPerfil(JPanel panelMiPerfil) {
-		this.panelMiPerfil = panelMiPerfil;
-	}
-
-	public JLabel getDato() {
-		return dato;
-	}
-
-	public void setDato(JLabel dato) {
-		this.dato = dato;
-	}
-
-	public JLabel getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(JLabel nombre) {
-		this.nombre = nombre;
-	}
-
-	public JLabel getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(JLabel apellido) {
-		this.apellido = apellido;
-	}
-
-	public JLabel getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(JLabel correo) {
-		this.correo = correo;
-	}
-
-	public JLabel getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(JLabel usuario) {
-		this.usuario = usuario;
-	}
-
-	public JLabel getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(JLabel documento) {
-		this.documento = documento;
-	}
-
-	public JLabel getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(JLabel telefono) {
-		this.telefono = telefono;
-	}
-
-	public JLabel getFacultad() {
-		return facultad;
-	}
-
-	public void setFacultad(JLabel facultad) {
-		this.facultad = facultad;
-	}
-
-	public JLabel getCarrera() {
-		return carrera;
-	}
-
-	public void setCarrera(JLabel carrera) {
-		this.carrera = carrera;
-	}
-
-	public JLabel getSemestre() {
-		return semestre;
-	}
-
-	public void setSemestre(JLabel semestre) {
-		this.semestre = semestre;
-	}
-
-	public JTextField gettNombre() {
-		return tNombre;
-	}
-
-	public void settNombre(JTextField tNombre) {
-		this.tNombre = tNombre;
-	}
-
-	public JTextField gettApellido() {
-		return tApellido;
-	}
-
-	public void settApellido(JTextField tApellido) {
-		this.tApellido = tApellido;
-	}
-
-	public JTextField gettCorreo() {
-		return tCorreo;
-	}
-
-	public void settCorreo(JTextField tCorreo) {
-		this.tCorreo = tCorreo;
-	}
-
-	public JTextField gettUsuario() {
-		return tUsuario;
-	}
-
-	public void settUsuario(JTextField tUsuario) {
-		this.tUsuario = tUsuario;
-	}
-
-	public JTextField gettDocumento() {
-		return tDocumento;
-	}
-
-	public void settDocumento(JTextField tDocumento) {
-		this.tDocumento = tDocumento;
-	}
-
-	public JTextField gettTelefono() {
-		return tTelefono;
-	}
-
-	public void settTelefono(JTextField tTelefono) {
-		this.tTelefono = tTelefono;
-	}
-
-	public JTextField gettFacultad() {
-		return tFacultad;
-	}
-
-	public void settFacultad(JTextField tFacultad) {
-		this.tFacultad = tFacultad;
-	}
-
-	public JTextField gettCarrera() {
-		return tCarrera;
-	}
-
-	public void settCarrera(JTextField tCarrera) {
-		this.tCarrera = tCarrera;
-	}
-
-	public JTextField gettSemestre() {
-		return tSemestre;
-	}
-
-	public void settSemestre(JTextField tSemestre) {
-		this.tSemestre = tSemestre;
-	}
-
-	public JPanel getPanelReserva() {
-		return panelReserva;
-	}
-
-	public void setPanelReserva(JPanel panelReserva) {
-		this.panelReserva = panelReserva;
-	}
-
-	public JPanel getPanelRuta() {
-		return panelRuta;
-	}
-
-	public void setPanelRuta(JPanel panelRuta) {
-		this.panelRuta = panelRuta;
-	}
-
-	public JPanel getInfoCosto() {
-		return infoCosto;
-	}
-
-	public void setInfoCosto(JPanel infoCosto) {
-		this.infoCosto = infoCosto;
-	}
-
-	public JLabel getTituloReserva() {
-		return tituloReserva;
-	}
-
-	public void setTituloReserva(JLabel tituloReserva) {
-		this.tituloReserva = tituloReserva;
-	}
-
-	public JLabel getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(JLabel fecha) {
-		this.fecha = fecha;
-	}
-
-	public JLabel getTransporte() {
-		return transporte;
-	}
-
-	public void setTransporte(JLabel transporte) {
-		this.transporte = transporte;
-	}
-
-	public JLabel getRuta() {
-		return ruta;
-	}
-
-	public void setRuta(JLabel ruta) {
-		this.ruta = ruta;
-	}
-
-	public JLabel getInfoRuta() {
-		return infoRuta;
-	}
-
-	public void setInfoRuta(JLabel infoRuta) {
-		this.infoRuta = infoRuta;
-	}
-
-	public JLabel getCosto() {
-		return costo;
-	}
-
-	public void setCosto(JLabel costo) {
-		this.costo = costo;
-	}
-
-	public JRadioButton getrBus() {
-		return rBus;
-	}
-
-	public void setrBus(JRadioButton rBus) {
-		this.rBus = rBus;
-	}
-
-	public JRadioButton getrTren() {
-		return rTren;
-	}
-
-	public void setrTren(JRadioButton rTren) {
-		this.rTren = rTren;
-	}
-
-	public JRadioButton getrUsaquen() {
-		return rUsaquen;
-	}
-
-	public void setrUsaquen(JRadioButton rUsaquen) {
-		this.rUsaquen = rUsaquen;
-	}
-
-	public JRadioButton getrChia() {
-		return rChia;
-	}
-
-	public void setrChia(JRadioButton rChia) {
-		this.rChia = rChia;
-	}
-
-	public JButton getPagar() {
-		return pagar;
-	}
-
-	public void setPagar(JButton pagar) {
-		this.pagar = pagar;
-	}
-
-	public ButtonGroup getGrupoTransporte() {
-		return grupoTransporte;
-	}
-
-	public void setGrupoTransporte(ButtonGroup grupoTransporte) {
-		this.grupoTransporte = grupoTransporte;
-	}
-
-	public ButtonGroup getGrupoRuta() {
-		return grupoRuta;
-	}
-
-	public void setGrupoRuta(ButtonGroup grupoRuta) {
-		this.grupoRuta = grupoRuta;
-	}
-
-	public JPanel getCalendario() {
-		return calendario;
-	}
-
-	public void setCalendario(JPanel calendario) {
-		this.calendario = calendario;
-	}
-
-	public JTextArea getInfo() {
-		return info;
-	}
-
-	public void setInfo(JTextArea info) {
-		this.info = info;
-	}
-
-	public JDateChooser getCalendar() {
-		return calendar;
-	}
-
-	public void setCalendar(JDateChooser calendar) {
-		this.calendar = calendar;
-	}
-
-	public JTextField getPlata() {
-		return plata;
-	}
-
-	public void setPlata(JTextField plata) {
-		this.plata = plata;
-	}
-
-	
 }
