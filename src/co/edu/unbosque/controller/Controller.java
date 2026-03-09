@@ -32,6 +32,10 @@ public class Controller implements ActionListener {
 	private DocenteDAO dDAO;
 	private EstudianteDAO eDAO;
 	
+	private Estudiante estudianteActual;
+	private Docente docenteActual;
+	private Administrativo adminActual;
+	
 	
 	public Controller() {
 		//==VENTANAS==
@@ -46,6 +50,10 @@ public class Controller implements ActionListener {
 		aDAO = new AdministrativoDAO();
 		dDAO = new DocenteDAO();
 		eDAO = new EstudianteDAO();
+		
+		estudianteActual = new Estudiante();
+		docenteActual = new Docente();
+		adminActual = new Administrativo();
 		
 		asignarOyentes();
 		actualizarCamposPorRol();
@@ -303,6 +311,9 @@ public class Controller implements ActionListener {
 					if(!estudiante.getRol().equalsIgnoreCase("Estudiante")) {
 						throw new CredentialException("El usuario no pertenece a estudiante");
 					}
+					
+					estudianteActual = estudiante;
+					
 					vin.setVisible(false);
 					vei.setVisible(true);
 					break;
@@ -314,6 +325,9 @@ public class Controller implements ActionListener {
 					if(!docente.getRol().equalsIgnoreCase("Docente")) {
 						throw new CredentialException("El usuario no pertenece a docente");
 					}
+					
+					docenteActual = docente;
+					
 					vin.setVisible(false);
 					vdi.setVisible(true);
 					break;
@@ -331,6 +345,9 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "ver_perfil_estudiante": {
+			
+			actualizarPerfilEstudiante();
+			
 			vei.getPanelPrincipal().setVisible(false);
 			vei.getTrenHorario().setVisible(false);
 			vei.getBusHorario().setVisible(false);
@@ -462,6 +479,20 @@ public class Controller implements ActionListener {
 		vr.gettNumMateria().setText("");
 		vr.gettAnnoServicio().setText("");
 
+	}
+	
+	public void actualizarPerfilEstudiante() {
+		
+		vei.gettNombre().setText(estudianteActual.getNombre());
+		vei.gettApellido().setText(estudianteActual.getApellido());
+		vei.gettCorreo().setText(estudianteActual.getCorreoInst());
+		vei.gettUsuario().setText(estudianteActual.getnUsuario());
+		vei.gettDocumento().setText(String.valueOf(estudianteActual.getId()));
+		vei.gettTelefono().setText(String.valueOf(estudianteActual.getTelefono()));
+		vei.gettFacultad().setText(estudianteActual.getFacultad());
+		vei.gettCarrera().setText(estudianteActual.getCarrera());
+		vei.gettSemestre().setText(String.valueOf(estudianteActual.getSemestre()));
+		
 	}
 
 	public void iniciar() {
