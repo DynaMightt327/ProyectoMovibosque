@@ -271,7 +271,7 @@ public class Controller implements ActionListener {
 				}
 				
 				javax.swing.JOptionPane.showMessageDialog(vr, "Cuenta creada exitosamente", "Registro completado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-				
+				limpiarCampos();
 				vr.setVisible(false);
 				vi.setVisible(true);
 				
@@ -442,6 +442,26 @@ public class Controller implements ActionListener {
 		
 	}
 		
+	}
+	
+	public void limpiarCampos() {
+
+		vr.gettNombre().setText("");
+		vr.gettApellido().setText("");
+		vr.gettCorreo().setText("");
+		vr.gettUsuario().setText("");
+		vr.gettDocumento().setText("");
+		vr.gettTelefono().setText("");
+		vr.gettContrasena().setText("");
+
+		vr.gettFacultad().setSelectedIndex(0);
+		vr.gettRol().setSelectedIndex(0);
+
+		vr.gettCarrera().setText("");
+		vr.gettSemestre().setText("");
+		vr.gettNumMateria().setText("");
+		vr.gettAnnoServicio().setText("");
+
 	}
 
 	public void iniciar() {
