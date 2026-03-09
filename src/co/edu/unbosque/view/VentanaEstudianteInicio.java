@@ -690,8 +690,8 @@ public class VentanaEstudianteInicio extends JFrame {
 		grupoTransporte.add(rTren);
 		
 		grupoRuta = new ButtonGroup();
-		grupoTransporte.add(rUsaquen);
-		grupoTransporte.add(rChia);
+		grupoRuta.add(rUsaquen);
+		grupoRuta.add(rChia);
 		
 		calendario = new JPanel();
 		calendario.setLayout(null);
