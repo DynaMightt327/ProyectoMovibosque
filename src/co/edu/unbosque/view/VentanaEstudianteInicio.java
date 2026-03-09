@@ -38,6 +38,7 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JPanel panelCuatro;
 	
 	//tren
+	private JPanel trenHorario;
 	private JPanel horarioIda;
 	private JPanel horarioRegreso;
 	private JButton flechaDerechaUno;
@@ -46,6 +47,7 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JButton flechaIzquierdaDos;
 	
 	//bus
+	private JPanel busHorario;
 	private JPanel horarioIdaBus;
 	private JPanel horarioRegresoBus;
 	private JButton flechaDerUnoBus;
@@ -151,9 +153,6 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelReserva.setBackground(Color.decode("#ffffff"));
 		panelReserva.setVisible(false);
 		add(panelReserva);
-
-		
-	
 		
 		//===============================
 		panelSuperior = new JPanel();
@@ -309,6 +308,12 @@ public class VentanaEstudianteInicio extends JFrame {
 		horarioIda.setBackground(Color.decode("#f2efe5"));
 		horarioIda.setVisible(false);
 		add(horarioIda);
+		
+		JLabel us = new JLabel("Usaquen - Chia");
+		us.setBounds(290, 28, 250, 30);
+		us.setForeground(Color.BLACK);
+		us.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioIda.add(us);
 
 		horarioRegreso = new JPanel();
 		horarioRegreso.setLayout(null);
@@ -317,7 +322,26 @@ public class VentanaEstudianteInicio extends JFrame {
 		horarioRegreso.setVisible(false);
 		add(horarioRegreso);
 		
+		JLabel ch = new JLabel("Chia - Usaquen");
+		ch.setBounds(290, 28, 250, 30);
+		ch.setForeground(Color.BLACK);
+		ch.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioRegreso.add(ch);
+
+		trenHorario = new JPanel();
+		trenHorario.setLayout(null);
+		trenHorario.setBounds(290, 0, 500, 200);
+		trenHorario.setBackground(Color.decode("#99bc9f"));
+		trenHorario.setVisible(false);
+		add(trenHorario);
+		
 		//==IMAGENES==
+		ImageIcon horario = new ImageIcon(getClass().getResource("horarioo.JPG"));
+		JLabel lIconTren = new JLabel(horario);
+		lIconTren.setBounds(0, 0, 500, 170);
+		// panelLogo.add(lIcon);
+		trenHorario.add(lIconTren);
+
 		ImageIcon imageLogo = new ImageIcon(getClass().getResource("horariotren.JPG"));
 		JLabel lIcon = new JLabel(imageLogo);
 		lIcon.setBounds(40, 50, 692, 435);
@@ -367,6 +391,13 @@ public class VentanaEstudianteInicio extends JFrame {
 		horarioRegreso.add(flechaIzquierdaDos);
 
 		//==TODO LO DEL BUS==
+		busHorario = new JPanel();
+		busHorario.setLayout(null);
+		busHorario.setBounds(290, -90, 500, 200);
+		busHorario.setBackground(Color.decode("#99bc9f"));
+		busHorario.setVisible(false);
+		add(busHorario);
+		
 		horarioIdaBus = new JPanel();
 		horarioIdaBus.setLayout(null);
 		horarioIdaBus.setBounds(175, 140, 772, 485);
@@ -381,7 +412,26 @@ public class VentanaEstudianteInicio extends JFrame {
 		horarioRegresoBus.setVisible(false);
 		add(horarioRegresoBus);
 		
+		JLabel usb = new JLabel("Usaquen - Chia");
+		usb.setBounds(290, 28, 250, 30);
+		usb.setForeground(Color.BLACK);
+		usb.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioIdaBus.add(usb);
+		
+		JLabel chb = new JLabel("Chia - Usaquen");
+		chb.setBounds(290, 28, 250, 30);
+		chb.setForeground(Color.BLACK);
+		chb.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioRegresoBus.add(chb);
+		
 		//==IMAGENES==
+		
+		ImageIcon horarioo = new ImageIcon(getClass().getResource("horariooo.JPG"));
+		JLabel lIconBus = new JLabel(horarioo);
+		lIconBus.setBounds(0, 90, 500, 170);
+		// panelLogo.add(lIcon);
+		busHorario.add(lIconBus);
+		
 		ImageIcon imageLogo5 = new ImageIcon(getClass().getResource("horariobus.JPG"));
 		JLabel lIcon5 = new JLabel(imageLogo5);
 		lIcon5.setBounds(40, 50, 692, 435);
@@ -686,6 +736,22 @@ public class VentanaEstudianteInicio extends JFrame {
 		pagar.setBorderPainted(false);
 		pagar.setFocusPainted(false);
 		panelReserva.add(pagar);
+	}
+
+	public JPanel getBusHorario() {
+		return busHorario;
+	}
+
+	public void setBusHorario(JPanel busHorario) {
+		this.busHorario = busHorario;
+	}
+
+	public JPanel getTrenHorario() {
+		return trenHorario;
+	}
+
+	public void setTrenHorario(JPanel trenHorario) {
+		this.trenHorario = trenHorario;
 	}
 
 	public JLabel getTitulo() {

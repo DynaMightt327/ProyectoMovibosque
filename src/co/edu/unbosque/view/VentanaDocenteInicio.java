@@ -146,9 +146,6 @@ public class VentanaDocenteInicio extends JFrame{
 		panelReserva.setBackground(Color.decode("#ffffff"));
 		panelReserva.setVisible(false);
 		add(panelReserva);
-
-		
-	
 		
 		//===============================
 		panelSuperior = new JPanel();

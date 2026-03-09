@@ -332,6 +332,8 @@ public class Controller implements ActionListener {
 		}
 		case "ver_perfil_estudiante": {
 			vei.getPanelPrincipal().setVisible(false);
+			vei.getTrenHorario().setVisible(false);
+			vei.getBusHorario().setVisible(false);
 			vei.getHorarioIda().setVisible(false);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(false);
@@ -342,6 +344,7 @@ public class Controller implements ActionListener {
 		}
 		case "ver_rutas_tren":{
 			vei.getPanelPrincipal().setVisible(false);
+			vei.getTrenHorario().setVisible(true);
 			vei.getHorarioIda().setVisible(true);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(false);
@@ -352,6 +355,7 @@ public class Controller implements ActionListener {
 		}
 		case "ver_rutas_tren_dos":{
 			vei.getPanelPrincipal().setVisible(false);
+			vei.getTrenHorario().setVisible(true);
 			vei.getHorarioIda().setVisible(true);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(false);
@@ -362,6 +366,8 @@ public class Controller implements ActionListener {
 		}
 		case "ver_rutas_bus":{
 			vei.getPanelPrincipal().setVisible(false);
+			vei.getBusHorario().setVisible(true);
+			vei.getTrenHorario().setVisible(false);
 			vei.getHorarioIda().setVisible(false);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(true);
@@ -372,6 +378,8 @@ public class Controller implements ActionListener {
 		}
 		case "ver_rutas_bus_dos":{
 			vei.getPanelPrincipal().setVisible(false);
+			vei.getBusHorario().setVisible(true);
+			vei.getTrenHorario().setVisible(false);
 			vei.getHorarioIda().setVisible(false);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(true);
@@ -383,6 +391,8 @@ public class Controller implements ActionListener {
 		case "ver_principal_estudiante":{
 			vei.getPanelPrincipal().setVisible(true);
 			vei.getHorarioIda().setVisible(false);
+			vei.getTrenHorario().setVisible(false);
+			vei.getBusHorario().setVisible(false);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(false);
 			vei.getHorarioRegresoBus().setVisible(false);
@@ -402,20 +412,24 @@ public class Controller implements ActionListener {
 		}
 		case "usar_flecha_derecha_tren":{
 			vei.getHorarioIda().setVisible(false);
+			vei.getTrenHorario().setVisible(true);
 			vei.getHorarioRegreso().setVisible(true);
 			break;
 		}
 		case "usar_flecha_izquierda_tren":{			
+			vei.getTrenHorario().setVisible(true);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIda().setVisible(true);
 			break;
 		}
 		case "usar_flecha_derecha_bus":{
+			vei.getBusHorario().setVisible(true);
 			vei.getHorarioIdaBus().setVisible(false);
 			vei.getHorarioRegresoBus().setVisible(true);
 			break;
 		}
 		case "usar_flecha_izquierda_bus":{			
+			vei.getBusHorario().setVisible(true);
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(true);
 			break;
