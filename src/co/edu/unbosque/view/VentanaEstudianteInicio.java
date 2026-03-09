@@ -499,6 +499,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tNombre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tNombre.setForeground(Color.decode("#111d15"));
 		tNombre.setBackground(Color.decode("#e0ebe0"));
+		tNombre.setEditable(false);
 		tNombre.setBorder(null);
 		panelMiPerfil.add(tNombre);
 
@@ -513,6 +514,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tApellido.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tApellido.setForeground(Color.decode("#111d15"));
 		tApellido.setBackground(Color.decode("#e0ebe0"));
+		tApellido.setEditable(false);
 		tApellido.setBorder(null);
 		panelMiPerfil.add(tApellido);
 
@@ -527,6 +529,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tCorreo.setForeground(Color.decode("#111d15"));
 		tCorreo.setBackground(Color.decode("#e0ebe0"));
+		tCorreo.setEditable(false);
 		tCorreo.setBorder(null);
 		panelMiPerfil.add(tCorreo);
 		
@@ -541,6 +544,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tUsuario.setForeground(Color.decode("#111d15"));
 		tUsuario.setBackground(Color.decode("#e0ebe0"));
+		tUsuario.setEditable(false);
 		tUsuario.setBorder(null);
 		panelMiPerfil.add(tUsuario);
 
@@ -555,6 +559,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tDocumento.setForeground(Color.decode("#111d15"));
 		tDocumento.setBackground(Color.decode("#e0ebe0"));
+		tDocumento.setEditable(false);
 		tDocumento.setBorder(null);
 		panelMiPerfil.add(tDocumento);
 		
@@ -569,6 +574,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tTelefono.setForeground(Color.decode("#111d15"));
 		tTelefono.setBackground(Color.decode("#e0ebe0"));
+		tTelefono.setEditable(false);
 		tTelefono.setBorder(null);
 		panelMiPerfil.add(tTelefono);
 
@@ -583,6 +589,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tFacultad.setForeground(Color.decode("#111d15"));
 		tFacultad.setBackground(Color.decode("#e0ebe0"));
+		tFacultad.setEditable(false);
 		tFacultad.setBorder(null);
 		panelMiPerfil.add(tFacultad);
 		
@@ -597,6 +604,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tCarrera.setForeground(Color.decode("#111d15"));
 		tCarrera.setBackground(Color.decode("#e0ebe0"));
+		tCarrera.setEditable(false);
 		tCarrera.setBorder(null);
 		panelMiPerfil.add(tCarrera);
 
@@ -611,6 +619,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tSemestre.setForeground(Color.decode("#111d15"));
 		tSemestre.setBackground(Color.decode("#e0ebe0"));
+		tSemestre.setEditable(false);
 		tSemestre.setBorder(null);
 		panelMiPerfil.add(tSemestre);
 		
