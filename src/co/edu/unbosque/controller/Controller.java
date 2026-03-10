@@ -1,5 +1,6 @@
 package co.edu.unbosque.controller;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,6 +13,11 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
+import co.edu.unbosque.util.exception.EmptyDataException;
+import co.edu.unbosque.util.exception.LastNameException;
+import co.edu.unbosque.util.exception.NameException;
+import co.edu.unbosque.util.exception.NumericalDataException;
+import co.edu.unbosque.util.exception.OutRangeException;
 import co.edu.unbosque.view.VentanaAdminInicio;
 import co.edu.unbosque.view.VentanaDocenteInicio;
 import co.edu.unbosque.view.VentanaEstudianteInicio;
@@ -251,7 +257,7 @@ public class Controller implements ActionListener {
 		}
 		case "boton_guardar_cuenta":{
 			try {
-				String nombre = vr.gettNombre().getText();
+				String nombre = vr.gettNombre().getText();	
 				String apellido = vr.gettApellido().getText();
 				String correoInst = vr.gettCorreo().getText();
 				String nUsuario = vr.gettUsuario().getText();
@@ -260,6 +266,9 @@ public class Controller implements ActionListener {
 				String contrasena = vr.gettContrasena().getText();
 				String facultad = (String) vr.gettFacultad().getSelectedItem();
 				String rol = (String) vr.gettRol().getSelectedItem();
+				
+				verificarNombre(nombre);
+				verificarApellido(apellido);
 				
 				
 				if(rol.equalsIgnoreCase("Estudiante")) {
@@ -278,13 +287,13 @@ public class Controller implements ActionListener {
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
 				}
 				
-				javax.swing.JOptionPane.showMessageDialog(vr, "Cuenta creada exitosamente", "Registro completado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(vr, "Cuenta creada exitosamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
 				limpiarCampos();
 				vr.setVisible(false);
 				vi.setVisible(true);
 				
 			} catch (Exception e2) {
-				javax.swing.JOptionPane.showMessageDialog(vr, "Error al registrar cuenta. Verifique datos", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(vr, "Error al registrar cuenta. Verifique datos", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		}
@@ -345,9 +354,10 @@ public class Controller implements ActionListener {
 					vin.setVisible(false);
 					vai.setVisible(true);
 				}
+				throw new CredentialException("Error, usuario o contraseña incorrectos");
 				
 			} catch (CredentialException ex) {
-				javax.swing.JOptionPane.showMessageDialog(vin, "Ocurrio un error al iniciar sesion");
+				JOptionPane.showMessageDialog(vin, ex.getMessage(), "Error en credenciales", JOptionPane.ERROR_MESSAGE);
 			}
 			}
 		case "cerrar_sesion_estudiante": {
@@ -504,6 +514,73 @@ public class Controller implements ActionListener {
 		vei.gettCarrera().setText(estudianteActual.getCarrera());
 		vei.gettSemestre().setText(String.valueOf(estudianteActual.getSemestre()));
 		
+	}
+	/*
+	public static void ValidarCampoVacio (String valor, String nombreCampo) throws EmptyDataException {
+		if(valor == null || valor.equals("")) {
+			throw new EmptyDataException("El campo " + nombreCampo + " no puede estra vacio.");
+		}
+	}
+	
+	public static void validarDatoPositivo(String valor, String nombreCampo) throws OutRangeException, NumericalDataException {
+		if(valor == null || valor.equals("")) {
+			throw new NumericalDataException("El campo " + nombreCampo + " debe ser un numero entero positivo");
+		}
+		
+		try {
+			int numero = Integer.parseInt(valor);
+			if(numero <= 0) {
+				throw new OutRangeException("El campo " + nombreCampo + " debe ser mayor que cero"); 
+			}
+		} catch (NumberFormatException e) {
+			throw new NumericalDataException("El campo " + nombreCampo + " debe ser un numero entero");
+		}
+	}
+	
+	public static void validarLargoPositivo(String valor, String nombreCampo) throws NumericalDataException, OutRangeException {
+		if(valor == null || valor.equals("")) {
+			throw new NumericalDataException("El campo " + nombreCampo + " debe ser un numero valido");
+		}
+		try {
+			long numero = Long.parseLong(valor);
+			if(numero <= 0) {
+				throw new OutRangeException("El campo " + nombreCampo + " debe ser mayor a cero");
+			}
+		} catch (NumberFormatException e) {
+			throw new NumericalDataException("El campo " + nombreCampo + " debe ser un numero valido");
+		}
+	}
+	
+	public static void validarCorreo(String correo) throws EmptyDataException, OutRangeException {
+		if(correo == null || correo.equals("")) {
+			throw new EmptyDataException("El campo de correo institucional no puede estar vacio");
+		}
+		if(!correo.contains("@")) {
+			throw new OutRangeException("El correo institucional debe contener @");
+		}
+		if(!correo.contains("unbosque.edu.co")) {
+			throw new OutRangeException("El correo debe contener al final (unbosque.edu.co)");
+		}
+	}
+	
+	*/
+	
+	public static void verificarNombre(String name) throws NameException {
+		if (name == null || name.isEmpty()) {
+			throw new NameException();
+		}
+		if (!name.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$") || name.length() < 5) {
+			throw new NameException();
+		}
+	}
+	
+	public static void verificarApellido(String apellido) throws LastNameException {
+		if (apellido == null || apellido.isEmpty()) {
+			throw new LastNameException();
+		}
+		if (!apellido.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$") || apellido.length() < 5) {
+			throw new LastNameException();
+		}
 	}
 
 	public void iniciar() {
