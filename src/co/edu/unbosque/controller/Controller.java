@@ -13,11 +13,15 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
+import co.edu.unbosque.util.exception.ComboBoxException;
+import co.edu.unbosque.util.exception.EmailException;
 import co.edu.unbosque.util.exception.EmptyDataException;
 import co.edu.unbosque.util.exception.LastNameException;
 import co.edu.unbosque.util.exception.NameException;
+import co.edu.unbosque.util.exception.NickNameException;
 import co.edu.unbosque.util.exception.NumericalDataException;
 import co.edu.unbosque.util.exception.OutRangeException;
+import co.edu.unbosque.util.exception.RegisterPasswordException;
 import co.edu.unbosque.view.VentanaAdminInicio;
 import co.edu.unbosque.view.VentanaDocenteInicio;
 import co.edu.unbosque.view.VentanaEstudianteInicio;
@@ -269,21 +273,32 @@ public class Controller implements ActionListener {
 				
 				verificarNombre(nombre);
 				verificarApellido(apellido);
-				
+				verificarCorreo(correoInst);
+				verificarUsuario(nUsuario);
+				//verificar id
+				//veerificar correo
+				verificarContrasenaRegistrada(contrasena);
+				verificarComboBox(facultad);
+				verificarComboBox(rol);
 				
 				if(rol.equalsIgnoreCase("Estudiante")) {
 					
 					String carrera = vr.gettCarrera().getText();
 					int semestre = 	Integer.parseInt(vr.gettSemestre().getText());
+					
+					verificarComboBox(carrera);
+					//verificar semestre
 					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, carrera, semestre));
 					
 					
 				}else if(rol.equalsIgnoreCase("Docente")) {
 					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
+					//verificar materias
 					dDAO.crear(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, numeroMateria));
 					
 				}else if(rol.equalsIgnoreCase("Administrativo")) {
 					int annoServicio = Integer.parseInt(vr.gettAnnoServicio().getText());
+					//verificar experiencia
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad, rol, facultad, annoServicio));
 				}
 				
@@ -292,8 +307,8 @@ public class Controller implements ActionListener {
 				vr.setVisible(false);
 				vi.setVisible(true);
 				
-			} catch (Exception e2) {
-				JOptionPane.showMessageDialog(vr, "Error al registrar cuenta. Verifique datos", "ERROR", JOptionPane.ERROR_MESSAGE);
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(vr, "Error en el registro", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		}
@@ -582,6 +597,85 @@ public class Controller implements ActionListener {
 			throw new LastNameException();
 		}
 	}
+	
+	public static void verificarCorreo(String correo) throws EmailException {
+		if (correo == null || correo.isEmpty()) {
+			throw new EmailException();
+		}
+
+		if (correo.contains(" ")) {
+			throw new EmailException();
+		}
+
+		if (!correo.contains("@")) {
+			throw new EmailException();
+		}
+
+		if (correo.isEmpty() || !correo.matches("^[A-Za-z0-9._-]+$")) {
+			throw new EmailException();
+		}
+
+		if (!correo.matches("^[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+			throw new EmailException();
+		}
+
+		if (!correo.endsWith("unbosque.edu.co")) {
+			throw new EmailException();
+		}
+	}
+	
+	public static void verificarUsuario(String usuario) throws NickNameException {
+		if (usuario == null || usuario.isEmpty()) {
+			throw new NickNameException();
+		}
+		if (!usuario.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$") || usuario.length() < 5) {
+			throw new NickNameException();
+		}
+	}
+	
+	public static void verificarComboBox(String combo) throws ComboBoxException {
+		if (combo == null || combo.equals("...")) {
+			throw new ComboBoxException();
+		}
+	}
+	
+	public static void verificarContrasenaRegistrada(String contrasena) throws RegisterPasswordException {
+		if (contrasena == null || contrasena.isEmpty() || contrasena.length() < 10) {
+			throw new RegisterPasswordException();
+		}
+	}
+	
+/*
+	public static long verificarId(String id) throws IdException {
+
+		// 1. Validar nulo o vacío
+		if (idTexto == null || idTexto.equals("")) {
+			throw new IdException("El documento no puede estar vacío.");
+		}
+
+		// 2. Validar que tenga solo números (mínimo 1 dígito)
+		if (!idTexto.matches("^[0-9]+$")) {
+			throw new IdException("El documento debe contener solo números.");
+		}
+
+		// 3. Intentar parsear
+		try {
+			long id = Long.parseLong(idTexto);
+
+			// 4. Validar reglas adicionales si quieres (ejemplo: mínimo 5 dígitos)
+			if (id < 10000) {
+				throw new IdException("El documento debe tener al menos 5 dígitos.");
+			}
+
+			return id;
+
+		} catch (NumberFormatException e) {
+			throw new IdException("El número ingresado es demasiado grande para procesarlo.");
+		}
+	}
+*/
+	
+	
 
 	public void iniciar() {
 		vi.setVisible(true);
