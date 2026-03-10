@@ -108,11 +108,11 @@ public class Controller implements ActionListener {
 		vei.getFlechaDerechaUno().addActionListener(this);
 		vei.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren");
 		
-		vei.getFlechaIzquierdaUno().addActionListener(this);
-		vei.getFlechaIzquierdaUno().setActionCommand("usar_flecha_izquierda_tren");
+		/*vei.getFlechaIzquierdaUno().addActionListener(this);
+		vei.getFlechaIzquierdaUno().setActionCommand("usar_flecha_izquierda_tren");*/
 
-		vei.getFlechaDerechaDos().addActionListener(this);
-		vei.getFlechaDerechaDos().setActionCommand("usar_flecha_derecha_tren");
+		/*vei.getFlechaDerechaDos().addActionListener(this);
+		vei.getFlechaDerechaDos().setActionCommand("usar_flecha_derecha_tren");*/
 		
 		vei.getFlechaIzquierdaDos().addActionListener(this);
 		vei.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren");
@@ -121,11 +121,11 @@ public class Controller implements ActionListener {
 		vei.getFlechaDerUnoBus().addActionListener(this);
 		vei.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus");
 		
-		vei.getFlechaIzqUnoBus().addActionListener(this);
+		/*vei.getFlechaIzqUnoBus().addActionListener(this);
 		vei.getFlechaIzqUnoBus().setActionCommand("usar_flecha_izquierda_bus");
 
 		vei.getFlechaDerDosBus().addActionListener(this);
-		vei.getFlechaDerDosBus().setActionCommand("usar_flecha_derecha_bus");
+		vei.getFlechaDerDosBus().setActionCommand("usar_flecha_derecha_bus");*/
 		
 		vei.getFlechaIzqDosBus().addActionListener(this);
 		vei.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus");

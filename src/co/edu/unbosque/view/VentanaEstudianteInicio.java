@@ -363,23 +363,23 @@ public class VentanaEstudianteInicio extends JFrame {
 		flechaDerechaUno.setBorderPainted(false);
 		horarioIda.add(flechaDerechaUno);
 		
-		ImageIcon imagen2 = new ImageIcon(getClass().getResource("flechaatras.png"));
+		/*ImageIcon imagen2 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen2 = new JLabel(imagen2);
 		flechaIzquierdaUno = new JButton(imagen2);
 		flechaIzquierdaUno.setBackground(Color.WHITE);
 		flechaIzquierdaUno.setBounds(18, 5, 65, 66);
 		flechaIzquierdaUno.setFocusPainted(false);
 		flechaIzquierdaUno.setBorderPainted(false);
-		horarioIda.add(flechaIzquierdaUno);
+		horarioIda.add(flechaIzquierdaUno);*/
 		
-		ImageIcon imagen3 = new ImageIcon(getClass().getResource("flechaadelante.png"));
+		/*ImageIcon imagen3 = new ImageIcon(getClass().getResource("flechaadelante.png"));
 		JLabel labelImagen3 = new JLabel(imagen3);
 		flechaDerechaDos = new JButton(imagen3);
 		flechaDerechaDos.setBackground(Color.WHITE);
 		flechaDerechaDos.setBounds(700, 5, 63, 65);
 		flechaDerechaDos.setFocusPainted(false);
 		flechaDerechaDos.setBorderPainted(false);
-		horarioRegreso.add(flechaDerechaDos);
+		horarioRegreso.add(flechaDerechaDos);*/
 		
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen4 = new JLabel(imagen4);
@@ -453,23 +453,23 @@ public class VentanaEstudianteInicio extends JFrame {
 		flechaDerUnoBus.setBorderPainted(false);
 		horarioIdaBus.add(flechaDerUnoBus);
 		
-		ImageIcon imagen6 = new ImageIcon(getClass().getResource("flechaatras.png"));
+		/*ImageIcon imagen6 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen6 = new JLabel(imagen6);
 		flechaIzqUnoBus = new JButton(imagen6);
 		flechaIzqUnoBus.setBackground(Color.WHITE);
 		flechaIzqUnoBus.setBounds(18, 5, 65, 66);
 		flechaIzqUnoBus.setFocusPainted(false);
 		flechaIzqUnoBus.setBorderPainted(false);
-		horarioIdaBus.add(flechaIzqUnoBus);
+		horarioIdaBus.add(flechaIzqUnoBus);*/
 		
-		ImageIcon imagen7 = new ImageIcon(getClass().getResource("flechaadelante.png"));
+		/*ImageIcon imagen7 = new ImageIcon(getClass().getResource("flechaadelante.png"));
 		JLabel labelImagen7 = new JLabel(imagen7);
 		flechaDerDosBus = new JButton(imagen7);
 		flechaDerDosBus.setBackground(Color.WHITE);
 		flechaDerDosBus.setBounds(700, 5, 63, 65);
 		flechaDerDosBus.setFocusPainted(false);
 		flechaDerDosBus.setBorderPainted(false);
-		horarioRegresoBus.add(flechaDerDosBus);
+		horarioRegresoBus.add(flechaDerDosBus);*/
 		
 		ImageIcon imagen8 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen8 = new JLabel(imagen8);
