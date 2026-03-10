@@ -276,7 +276,7 @@ public class Controller implements ActionListener {
 				verificarCorreo(correoInst);
 				verificarUsuario(nUsuario);
 				//verificar id
-				//veerificar correo
+				//veerificar telefono
 				verificarContrasenaRegistrada(contrasena);
 				verificarComboBox(facultad);
 				verificarComboBox(rol);
@@ -307,8 +307,24 @@ public class Controller implements ActionListener {
 				vr.setVisible(false);
 				vi.setVisible(true);
 				
-			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(vr, "Error en el registro", "ERROR", JOptionPane.ERROR_MESSAGE);
+			} catch (RegisterPasswordException e1) {
+				JOptionPane.showMessageDialog(vr, "Contraseña no válida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.getStackTrace();
+			} catch (NameException e1) {
+				JOptionPane.showMessageDialog(vr, "Nombre no válido (Mal escrito).", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.getStackTrace();
+			} catch (LastNameException e1) {
+				JOptionPane.showMessageDialog(vr, "Apellido no válido (Mal escrito).", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
+			} catch (EmailException e1) {
+				JOptionPane.showMessageDialog(vr, "Correo institucional no válido.", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
+			} catch (NickNameException e1) {
+				JOptionPane.showMessageDialog(vr, "Usuario institucional no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
+			} catch (ComboBoxException e1) {
+				JOptionPane.showMessageDialog(vr, "Seleccion de combobox invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
 			}
 			break;
 		}
@@ -611,11 +627,11 @@ public class Controller implements ActionListener {
 			throw new EmailException();
 		}
 
-		if (correo.isEmpty() || !correo.matches("^[A-Za-z0-9._-]+$")) {
+		if (correo.isEmpty() || correo.matches("^[A-Za-z0-9._-]+$")) {
 			throw new EmailException();
 		}
 
-		if (!correo.matches("^[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+		if (correo.matches("^[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
 			throw new EmailException();
 		}
 

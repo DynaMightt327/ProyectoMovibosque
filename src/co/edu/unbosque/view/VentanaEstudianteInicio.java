@@ -363,24 +363,6 @@ public class VentanaEstudianteInicio extends JFrame {
 		flechaDerechaUno.setBorderPainted(false);
 		horarioIda.add(flechaDerechaUno);
 		
-		/*ImageIcon imagen2 = new ImageIcon(getClass().getResource("flechaatras.png"));
-		JLabel labelImagen2 = new JLabel(imagen2);
-		flechaIzquierdaUno = new JButton(imagen2);
-		flechaIzquierdaUno.setBackground(Color.WHITE);
-		flechaIzquierdaUno.setBounds(18, 5, 65, 66);
-		flechaIzquierdaUno.setFocusPainted(false);
-		flechaIzquierdaUno.setBorderPainted(false);
-		horarioIda.add(flechaIzquierdaUno);*/
-		
-		/*ImageIcon imagen3 = new ImageIcon(getClass().getResource("flechaadelante.png"));
-		JLabel labelImagen3 = new JLabel(imagen3);
-		flechaDerechaDos = new JButton(imagen3);
-		flechaDerechaDos.setBackground(Color.WHITE);
-		flechaDerechaDos.setBounds(700, 5, 63, 65);
-		flechaDerechaDos.setFocusPainted(false);
-		flechaDerechaDos.setBorderPainted(false);
-		horarioRegreso.add(flechaDerechaDos);*/
-		
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen4 = new JLabel(imagen4);
 		flechaIzquierdaDos = new JButton(imagen4);
@@ -452,25 +434,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		flechaDerUnoBus.setFocusPainted(false);
 		flechaDerUnoBus.setBorderPainted(false);
 		horarioIdaBus.add(flechaDerUnoBus);
-		
-		/*ImageIcon imagen6 = new ImageIcon(getClass().getResource("flechaatras.png"));
-		JLabel labelImagen6 = new JLabel(imagen6);
-		flechaIzqUnoBus = new JButton(imagen6);
-		flechaIzqUnoBus.setBackground(Color.WHITE);
-		flechaIzqUnoBus.setBounds(18, 5, 65, 66);
-		flechaIzqUnoBus.setFocusPainted(false);
-		flechaIzqUnoBus.setBorderPainted(false);
-		horarioIdaBus.add(flechaIzqUnoBus);*/
-		
-		/*ImageIcon imagen7 = new ImageIcon(getClass().getResource("flechaadelante.png"));
-		JLabel labelImagen7 = new JLabel(imagen7);
-		flechaDerDosBus = new JButton(imagen7);
-		flechaDerDosBus.setBackground(Color.WHITE);
-		flechaDerDosBus.setBounds(700, 5, 63, 65);
-		flechaDerDosBus.setFocusPainted(false);
-		flechaDerDosBus.setBorderPainted(false);
-		horarioRegresoBus.add(flechaDerDosBus);*/
-		
+
 		ImageIcon imagen8 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen8 = new JLabel(imagen8);
 		flechaIzqDosBus = new JButton(imagen8);
@@ -489,13 +453,13 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(dato);
 		
 		nombre = new JLabel("Nombre:");
-		nombre.setBounds(30, 90, 150, 25);
+		nombre.setBounds(30, 90, 80, 25);
 		nombre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		nombre.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(nombre);
 
 		tNombre = new JTextField();
-		tNombre.setBounds(200, 90, 164, 25);
+		tNombre.setBounds(85, 90, 290, 25);
 		tNombre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tNombre.setForeground(Color.decode("#111d15"));
 		tNombre.setBackground(Color.decode("#e0ebe0"));
@@ -504,13 +468,13 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(tNombre);
 
 		apellido = new JLabel("Apellidos:");
-		apellido.setBounds(30, 130, 150, 25);
+		apellido.setBounds(30, 130, 80, 25);
 		apellido.setFont(new Font("Agency FB", Font.BOLD, 20));
 		apellido.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(apellido);
 		
 		tApellido = new JTextField();
-		tApellido.setBounds(200, 130, 164, 25);
+		tApellido.setBounds(88, 130, 290, 25);
 		tApellido.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tApellido.setForeground(Color.decode("#111d15"));
 		tApellido.setBackground(Color.decode("#e0ebe0"));
@@ -525,7 +489,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(correo);
 
 		tCorreo = new JTextField();
-		tCorreo.setBounds(200, 160, 164, 25);
+		tCorreo.setBounds(157, 160, 215, 25);
 		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tCorreo.setForeground(Color.decode("#111d15"));
 		tCorreo.setBackground(Color.decode("#e0ebe0"));
@@ -540,7 +504,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(usuario);
 
 		tUsuario = new JTextField();
-		tUsuario.setBounds(200, 200, 164, 25);
+		tUsuario.setBounds(162, 200, 215, 25);
 		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tUsuario.setForeground(Color.decode("#111d15"));
 		tUsuario.setBackground(Color.decode("#e0ebe0"));
@@ -555,7 +519,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(documento);
 
 		tDocumento = new JTextField();
-		tDocumento.setBounds(200, 240, 164, 25);
+		tDocumento.setBounds(175, 240, 215, 25);
 		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tDocumento.setForeground(Color.decode("#111d15"));
 		tDocumento.setBackground(Color.decode("#e0ebe0"));
@@ -570,7 +534,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(telefono);
 
 		tTelefono = new JTextField();
-		tTelefono.setBounds(200, 280, 164, 25);
+		tTelefono.setBounds(160, 280, 228, 25);
 		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tTelefono.setForeground(Color.decode("#111d15"));
 		tTelefono.setBackground(Color.decode("#e0ebe0"));
@@ -585,7 +549,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(facultad);
 		
 		tFacultad = new JTextField();
-		tFacultad.setBounds(200, 320, 164, 25);
+		tFacultad.setBounds(90, 320, 290, 25);
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tFacultad.setForeground(Color.decode("#111d15"));
 		tFacultad.setBackground(Color.decode("#e0ebe0"));
@@ -600,7 +564,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(carrera);
 
 		tCarrera = new JTextField();
-		tCarrera.setBounds(200, 360, 164, 25);
+		tCarrera.setBounds(90, 360, 290, 25);
 		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tCarrera.setForeground(Color.decode("#111d15"));
 		tCarrera.setBackground(Color.decode("#e0ebe0"));
@@ -615,7 +579,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.add(semestre);
 		
 		tSemestre = new JTextField();
-		tSemestre.setBounds(200, 400, 164, 25);
+		tSemestre.setBounds(95, 400, 290, 25);
 		tSemestre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tSemestre.setForeground(Color.decode("#111d15"));
 		tSemestre.setBackground(Color.decode("#e0ebe0"));
