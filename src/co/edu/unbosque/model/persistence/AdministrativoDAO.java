@@ -68,5 +68,15 @@ public class AdministrativoDAO implements DAO<Administrativo>{
 	public void setListaAdmins(ArrayList<Administrativo> listaAdmins) {
 		this.listaAdmins = listaAdmins;
 	}
+	
+	
+	public Administrativo buscarPorCredencial(String nUsuario, String contrasena) {
+		for(Administrativo administrativo  : listaAdmins) {
+			if(administrativo.getnUsuario().equals(nUsuario) && administrativo.getContrasena().equals(contrasena)) {
+				return administrativo;
+			}
+		}
+		return null;
+	}
 
 }

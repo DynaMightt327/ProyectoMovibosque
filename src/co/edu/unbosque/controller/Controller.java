@@ -333,7 +333,18 @@ public class Controller implements ActionListener {
 					break;
 				}
 				
-				//Administrativo administrativo = aDAO.
+				Administrativo administrativo =aDAO.buscarPorCredencial(usuario, contrasena);
+				
+				if(administrativo != null) {
+					if(!administrativo.getRol().equalsIgnoreCase("Administrativo")) {
+						throw new CredentialException("El usuario no pertenece a administrativo");
+					}
+					
+					adminActual = administrativo;
+					
+					vin.setVisible(false);
+					vai.setVisible(true);
+				}
 				
 			} catch (CredentialException ex) {
 				javax.swing.JOptionPane.showMessageDialog(vin, "Ocurrio un error al iniciar sesion");
