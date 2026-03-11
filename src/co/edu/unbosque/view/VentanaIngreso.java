@@ -65,7 +65,7 @@ public class VentanaIngreso extends JFrame {
 
 		tUsuario = new JTextField();
 		tUsuario.setBounds(650, 280, 180, 35);
-		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 15));
+		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tUsuario.setForeground(Color.decode("#18093E"));
 		tUsuario.setBackground(Color.decode("#f2f7f3"));
 		tUsuario.setBorder(null);
@@ -73,7 +73,7 @@ public class VentanaIngreso extends JFrame {
 
 		tContrasena = new JPasswordField();
 		tContrasena.setBounds(650, 380, 180, 35);
-		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 15));
+		tContrasena.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tContrasena.setForeground(Color.decode("#18093E"));
 		tContrasena.setBackground(Color.decode("#f2f7f3"));
 		tContrasena.setBorder(null);

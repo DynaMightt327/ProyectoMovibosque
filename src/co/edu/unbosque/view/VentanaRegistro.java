@@ -31,7 +31,7 @@ public class VentanaRegistro extends JFrame {
 	private JLabel semestre;
 	private JLabel numMateria;
 	private JLabel annoServicio;
-	
+
 	private JLabel background;
 
 	private JTextField tNombre;
@@ -43,7 +43,7 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField tContrasena;
 	private JComboBox<String> tFacultad;
 	private JComboBox<String> tRol;
-	private JTextField tCarrera;
+	private JComboBox<String> tCarrera;
 	private JTextField tSemestre;
 	private JTextField tNumMateria;
 	private JTextField tAnnoServicio;
@@ -71,8 +71,8 @@ public class VentanaRegistro extends JFrame {
 		background.setBounds(0, 0, 980, 680);
 		background.setLayout(null);
 		add(background);
-		
-		//==PANEL==
+
+		// ==PANEL==
 		panelCentral = new JPanel();
 		panelCentral.setLayout(null);
 		panelCentral.setBounds(20, 20, 490, 600);
@@ -80,7 +80,6 @@ public class VentanaRegistro extends JFrame {
 		panelCentral.setBackground(new Color(152, 189, 160, 180));
 		// panelCentral.setOpaque(false); -> por alguna razón, no me funciona bien? :|
 		background.add(panelCentral);
-
 
 		// ==LABELS==
 
@@ -149,7 +148,7 @@ public class VentanaRegistro extends JFrame {
 		carrera.setFont(new Font("Agency FB", Font.BOLD, 22));
 		carrera.setForeground(Color.decode("#111d15"));
 		panelCentral.add(carrera);
-		
+
 		numMateria = new JLabel("Número de materias:");
 		numMateria.setBounds(270, 420, 150, 30);
 		numMateria.setFont(new Font("Agency FB", Font.BOLD, 22));
@@ -225,8 +224,7 @@ public class VentanaRegistro extends JFrame {
 		tContrasena.setBorder(null);
 		panelCentral.add(tContrasena);
 
-		tFacultad = new JComboBox<String>(
-				new String[] { "...", "Ingeniería", "Medicina", "Artes", "Matemáticas", "Otra" });
+		tFacultad = new JComboBox<String>(new String[] { "...", "Ingeniería", "Medicina", "Artes", "Matemáticas" });
 		tFacultad.setBounds(270, 370, 164, 32);
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tFacultad.setForeground(Color.decode("#111d15"));
@@ -242,7 +240,10 @@ public class VentanaRegistro extends JFrame {
 		tRol.setBorder(null);
 		panelCentral.add(tRol);
 
-		tCarrera = new JTextField();
+		tCarrera = new JComboBox<String>(new String[] { "...", "Arte dramático", "Artes Plásticas", "Arquitectura",
+				"Bioingeniería", "Creación digital", "Diseño de comunicación", "Diseño industrial", "Formación musical",
+				"Ingeniería ambiental", "Ingeniería de sistemas", "Ingeniería electrónica", "Ingeniería industrial",
+				"Instrumentación quirúrgica", "Ingeniería robótica", "Medicina", "Optometría" });
 		tCarrera.setBounds(270, 450, 164, 32);
 		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCarrera.setForeground(Color.decode("#111d15"));
@@ -265,7 +266,7 @@ public class VentanaRegistro extends JFrame {
 		tSemestre.setBackground(Color.decode("#e0ebe0"));
 		tSemestre.setBorder(null);
 		panelCentral.add(tSemestre);
-		
+
 		tAnnoServicio = new JTextField();
 		tAnnoServicio.setBounds(270, 450, 164, 32);
 		tAnnoServicio.setFont(new Font("Agency FB", Font.BOLD, 18));
@@ -487,11 +488,12 @@ public class VentanaRegistro extends JFrame {
 		this.semestre = semestre;
 	}
 
-	public JTextField gettCarrera() {
+
+	public JComboBox<String> gettCarrera() {
 		return tCarrera;
 	}
 
-	public void settCarrera(JTextField tCarrera) {
+	public void settCarrera(JComboBox<String> tCarrera) {
 		this.tCarrera = tCarrera;
 	}
 
@@ -539,5 +541,4 @@ public class VentanaRegistro extends JFrame {
 		this.tAnnoServicio = tAnnoServicio;
 	}
 
-	
 }

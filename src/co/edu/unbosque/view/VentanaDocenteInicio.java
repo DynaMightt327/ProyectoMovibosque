@@ -15,16 +15,16 @@ import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
-public class VentanaDocenteInicio extends JFrame{
-	
+public class VentanaDocenteInicio extends JFrame {
+
 	private JLabel titulo;
 	private JLabel mensaje;
 	private JLabel lTren;
 	private JLabel lBus;
 	private JLabel lMiReserva;
-	
+
 	private JTextArea tMensaje;
-	
+
 	private JPanel menuBar;
 	private JPanel panelPrincipal;
 	private JPanel panelSuperior;
@@ -32,24 +32,24 @@ public class VentanaDocenteInicio extends JFrame{
 	private JPanel panelDos;
 	private JPanel panelTres;
 	private JPanel panelCuatro;
-	
-	//tren
+
+	// tren
 	private JPanel horarioIda;
 	private JPanel horarioRegreso;
 	private JButton flechaDerechaUno;
 	private JButton flechaIzquierdaUno;
 	private JButton flechaDerechaDos;
 	private JButton flechaIzquierdaDos;
-	
-	//bus
+
+	// bus
 	private JPanel horarioIdaBus;
 	private JPanel horarioRegresoBus;
 	private JButton flechaDerUnoBus;
 	private JButton flechaIzqUnoBus;
 	private JButton flechaDerDosBus;
 	private JButton flechaIzqDosBus;
-	
-	//mi perfil
+
+	// mi perfil
 	private JPanel panelMiPerfil;
 	private JLabel dato;
 	private JLabel nombre;
@@ -68,9 +68,8 @@ public class VentanaDocenteInicio extends JFrame{
 	private JTextField tTelefono;
 	private JTextField tFacultad;
 	private JTextField tNumeroMateria;
-	
-	
-	//reservas
+
+	// reservas
 	private JPanel panelReserva;
 	private JPanel panelRuta;
 	private JPanel infoCosto;
@@ -91,8 +90,8 @@ public class VentanaDocenteInicio extends JFrame{
 	private JPanel calendario;
 	private JDateChooser calendar;
 	private JTextField plata;
-	
-	//botones de la barra lateral
+
+	// botones de la barra lateral
 	private JButton inicio;
 	private JButton tren;
 	private JButton bTren;
@@ -101,12 +100,12 @@ public class VentanaDocenteInicio extends JFrame{
 	private JButton perfil;
 	private JButton reserva;
 	private JButton salir;
-	
+
 	public VentanaDocenteInicio() {
 		setVisible(false);
 		initComp();
 	}
-	
+
 	public void initComp() {
 		// CONFIGURACION DE LA VENTANA
 		this.setTitle("MoviBosque - Ventana principal de docente");
@@ -137,8 +136,8 @@ public class VentanaDocenteInicio extends JFrame{
 		panelMiPerfil.setBackground(Color.decode("#ffffff"));
 		panelMiPerfil.setVisible(false);
 		add(panelMiPerfil);
-		
-		//===============
+
+		// ===============
 
 		panelReserva = new JPanel();
 		panelReserva.setLayout(null);
@@ -146,8 +145,8 @@ public class VentanaDocenteInicio extends JFrame{
 		panelReserva.setBackground(Color.decode("#ffffff"));
 		panelReserva.setVisible(false);
 		add(panelReserva);
-		
-		//===============================
+
+		// ===============================
 		panelSuperior = new JPanel();
 		panelSuperior.setLayout(null);
 		panelSuperior.setBounds(180, 18, 760, 150);
@@ -165,20 +164,20 @@ public class VentanaDocenteInicio extends JFrame{
 		panelDos.setBounds(180, 365, 220, 260);
 		panelDos.setBackground(Color.decode("#ffffff"));
 		panelPrincipal.add(panelDos);
-		
+
 		panelTres = new JPanel();
 		panelTres.setLayout(null);
 		panelTres.setBounds(420, 365, 220, 260);
 		panelTres.setBackground(Color.decode("#ffffff"));
 		panelPrincipal.add(panelTres);
-		
+
 		panelCuatro = new JPanel();
 		panelCuatro.setLayout(null);
 		panelCuatro.setBounds(660, 185, 274, 440);
 		panelCuatro.setBackground(Color.decode("#ffffff"));
 		panelPrincipal.add(panelCuatro);
-		
-		//LABELS
+
+		// LABELS
 
 		titulo = new JLabel("Bienvenido, docente :D");
 		titulo.setBounds(20, 50, 650, 55);
@@ -191,36 +190,36 @@ public class VentanaDocenteInicio extends JFrame{
 		mensaje.setForeground(Color.BLACK);
 		mensaje.setFont(new Font("Arial", Font.BOLD, 16));
 		panelUno.add(mensaje);
-		
+
 		lTren = new JLabel("Horarios del tren");
 		lTren.setBounds(45, 227, 250, 20);
 		lTren.setForeground(Color.BLACK);
 		lTren.setFont(new Font("Arial", Font.BOLD, 16));
 		panelDos.add(lTren);
-		
+
 		lBus = new JLabel("Horarios de buses");
 		lBus.setBounds(40, 227, 250, 20);
 		lBus.setForeground(Color.BLACK);
 		lBus.setFont(new Font("Arial", Font.BOLD, 16));
 		panelTres.add(lBus);
-		
+
 		lMiReserva = new JLabel("Mis Reservas");
 		lMiReserva.setBounds(90, 10, 250, 20);
 		lMiReserva.setForeground(Color.BLACK);
 		lMiReserva.setFont(new Font("Arial", Font.BOLD, 16));
 		panelCuatro.add(lMiReserva);
-		
-		//TEXT AREA
-		
+
+		// TEXT AREA
+
 		tMensaje = new JTextArea(" No hay actualizaciones. El sistema de transporte está funcionando con\n normalidad");
 		tMensaje.setBounds(15, 45, 428, 100);
 		tMensaje.setBackground(Color.decode("#e0ebe0"));
 		tMensaje.setEditable(false);
 		panelUno.add(tMensaje);
-		
-		//BOTONES
-				
-		inicio = new JButton("Home");
+
+		// BOTONES
+
+		inicio = new JButton("Inicio");
 		inicio.setBounds(31, 50, 80, 25);
 		inicio.setFont(new Font("Agency FB", Font.BOLD, 20));
 		inicio.setForeground(Color.decode("#ffffff"));
@@ -256,7 +255,7 @@ public class VentanaDocenteInicio extends JFrame{
 		bus.setBorderPainted(false);
 		bus.setFocusPainted(false);
 		menuBar.add(bus);
-		
+
 		ImageIcon imagen = new ImageIcon(getClass().getResource("bus.png"));
 		JLabel labelImagen = new JLabel(imagen);
 		bBus = new JButton(imagen);
@@ -265,7 +264,7 @@ public class VentanaDocenteInicio extends JFrame{
 		bBus.setBackground(Color.decode("#ffffff"));
 		bBus.setBorderPainted(false);
 		bBus.setFocusPainted(false);
-		panelTres.add(bBus);		
+		panelTres.add(bBus);
 
 		perfil = new JButton("Mi Perfil");
 		perfil.setBounds(23, 350, 100, 25);
@@ -293,8 +292,8 @@ public class VentanaDocenteInicio extends JFrame{
 		salir.setBorderPainted(false);
 		salir.setFocusPainted(false);
 		menuBar.add(salir);
-		
-		//==TODO LO DEL TREN==
+
+		// ==TODO LO DEL TREN==
 		horarioIda = new JPanel();
 		horarioIda.setLayout(null);
 		horarioIda.setBounds(175, 140, 772, 485);
@@ -308,8 +307,8 @@ public class VentanaDocenteInicio extends JFrame{
 		horarioRegreso.setBackground(Color.decode("#f2efe5"));
 		horarioRegreso.setVisible(false);
 		add(horarioRegreso);
-		
-		//==IMAGENES==
+
+		// ==IMAGENES==
 		ImageIcon imageLogo = new ImageIcon(getClass().getResource("horariotren.JPG"));
 		JLabel lIcon = new JLabel(imageLogo);
 		lIcon.setBounds(40, 50, 692, 435);
@@ -330,7 +329,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaDerechaUno.setFocusPainted(false);
 		flechaDerechaUno.setBorderPainted(false);
 		horarioIda.add(flechaDerechaUno);
-		
+
 		ImageIcon imagen2 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen2 = new JLabel(imagen2);
 		flechaIzquierdaUno = new JButton(imagen2);
@@ -339,7 +338,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaIzquierdaUno.setFocusPainted(false);
 		flechaIzquierdaUno.setBorderPainted(false);
 		horarioIda.add(flechaIzquierdaUno);
-		
+
 		ImageIcon imagen3 = new ImageIcon(getClass().getResource("flechaadelante.png"));
 		JLabel labelImagen3 = new JLabel(imagen3);
 		flechaDerechaDos = new JButton(imagen3);
@@ -348,7 +347,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaDerechaDos.setFocusPainted(false);
 		flechaDerechaDos.setBorderPainted(false);
 		horarioRegreso.add(flechaDerechaDos);
-		
+
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen4 = new JLabel(imagen4);
 		flechaIzquierdaDos = new JButton(imagen4);
@@ -358,7 +357,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaIzquierdaDos.setBorderPainted(false);
 		horarioRegreso.add(flechaIzquierdaDos);
 
-		//==TODO LO DEL BUS==
+		// ==TODO LO DEL BUS==
 		horarioIdaBus = new JPanel();
 		horarioIdaBus.setLayout(null);
 		horarioIdaBus.setBounds(175, 140, 772, 485);
@@ -372,8 +371,8 @@ public class VentanaDocenteInicio extends JFrame{
 		horarioRegresoBus.setBackground(Color.decode("#f2efe5"));
 		horarioRegresoBus.setVisible(false);
 		add(horarioRegresoBus);
-		
-		//==IMAGENES==
+
+		// ==IMAGENES==
 		ImageIcon imageLogo5 = new ImageIcon(getClass().getResource("horariobus.JPG"));
 		JLabel lIcon5 = new JLabel(imageLogo5);
 		lIcon5.setBounds(40, 50, 692, 435);
@@ -394,7 +393,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaDerUnoBus.setFocusPainted(false);
 		flechaDerUnoBus.setBorderPainted(false);
 		horarioIdaBus.add(flechaDerUnoBus);
-		
+
 		ImageIcon imagen6 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen6 = new JLabel(imagen6);
 		flechaIzqUnoBus = new JButton(imagen6);
@@ -403,7 +402,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaIzqUnoBus.setFocusPainted(false);
 		flechaIzqUnoBus.setBorderPainted(false);
 		horarioIdaBus.add(flechaIzqUnoBus);
-		
+
 		ImageIcon imagen7 = new ImageIcon(getClass().getResource("flechaadelante.png"));
 		JLabel labelImagen7 = new JLabel(imagen7);
 		flechaDerDosBus = new JButton(imagen7);
@@ -412,7 +411,7 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaDerDosBus.setFocusPainted(false);
 		flechaDerDosBus.setBorderPainted(false);
 		horarioRegresoBus.add(flechaDerDosBus);
-		
+
 		ImageIcon imagen8 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen8 = new JLabel(imagen8);
 		flechaIzqDosBus = new JButton(imagen8);
@@ -421,15 +420,15 @@ public class VentanaDocenteInicio extends JFrame{
 		flechaIzqDosBus.setFocusPainted(false);
 		flechaIzqDosBus.setBorderPainted(false);
 		horarioRegresoBus.add(flechaIzqDosBus);
-		
-		//==TODO LO DE MI PERFIL==
-		
+
+		// ==TODO LO DE MI PERFIL==
+
 		dato = new JLabel("Mi información");
 		dato.setBounds(95, 20, 250, 35);
 		dato.setForeground(Color.BLACK);
 		dato.setFont(new Font("Arial", Font.BOLD, 30));
 		panelMiPerfil.add(dato);
-		
+
 		nombre = new JLabel("Nombre:");
 		nombre.setBounds(30, 90, 150, 25);
 		nombre.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -449,7 +448,7 @@ public class VentanaDocenteInicio extends JFrame{
 		apellido.setFont(new Font("Agency FB", Font.BOLD, 20));
 		apellido.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(apellido);
-		
+
 		tApellido = new JTextField();
 		tApellido.setBounds(200, 130, 164, 25);
 		tApellido.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -471,7 +470,7 @@ public class VentanaDocenteInicio extends JFrame{
 		tCorreo.setBackground(Color.decode("#e0ebe0"));
 		tCorreo.setBorder(null);
 		panelMiPerfil.add(tCorreo);
-		
+
 		usuario = new JLabel("Usuario Institucional:");
 		usuario.setBounds(30, 200, 150, 25);
 		usuario.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -499,7 +498,7 @@ public class VentanaDocenteInicio extends JFrame{
 		tDocumento.setBackground(Color.decode("#e0ebe0"));
 		tDocumento.setBorder(null);
 		panelMiPerfil.add(tDocumento);
-		
+
 		telefono = new JLabel("Número de teléfono:");
 		telefono.setBounds(30, 280, 150, 25);
 		telefono.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -519,7 +518,7 @@ public class VentanaDocenteInicio extends JFrame{
 		facultad.setFont(new Font("Agency FB", Font.BOLD, 20));
 		facultad.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(facultad);
-		
+
 		tFacultad = new JTextField();
 		tFacultad.setBounds(200, 320, 164, 25);
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -527,7 +526,7 @@ public class VentanaDocenteInicio extends JFrame{
 		tFacultad.setBackground(Color.decode("#e0ebe0"));
 		tFacultad.setBorder(null);
 		panelMiPerfil.add(tFacultad);
-		
+
 		numeroMateria = new JLabel("Cantidad de materias:");
 		numeroMateria.setBounds(30, 360, 150, 25);
 		numeroMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -542,20 +541,21 @@ public class VentanaDocenteInicio extends JFrame{
 		tNumeroMateria.setBorder(null);
 		panelMiPerfil.add(tNumeroMateria);
 
-		//==TODO LO DE RESERVAS==
-		
+		// ==TODO LO DE RESERVAS==
+
 		tituloReserva = new JLabel("Nueva Reserva");
 		tituloReserva.setBounds(95, 20, 250, 38);
 		tituloReserva.setForeground(Color.BLACK);
 		tituloReserva.setFont(new Font("Arial", Font.BOLD, 35));
 		panelReserva.add(tituloReserva);
 
-		info = new JTextArea("*Recuerde llegar 10 minutos antes de la hora \nde la reservación y presentar la captura de esta. \nNo puede reservar sin pagar :)");
+		info = new JTextArea(
+				"*Recuerde llegar 10 minutos antes de la hora \nde la reservación y presentar la captura de esta. \nNo puede reservar sin pagar :)");
 		info.setBounds(490, 558, 250, 40);
 		info.setForeground(Color.BLACK);
 		info.setFont(new Font("Arial", Font.BOLD, 10));
 		panelReserva.add(info);
-		
+
 		transporte = new JLabel("Tipo transporte");
 		transporte.setBounds(45, 70, 250, 20);
 		transporte.setForeground(Color.BLACK);
@@ -567,7 +567,7 @@ public class VentanaDocenteInicio extends JFrame{
 		transporte.setForeground(Color.BLACK);
 		transporte.setFont(new Font("Arial", Font.BOLD, 18));
 		panelReserva.add(transporte);
-		
+
 		rBus = new JRadioButton("Bus");
 		rBus.setBounds(50, 100, 120, 25);
 		rBus.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -576,7 +576,7 @@ public class VentanaDocenteInicio extends JFrame{
 		rBus.setBorderPainted(false);
 		rBus.setFocusPainted(false);
 		panelReserva.add(rBus);
-		
+
 		rTren = new JRadioButton("Tren");
 		rTren.setBounds(50, 140, 120, 25);
 		rTren.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -594,7 +594,7 @@ public class VentanaDocenteInicio extends JFrame{
 		rUsaquen.setBorderPainted(false);
 		rUsaquen.setFocusPainted(false);
 		panelReserva.add(rUsaquen);
-		
+
 		rChia = new JRadioButton("Chía - Usaquen");
 		rChia.setBounds(230, 140, 180, 25);
 		rChia.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -603,27 +603,27 @@ public class VentanaDocenteInicio extends JFrame{
 		rChia.setBorderPainted(false);
 		rChia.setFocusPainted(false);
 		panelReserva.add(rChia);
-		
+
 		grupoTransporte = new ButtonGroup();
 		grupoTransporte.add(rBus);
 		grupoTransporte.add(rTren);
-		
+
 		grupoRuta = new ButtonGroup();
 		grupoTransporte.add(rUsaquen);
 		grupoTransporte.add(rChia);
-		
+
 		calendario = new JPanel();
 		calendario.setLayout(null);
 		calendario.setBounds(490, 50, 235, 260);
 		calendario.setBackground(Color.decode("#99bc9f"));
 		panelReserva.add(calendario);
-		
+
 		fecha = new JLabel("Seleccione la fecha del viaje");
 		fecha.setBounds(12, 18, 250, 20);
 		fecha.setForeground(Color.BLACK);
 		fecha.setFont(new Font("Arial", Font.BOLD, 15));
 		calendario.add(fecha);
-		
+
 		calendar = new JDateChooser();
 		calendar.setBounds(32, 48, 180, 30);
 		calendar.setBackground(Color.decode("#e0ebe0"));
@@ -634,7 +634,7 @@ public class VentanaDocenteInicio extends JFrame{
 		panelRuta.setBounds(20, 180, 430, 410);
 		panelRuta.setBackground(Color.decode("#99bc9f"));
 		panelReserva.add(panelRuta);
-		
+
 		infoCosto = new JPanel();
 		infoCosto.setLayout(null);
 		infoCosto.setBounds(490, 340, 235, 140);
@@ -646,7 +646,7 @@ public class VentanaDocenteInicio extends JFrame{
 		costo.setForeground(Color.BLACK);
 		costo.setFont(new Font("Arial", Font.BOLD, 17));
 		infoCosto.add(costo);
-		
+
 		plata = new JTextField();
 		plata.setBounds(60, 57, 120, 50);
 		plata.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -654,7 +654,7 @@ public class VentanaDocenteInicio extends JFrame{
 		plata.setBackground(Color.decode("#e0ebe0"));
 		plata.setBorder(null);
 		infoCosto.add(plata);
-		
+
 		pagar = new JButton("Pagar y reservar");
 		pagar.setBounds(535, 505, 150, 45);
 		pagar.setFont(new Font("Agency FB", Font.BOLD, 20));
@@ -665,5 +665,568 @@ public class VentanaDocenteInicio extends JFrame{
 		panelReserva.add(pagar);
 	}
 
+	public JLabel getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(JLabel titulo) {
+		this.titulo = titulo;
+	}
+
+	public JLabel getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(JLabel mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public JLabel getlTren() {
+		return lTren;
+	}
+
+	public void setlTren(JLabel lTren) {
+		this.lTren = lTren;
+	}
+
+	public JLabel getlBus() {
+		return lBus;
+	}
+
+	public void setlBus(JLabel lBus) {
+		this.lBus = lBus;
+	}
+
+	public JLabel getlMiReserva() {
+		return lMiReserva;
+	}
+
+	public void setlMiReserva(JLabel lMiReserva) {
+		this.lMiReserva = lMiReserva;
+	}
+
+	public JTextArea gettMensaje() {
+		return tMensaje;
+	}
+
+	public void settMensaje(JTextArea tMensaje) {
+		this.tMensaje = tMensaje;
+	}
+
+	public void setMenuBar(JPanel menuBar) {
+		this.menuBar = menuBar;
+	}
+
+	public JPanel getPanelPrincipal() {
+		return panelPrincipal;
+	}
+
+	public void setPanelPrincipal(JPanel panelPrincipal) {
+		this.panelPrincipal = panelPrincipal;
+	}
+
+	public JPanel getPanelSuperior() {
+		return panelSuperior;
+	}
+
+	public void setPanelSuperior(JPanel panelSuperior) {
+		this.panelSuperior = panelSuperior;
+	}
+
+	public JPanel getPanelUno() {
+		return panelUno;
+	}
+
+	public void setPanelUno(JPanel panelUno) {
+		this.panelUno = panelUno;
+	}
+
+	public JPanel getPanelDos() {
+		return panelDos;
+	}
+
+	public void setPanelDos(JPanel panelDos) {
+		this.panelDos = panelDos;
+	}
+
+	public JPanel getPanelTres() {
+		return panelTres;
+	}
+
+	public void setPanelTres(JPanel panelTres) {
+		this.panelTres = panelTres;
+	}
+
+	public JPanel getPanelCuatro() {
+		return panelCuatro;
+	}
+
+	public void setPanelCuatro(JPanel panelCuatro) {
+		this.panelCuatro = panelCuatro;
+	}
+
+	public JPanel getHorarioIda() {
+		return horarioIda;
+	}
+
+	public void setHorarioIda(JPanel horarioIda) {
+		this.horarioIda = horarioIda;
+	}
+
+	public JPanel getHorarioRegreso() {
+		return horarioRegreso;
+	}
+
+	public void setHorarioRegreso(JPanel horarioRegreso) {
+		this.horarioRegreso = horarioRegreso;
+	}
+
+	public JButton getFlechaDerechaUno() {
+		return flechaDerechaUno;
+	}
+
+	public void setFlechaDerechaUno(JButton flechaDerechaUno) {
+		this.flechaDerechaUno = flechaDerechaUno;
+	}
+
+	public JButton getFlechaIzquierdaUno() {
+		return flechaIzquierdaUno;
+	}
+
+	public void setFlechaIzquierdaUno(JButton flechaIzquierdaUno) {
+		this.flechaIzquierdaUno = flechaIzquierdaUno;
+	}
+
+	public JButton getFlechaDerechaDos() {
+		return flechaDerechaDos;
+	}
+
+	public void setFlechaDerechaDos(JButton flechaDerechaDos) {
+		this.flechaDerechaDos = flechaDerechaDos;
+	}
+
+	public JButton getFlechaIzquierdaDos() {
+		return flechaIzquierdaDos;
+	}
+
+	public void setFlechaIzquierdaDos(JButton flechaIzquierdaDos) {
+		this.flechaIzquierdaDos = flechaIzquierdaDos;
+	}
+
+	public JPanel getHorarioIdaBus() {
+		return horarioIdaBus;
+	}
+
+	public void setHorarioIdaBus(JPanel horarioIdaBus) {
+		this.horarioIdaBus = horarioIdaBus;
+	}
+
+	public JPanel getHorarioRegresoBus() {
+		return horarioRegresoBus;
+	}
+
+	public void setHorarioRegresoBus(JPanel horarioRegresoBus) {
+		this.horarioRegresoBus = horarioRegresoBus;
+	}
+
+	public JButton getFlechaDerUnoBus() {
+		return flechaDerUnoBus;
+	}
+
+	public void setFlechaDerUnoBus(JButton flechaDerUnoBus) {
+		this.flechaDerUnoBus = flechaDerUnoBus;
+	}
+
+	public JButton getFlechaIzqUnoBus() {
+		return flechaIzqUnoBus;
+	}
+
+	public void setFlechaIzqUnoBus(JButton flechaIzqUnoBus) {
+		this.flechaIzqUnoBus = flechaIzqUnoBus;
+	}
+
+	public JButton getFlechaDerDosBus() {
+		return flechaDerDosBus;
+	}
+
+	public void setFlechaDerDosBus(JButton flechaDerDosBus) {
+		this.flechaDerDosBus = flechaDerDosBus;
+	}
+
+	public JButton getFlechaIzqDosBus() {
+		return flechaIzqDosBus;
+	}
+
+	public void setFlechaIzqDosBus(JButton flechaIzqDosBus) {
+		this.flechaIzqDosBus = flechaIzqDosBus;
+	}
+
+	public JPanel getPanelMiPerfil() {
+		return panelMiPerfil;
+	}
+
+	public void setPanelMiPerfil(JPanel panelMiPerfil) {
+		this.panelMiPerfil = panelMiPerfil;
+	}
+
+	public JLabel getDato() {
+		return dato;
+	}
+
+	public void setDato(JLabel dato) {
+		this.dato = dato;
+	}
+
+	public JLabel getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(JLabel nombre) {
+		this.nombre = nombre;
+	}
+
+	public JLabel getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(JLabel apellido) {
+		this.apellido = apellido;
+	}
+
+	public JLabel getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(JLabel correo) {
+		this.correo = correo;
+	}
+
+	public JLabel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(JLabel usuario) {
+		this.usuario = usuario;
+	}
+
+	public JLabel getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(JLabel documento) {
+		this.documento = documento;
+	}
+
+	public JLabel getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(JLabel telefono) {
+		this.telefono = telefono;
+	}
+
+	public JLabel getFacultad() {
+		return facultad;
+	}
+
+	public void setFacultad(JLabel facultad) {
+		this.facultad = facultad;
+	}
+
+	public JLabel getNumeroMateria() {
+		return numeroMateria;
+	}
+
+	public void setNumeroMateria(JLabel numeroMateria) {
+		this.numeroMateria = numeroMateria;
+	}
+
+	public JTextField gettNombre() {
+		return tNombre;
+	}
+
+	public void settNombre(JTextField tNombre) {
+		this.tNombre = tNombre;
+	}
+
+	public JTextField gettApellido() {
+		return tApellido;
+	}
+
+	public void settApellido(JTextField tApellido) {
+		this.tApellido = tApellido;
+	}
+
+	public JTextField gettCorreo() {
+		return tCorreo;
+	}
+
+	public void settCorreo(JTextField tCorreo) {
+		this.tCorreo = tCorreo;
+	}
+
+	public JTextField gettUsuario() {
+		return tUsuario;
+	}
+
+	public void settUsuario(JTextField tUsuario) {
+		this.tUsuario = tUsuario;
+	}
+
+	public JTextField gettDocumento() {
+		return tDocumento;
+	}
+
+	public void settDocumento(JTextField tDocumento) {
+		this.tDocumento = tDocumento;
+	}
+
+	public JTextField gettTelefono() {
+		return tTelefono;
+	}
+
+	public void settTelefono(JTextField tTelefono) {
+		this.tTelefono = tTelefono;
+	}
+
+	public JTextField gettFacultad() {
+		return tFacultad;
+	}
+
+	public void settFacultad(JTextField tFacultad) {
+		this.tFacultad = tFacultad;
+	}
+
+	public JTextField gettNumeroMateria() {
+		return tNumeroMateria;
+	}
+
+	public void settNumeroMateria(JTextField tNumeroMateria) {
+		this.tNumeroMateria = tNumeroMateria;
+	}
+
+	public JPanel getPanelReserva() {
+		return panelReserva;
+	}
+
+	public void setPanelReserva(JPanel panelReserva) {
+		this.panelReserva = panelReserva;
+	}
+
+	public JPanel getPanelRuta() {
+		return panelRuta;
+	}
+
+	public void setPanelRuta(JPanel panelRuta) {
+		this.panelRuta = panelRuta;
+	}
+
+	public JPanel getInfoCosto() {
+		return infoCosto;
+	}
+
+	public void setInfoCosto(JPanel infoCosto) {
+		this.infoCosto = infoCosto;
+	}
+
+	public JTextArea getInfo() {
+		return info;
+	}
+
+	public void setInfo(JTextArea info) {
+		this.info = info;
+	}
+
+	public JLabel getTituloReserva() {
+		return tituloReserva;
+	}
+
+	public void setTituloReserva(JLabel tituloReserva) {
+		this.tituloReserva = tituloReserva;
+	}
+
+	public JLabel getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(JLabel fecha) {
+		this.fecha = fecha;
+	}
+
+	public JLabel getTransporte() {
+		return transporte;
+	}
+
+	public void setTransporte(JLabel transporte) {
+		this.transporte = transporte;
+	}
+
+	public JLabel getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(JLabel ruta) {
+		this.ruta = ruta;
+	}
+
+	public JLabel getInfoRuta() {
+		return infoRuta;
+	}
+
+	public void setInfoRuta(JLabel infoRuta) {
+		this.infoRuta = infoRuta;
+	}
+
+	public JLabel getCosto() {
+		return costo;
+	}
+
+	public void setCosto(JLabel costo) {
+		this.costo = costo;
+	}
+
+	public JRadioButton getrBus() {
+		return rBus;
+	}
+
+	public void setrBus(JRadioButton rBus) {
+		this.rBus = rBus;
+	}
+
+	public JRadioButton getrTren() {
+		return rTren;
+	}
+
+	public void setrTren(JRadioButton rTren) {
+		this.rTren = rTren;
+	}
+
+	public JRadioButton getrUsaquen() {
+		return rUsaquen;
+	}
+
+	public void setrUsaquen(JRadioButton rUsaquen) {
+		this.rUsaquen = rUsaquen;
+	}
+
+	public JRadioButton getrChia() {
+		return rChia;
+	}
+
+	public void setrChia(JRadioButton rChia) {
+		this.rChia = rChia;
+	}
+
+	public JButton getPagar() {
+		return pagar;
+	}
+
+	public void setPagar(JButton pagar) {
+		this.pagar = pagar;
+	}
+
+	public ButtonGroup getGrupoTransporte() {
+		return grupoTransporte;
+	}
+
+	public void setGrupoTransporte(ButtonGroup grupoTransporte) {
+		this.grupoTransporte = grupoTransporte;
+	}
+
+	public ButtonGroup getGrupoRuta() {
+		return grupoRuta;
+	}
+
+	public void setGrupoRuta(ButtonGroup grupoRuta) {
+		this.grupoRuta = grupoRuta;
+	}
+
+	public JPanel getCalendario() {
+		return calendario;
+	}
+
+	public void setCalendario(JPanel calendario) {
+		this.calendario = calendario;
+	}
+
+	public JDateChooser getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(JDateChooser calendar) {
+		this.calendar = calendar;
+	}
+
+	public JTextField getPlata() {
+		return plata;
+	}
+
+	public void setPlata(JTextField plata) {
+		this.plata = plata;
+	}
+
+	public JButton getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(JButton inicio) {
+		this.inicio = inicio;
+	}
+
+	public JButton getTren() {
+		return tren;
+	}
+
+	public void setTren(JButton tren) {
+		this.tren = tren;
+	}
+
+	public JButton getbTren() {
+		return bTren;
+	}
+
+	public void setbTren(JButton bTren) {
+		this.bTren = bTren;
+	}
+
+	public JButton getBus() {
+		return bus;
+	}
+
+	public void setBus(JButton bus) {
+		this.bus = bus;
+	}
+
+	public JButton getbBus() {
+		return bBus;
+	}
+
+	public void setbBus(JButton bBus) {
+		this.bBus = bBus;
+	}
+
+	public JButton getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(JButton perfil) {
+		this.perfil = perfil;
+	}
+
+	public JButton getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(JButton reserva) {
+		this.reserva = reserva;
+	}
+
+	public JButton getSalir() {
+		return salir;
+	}
+
+	public void setSalir(JButton salir) {
+		this.salir = salir;
+	}
 
 }
