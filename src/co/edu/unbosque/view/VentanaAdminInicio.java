@@ -93,6 +93,12 @@ public class VentanaAdminInicio extends JFrame {
 	private JDateChooser calendar;
 	private JTextField plata;
 	
+	//dinero
+	private JPanel panelPlata;
+	private JPanel panelAplauso;
+	private JTextField dineroTotal;
+	private JTextField aplausoTotal;
+	
 	//botones de la barra lateral
 	private JButton inicio;
 	private JButton tren;
@@ -102,6 +108,7 @@ public class VentanaAdminInicio extends JFrame {
 	private JButton perfil;
 	private JButton reserva;
 	private JButton salir;
+	private JButton dinero;
 	
 	public VentanaAdminInicio() {
 		setVisible(false);
@@ -220,25 +227,6 @@ public class VentanaAdminInicio extends JFrame {
 		panelUno.add(tMensaje);
 		
 		//BOTONES
-				
-		inicio = new JButton("Inicio");
-		inicio.setBounds(31, 50, 80, 25);
-		inicio.setFont(new Font("Agency FB", Font.BOLD, 20));
-		inicio.setForeground(Color.decode("#ffffff"));
-		inicio.setBackground(Color.decode("#376445"));
-		inicio.setBorderPainted(false);
-		inicio.setFocusPainted(false);
-		menuBar.add(inicio);
-
-		tren = new JButton("Rutas Tren");
-		tren.setBounds(18, 150, 110, 25);
-		tren.setFont(new Font("Agency FB", Font.BOLD, 20));
-		tren.setForeground(Color.decode("#ffffff"));
-		tren.setBackground(Color.decode("#376445"));
-		tren.setBorderPainted(false);
-		tren.setFocusPainted(false);
-		menuBar.add(tren);
-
 		ImageIcon imagenn = new ImageIcon(getClass().getResource("tren.png"));
 		JLabel labelImagenn = new JLabel(imagenn);
 		bTren = new JButton(imagenn);
@@ -249,15 +237,6 @@ public class VentanaAdminInicio extends JFrame {
 		bTren.setFocusPainted(false);
 		panelDos.add(bTren);
 
-		bus = new JButton("Rutas buses");
-		bus.setBounds(18, 250, 110, 25);
-		bus.setFont(new Font("Agency FB", Font.BOLD, 20));
-		bus.setForeground(Color.decode("#ffffff"));
-		bus.setBackground(Color.decode("#376445"));
-		bus.setBorderPainted(false);
-		bus.setFocusPainted(false);
-		menuBar.add(bus);
-		
 		ImageIcon imagen = new ImageIcon(getClass().getResource("bus.png"));
 		JLabel labelImagen = new JLabel(imagen);
 		bBus = new JButton(imagen);
@@ -267,9 +246,36 @@ public class VentanaAdminInicio extends JFrame {
 		bBus.setBorderPainted(false);
 		bBus.setFocusPainted(false);
 		panelTres.add(bBus);		
+		
+		inicio = new JButton("Inicio");
+		inicio.setBounds(31, 40, 80, 25);
+		inicio.setFont(new Font("Agency FB", Font.BOLD, 20));
+		inicio.setForeground(Color.decode("#ffffff"));
+		inicio.setBackground(Color.decode("#376445"));
+		inicio.setBorderPainted(false);
+		inicio.setFocusPainted(false);
+		menuBar.add(inicio);
 
+		tren = new JButton("Rutas Tren");
+		tren.setBounds(18, 120, 110, 25);
+		tren.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tren.setForeground(Color.decode("#ffffff"));
+		tren.setBackground(Color.decode("#376445"));
+		tren.setBorderPainted(false);
+		tren.setFocusPainted(false);
+		menuBar.add(tren);
+
+		bus = new JButton("Rutas buses");
+		bus.setBounds(18, 200, 110, 25);
+		bus.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bus.setForeground(Color.decode("#ffffff"));
+		bus.setBackground(Color.decode("#376445"));
+		bus.setBorderPainted(false);
+		bus.setFocusPainted(false);
+		menuBar.add(bus);
+		
 		perfil = new JButton("Mi Perfil");
-		perfil.setBounds(23, 350, 100, 25);
+		perfil.setBounds(23, 280, 100, 25);
 		perfil.setFont(new Font("Agency FB", Font.BOLD, 20));
 		perfil.setForeground(Color.decode("#ffffff"));
 		perfil.setBackground(Color.decode("#376445"));
@@ -278,7 +284,7 @@ public class VentanaAdminInicio extends JFrame {
 		menuBar.add(perfil);
 
 		reserva = new JButton("Reservar");
-		reserva.setBounds(15, 450, 120, 25);
+		reserva.setBounds(15, 360, 120, 25);
 		reserva.setFont(new Font("Agency FB", Font.BOLD, 20));
 		reserva.setForeground(Color.decode("#ffffff"));
 		reserva.setBackground(Color.decode("#376445"));
@@ -286,8 +292,17 @@ public class VentanaAdminInicio extends JFrame {
 		reserva.setFocusPainted(false);
 		menuBar.add(reserva);
 
+		dinero = new JButton("MoviDinero");
+		dinero.setBounds(15, 440, 120, 25);
+		dinero.setFont(new Font("Agency FB", Font.BOLD, 20));
+		dinero.setForeground(Color.decode("#ffffff"));
+		dinero.setBackground(Color.decode("#376445"));
+		dinero.setBorderPainted(false);
+		dinero.setFocusPainted(false);
+		menuBar.add(dinero);
+
 		salir = new JButton("Cerrar Sesión");
-		salir.setBounds(14, 550, 120, 25);
+		salir.setBounds(14, 520, 120, 25);
 		salir.setFont(new Font("Agency FB", Font.BOLD, 20));
 		salir.setForeground(Color.decode("#ffffff"));
 		salir.setBackground(Color.decode("#376445"));
@@ -688,6 +703,39 @@ public class VentanaAdminInicio extends JFrame {
 		pagar.setBorderPainted(false);
 		pagar.setFocusPainted(false);
 		panelReserva.add(pagar);
+		
+		panelPlata = new JPanel();
+		panelPlata.setLayout(null);
+		panelPlata.setBounds(200, 50, 380, 540);
+		panelPlata.setBackground(Color.decode("#ffffff"));
+		panelPlata.setVisible(false);
+		add(panelPlata);
+		
+		dineroTotal = new JTextField();
+		dineroTotal.setBounds(85, 250, 200, 150);
+		dineroTotal.setFont(new Font("Agency FB", Font.BOLD, 20));
+		dineroTotal.setForeground(Color.decode("#111d15"));
+		dineroTotal.setBackground(Color.decode("#e0ebe0"));
+		dineroTotal.setEditable(false);
+		dineroTotal.setBorder(null);
+		panelPlata.add(dineroTotal);
+
+		panelAplauso = new JPanel();
+		panelAplauso.setLayout(null);
+		panelAplauso.setBounds(520, 50, 380, 540);
+		panelAplauso.setBackground(Color.decode("#ffffff"));
+		panelAplauso.setVisible(false);
+		add(panelAplauso);
+		
+		aplausoTotal = new JTextField();
+		aplausoTotal.setBounds(85, 250, 200, 150);
+		aplausoTotal.setFont(new Font("Agency FB", Font.BOLD, 20));
+		aplausoTotal.setForeground(Color.decode("#111d15"));
+		aplausoTotal.setBackground(Color.decode("#e0ebe0"));
+		aplausoTotal.setEditable(false);
+		aplausoTotal.setBorder(null);
+		panelAplauso.add(aplausoTotal);
+		
 	}
 
 	public JLabel getTitulo() {
@@ -1264,6 +1312,30 @@ public class VentanaAdminInicio extends JFrame {
 
 	public void setSalir(JButton salir) {
 		this.salir = salir;
+	}
+
+	public JPanel getPanelPlata() {
+		return panelPlata;
+	}
+
+	public void setPanelPlata(JPanel panelPlata) {
+		this.panelPlata = panelPlata;
+	}
+
+	public JPanel getPanelAplauso() {
+		return panelAplauso;
+	}
+
+	public void setPanelAplauso(JPanel panelAplauso) {
+		this.panelAplauso = panelAplauso;
+	}
+
+	public JButton getDinero() {
+		return dinero;
+	}
+
+	public void setDinero(JButton dinero) {
+		this.dinero = dinero;
 	}
 	
 }

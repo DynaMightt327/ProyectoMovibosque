@@ -203,6 +203,9 @@ public class Controller implements ActionListener {
 		
 		vai.getReserva().addActionListener(this);
 		vai.getReserva().setActionCommand("ver_reserva_admin");
+		
+		vai.getDinero().addActionListener(this);
+		vai.getDinero().setActionCommand("ver_dinero_viajes");
 	
 	}
 
@@ -625,6 +628,8 @@ public class Controller implements ActionListener {
 			vai.getHorarioRegresoBus().setVisible(false);
 			vai.getPanelMiPerfil().setVisible(false);
 			vai.getPanelReserva().setVisible(false);
+			vai.getPanelAplauso().setVisible(false);
+			vai.getPanelPlata().setVisible(false);
 			break;
 		}
 		case "ver_reserva_estudiante": {
@@ -655,6 +660,20 @@ public class Controller implements ActionListener {
 			vai.getHorarioRegresoBus().setVisible(false);
 			vai.getPanelMiPerfil().setVisible(false);
 			vai.getPanelReserva().setVisible(true);
+			vai.getPanelAplauso().setVisible(false);
+			vai.getPanelPlata().setVisible(false);
+			break;
+		}
+		case "ver_dinero_viajes": {
+			vai.getPanelPrincipal().setVisible(false);
+			vai.getHorarioIda().setVisible(false);
+			vai.getHorarioRegreso().setVisible(false);
+			vai.getHorarioIdaBus().setVisible(false);
+			vai.getHorarioRegresoBus().setVisible(false);
+			vai.getPanelMiPerfil().setVisible(false);
+			vai.getPanelReserva().setVisible(false);
+			vai.getPanelAplauso().setVisible(true);
+			vai.getPanelPlata().setVisible(true);
 			break;
 		}
 		case "usar_flecha_derecha_tren_e": {
