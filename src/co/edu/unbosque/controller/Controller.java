@@ -13,15 +13,17 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
+import co.edu.unbosque.util.exception.CelException;
 import co.edu.unbosque.util.exception.ComboBoxException;
 import co.edu.unbosque.util.exception.EmailException;
-import co.edu.unbosque.util.exception.EmptyDataException;
+import co.edu.unbosque.util.exception.ExperienceException;
+import co.edu.unbosque.util.exception.IdException;
 import co.edu.unbosque.util.exception.LastNameException;
 import co.edu.unbosque.util.exception.NameException;
 import co.edu.unbosque.util.exception.NickNameException;
-import co.edu.unbosque.util.exception.NumericalDataException;
-import co.edu.unbosque.util.exception.OutRangeException;
 import co.edu.unbosque.util.exception.RegisterPasswordException;
+import co.edu.unbosque.util.exception.SemesterExcepcion;
+import co.edu.unbosque.util.exception.SubjectsException;
 import co.edu.unbosque.view.VentanaAdminInicio;
 import co.edu.unbosque.view.VentanaDocenteInicio;
 import co.edu.unbosque.view.VentanaEstudianteInicio;
@@ -368,8 +370,8 @@ public class Controller implements ActionListener {
 				verificarApellido(apellido);
 				verificarCorreo(correoInst);
 				verificarUsuario(nUsuario);
-				// verificar id
-				// veerificar telefono
+				verificarId(id);
+				verificarTelefono(telefono);
 				verificarContrasenaRegistrada(contrasena);
 				verificarComboBox(facultad);
 				verificarComboBox(rol);
@@ -380,19 +382,20 @@ public class Controller implements ActionListener {
 					int semestre = Integer.parseInt(vr.gettSemestre().getText());
 
 					verificarComboBox(carrera);
-					// verificar semestre
+					verificarSemestre(semestre);
 					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
 							facultad, rol, carrera, semestre));
 
 				} else if (rol.equalsIgnoreCase("Docente")) {
 					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
-					// verificar materias
+					
+					verificarMateria(numeroMateria);
 					dDAO.crear(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad,
 							rol, numeroMateria));
 
 				} else if (rol.equalsIgnoreCase("Administrativo")) {
 					int annoServicio = Integer.parseInt(vr.gettAnnoServicio().getText());
-					// verificar experiencia
+					verificarExperiencia(annoServicio);
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
 							facultad, rol, annoServicio));
 				}
@@ -424,6 +427,21 @@ public class Controller implements ActionListener {
 				e1.printStackTrace();
 			} catch (ComboBoxException e1) {
 				JOptionPane.showMessageDialog(vr, "Seleccion de combobox invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
+			} catch (SemesterExcepcion e1) {
+				JOptionPane.showMessageDialog(vr, "Seleccion de semestre invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
+			} catch (IdException e1) {
+				JOptionPane.showMessageDialog(vr, "Id invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
+				e1.printStackTrace();
+			} catch (CelException e1) {
+				JOptionPane.showMessageDialog(vr, "Telefono invalido", "ERROR", JOptionPane.ERROR_MESSAGE);				
+				e1.printStackTrace();
+			} catch (SubjectsException e1) {				
+				JOptionPane.showMessageDialog(vr, "Numero de materias invalido", "ERROR", JOptionPane.ERROR_MESSAGE);				
+				e1.printStackTrace();
+			} catch (ExperienceException e1) {
+				JOptionPane.showMessageDialog(vr, "Numero de años de servicio invalido", "ERROR", JOptionPane.ERROR_MESSAGE);				
 				e1.printStackTrace();
 			}
 			break;
@@ -854,28 +872,61 @@ public class Controller implements ActionListener {
 			throw new RegisterPasswordException();
 		}
 	}
-
-	/*
-	 * public static long verificarId(String id) throws IdException {
-	 * 
-	 * // 1. Validar nulo o vacío if (idTexto == null || idTexto.equals("")) { throw
-	 * new IdException("El documento no puede estar vacío."); }
-	 * 
-	 * // 2. Validar que tenga solo números (mínimo 1 dígito) if
-	 * (!idTexto.matches("^[0-9]+$")) { throw new
-	 * IdException("El documento debe contener solo números."); }
-	 * 
-	 * // 3. Intentar parsear try { long id = Long.parseLong(idTexto);
-	 * 
-	 * // 4. Validar reglas adicionales si quieres (ejemplo: mínimo 5 dígitos) if
-	 * (id < 10000) { throw new
-	 * IdException("El documento debe tener al menos 5 dígitos."); }
-	 * 
-	 * return id;
-	 * 
-	 * } catch (NumberFormatException e) { throw new
-	 * IdException("El número ingresado es demasiado grande para procesarlo."); } }
-	 */
+	
+	public static void verificarSemestre(int semestre) throws SemesterExcepcion {
+						
+			if(semestre <= 0 || semestre > 12 ) {
+				throw new SemesterExcepcion();
+			}
+			
+			String semestreText = Integer.toString(semestre);
+			if(semestreText ==  null || semestreText.isEmpty() || semestreText.matches("^[0-9]{1-2}$")) {
+				throw new SemesterExcepcion();
+			}
+			
+	}
+	
+	public static void verificarId (long id) throws IdException {
+		
+		String idTxt = Long.toString(id);
+		if(!idTxt.matches("^[0-9]{10}$")) {
+			throw new IdException();
+		}
+	}
+		
+	public static void verificarTelefono(long telefono) throws CelException {
+		
+		String telefonoTxt = Long.toString(telefono);
+		if(!telefonoTxt.matches("^[0-9]{10}$")) {
+			throw new CelException();
+		}
+		
+	}
+	
+	public static void verificarMateria(int numeroMateria) throws SubjectsException{
+		
+		if(numeroMateria > 6 || numeroMateria <= 0) {
+			throw new SubjectsException();
+		}
+		
+		String numMateria = Integer.toString(numeroMateria);
+		if(numMateria == null || numMateria.isEmpty() || !numMateria.matches("^[1-6]{1}$")) {
+			throw new SubjectsException();
+		}
+		
+	}
+	
+	public static void verificarExperiencia(int annoServicio) throws ExperienceException {
+		
+		if(annoServicio < 0 || annoServicio > 30) {
+			throw new ExperienceException();
+		}
+		
+		String anioServicio = Integer.toString(annoServicio);
+		if(anioServicio == null || anioServicio.isEmpty() || !anioServicio.matches("^[1-9]{1-2}$")) {
+			throw new ExperienceException();
+		}
+	}
 
 	public void iniciar() {
 		vi.setVisible(true);
