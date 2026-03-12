@@ -67,6 +67,8 @@ public class Viaje {
 		return capacidad;
 	}
 	
+	
+	
 	public boolean reservaAsiento(int cantidad) {
 		if(cantidad <=0) {
 			return false;
@@ -76,6 +78,15 @@ public class Viaje {
 		}
 		asientoDisponible -= cantidad;
 		return true;
+	}
+	
+	public void devolverAsiento(int cantidad) {
+		if(cantidad > 0) {
+			asientoDisponible = asientoDisponible + cantidad;
+			if(asientoDisponible > capacidad) {
+				asientoDisponible = capacidad;
+			}
+		}
 	}
 
 }
