@@ -349,6 +349,7 @@ public class Controller implements ActionListener {
 
 		}
 		case "boton_volver_registrar": {
+			limpiarCampos();
 			vr.setVisible(false);
 			vi.setVisible(true);
 			break;
@@ -379,23 +380,28 @@ public class Controller implements ActionListener {
 				if (rol.equalsIgnoreCase("Estudiante")) {
 
 					String carrera = (String) vr.gettCarrera().getSelectedItem();
-					int semestre = Integer.parseInt(vr.gettSemestre().getText());
+					String semestreTxt = vr.gettSemestre().getText();
 
 					verificarComboBox(carrera);
-					verificarSemestre(semestre);
+					verificarSemestre(semestreTxt);
+					
+					int semestre = Integer.parseInt(semestreTxt);
 					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
 							facultad, rol, carrera, semestre));
 
 				} else if (rol.equalsIgnoreCase("Docente")) {
-					int numeroMateria = Integer.parseInt(vr.gettNumMateria().getText());
-					
-					verificarMateria(numeroMateria);
+
+					String materiasTxt = vr.gettNumMateria().getText();
+					verificarMateria(materiasTxt);
+					int numeroMateria = Integer.parseInt(materiasTxt);
 					dDAO.crear(new Docente(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultad,
 							rol, numeroMateria));
 
 				} else if (rol.equalsIgnoreCase("Administrativo")) {
-					int annoServicio = Integer.parseInt(vr.gettAnnoServicio().getText());
-					verificarExperiencia(annoServicio);
+
+					String aniosTxt = vr.gettAnnoServicio().getText();
+					verificarExperiencia(aniosTxt);
+					int annoServicio = Integer.parseInt(aniosTxt);
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
 							facultad, rol, annoServicio));
 				}
@@ -443,6 +449,10 @@ public class Controller implements ActionListener {
 			} catch (ExperienceException e1) {
 				JOptionPane.showMessageDialog(vr, "Numero de años de servicio invalido", "ERROR", JOptionPane.ERROR_MESSAGE);				
 				e1.printStackTrace();
+			} catch (NumberFormatException e1) {
+				JOptionPane.showMessageDialog(vr, "No se puede colocar un valor que no es el solicitado", "ERROR", JOptionPane.ERROR_MESSAGE);				
+				e1.printStackTrace();
+				
 			}
 			break;
 		}
@@ -873,17 +883,20 @@ public class Controller implements ActionListener {
 		}
 	}
 	
-	public static void verificarSemestre(int semestre) throws SemesterExcepcion {
-						
-			if(semestre <= 0 || semestre > 12 ) {
-				throw new SemesterExcepcion();
-			}
-			
-			String semestreText = Integer.toString(semestre);
-			if(semestreText ==  null || semestreText.isEmpty() || semestreText.matches("^[0-9]{1-2}$")) {
-				throw new SemesterExcepcion();
-			}
-			
+
+	public static void verificarSemestre(String semestreTxt) throws SemesterExcepcion {
+		if (semestreTxt == null || semestreTxt.isEmpty()) {
+			throw new SemesterExcepcion();
+		}
+
+		if (!semestreTxt.matches("^[0-9]{1,2}$")) {
+			throw new SemesterExcepcion();
+		}
+
+		int semestre = Integer.parseInt(semestreTxt);
+		if (semestre <= 0 || semestre > 12) {
+			throw new SemesterExcepcion();
+		}
 	}
 	
 	public static void verificarId (long id) throws IdException {
@@ -903,30 +916,39 @@ public class Controller implements ActionListener {
 		
 	}
 	
-	public static void verificarMateria(int numeroMateria) throws SubjectsException{
-		
-		if(numeroMateria > 6 || numeroMateria <= 0) {
+	public static void verificarMateria(String materiaTxt) throws SubjectsException {
+
+		if (materiaTxt == null || materiaTxt.isEmpty()) {
 			throw new SubjectsException();
 		}
-		
-		String numMateria = Integer.toString(numeroMateria);
-		if(numMateria == null || numMateria.isEmpty() || !numMateria.matches("^[1-6]{1}$")) {
+
+		if (!materiaTxt.matches("^[1-6]$")) {
 			throw new SubjectsException();
 		}
-		
+
+		int numeroMateria = Integer.parseInt(materiaTxt);
+
+		if (numeroMateria < 1 || numeroMateria > 6) {
+			throw new SubjectsException();
+		}
+
 	}
 	
-	public static void verificarExperiencia(int annoServicio) throws ExperienceException {
-		
-		if(annoServicio < 0 || annoServicio > 30) {
+
+	public static void verificarExperiencia(String anioTxt) throws ExperienceException {
+
+		if (anioTxt == null || anioTxt.isEmpty()) {
 			throw new ExperienceException();
 		}
-		
-		String anioServicio = Integer.toString(annoServicio);
-		if(anioServicio == null || anioServicio.isEmpty() || !anioServicio.matches("^[1-9]{1-2}$")) {
+		if (!anioTxt.matches("^[0-9]{1,2}$")) {
+			throw new ExperienceException();
+		}
+		int annoServicio = Integer.parseInt(anioTxt);
+		if (annoServicio < 1 || annoServicio > 30) {
 			throw new ExperienceException();
 		}
 	}
+
 
 	public void iniciar() {
 		vi.setVisible(true);
