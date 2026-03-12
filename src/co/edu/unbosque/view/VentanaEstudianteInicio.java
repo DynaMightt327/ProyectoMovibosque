@@ -99,6 +99,15 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JDateChooser calendar;
 	private JTextField plata;
 	
+	private JButton lunes7;
+	private JButton martes9;
+	private JButton martes11;
+	private JButton miercoles9;
+	private JButton miercoles12;
+	private JButton jueves9;
+	private JButton jueves11;
+	
+	
 	//botones de la barra lateral
 	private JButton inicio;
 	private JButton tren;

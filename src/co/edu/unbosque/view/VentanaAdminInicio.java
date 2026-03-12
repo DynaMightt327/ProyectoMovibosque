@@ -98,6 +98,8 @@ public class VentanaAdminInicio extends JFrame {
 	private JPanel panelAplauso;
 	private JTextField dineroTotal;
 	private JTextField aplausoTotal;
+	private JLabel lDinero;
+	private JLabel lAplauso;
 	
 	//botones de la barra lateral
 	private JButton inicio;
@@ -706,29 +708,41 @@ public class VentanaAdminInicio extends JFrame {
 		
 		panelPlata = new JPanel();
 		panelPlata.setLayout(null);
-		panelPlata.setBounds(200, 50, 380, 540);
+		panelPlata.setBounds(190, 20, 380, 270);
 		panelPlata.setBackground(Color.decode("#ffffff"));
 		panelPlata.setVisible(false);
 		add(panelPlata);
 		
+		lDinero = new JLabel("Dinero recaudado");
+		lDinero.setBounds(55, 45, 250, 22);
+		lDinero.setForeground(Color.BLACK);
+		lDinero.setFont(new Font("Arial", Font.BOLD, 20));
+		panelPlata.add(lDinero);
+		
 		dineroTotal = new JTextField();
-		dineroTotal.setBounds(85, 250, 200, 150);
+		dineroTotal.setBounds(50, 115, 280, 100);
 		dineroTotal.setFont(new Font("Agency FB", Font.BOLD, 20));
 		dineroTotal.setForeground(Color.decode("#111d15"));
 		dineroTotal.setBackground(Color.decode("#e0ebe0"));
 		dineroTotal.setEditable(false);
 		dineroTotal.setBorder(null);
 		panelPlata.add(dineroTotal);
-
+		
 		panelAplauso = new JPanel();
 		panelAplauso.setLayout(null);
-		panelAplauso.setBounds(520, 50, 380, 540);
+		panelAplauso.setBounds(190, 310, 380, 270);
 		panelAplauso.setBackground(Color.decode("#ffffff"));
 		panelAplauso.setVisible(false);
 		add(panelAplauso);
+
+		lAplauso = new JLabel("Aplausos recaudados");
+		lAplauso.setBounds(55, 45, 250, 22);
+		lAplauso.setForeground(Color.BLACK);
+		lAplauso.setFont(new Font("Arial", Font.BOLD, 20));
+		panelAplauso.add(lAplauso);
 		
 		aplausoTotal = new JTextField();
-		aplausoTotal.setBounds(85, 250, 200, 150);
+		aplausoTotal.setBounds(50, 115, 280, 100);
 		aplausoTotal.setFont(new Font("Agency FB", Font.BOLD, 20));
 		aplausoTotal.setForeground(Color.decode("#111d15"));
 		aplausoTotal.setBackground(Color.decode("#e0ebe0"));
