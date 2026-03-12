@@ -1337,5 +1337,21 @@ public class VentanaAdminInicio extends JFrame {
 	public void setDinero(JButton dinero) {
 		this.dinero = dinero;
 	}
+
+	public JTextField getDineroTotal() {
+		return dineroTotal;
+	}
+
+	public void setDineroTotal(JTextField dineroTotal) {
+		this.dineroTotal = dineroTotal;
+	}
+
+	public JTextField getAplausoTotal() {
+		return aplausoTotal;
+	}
+
+	public void setAplausoTotal(JTextField aplausoTotal) {
+		this.aplausoTotal = aplausoTotal;
+	}
 	
 }
