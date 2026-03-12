@@ -589,6 +589,7 @@ public class VentanaRegistro extends JFrame {
 	public void setbRegistrar(JButton bRegistrar) {
 		this.bRegistrar = bRegistrar;
 	}
+	
 
 	
 

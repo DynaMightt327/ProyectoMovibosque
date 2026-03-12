@@ -85,6 +85,9 @@ public class Controller implements ActionListener {
 
 		vr.getbRegistrar().addActionListener(this);
 		vr.getbRegistrar().setActionCommand("boton_guardar_cuenta");
+		
+		vr.gettFacultad().addActionListener(this);
+		vr.gettFacultad().setActionCommand("cambio_facultad");
 
 		// ==VENTANA INICIAR SESION==
 		vin.getVolver().addActionListener(this);
@@ -203,128 +206,42 @@ public class Controller implements ActionListener {
 	
 	}
 
+
 	public void actualizarCamposPorRol() {
 		String rol = (String) vr.gettRol().getSelectedItem();
 
-		if (rol == null) {
+		vr.getCarrera().setVisible(false);
+		vr.getSemestre().setVisible(false);
+		vr.getNumMateria().setVisible(false);
+		vr.getAnnoServicio().setVisible(false);
 
-			if (vr.getCarrera() != null)
-				vr.getCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.getSemestre().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettSemestre().setVisible(false);
+		vr.gettIngenieria().setVisible(false);
+		vr.gettMedicina().setVisible(false);
+		vr.gettArte().setVisible(false);
+		vr.gettMatematica().setVisible(false);
 
-			// ocultar los de docente
-			if (vr.getCarrera() != null)
-				vr.getNumMateria().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettNumMateria().setVisible(false);
+		vr.gettSemestre().setVisible(false);
+		vr.gettNumMateria().setVisible(false);
+		vr.gettAnnoServicio().setVisible(false);
 
-			// ocultar los de administrativo
-			if (vr.getCarrera() != null)
-				vr.getAnnoServicio().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettAnnoServicio().setVisible(false);
+		if (rol == null || rol.equals("...")) {
+			return;
+		}
 
-		} else if (rol.equalsIgnoreCase("Estudiante")) {
+		if (rol.equalsIgnoreCase("Estudiante")) {
+			vr.getCarrera().setVisible(true);
+			vr.getSemestre().setVisible(true);
+			vr.gettSemestre().setVisible(true);
 
-			// mostrar los campos de estudainte
-			if (vr.getCarrera() != null)
-				vr.getCarrera().setVisible(true);
-			if (vr.getCarrera() != null)
-				vr.gettCarrera().setVisible(true);
-			if (vr.getCarrera() != null)
-				vr.getSemestre().setVisible(true);
-			if (vr.getCarrera() != null)
-				vr.gettSemestre().setVisible(true);
-
-			// ocultar los de docente
-			if (vr.getCarrera() != null)
-				vr.getNumMateria().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettNumMateria().setVisible(false);
-
-			// ocultar los de administrativo
-			if (vr.getCarrera() != null)
-				vr.getAnnoServicio().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettAnnoServicio().setVisible(false);
-
-		} else if (rol.equalsIgnoreCase("Docente")) {
-
-			// ocultar los de estudiante
-			if (vr.getCarrera() != null)
-				vr.getCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.getSemestre().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettSemestre().setVisible(false);
-
-			// mostrar campos de docente
-			if (vr.getCarrera() != null)
-				vr.getNumMateria().setVisible(true);
-			if (vr.getCarrera() != null)
-				vr.gettNumMateria().setVisible(true);
-
-			// ocultar los de administrativo
-			if (vr.getCarrera() != null)
-				vr.getAnnoServicio().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettAnnoServicio().setVisible(false);
-
-		} else if (rol.equalsIgnoreCase("Administrativo")) {
-
-			// Ocultar los de estudiantes
-			if (vr.getCarrera() != null)
-				vr.getCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.getSemestre().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettSemestre().setVisible(false);
-
-			// Ocultar los de docente
-			if (vr.getCarrera() != null)
-				vr.getNumMateria().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettNumMateria().setVisible(false);
-
-			// Mostrar los de administrativo
-			if (vr.getCarrera() != null)
-				vr.getAnnoServicio().setVisible(true);
-			if (vr.getCarrera() != null)
-				vr.gettAnnoServicio().setVisible(true);
-
-		} else {
-
-			// Ocultar los de estudiantes
-			if (vr.getCarrera() != null)
-				vr.getCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettCarrera().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.getSemestre().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettSemestre().setVisible(false);
-
-			// Ocultar los de docente
-			if (vr.getCarrera() != null)
-				vr.getNumMateria().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettNumMateria().setVisible(false);
-
-			// Ocultar los de administrativo
-			if (vr.getCarrera() != null)
-				vr.getAnnoServicio().setVisible(false);
-			if (vr.getCarrera() != null)
-				vr.gettAnnoServicio().setVisible(false);
-
+			actualizarPorFacultad();
+		}
+		else if (rol.equalsIgnoreCase("Docente")) {
+			vr.getNumMateria().setVisible(true);
+			vr.gettNumMateria().setVisible(true);
+		}
+		else if (rol.equalsIgnoreCase("Administrativo")) {
+			vr.getAnnoServicio().setVisible(true);
+			vr.gettAnnoServicio().setVisible(true);
 		}
 
 		vr.revalidate();
@@ -339,6 +256,7 @@ public class Controller implements ActionListener {
 		case "boton_registrar": {
 			vi.setVisible(false);
 			vr.setVisible(true);
+			break;
 		}
 		case "cambio_rol": {
 			actualizarCamposPorRol();
@@ -349,6 +267,18 @@ public class Controller implements ActionListener {
 			limpiarCampos();
 			vr.setVisible(false);
 			vi.setVisible(true);
+			break;
+
+		}
+		case "cambio_facultad": {
+
+			String rol = (String) vr.gettRol().getSelectedItem();
+			if ("Estudiante".equalsIgnoreCase(rol)) {
+				actualizarPorFacultad();
+				vr.getCarrera().setVisible(true);
+				vr.getSemestre().setVisible(true);
+				vr.gettSemestre().setVisible(true);
+			}
 			break;
 
 		}
@@ -375,16 +305,26 @@ public class Controller implements ActionListener {
 				verificarComboBox(rol);
 
 				if (rol.equalsIgnoreCase("Estudiante")) {
+					String facultadSeleccionada = (String) vr.gettFacultad().getSelectedItem();
+					String carrera = null;
 
-					String carrera = (String) vr.gettCarrera().getSelectedItem();
+					if ("Ingeniería".equals(facultadSeleccionada)) {
+						carrera = (String) vr.gettIngenieria().getSelectedItem();
+					} else if ("Medicina".equals(facultadSeleccionada)) {
+						carrera = (String) vr.gettMedicina().getSelectedItem();
+					} else if ("Artes".equals(facultadSeleccionada)) {
+						carrera = (String) vr.gettArte().getSelectedItem();
+					} else if ("Matemáticas".equals(facultadSeleccionada)) {
+						carrera = (String) vr.gettMatematica().getSelectedItem();
+					}
+
 					String semestreTxt = vr.gettSemestre().getText();
 
 					verificarComboBox(carrera);
 					verificarSemestre(semestreTxt);
-					
+
 					int semestre = Integer.parseInt(semestreTxt);
-					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
-							facultad, rol, carrera, semestre));
+					eDAO.crear(new Estudiante(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena, facultadSeleccionada, rol, carrera, semestre));
 
 				} else if (rol.equalsIgnoreCase("Docente")) {
 
@@ -736,7 +676,11 @@ public class Controller implements ActionListener {
 		vr.gettFacultad().setSelectedIndex(0);
 		vr.gettRol().setSelectedIndex(0);
 
-		vr.gettCarrera().setSelectedIndex(0);
+		vr.gettIngenieria().setSelectedIndex(0);
+		vr.gettMedicina().setSelectedIndex(0);
+		vr.gettArte().setSelectedIndex(0);
+		vr.gettMatematica().setSelectedIndex(0);
+
 		vr.gettSemestre().setText("");
 		vr.gettNumMateria().setText("");
 		vr.gettAnnoServicio().setText("");
@@ -776,6 +720,27 @@ public class Controller implements ActionListener {
 		vai.gettTelefono().setText(String.valueOf(adminActual.getTelefono()));
 		vai.gettFacultad().setText(adminActual.getFacultad());
 		vai.gettAnosServicio().setText(String.valueOf(adminActual.getAnnoServicio()));
+	}
+	
+
+	private void actualizarPorFacultad() {
+		
+		vr.gettIngenieria().setVisible(false);
+		vr.gettMedicina().setVisible(false);
+		vr.gettArte().setVisible(false);
+		vr.gettMatematica().setVisible(false);
+
+		String facultad = (String) vr.gettFacultad().getSelectedItem();
+
+		if ("Ingeniería".equals(facultad)) {
+			vr.gettIngenieria().setVisible(true);
+		} else if ("Medicina".equals(facultad)) {
+			vr.gettMedicina().setVisible(true);
+		} else if ("Artes".equals(facultad)) {
+			vr.gettArte().setVisible(true);
+		} else if ("Matemáticas".equals(facultad)) {
+			vr.gettMatematica().setVisible(true);
+		}
 	}
 	
 	
