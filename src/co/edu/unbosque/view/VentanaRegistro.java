@@ -43,7 +43,10 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField tContrasena;
 	private JComboBox<String> tFacultad;
 	private JComboBox<String> tRol;
-	private JComboBox<String> tCarrera;
+	private JComboBox<String> tIngenieria;
+	private JComboBox<String> tMedicina;
+	private JComboBox<String> tArte;
+	private JComboBox<String> tMatematica;
 	private JTextField tSemestre;
 	private JTextField tNumMateria;
 	private JTextField tAnnoServicio;
@@ -240,16 +243,39 @@ public class VentanaRegistro extends JFrame {
 		tRol.setBorder(null);
 		panelCentral.add(tRol);
 
-		tCarrera = new JComboBox<String>(new String[] { "...", "Arte dramático", "Artes Plásticas", "Arquitectura",
-				"Bioingeniería", "Creación digital", "Diseño de comunicación", "Diseño industrial", "Formación musical",
-				"Ingeniería ambiental", "Ingeniería de sistemas", "Ingeniería electrónica", "Ingeniería industrial",
-				"Instrumentación quirúrgica", "Ingeniería robótica", "Medicina", "Optometría" });
-		tCarrera.setBounds(270, 450, 164, 32);
-		tCarrera.setFont(new Font("Agency FB", Font.BOLD, 18));
-		tCarrera.setForeground(Color.decode("#111d15"));
-		tCarrera.setBackground(Color.decode("#e0ebe0"));
-		tCarrera.setBorder(null);
-		panelCentral.add(tCarrera);
+		tIngenieria = new JComboBox<String>(new String[] { " ", "Bioingeniería", "Ingeniería ambiental",
+				"Ingeniería de sistemas", "Ingeniería electrónica", "Ingeniería industrial", "Ingeniería robótica" });
+		tIngenieria.setBounds(270, 450, 164, 32);
+		tIngenieria.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tIngenieria.setForeground(Color.decode("#111d15"));
+		tIngenieria.setBackground(Color.decode("#e0ebe0"));
+		tIngenieria.setBorder(null);
+		panelCentral.add(tIngenieria);
+
+		tArte = new JComboBox<String>(new String[] { " ", "Arte dramático", "Artes Plásticas", "Arquitectura",
+				"Creación digital", "Diseño de comunicación", "Diseño industrial", "Formación musical" });
+		tArte.setBounds(270, 450, 164, 32);
+		tArte.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tArte.setForeground(Color.decode("#111d15"));
+		tArte.setBackground(Color.decode("#e0ebe0"));
+		tArte.setBorder(null);
+		panelCentral.add(tArte);
+
+		tMedicina = new JComboBox<String>(new String[] { " ", "Instrumentación quirúrgica", "Medicina", "Optometría" });
+		tMedicina.setBounds(270, 450, 164, 32);
+		tMedicina.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tMedicina.setForeground(Color.decode("#111d15"));
+		tMedicina.setBackground(Color.decode("#e0ebe0"));
+		tMedicina.setBorder(null);
+		panelCentral.add(tMedicina);
+
+		tMatematica = new JComboBox<String>(new String[] { " ", "Estadística", "Matemáticas y ciencia de datos" });
+		tMatematica.setBounds(270, 450, 164, 32);
+		tMatematica.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tMatematica.setForeground(Color.decode("#111d15"));
+		tMatematica.setBackground(Color.decode("#e0ebe0"));
+		tMatematica.setBorder(null);
+		panelCentral.add(tMatematica);
 
 		tNumMateria = new JTextField();
 		tNumMateria.setBounds(270, 450, 164, 32);
@@ -368,12 +394,56 @@ public class VentanaRegistro extends JFrame {
 		this.contrasena = contrasena;
 	}
 
+	public JLabel getFacultad() {
+		return facultad;
+	}
+
+	public void setFacultad(JLabel facultad) {
+		this.facultad = facultad;
+	}
+
 	public JLabel getRol() {
 		return rol;
 	}
 
 	public void setRol(JLabel rol) {
 		this.rol = rol;
+	}
+
+	public JLabel getCarrera() {
+		return carrera;
+	}
+
+	public void setCarrera(JLabel carrera) {
+		this.carrera = carrera;
+	}
+
+	public JLabel getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(JLabel semestre) {
+		this.semestre = semestre;
+	}
+
+	public JLabel getNumMateria() {
+		return numMateria;
+	}
+
+	public void setNumMateria(JLabel numMateria) {
+		this.numMateria = numMateria;
+	}
+
+	public JLabel getAnnoServicio() {
+		return annoServicio;
+	}
+
+	public void setAnnoServicio(JLabel annoServicio) {
+		this.annoServicio = annoServicio;
+	}
+
+	public void setBackground(JLabel background) {
+		this.background = background;
 	}
 
 	public JTextField gettNombre() {
@@ -424,12 +494,20 @@ public class VentanaRegistro extends JFrame {
 		this.tTelefono = tTelefono;
 	}
 
-	public JTextField gettContrasena() {
+	public JPasswordField gettContrasena() {
 		return tContrasena;
 	}
 
 	public void settContrasena(JPasswordField tContrasena) {
 		this.tContrasena = tContrasena;
+	}
+
+	public JComboBox<String> gettFacultad() {
+		return tFacultad;
+	}
+
+	public void settFacultad(JComboBox<String> tFacultad) {
+		this.tFacultad = tFacultad;
 	}
 
 	public JComboBox<String> gettRol() {
@@ -438,6 +516,62 @@ public class VentanaRegistro extends JFrame {
 
 	public void settRol(JComboBox<String> tRol) {
 		this.tRol = tRol;
+	}
+
+	public JComboBox<String> gettIngenieria() {
+		return tIngenieria;
+	}
+
+	public void settIngenieria(JComboBox<String> tIngenieria) {
+		this.tIngenieria = tIngenieria;
+	}
+
+	public JComboBox<String> gettMedicina() {
+		return tMedicina;
+	}
+
+	public void settMedicina(JComboBox<String> tMedicina) {
+		this.tMedicina = tMedicina;
+	}
+
+	public JComboBox<String> gettArte() {
+		return tArte;
+	}
+
+	public void settArte(JComboBox<String> tArte) {
+		this.tArte = tArte;
+	}
+
+	public JComboBox<String> gettMatematica() {
+		return tMatematica;
+	}
+
+	public void settMatematica(JComboBox<String> tMatematica) {
+		this.tMatematica = tMatematica;
+	}
+
+	public JTextField gettSemestre() {
+		return tSemestre;
+	}
+
+	public void settSemestre(JTextField tSemestre) {
+		this.tSemestre = tSemestre;
+	}
+
+	public JTextField gettNumMateria() {
+		return tNumMateria;
+	}
+
+	public void settNumMateria(JTextField tNumMateria) {
+		this.tNumMateria = tNumMateria;
+	}
+
+	public JTextField gettAnnoServicio() {
+		return tAnnoServicio;
+	}
+
+	public void settAnnoServicio(JTextField tAnnoServicio) {
+		this.tAnnoServicio = tAnnoServicio;
 	}
 
 	public JButton getbVolver() {
@@ -456,89 +590,6 @@ public class VentanaRegistro extends JFrame {
 		this.bRegistrar = bRegistrar;
 	}
 
-	public JLabel getFacultad() {
-		return facultad;
-	}
-
-	public void setFacultad(JLabel facultad) {
-		this.facultad = facultad;
-	}
-
-	public JComboBox<String> gettFacultad() {
-		return tFacultad;
-	}
-
-	public void settFacultad(JComboBox<String> tFacultad) {
-		this.tFacultad = tFacultad;
-	}
-
-	public JLabel getCarrera() {
-		return carrera;
-	}
-
-	public void setCarrera(JLabel carrera) {
-		this.carrera = carrera;
-	}
-
-	public JLabel getSemestre() {
-		return semestre;
-	}
-
-	public void setSemestre(JLabel semestre) {
-		this.semestre = semestre;
-	}
-
-
-	public JComboBox<String> gettCarrera() {
-		return tCarrera;
-	}
-
-	public void settCarrera(JComboBox<String> tCarrera) {
-		this.tCarrera = tCarrera;
-	}
-
-	public JTextField gettSemestre() {
-		return tSemestre;
-	}
-
-	public void settSemestre(JTextField tSemestre) {
-		this.tSemestre = tSemestre;
-	}
-
-	public void setBackground(JLabel background) {
-		this.background = background;
-	}
-
-	public JLabel getNumMateria() {
-		return numMateria;
-	}
-
-	public void setNumMateria(JLabel numMateria) {
-		this.numMateria = numMateria;
-	}
-
-	public JTextField gettNumMateria() {
-		return tNumMateria;
-	}
-
-	public void settNumMateria(JTextField tNumMateria) {
-		this.tNumMateria = tNumMateria;
-	}
-
-	public JLabel getAnnoServicio() {
-		return annoServicio;
-	}
-
-	public void setAnnoServicio(JLabel annoServicio) {
-		this.annoServicio = annoServicio;
-	}
-
-	public JTextField gettAnnoServicio() {
-		return tAnnoServicio;
-	}
-
-	public void settAnnoServicio(JTextField tAnnoServicio) {
-		this.tAnnoServicio = tAnnoServicio;
-	}
+	
 
 }

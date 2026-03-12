@@ -34,6 +34,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JPanel panelCuatro;
 
 	// tren
+	private JPanel trenHorario;
 	private JPanel horarioIda;
 	private JPanel horarioRegreso;
 	private JButton flechaDerechaUno;
@@ -42,6 +43,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JButton flechaIzquierdaDos;
 
 	// bus
+	private JPanel busHorario;
 	private JPanel horarioIdaBus;
 	private JPanel horarioRegresoBus;
 	private JButton flechaDerUnoBus;
@@ -59,7 +61,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JLabel documento;
 	private JLabel telefono;
 	private JLabel facultad;
-	private JLabel numeroMateria;
+	private JLabel numMateria;
 	private JTextField tNombre;
 	private JTextField tApellido;
 	private JTextField tCorreo;
@@ -67,7 +69,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JTextField tDocumento;
 	private JTextField tTelefono;
 	private JTextField tFacultad;
-	private JTextField tNumeroMateria;
+	private JTextField tNumMateria;
 
 	// reservas
 	private JPanel panelReserva;
@@ -259,7 +261,7 @@ public class VentanaDocenteInicio extends JFrame {
 		ImageIcon imagen = new ImageIcon(getClass().getResource("bus.png"));
 		JLabel labelImagen = new JLabel(imagen);
 		bBus = new JButton(imagen);
-		bBus.setBounds(0, 35, 220, 150);
+		bBus.setBounds(0, 35, 228, 150);
 		bBus.setFont(new Font("Agency FB", Font.BOLD, 20));
 		bBus.setBackground(Color.decode("#ffffff"));
 		bBus.setBorderPainted(false);
@@ -301,6 +303,12 @@ public class VentanaDocenteInicio extends JFrame {
 		horarioIda.setVisible(false);
 		add(horarioIda);
 
+		JLabel us = new JLabel("Usaquen - Chia");
+		us.setBounds(290, 28, 250, 30);
+		us.setForeground(Color.BLACK);
+		us.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioIda.add(us);
+
 		horarioRegreso = new JPanel();
 		horarioRegreso.setLayout(null);
 		horarioRegreso.setBounds(175, 140, 772, 485);
@@ -308,7 +316,26 @@ public class VentanaDocenteInicio extends JFrame {
 		horarioRegreso.setVisible(false);
 		add(horarioRegreso);
 
+		JLabel ch = new JLabel("Chia - Usaquen");
+		ch.setBounds(290, 28, 250, 30);
+		ch.setForeground(Color.BLACK);
+		ch.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioRegreso.add(ch);
+
+		trenHorario = new JPanel();
+		trenHorario.setLayout(null);
+		trenHorario.setBounds(290, 0, 500, 200);
+		trenHorario.setBackground(Color.decode("#99bc9f"));
+		trenHorario.setVisible(false);
+		add(trenHorario);
+
 		// ==IMAGENES==
+		ImageIcon horario = new ImageIcon(getClass().getResource("horarioo.JPG"));
+		JLabel lIconTren = new JLabel(horario);
+		lIconTren.setBounds(0, 0, 500, 170);
+		// panelLogo.add(lIcon);
+		trenHorario.add(lIconTren);
+
 		ImageIcon imageLogo = new ImageIcon(getClass().getResource("horariotren.JPG"));
 		JLabel lIcon = new JLabel(imageLogo);
 		lIcon.setBounds(40, 50, 692, 435);
@@ -330,24 +357,6 @@ public class VentanaDocenteInicio extends JFrame {
 		flechaDerechaUno.setBorderPainted(false);
 		horarioIda.add(flechaDerechaUno);
 
-		ImageIcon imagen2 = new ImageIcon(getClass().getResource("flechaatras.png"));
-		JLabel labelImagen2 = new JLabel(imagen2);
-		flechaIzquierdaUno = new JButton(imagen2);
-		flechaIzquierdaUno.setBackground(Color.WHITE);
-		flechaIzquierdaUno.setBounds(18, 5, 65, 66);
-		flechaIzquierdaUno.setFocusPainted(false);
-		flechaIzquierdaUno.setBorderPainted(false);
-		horarioIda.add(flechaIzquierdaUno);
-
-		ImageIcon imagen3 = new ImageIcon(getClass().getResource("flechaadelante.png"));
-		JLabel labelImagen3 = new JLabel(imagen3);
-		flechaDerechaDos = new JButton(imagen3);
-		flechaDerechaDos.setBackground(Color.WHITE);
-		flechaDerechaDos.setBounds(700, 5, 63, 65);
-		flechaDerechaDos.setFocusPainted(false);
-		flechaDerechaDos.setBorderPainted(false);
-		horarioRegreso.add(flechaDerechaDos);
-
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen4 = new JLabel(imagen4);
 		flechaIzquierdaDos = new JButton(imagen4);
@@ -358,6 +367,13 @@ public class VentanaDocenteInicio extends JFrame {
 		horarioRegreso.add(flechaIzquierdaDos);
 
 		// ==TODO LO DEL BUS==
+		busHorario = new JPanel();
+		busHorario.setLayout(null);
+		busHorario.setBounds(290, -90, 500, 200);
+		busHorario.setBackground(Color.decode("#99bc9f"));
+		busHorario.setVisible(false);
+		add(busHorario);
+
 		horarioIdaBus = new JPanel();
 		horarioIdaBus.setLayout(null);
 		horarioIdaBus.setBounds(175, 140, 772, 485);
@@ -372,7 +388,26 @@ public class VentanaDocenteInicio extends JFrame {
 		horarioRegresoBus.setVisible(false);
 		add(horarioRegresoBus);
 
+		JLabel usb = new JLabel("Usaquen - Chia");
+		usb.setBounds(290, 28, 250, 30);
+		usb.setForeground(Color.BLACK);
+		usb.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioIdaBus.add(usb);
+
+		JLabel chb = new JLabel("Chia - Usaquen");
+		chb.setBounds(290, 28, 250, 30);
+		chb.setForeground(Color.BLACK);
+		chb.setFont(new Font("Arial", Font.BOLD, 28));
+		horarioRegresoBus.add(chb);
+
 		// ==IMAGENES==
+
+		ImageIcon horarioo = new ImageIcon(getClass().getResource("horariooo.JPG"));
+		JLabel lIconBus = new JLabel(horarioo);
+		lIconBus.setBounds(0, 90, 500, 170);
+		// panelLogo.add(lIcon);
+		busHorario.add(lIconBus);
+
 		ImageIcon imageLogo5 = new ImageIcon(getClass().getResource("horariobus.JPG"));
 		JLabel lIcon5 = new JLabel(imageLogo5);
 		lIcon5.setBounds(40, 50, 692, 435);
@@ -394,24 +429,6 @@ public class VentanaDocenteInicio extends JFrame {
 		flechaDerUnoBus.setBorderPainted(false);
 		horarioIdaBus.add(flechaDerUnoBus);
 
-		ImageIcon imagen6 = new ImageIcon(getClass().getResource("flechaatras.png"));
-		JLabel labelImagen6 = new JLabel(imagen6);
-		flechaIzqUnoBus = new JButton(imagen6);
-		flechaIzqUnoBus.setBackground(Color.WHITE);
-		flechaIzqUnoBus.setBounds(18, 5, 65, 66);
-		flechaIzqUnoBus.setFocusPainted(false);
-		flechaIzqUnoBus.setBorderPainted(false);
-		horarioIdaBus.add(flechaIzqUnoBus);
-
-		ImageIcon imagen7 = new ImageIcon(getClass().getResource("flechaadelante.png"));
-		JLabel labelImagen7 = new JLabel(imagen7);
-		flechaDerDosBus = new JButton(imagen7);
-		flechaDerDosBus.setBackground(Color.WHITE);
-		flechaDerDosBus.setBounds(700, 5, 63, 65);
-		flechaDerDosBus.setFocusPainted(false);
-		flechaDerDosBus.setBorderPainted(false);
-		horarioRegresoBus.add(flechaDerDosBus);
-
 		ImageIcon imagen8 = new ImageIcon(getClass().getResource("flechaatras.png"));
 		JLabel labelImagen8 = new JLabel(imagen8);
 		flechaIzqDosBus = new JButton(imagen8);
@@ -424,122 +441,130 @@ public class VentanaDocenteInicio extends JFrame {
 		// ==TODO LO DE MI PERFIL==
 
 		dato = new JLabel("Mi información");
-		dato.setBounds(95, 20, 250, 35);
+		dato.setBounds(95, 47, 250, 35);
 		dato.setForeground(Color.BLACK);
 		dato.setFont(new Font("Arial", Font.BOLD, 30));
 		panelMiPerfil.add(dato);
 
 		nombre = new JLabel("Nombre:");
-		nombre.setBounds(30, 90, 150, 25);
+		nombre.setBounds(30, 130, 80, 25);
 		nombre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		nombre.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(nombre);
 
 		tNombre = new JTextField();
-		tNombre.setBounds(200, 90, 164, 25);
+		tNombre.setBounds(85, 130, 290, 25);
 		tNombre.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tNombre.setForeground(Color.decode("#111d15"));
 		tNombre.setBackground(Color.decode("#e0ebe0"));
+		tNombre.setEditable(false);
 		tNombre.setBorder(null);
 		panelMiPerfil.add(tNombre);
 
 		apellido = new JLabel("Apellidos:");
-		apellido.setBounds(30, 130, 150, 25);
+		apellido.setBounds(30, 170, 80, 25);
 		apellido.setFont(new Font("Agency FB", Font.BOLD, 20));
 		apellido.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(apellido);
 
 		tApellido = new JTextField();
-		tApellido.setBounds(200, 130, 164, 25);
+		tApellido.setBounds(88, 170, 287, 25);
 		tApellido.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tApellido.setForeground(Color.decode("#111d15"));
 		tApellido.setBackground(Color.decode("#e0ebe0"));
+		tApellido.setEditable(false);
 		tApellido.setBorder(null);
 		panelMiPerfil.add(tApellido);
 
 		correo = new JLabel("Correo Institucional:");
-		correo.setBounds(30, 160, 150, 25);
+		correo.setBounds(30, 210, 150, 25);
 		correo.setFont(new Font("Agency FB", Font.BOLD, 20));
 		correo.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(correo);
 
 		tCorreo = new JTextField();
-		tCorreo.setBounds(200, 160, 164, 25);
+		tCorreo.setBounds(157, 210, 218, 25);
 		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tCorreo.setForeground(Color.decode("#111d15"));
 		tCorreo.setBackground(Color.decode("#e0ebe0"));
+		tCorreo.setEditable(false);
 		tCorreo.setBorder(null);
 		panelMiPerfil.add(tCorreo);
 
 		usuario = new JLabel("Usuario Institucional:");
-		usuario.setBounds(30, 200, 150, 25);
+		usuario.setBounds(30, 250, 150, 25);
 		usuario.setFont(new Font("Agency FB", Font.BOLD, 20));
 		usuario.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(usuario);
 
 		tUsuario = new JTextField();
-		tUsuario.setBounds(200, 200, 164, 25);
+		tUsuario.setBounds(162, 250, 214, 25);
 		tUsuario.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tUsuario.setForeground(Color.decode("#111d15"));
 		tUsuario.setBackground(Color.decode("#e0ebe0"));
+		tUsuario.setEditable(false);
 		tUsuario.setBorder(null);
 		panelMiPerfil.add(tUsuario);
 
 		documento = new JLabel("Documento de Identidad:");
-		documento.setBounds(30, 240, 200, 25);
+		documento.setBounds(30, 290, 200, 25);
 		documento.setFont(new Font("Agency FB", Font.BOLD, 20));
 		documento.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(documento);
 
 		tDocumento = new JTextField();
-		tDocumento.setBounds(200, 240, 164, 25);
-		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tDocumento.setBounds(175, 290, 201, 25);
+		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tDocumento.setForeground(Color.decode("#111d15"));
 		tDocumento.setBackground(Color.decode("#e0ebe0"));
+		tDocumento.setEditable(false);
 		tDocumento.setBorder(null);
 		panelMiPerfil.add(tDocumento);
 
 		telefono = new JLabel("Número de teléfono:");
-		telefono.setBounds(30, 280, 150, 25);
+		telefono.setBounds(30, 330, 150, 25);
 		telefono.setFont(new Font("Agency FB", Font.BOLD, 20));
 		telefono.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(telefono);
 
 		tTelefono = new JTextField();
-		tTelefono.setBounds(200, 280, 164, 25);
-		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tTelefono.setBounds(160, 330, 216, 25);
+		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTelefono.setForeground(Color.decode("#111d15"));
 		tTelefono.setBackground(Color.decode("#e0ebe0"));
+		tTelefono.setEditable(false);
 		tTelefono.setBorder(null);
 		panelMiPerfil.add(tTelefono);
 
 		facultad = new JLabel("Facultad:");
-		facultad.setBounds(30, 320, 150, 25);
+		facultad.setBounds(30, 370, 150, 25);
 		facultad.setFont(new Font("Agency FB", Font.BOLD, 20));
 		facultad.setForeground(Color.decode("#111d15"));
 		panelMiPerfil.add(facultad);
 
 		tFacultad = new JTextField();
-		tFacultad.setBounds(200, 320, 164, 25);
+		tFacultad.setBounds(90, 370, 288, 25);
 		tFacultad.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tFacultad.setForeground(Color.decode("#111d15"));
 		tFacultad.setBackground(Color.decode("#e0ebe0"));
+		tFacultad.setEditable(false);
 		tFacultad.setBorder(null);
 		panelMiPerfil.add(tFacultad);
 
-		numeroMateria = new JLabel("Cantidad de materias:");
-		numeroMateria.setBounds(30, 360, 150, 25);
-		numeroMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
-		numeroMateria.setForeground(Color.decode("#111d15"));
-		panelMiPerfil.add(numeroMateria);
+		numMateria = new JLabel("Cantidad de materias:");
+		numMateria.setBounds(30, 410, 200, 25);
+		numMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
+		numMateria.setForeground(Color.decode("#111d15"));
+		panelMiPerfil.add(numMateria);
 
-		tNumeroMateria = new JTextField();
-		tNumeroMateria.setBounds(200, 360, 164, 25);
-		tNumeroMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
-		tNumeroMateria.setForeground(Color.decode("#111d15"));
-		tNumeroMateria.setBackground(Color.decode("#e0ebe0"));
-		tNumeroMateria.setBorder(null);
-		panelMiPerfil.add(tNumeroMateria);
+		tNumMateria = new JTextField();
+		tNumMateria.setBounds(170, 410, 210, 25);
+		tNumMateria.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tNumMateria.setForeground(Color.decode("#111d15"));
+		tNumMateria.setBackground(Color.decode("#e0ebe0"));
+		tNumMateria.setEditable(false);
+		tNumMateria.setBorder(null);
+		panelMiPerfil.add(tNumMateria);
 
 		// ==TODO LO DE RESERVAS==
 
@@ -609,8 +634,8 @@ public class VentanaDocenteInicio extends JFrame {
 		grupoTransporte.add(rTren);
 
 		grupoRuta = new ButtonGroup();
-		grupoTransporte.add(rUsaquen);
-		grupoTransporte.add(rChia);
+		grupoRuta.add(rUsaquen);
+		grupoRuta.add(rChia);
 
 		calendario = new JPanel();
 		calendario.setLayout(null);
@@ -653,6 +678,7 @@ public class VentanaDocenteInicio extends JFrame {
 		plata.setForeground(Color.decode("#111d15"));
 		plata.setBackground(Color.decode("#e0ebe0"));
 		plata.setBorder(null);
+		plata.setEditable(false);
 		infoCosto.add(plata);
 
 		pagar = new JButton("Pagar y reservar");
@@ -713,10 +739,6 @@ public class VentanaDocenteInicio extends JFrame {
 		this.tMensaje = tMensaje;
 	}
 
-	public void setMenuBar(JPanel menuBar) {
-		this.menuBar = menuBar;
-	}
-
 	public JPanel getPanelPrincipal() {
 		return panelPrincipal;
 	}
@@ -765,6 +787,14 @@ public class VentanaDocenteInicio extends JFrame {
 		this.panelCuatro = panelCuatro;
 	}
 
+	public JPanel getTrenHorario() {
+		return trenHorario;
+	}
+
+	public void setTrenHorario(JPanel trenHorario) {
+		this.trenHorario = trenHorario;
+	}
+
 	public JPanel getHorarioIda() {
 		return horarioIda;
 	}
@@ -811,6 +841,14 @@ public class VentanaDocenteInicio extends JFrame {
 
 	public void setFlechaIzquierdaDos(JButton flechaIzquierdaDos) {
 		this.flechaIzquierdaDos = flechaIzquierdaDos;
+	}
+
+	public JPanel getBusHorario() {
+		return busHorario;
+	}
+
+	public void setBusHorario(JPanel busHorario) {
+		this.busHorario = busHorario;
 	}
 
 	public JPanel getHorarioIdaBus() {
@@ -933,12 +971,12 @@ public class VentanaDocenteInicio extends JFrame {
 		this.facultad = facultad;
 	}
 
-	public JLabel getNumeroMateria() {
-		return numeroMateria;
+	public JLabel getNumMateria() {
+		return numMateria;
 	}
 
-	public void setNumeroMateria(JLabel numeroMateria) {
-		this.numeroMateria = numeroMateria;
+	public void setNumMateria(JLabel numMateria) {
+		this.numMateria = numMateria;
 	}
 
 	public JTextField gettNombre() {
@@ -997,12 +1035,12 @@ public class VentanaDocenteInicio extends JFrame {
 		this.tFacultad = tFacultad;
 	}
 
-	public JTextField gettNumeroMateria() {
-		return tNumeroMateria;
+	public JTextField gettNumMateria() {
+		return tNumMateria;
 	}
 
-	public void settNumeroMateria(JTextField tNumeroMateria) {
-		this.tNumeroMateria = tNumeroMateria;
+	public void settNumMateria(JTextField tNumMateria) {
+		this.tNumMateria = tNumMateria;
 	}
 
 	public JPanel getPanelReserva() {
@@ -1228,5 +1266,5 @@ public class VentanaDocenteInicio extends JFrame {
 	public void setSalir(JButton salir) {
 		this.salir = salir;
 	}
-
+	
 }

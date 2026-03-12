@@ -104,27 +104,24 @@ public class Controller implements ActionListener {
 		vei.getInicio().setActionCommand("ver_principal_estudiante");
 
 		vei.getbTren().addActionListener(this);
-		vei.getbTren().setActionCommand("ver_rutas_tren");
-
+		vei.getbTren().setActionCommand("ver_rutas_tren_e");
 		vei.getTren().addActionListener(this);
-		vei.getTren().setActionCommand("ver_rutas_tren_dos");
+		vei.getTren().setActionCommand("ver_rutas_tren_e");
 
 		vei.getbBus().addActionListener(this);
-		vei.getbBus().setActionCommand("ver_rutas_bus");
-
+		vei.getbBus().setActionCommand("ver_rutas_bus_e");
 		vei.getBus().addActionListener(this);
-		vei.getBus().setActionCommand("ver_rutas_bus_dos");
+		vei.getBus().setActionCommand("ver_rutas_bus_e");
 
 		vei.getFlechaDerechaUno().addActionListener(this);
-		vei.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren");
-
+		vei.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren_e");
 		vei.getFlechaIzquierdaDos().addActionListener(this);
-		vei.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren");
+		vei.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren_e");
 
 		vei.getFlechaDerUnoBus().addActionListener(this);
-		vei.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus");
+		vei.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus_e");
 		vei.getFlechaIzqDosBus().addActionListener(this);
-		vei.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus");
+		vei.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus_e");
 
 		vei.getPerfil().addActionListener(this);
 		vei.getPerfil().setActionCommand("ver_perfil_estudiante");
@@ -140,27 +137,27 @@ public class Controller implements ActionListener {
 		vdi.getInicio().setActionCommand("ver_principal_docente");
 		
 		vdi.getbTren().addActionListener(this);
-		vdi.getbTren().setActionCommand("ver_rutas_tren");
+		vdi.getbTren().setActionCommand("ver_rutas_tren_d");
 		
 		vdi.getTren().addActionListener(this);
-		vdi.getTren().setActionCommand("ver_rutas_tren_dos");
+		vdi.getTren().setActionCommand("ver_rutas_tren_d");
 		
 		vdi.getbBus().addActionListener(this);
-		vdi.getbBus().setActionCommand("ver_rutas_bus");
+		vdi.getbBus().setActionCommand("ver_rutas_bus_d");
 		
 		vdi.getBus().addActionListener(this);
-		vdi.getBus().setActionCommand("ver_rutas_bus_dos");
+		vdi.getBus().setActionCommand("ver_rutas_bus_d");
 		
 		vdi.getFlechaDerechaUno().addActionListener(this);
-		vdi.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren");
+		vdi.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren_d");
 		
 		vdi.getFlechaIzquierdaDos().addActionListener(this);
-		vdi.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren");
+		vdi.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren_d");
 		
 		vdi.getFlechaDerUnoBus().addActionListener(this);
-		vdi.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus");
+		vdi.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus_d");
 		vdi.getFlechaIzqDosBus().addActionListener(this);
-		vdi.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus");
+		vdi.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus_d");
 		
 		vdi.getPerfil().addActionListener(this);
 		vdi.getPerfil().setActionCommand("ver_perfil_docente");
@@ -176,27 +173,27 @@ public class Controller implements ActionListener {
 		vai.getInicio().setActionCommand("ver_principal_admin");
 		
 		vai.getbTren().addActionListener(this);
-		vai.getbTren().setActionCommand("ver_rutas_tren");
+		vai.getbTren().setActionCommand("ver_rutas_tren_a");
 		
 		vai.getTren().addActionListener(this);
-		vai.getTren().setActionCommand("ver_rutas_tren_dos");
+		vai.getTren().setActionCommand("ver_rutas_tren_a");
 		
 		vai.getbBus().addActionListener(this);
-		vai.getbBus().setActionCommand("ver_rutas_bus");
+		vai.getbBus().setActionCommand("ver_rutas_bus_a");
 		
 		vai.getBus().addActionListener(this);
-		vai.getBus().setActionCommand("ver_rutas_bus_dos");
+		vai.getBus().setActionCommand("ver_rutas_bus_a");
 		
 		vai.getFlechaDerechaUno().addActionListener(this);
-		vai.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren");
+		vai.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren_a");
 		
 		vai.getFlechaIzquierdaDos().addActionListener(this);
-		vai.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren");
+		vai.getFlechaIzquierdaDos().setActionCommand("usar_flecha_izquierda_tren_a");
 		
 		vai.getFlechaDerUnoBus().addActionListener(this);
-		vai.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus");
+		vai.getFlechaDerUnoBus().setActionCommand("usar_flecha_derecha_bus_a");
 		vai.getFlechaIzqDosBus().addActionListener(this);
-		vai.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus");
+		vai.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus_a");
 		
 		vai.getPerfil().addActionListener(this);
 		vai.getPerfil().setActionCommand("ver_perfil_admin");
@@ -555,8 +552,8 @@ public class Controller implements ActionListener {
 			actualizarPerfilDocente();
 			
 			vdi.getPanelPrincipal().setVisible(false);
-			//vdi.getTrenHorario().setVisible(false);
-			//vdi.getBusHorario().setVisible(false);
+			vdi.getTrenHorario().setVisible(false);
+			vdi.getBusHorario().setVisible(false);
 			vdi.getHorarioIda().setVisible(false);
 			vdi.getHorarioRegreso().setVisible(false);
 			vdi.getHorarioIdaBus().setVisible(false);
@@ -580,29 +577,30 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			break;
 		}
-		case "ver_rutas_tren": {
-			vei.getPanelPrincipal().setVisible(false);
-			vei.getTrenHorario().setVisible(true);
-			vei.getHorarioIda().setVisible(true);
-			vei.getHorarioRegreso().setVisible(false);
-			vei.getHorarioIdaBus().setVisible(false);
-			vei.getHorarioRegresoBus().setVisible(false);
-			vei.getPanelMiPerfil().setVisible(false);
-			vei.getPanelReserva().setVisible(false);
+		case "ver_rutas_tren_e": {
+				vei.getPanelPrincipal().setVisible(false);
+				vei.getTrenHorario().setVisible(true);
+				vei.getHorarioIda().setVisible(true);
+				vei.getHorarioRegreso().setVisible(false);
+				vei.getHorarioIdaBus().setVisible(false);
+				vei.getHorarioRegresoBus().setVisible(false);
+				vei.getPanelMiPerfil().setVisible(false);
+				vei.getPanelReserva().setVisible(false);
 			break;
 		}
-		case "ver_rutas_tren_dos": {
-			vei.getPanelPrincipal().setVisible(false);
-			vei.getTrenHorario().setVisible(true);
-			vei.getHorarioIda().setVisible(true);
-			vei.getHorarioRegreso().setVisible(false);
-			vei.getHorarioIdaBus().setVisible(false);
-			vei.getHorarioRegresoBus().setVisible(false);
-			vei.getPanelMiPerfil().setVisible(false);
-			vei.getPanelReserva().setVisible(false);
+		case "ver_rutas_tren_a": {
+			vdi.getPanelPrincipal().setVisible(false);
+			vdi.getTrenHorario().setVisible(true);
+			vdi.getHorarioIda().setVisible(true);
+			vdi.getHorarioRegreso().setVisible(false);
+			vdi.getHorarioIdaBus().setVisible(false);
+			vdi.getHorarioRegresoBus().setVisible(false);
+			vdi.getPanelMiPerfil().setVisible(false);
+			vdi.getPanelReserva().setVisible(false);
 			break;
 		}
-		case "ver_rutas_bus": {
+	
+		case "ver_rutas_bus_e": {
 			vei.getPanelPrincipal().setVisible(false);
 			vei.getBusHorario().setVisible(true);
 			vei.getTrenHorario().setVisible(false);
@@ -614,16 +612,16 @@ public class Controller implements ActionListener {
 			vei.getPanelReserva().setVisible(false);
 			break;
 		}
-		case "ver_rutas_bus_dos": {
-			vei.getPanelPrincipal().setVisible(false);
-			vei.getBusHorario().setVisible(true);
-			vei.getTrenHorario().setVisible(false);
-			vei.getHorarioIda().setVisible(false);
-			vei.getHorarioRegreso().setVisible(false);
-			vei.getHorarioIdaBus().setVisible(true);
-			vei.getHorarioRegresoBus().setVisible(false);
-			vei.getPanelMiPerfil().setVisible(false);
-			vei.getPanelReserva().setVisible(false);
+		case "ver_rutas_bus_a": {
+			vdi.getPanelPrincipal().setVisible(false);
+			vdi.getBusHorario().setVisible(true);
+			vdi.getTrenHorario().setVisible(false);
+			vdi.getHorarioIda().setVisible(false);
+			vdi.getHorarioRegreso().setVisible(false);
+			vdi.getHorarioIdaBus().setVisible(true);
+			vdi.getHorarioRegresoBus().setVisible(false);
+			vdi.getPanelMiPerfil().setVisible(false);
+			vdi.getPanelReserva().setVisible(false);
 			break;
 		}
 		case "ver_principal_estudiante": {
@@ -641,8 +639,8 @@ public class Controller implements ActionListener {
 		case "ver_principal_docente": {
 			vdi.getPanelPrincipal().setVisible(true);
 			vdi.getHorarioIda().setVisible(false);
-			//vdi.getTrenHorario().setVisible(false);
-			//vdi.getBusHorario().setVisible(false);
+			vdi.getTrenHorario().setVisible(false);
+			vdi.getBusHorario().setVisible(false);
 			vdi.getHorarioRegreso().setVisible(false);
 			vdi.getHorarioIdaBus().setVisible(false);
 			vdi.getHorarioRegresoBus().setVisible(false);
@@ -692,25 +690,25 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(true);
 			break;
 		}
-		case "usar_flecha_derecha_tren": {
+		case "usar_flecha_derecha_tren_e": {
 			vei.getHorarioIda().setVisible(false);
 			vei.getTrenHorario().setVisible(true);
 			vei.getHorarioRegreso().setVisible(true);
 			break;
 		}
-		case "usar_flecha_izquierda_tren": {
+		case "usar_flecha_izquierda_tren_e": {
 			vei.getTrenHorario().setVisible(true);
 			vei.getHorarioRegreso().setVisible(false);
 			vei.getHorarioIda().setVisible(true);
 			break;
 		}
-		case "usar_flecha_derecha_bus": {
+		case "usar_flecha_derecha_bus_e": {
 			vei.getBusHorario().setVisible(true);
 			vei.getHorarioIdaBus().setVisible(false);
 			vei.getHorarioRegresoBus().setVisible(true);
 			break;
 		}
-		case "usar_flecha_izquierda_bus": {
+		case "usar_flecha_izquierda_bus_e": {
 			vei.getBusHorario().setVisible(true);
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getHorarioIdaBus().setVisible(true);
@@ -766,7 +764,7 @@ public class Controller implements ActionListener {
 		vdi.gettDocumento().setText(String.valueOf(docenteActual.getId()));
 		vdi.gettTelefono().setText(String.valueOf(docenteActual.getTelefono()));
 		vdi.gettFacultad().setText(docenteActual.getFacultad());
-		vdi.gettNumeroMateria().setText(String.valueOf(docenteActual.getNumeroMateria()));
+		vdi.gettNumMateria().setText(String.valueOf(docenteActual.getNumeroMateria()));
 	}
 	
 	public void actualizarPerfilAdministrativo() {

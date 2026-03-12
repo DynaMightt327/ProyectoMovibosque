@@ -16,7 +16,7 @@ public class ViajeDAO implements DAO<Viaje>{
 	public void inicializarViaje() {
 		int id = 1;
 		
-		listaViajes.add(new Viaje(id++, "TREN", "IDA", "07:00"));
+		/*listaViajes.add(new Viaje(id++, "TREN", "IDA", "07:00"));
 		listaViajes.add(new Viaje(id++, "TREN", "IDA", "08:00"));
 		listaViajes.add(new Viaje(id++, "TREN", "IDA", "09:00"));
 
@@ -27,9 +27,10 @@ public class ViajeDAO implements DAO<Viaje>{
 		listaViajes.add(new Viaje(id++, "BUS", "IDA", "07:30"));
 
 		listaViajes.add(new Viaje(id++, "BUS", "REGRESO", "17:00"));
-		listaViajes.add(new Viaje(id++, "BUS", "REGRESO", "18:00"));
+		listaViajes.add(new Viaje(id++, "BUS", "REGRESO", "18:00"));*/
 
 	}
+	
 	
 	
 	@Override
