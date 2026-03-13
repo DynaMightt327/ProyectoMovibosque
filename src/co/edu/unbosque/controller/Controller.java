@@ -1237,8 +1237,7 @@ public class Controller implements ActionListener {
 	 * Long.parseLong(valor); if(numero <= 0) { throw new
 	 * OutRangeException("El campo " + nombreCampo + " debe ser mayor a cero"); } }
 	 * catch (NumberFormatException e) { throw new
-	 * NumericalDataException("El campo " + nombreCampo +
-	 * " debe ser un numero valido"); } }
+	 * NumericalDataException("El campo " + nombreCampo); } }
 	 * 
 	 * public static void validarCorreo(String correo) throws EmptyDataException,
 	 * OutRangeException { if(correo == null || correo.equals("")) { throw new
@@ -1276,20 +1275,11 @@ public class Controller implements ActionListener {
 		if (correo.contains(" ")) {
 			throw new EmailException();
 		}
-
-		if (!correo.contains("@")) {
-			throw new EmailException();
-		}
-
-		if (correo.isEmpty() || correo.matches("^[A-Za-z0-9._-]+$")) {
+		if (correo.isEmpty() || !correo.matches("[A-Za-z]{5,}[A-Za-z0-9._-]*@unbosque.edu.co$")) {
 			throw new EmailException();
 		}
 
 		if (correo.matches("^[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
-			throw new EmailException();
-		}
-
-		if (!correo.endsWith("unbosque.edu.co")) {
 			throw new EmailException();
 		}
 	}
@@ -1334,7 +1324,7 @@ public class Controller implements ActionListener {
 	public static void verificarId (long id) throws IdException {
 		
 		String idTxt = Long.toString(id);
-		if(!idTxt.matches("^[0-9]{10}$")) {
+		if(!idTxt.matches("^[0-9]{8,10}$")) {
 			throw new IdException();
 		}
 	}
@@ -1342,7 +1332,7 @@ public class Controller implements ActionListener {
 	public static void verificarTelefono(long telefono) throws CelException {
 		
 		String telefonoTxt = Long.toString(telefono);
-		if(!telefonoTxt.matches("^[0-9]{10}$")) {
+		if(!telefonoTxt.matches("^3[0-9]{9}$")) {
 			throw new CelException();
 		}
 		
