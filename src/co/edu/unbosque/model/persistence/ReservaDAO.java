@@ -35,7 +35,7 @@ public class ReservaDAO implements DAO<Reserva> {
 				if(r.getTipoTransporte().equalsIgnoreCase(tipo) && r.getRuta().equalsIgnoreCase(ruta) && r.getFecha().equalsIgnoreCase(fechaTexto)) {
 					usado = usado + 1;
 				}
-				i = i + 1;
+				i++;
 			}
 			if(tipo.equalsIgnoreCase("Bus")) {
 				limite = cupoBus;
@@ -58,7 +58,7 @@ public class ReservaDAO implements DAO<Reserva> {
 				if(r.getIdUsuario() == idUsuario) {
 					resultado.add(r);
 				}
-				i = i + 1;
+				i++;
 			}
 			return resultado;
 		}
@@ -95,7 +95,7 @@ public class ReservaDAO implements DAO<Reserva> {
 		while (i < listaReservas.size()) {
 			Reserva r = listaReservas.get(i);
 			texto = texto + "Reserva #: " + r.getIdReserva() + "/n";
-			i = i + 1;
+			i++;
 		}
 		return texto;
 	}

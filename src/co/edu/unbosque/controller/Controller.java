@@ -42,6 +42,7 @@ public class Controller implements ActionListener {
 	private VentanaEstudianteInicio vei;
 	private VentanaDocenteInicio vdi;
 	private VentanaAdminInicio vai;
+	private String horarioSeleccionado;
 
 	private AdministrativoDAO aDAO;
 	private DocenteDAO dDAO;
@@ -60,6 +61,7 @@ public class Controller implements ActionListener {
 		vei = new VentanaEstudianteInicio();
 		vdi = new VentanaDocenteInicio();
 		vai = new VentanaAdminInicio();
+		horarioSeleccionado = null;
 
 		// ==DAO==
 		aDAO = new AdministrativoDAO();
@@ -93,6 +95,18 @@ public class Controller implements ActionListener {
 		
 		vr.gettFacultad().addActionListener(this);
 		vr.gettFacultad().setActionCommand("cambio_facultad");
+		
+		vei.getrBus().addActionListener(this);
+		vei.getrBus().setActionCommand("actualizar_costo_estudiante");
+
+		vei.getrTren().addActionListener(this);
+		vei.getrTren().setActionCommand("actualizar_costo_estudiante");
+
+		vei.getrUsaquen().addActionListener(this);
+		vei.getrUsaquen().setActionCommand("actualizar_costo_estudiante");
+
+		vei.getrChia().addActionListener(this);
+		vei.getrChia().setActionCommand("actualizar_costo_estudiante");
 
 		// ==VENTANA INICIAR SESION==
 		vin.getVolver().addActionListener(this);
@@ -167,11 +181,107 @@ public class Controller implements ActionListener {
 		vdi.getFlechaIzqDosBus().addActionListener(this);
 		vdi.getFlechaIzqDosBus().setActionCommand("usar_flecha_izquierda_bus_d");
 		
+		vdi.getPagar().addActionListener(this);
+		vdi.getPagar().setActionCommand("pagar_reserva_docente");
+		
 		vdi.getPerfil().addActionListener(this);
 		vdi.getPerfil().setActionCommand("ver_perfil_docente");
 		
 		vdi.getReserva().addActionListener(this);
 		vdi.getReserva().setActionCommand("ver_reserva_docente");
+		
+		vei.getbMananaUno().addActionListener(this);
+		vei.getbMananaUno().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaDos().addActionListener(this);
+		vei.getbMananaDos().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaTres().addActionListener(this);
+		vei.getbMananaTres().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaCuatro().addActionListener(this);
+		vei.getbMananaCuatro().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaCinco().addActionListener(this);
+		vei.getbMananaCinco().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaSeis().addActionListener(this);
+		vei.getbMananaSeis().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaSiete().addActionListener(this);
+		vei.getbMananaSiete().setActionCommand("seleccionar_horario");
+
+		vei.getbMananaOcho().addActionListener(this);
+		vei.getbMananaOcho().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeUno().addActionListener(this);
+		vei.getbTardeUno().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeDos().addActionListener(this);
+		vei.getbTardeDos().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeTres().addActionListener(this);
+		vei.getbTardeTres().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeCuatro().addActionListener(this);
+		vei.getbTardeCuatro().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeCinco().addActionListener(this);
+		vei.getbTardeCinco().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeSeis().addActionListener(this);
+		vei.getbTardeSeis().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeSiete().addActionListener(this);
+		vei.getbTardeSiete().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeOcho().addActionListener(this);
+		vei.getbTardeOcho().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeNueve().addActionListener(this);
+		vei.getbTardeNueve().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeDiez().addActionListener(this);
+		vei.getbTardeDiez().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeOnce().addActionListener(this);
+		vei.getbTardeOnce().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeDoce().addActionListener(this);
+		vei.getbTardeDoce().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeTrece().addActionListener(this);
+		vei.getbTardeTrece().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeCatorce().addActionListener(this);
+		vei.getbTardeCatorce().setActionCommand("seleccionar_horario");
+
+		vei.getbTardeQuince().addActionListener(this);
+		vei.getbTardeQuince().setActionCommand("seleccionar_horario");
+
+		vei.gettMananaUno().addActionListener(this);
+		vei.gettMananaUno().setActionCommand("seleccionar_horario");
+
+		vei.gettMananaDos().addActionListener(this);
+		vei.gettMananaDos().setActionCommand("seleccionar_horario");
+
+		vei.gettMananaTres().addActionListener(this);
+		vei.gettMananaTres().setActionCommand("seleccionar_horario");
+
+		vei.gettMananaCuatro().addActionListener(this);
+		vei.gettMananaCuatro().setActionCommand("seleccionar_horario");
+
+		vei.gettTardeUno().addActionListener(this);
+		vei.gettTardeUno().setActionCommand("seleccionar_horario");
+
+		vei.gettTardeDos().addActionListener(this);
+		vei.gettTardeDos().setActionCommand("seleccionar_horario");
+
+		vei.gettTardeTres().addActionListener(this);
+		vei.gettTardeTres().setActionCommand("seleccionar_horario");
+
+		vei.gettTardeCuatro().addActionListener(this);
+		vei.gettTardeCuatro().setActionCommand("seleccionar_horario");
 		
 		//== VENTANA PARA ADMINISTRATIVO==
 		vai.getSalir().addActionListener(this);
@@ -214,6 +324,11 @@ public class Controller implements ActionListener {
 		
 		vai.getDinero().addActionListener(this);
 		vai.getDinero().setActionCommand("ver_dinero_viajes");
+		
+		vai.getPagar().addActionListener(this);
+		vai.getPagar().setActionCommand("pagar_reserva_admin");
+		
+		
 	
 	}
 
@@ -318,17 +433,215 @@ public class Controller implements ActionListener {
 			} else {
 				vei.getPlata().setText("" + total);
 			}
-			
 			int idReserva = rDAO.generarId();
 			Reserva nueva = new Reserva(idReserva, estudianteActual.getId(), estudianteActual.getRol(), tipoTransporte, ruta, fecha, costoBase, descuento, total);
 			rDAO.crear(nueva);
 			JOptionPane.showMessageDialog(vei, "Reserva creada con exito\nNumero de reserva: " + idReserva);
+			actualizarCostoReservaEstudiante();
+			horarioSeleccionado = null;
 			break;
+		}
+		case "pagar_reserva_admin": {
+
+			    String tipoTransporte = null;
+
+			    if (vai.getrTren().isSelected()) {
+			        tipoTransporte = "Tren";
+			    }
+
+			    if (vai.getrBus().isSelected()) {
+			        JOptionPane.showMessageDialog(vai,
+			                "Como administrativo solo puede reservar Tren");
+			        break;
+			    }
+
+			    if (tipoTransporte == null) {
+			        JOptionPane.showMessageDialog(vai,
+			                "Debe seleccionar el tren para poder reservar");
+			        break;
+			    }
+
+			    String ruta = null;
+
+			    if (vai.getrUsaquen().isSelected()) {
+			        ruta = "Usaquen - Chia";
+			    }
+			    if (vai.getrChia().isSelected()) {
+			        ruta = "Chia - Usaquen";
+			    }
+
+			    if (ruta == null) {
+			        JOptionPane.showMessageDialog(vai,
+			                "Debe seleccionar la ruta");
+			        break;
+			    }
+
+			   /* String dia = (String) vai.getDi.getSelectedItem();
+			    String diaSemana = (String) vai.getD.getSelectedItem();
+
+			    if (diaSemana == null || dia == null ||
+			        diaSemana.equals("...") || dia.equals("...")) {
+
+			        JOptionPane.showMessageDialog(vai,
+			                "Debe seleccionar la fecha de la reserva");
+			        break;
+			    }
+
+			    String fecha = diaSemana + " " + dia;
+			    if (horarioSeleccionado != null && !horarioSeleccionado.trim().equals("")) {
+			        fecha = fecha + " - " + horarioSeleccionado;
+			    }
+			    if (!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
+			        JOptionPane.showMessageDialog(vai,
+			                "No hay cupos disponibles para esa fecha y ruta");
+			        break;
+			    }
+			    double costoBase = calcularCostoBase(adminActual.getFacultad(), 0);
+			    double descuento = 0;
+			    double extra = adminActual.getAnnoServicio() * 500;
+			    double total = costoBase + extra;
+			    /*try {
+			        // vai.getPlata().setText("" + total);
+			    } catch (Exception exMostrar) {
+			        // Si no tienes campo, simplemente ignoras esto
+			    }
+
+			    int idReserva = rDAO.generarId();
+				Reserva nueva = new Reserva(idReserva, adminActual.getId(), adminActual.getRol(), tipoTransporte, ruta,
+						fecha, costoBase, descuento, total);
+			    rDAO.crear(nueva);
+				JOptionPane.showMessageDialog(vai, "Reserva creada con éxito\n" + "Número de reserva: " + idReserva
+						+ "\n" + "Total a pagar: " + total);
+			    horarioSeleccionado = null;
+			    break;*/
+		}
+		case "pagar_reserva_docente": {
+			String tipoTransporte = null;
+			if(vdi.getrBus().isSelected()) {
+				tipoTransporte = "Bus";
+			}
+			if(vdi.getrTren().isSelected()) {
+				tipoTransporte = "Tren";
+			}
+			if(tipoTransporte == null) {
+				JOptionPane.showMessageDialog(vdi, "Debe seleccionar un tipo de transporte");
+				break;
+			}
+			
+			String ruta = null;
+			if(vdi.getrUsaquen().isSelected()) {
+				ruta = "Usaquen - Chia";
+			}
+			if(vdi.getrChia().isSelected()) {
+				ruta = "Chia - Usaquen";
+			}
+			if(ruta == null) {
+				JOptionPane.showMessageDialog(vdi, "Debe seleccionar la ruta");
+				break;
+			}
+			
+			String fecha = obtenerFecha();
+			if(fecha == null || fecha.trim().equals("")) {
+				JOptionPane.showMessageDialog(vdi, "Debe seleccionar la fecha de la reserva");
+				break;
+			}
+			
+			if(!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
+				JOptionPane.showMessageDialog(vdi, "No hay cupos disponibles");
+				break;
+			}
+			
+			double costoBase = calcularCostoBase(docenteActual.getFacultad(), 0);
+			double descuento = calcularDescuento(docenteActual.getRol());
+			double total = costoBase - descuento;
+			
+			if(total < 0) {
+				total = 0;
+			}
+			
+			int idReserva = rDAO.generarId();
+			Reserva nueva = new Reserva(idReserva, docenteActual.getId(), docenteActual.getRol(), tipoTransporte, ruta, fecha, costoBase, descuento, total);
+			rDAO.crear(nueva);
+			JOptionPane.showMessageDialog(vdi, "Reserva creada con exito\nNumero de reserva: " + idReserva);
+			break;
+			
 		}
 		case "cambio_rol": {
 			actualizarCamposPorRol();
 			break;
 
+		}
+		case "actualizar_costo_estudiante": {
+			actualizarCostoReservaEstudiante();
+			break;
+		}
+		case "seleccionar_horario": {
+
+			if (e.getSource() == vei.getbMananaUno()) {
+				horarioSeleccionado = "7AM";
+			} else if (e.getSource() == vei.getbMananaDos()) {
+				horarioSeleccionado = "9AM";
+			} else if (e.getSource() == vei.getbMananaTres()) {
+				horarioSeleccionado = "9AM"; // o lo que corresponda
+			} else if (e.getSource() == vei.getbMananaCuatro()) {
+				horarioSeleccionado = "9AM";
+			} else if (e.getSource() == vei.getbMananaCinco()) {
+				horarioSeleccionado = "11AM";
+			} else if (e.getSource() == vei.getbMananaSeis()) {
+				horarioSeleccionado = "11AM";
+			} else if (e.getSource() == vei.getbMananaSiete()) {
+				horarioSeleccionado = "12M";
+			} else if (e.getSource() == vei.getbMananaOcho()) {
+				horarioSeleccionado = "1PM";
+			} else if (e.getSource() == vei.getbTardeUno()) {
+				horarioSeleccionado = "10AM";
+			} else if (e.getSource() == vei.getbTardeDos()) {
+				horarioSeleccionado = "10AM";
+			} else if (e.getSource() == vei.getbTardeTres()) {
+				horarioSeleccionado = "10AM";
+			} else if (e.getSource() == vei.getbTardeCuatro()) {
+				horarioSeleccionado = "10AM";
+			} else if (e.getSource() == vei.getbTardeCinco()) {
+				horarioSeleccionado = "11AM";
+			} else if (e.getSource() == vei.getbTardeSeis()) {
+				horarioSeleccionado = "11AM";
+			} else if (e.getSource() == vei.getbTardeSiete()) {
+				horarioSeleccionado = "12M";
+			} else if (e.getSource() == vei.getbTardeOcho()) {
+				horarioSeleccionado = "1PM";
+			} else if (e.getSource() == vei.getbTardeNueve()) {
+				horarioSeleccionado = "1PM";
+			} else if (e.getSource() == vei.getbTardeDiez()) {
+				horarioSeleccionado = "3PM";
+			} else if (e.getSource() == vei.getbTardeOnce()) {
+				horarioSeleccionado = "3PM";
+			} else if (e.getSource() == vei.getbTardeDoce()) {
+				horarioSeleccionado = "4PM";
+			} else if (e.getSource() == vei.getbTardeTrece()) {
+				horarioSeleccionado = "5PM";
+			} else if (e.getSource() == vei.getbTardeCatorce()) {
+				horarioSeleccionado = "5PM";
+			} else if (e.getSource() == vei.getbTardeQuince()) {
+				horarioSeleccionado = "5PM";
+			} else if (e.getSource() == vei.gettMananaUno()) {
+				horarioSeleccionado = "Martes mañana";
+			} else if (e.getSource() == vei.gettMananaDos()) {
+				horarioSeleccionado = "Miércoles mañana";
+			} else if (e.getSource() == vei.gettMananaTres()) {
+				horarioSeleccionado = "Jueves mañana";
+			} else if (e.getSource() == vei.gettMananaCuatro()) {
+				horarioSeleccionado = "Viernes mañana";
+			} else if (e.getSource() == vei.gettTardeUno()) {
+				horarioSeleccionado = "Martes tarde";
+			} else if (e.getSource() == vei.gettTardeDos()) {
+				horarioSeleccionado = "Miércoles tarde";
+			} else if (e.getSource() == vei.gettTardeTres()) {
+				horarioSeleccionado = "Jueves tarde";
+			} else if (e.getSource() == vei.gettTardeCuatro()) {
+				horarioSeleccionado = "Viernes tarde";
+				actualizarCostoReservaEstudiante();
+			}
+			break;
 		}
 		case "boton_volver_registrar": {
 			limpiarCampos();
@@ -1119,7 +1432,7 @@ public class Controller implements ActionListener {
 		if(facultad.equalsIgnoreCase("Matematicas")) {
 			return semestre * 3000;
 		}
-		return 0;
+		return calcularBase(facultad, semestre);
 	}
 	
 	public double calcularDescuento(String rol) {
@@ -1148,12 +1461,62 @@ public class Controller implements ActionListener {
 		while (i < reserva.size()) {
 			Reserva r = reserva.get(i);
 			texto = texto + "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: " + r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar() + "/n-------------------";
-			i = i++;
+			i++;
 		}
 		
-		JOptionPane.showMessageDialog(vei,texto, "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
-		
+		JOptionPane.showMessageDialog(vei,texto, "Mis reservas", JOptionPane.INFORMATION_MESSAGE);	
 	}
+	
+
+	private void actualizarCostoReservaEstudiante() {
+
+		boolean transporteSeleccionado = vei.getrBus().isSelected() || vei.getrTren().isSelected();
+		boolean rutaSeleccionada = vei.getrUsaquen().isSelected() || vei.getrChia().isSelected();
+		boolean horarioOk = (horarioSeleccionado != null && !horarioSeleccionado.trim().equals(""));
+
+		if (!transporteSeleccionado || !rutaSeleccionada || !horarioOk) {
+			vei.getPlata().setText("");
+			return;
+		}
+
+		double costoBase = calcularCostoBase(estudianteActual.getFacultad(), estudianteActual.getSemestre());
+		double descuento = calcularDescuento(estudianteActual.getRol());
+		double total = costoBase - descuento;
+
+		if (total < 0) {
+			total = 0;
+		}
+
+		if (estudianteActual.getFacultad().equalsIgnoreCase("Artes")) {
+			vei.getPlata().setText("Aplausos");
+		} else {
+			vei.getPlata().setText("" + total);
+		}
+	}
+	
+
+	public double calcularBase(String facultad, int semestre) {
+		if (facultad == null)
+			return 0;
+
+		facultad = facultad.trim().toLowerCase();
+
+		if (facultad.equals("ingeniería") || facultad.equals("ingenieria")) {
+			return 1000;
+		}
+		if (facultad.equals("medicina")) {
+			return 2000;
+		}
+		if (facultad.equals("artes")) {
+			return 0;
+		}
+		if (facultad.equals("matemáticas") || facultad.equals("matematicas")) {
+			return semestre * 3000;
+		}
+
+		return 0;
+	}
+
 
 
 	public void iniciar() {
