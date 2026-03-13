@@ -243,7 +243,7 @@ public class VentanaRegistro extends JFrame {
 		tRol.setBorder(null);
 		panelCentral.add(tRol);
 
-		tIngenieria = new JComboBox<String>(new String[] { " ", "Bioingeniería", "Ingeniería ambiental",
+		tIngenieria = new JComboBox<String>(new String[] { "...", "Bioingeniería", "Ingeniería ambiental",
 				"Ingeniería de sistemas", "Ingeniería electrónica", "Ingeniería industrial", "Ingeniería robótica" });
 		tIngenieria.setBounds(270, 450, 164, 32);
 		tIngenieria.setFont(new Font("Agency FB", Font.BOLD, 18));
@@ -252,7 +252,7 @@ public class VentanaRegistro extends JFrame {
 		tIngenieria.setBorder(null);
 		panelCentral.add(tIngenieria);
 
-		tArte = new JComboBox<String>(new String[] { " ", "Arte dramático", "Artes Plásticas", "Arquitectura",
+		tArte = new JComboBox<String>(new String[] { "...", "Arte dramático", "Artes Plásticas", "Arquitectura",
 				"Creación digital", "Diseño de comunicación", "Diseño industrial", "Formación musical" });
 		tArte.setBounds(270, 450, 164, 32);
 		tArte.setFont(new Font("Agency FB", Font.BOLD, 18));
@@ -261,7 +261,7 @@ public class VentanaRegistro extends JFrame {
 		tArte.setBorder(null);
 		panelCentral.add(tArte);
 
-		tMedicina = new JComboBox<String>(new String[] { " ", "Instrumentación quirúrgica", "Medicina", "Optometría" });
+		tMedicina = new JComboBox<String>(new String[] { "...", "Instrumentación quirúrgica", "Medicina", "Optometría" });
 		tMedicina.setBounds(270, 450, 164, 32);
 		tMedicina.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tMedicina.setForeground(Color.decode("#111d15"));
@@ -269,7 +269,7 @@ public class VentanaRegistro extends JFrame {
 		tMedicina.setBorder(null);
 		panelCentral.add(tMedicina);
 
-		tMatematica = new JComboBox<String>(new String[] { " ", "Estadística", "Matemáticas y ciencia de datos" });
+		tMatematica = new JComboBox<String>(new String[] { "...", "Estadística", "Matemáticas y ciencia de datos" });
 		tMatematica.setBounds(270, 450, 164, 32);
 		tMatematica.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tMatematica.setForeground(Color.decode("#111d15"));

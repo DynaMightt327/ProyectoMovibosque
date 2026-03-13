@@ -350,7 +350,7 @@ public class Controller implements ActionListener {
 						JOptionPane.INFORMATION_MESSAGE);
 				limpiarCampos();
 				vr.setVisible(false);
-				vi.setVisible(true);
+				vin.setVisible(true);
 
 			} catch (RegisterPasswordException e1) {
 				JOptionPane.showMessageDialog(vr, "Contraseña no válida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -522,6 +522,8 @@ public class Controller implements ActionListener {
 			vai.getHorarioRegresoBus().setVisible(false);
 			vai.getPanelMiPerfil().setVisible(true);
 			vai.getPanelReserva().setVisible(false);
+			vai.getPanelAplauso().setVisible(false);
+			vai.getPanelPlata().setVisible(false);
 			break;
 		}
 		case "ver_rutas_tren_e": {
@@ -555,6 +557,8 @@ public class Controller implements ActionListener {
 			vai.getHorarioRegresoBus().setVisible(false);
 			vai.getPanelMiPerfil().setVisible(false);
 			vai.getPanelReserva().setVisible(false);
+			vai.getPanelAplauso().setVisible(false);
+			vai.getPanelPlata().setVisible(false);
 			break;
 		}
 	
@@ -592,6 +596,8 @@ public class Controller implements ActionListener {
 			vai.getHorarioRegresoBus().setVisible(false);
 			vai.getPanelMiPerfil().setVisible(false);
 			vai.getPanelReserva().setVisible(false);
+			vai.getPanelAplauso().setVisible(false);
+			vai.getPanelPlata().setVisible(false);
 			break;
 		}
 		case "ver_principal_estudiante": {
