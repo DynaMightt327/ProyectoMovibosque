@@ -437,6 +437,7 @@ public class Controller implements ActionListener {
 			Reserva nueva = new Reserva(idReserva, estudianteActual.getId(), estudianteActual.getRol(), tipoTransporte, ruta, fecha, costoBase, descuento, total);
 			rDAO.crear(nueva);
 			JOptionPane.showMessageDialog(vei, "Reserva creada con exito\nNumero de reserva: " + idReserva);
+			mostrarReservaEstudiante();
 			actualizarCostoReservaEstudiante();
 			horarioSeleccionado = null;
 			break;
@@ -1504,7 +1505,7 @@ public class Controller implements ActionListener {
 	public void mostrarReservaEstudiante( ) {
 		ArrayList<Reserva> reserva = rDAO.listaPorUsuario(estudianteActual.getId());
 		if(reserva == null || reserva.size() == 0) {
-			JOptionPane.showMessageDialog(vei, "No tienes reservas creadas", "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
+			vei.gettReserva().setText("no tienes reserva creadas");
 			return;
 		}
 		String texto = "";
@@ -1513,7 +1514,7 @@ public class Controller implements ActionListener {
 					+ r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar()
 					+ "\n-------------------------\n";
 		}
-		JOptionPane.showMessageDialog(vei, texto, "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
+		vei.gettReserva().setText(texto);
 	}
 	
 	public void actualizarRecaudo() {
