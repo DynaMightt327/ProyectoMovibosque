@@ -78,6 +78,15 @@ public class EstudianteDAO implements DAO<Estudiante>{
 		return null;
 	}
 	
+	public Estudiante buscarPorId(long id) {
+		for (Estudiante est : listaEstudiantes) {
+			if (est.getId() == id) {
+				return est;
+			}
+		}
+		return null;
+	}
+	
 	
 
 }

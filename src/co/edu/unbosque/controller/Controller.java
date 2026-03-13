@@ -780,6 +780,7 @@ public class Controller implements ActionListener {
 					vin.setVisible(false);
 					vei.setVisible(true);
 					mostrarNombreEstudiante();
+					actualizarRecaudo();
 					break;
 				}
 
@@ -977,6 +978,7 @@ public class Controller implements ActionListener {
 			vdi.getHorarioRegresoBus().setVisible(false);
 			vdi.getPanelMiPerfil().setVisible(false);
 			vdi.getPanelReserva().setVisible(false);
+			actualizarRecaudo();
 			break;
 		}
 		case "ver_principal_admin": {
@@ -1036,6 +1038,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			vai.getPanelAplauso().setVisible(true);
 			vai.getPanelPlata().setVisible(true);
+			actualizarRecaudo();
 			break;
 		}
 		case "usar_flecha_derecha_tren_e": {
@@ -1509,22 +1512,47 @@ public class Controller implements ActionListener {
 	}
 	
 	public void mostrarReservaEstudiante( ) {
-		ArrayList<Reserva> reservas = rDAO.listaPorUsuario(estudianteActual.getId());
-		if(reservas == null || reservas.size() == 0) {
+		ArrayList<Reserva> reserva = rDAO.listaPorUsuario(estudianteActual.getId());
+		if(reserva == null || reserva.size() == 0) {
 			JOptionPane.showMessageDialog(vei, "No tienes reservas creadas", "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 		String texto = "";
-		for (Reserva r : reservas) {
+		for (Reserva r : reserva) {
 			texto += "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: "
 					+ r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar()
 					+ "\n-------------------------\n";
 		}
 		JOptionPane.showMessageDialog(vei, texto, "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+	public void actualizarRecaudo() {
+		ArrayList<Reserva> reserva = rDAO.mostrarTodo();
+		
+		if(reserva == null) {
+			reserva = new ArrayList<>();
+		}
+		double dineroTotal = 0;
+		int aplausoTotal = 0;		
+		for (Reserva r : reserva) {
+			if (r.getTotalPagar() > 0) {
+				dineroTotal += r.getTotalPagar();
+			}
+			if (r.getRol() != null && r.getRol().equalsIgnoreCase("Estudiante")) {
 
+				Estudiante est = eDAO.buscarPorId(r.getIdUsuario());
 
+				if (est != null && est.getFacultad() != null && est.getFacultad().equalsIgnoreCase("Artes")) {
 
+					aplausoTotal++;
+				}
+			}
+		}
+
+		vai.getDineroTotal().setText(String.valueOf(dineroTotal));
+		vai.getAplausoTotal().setText(String.valueOf(aplausoTotal));
+
+	}
 	public void iniciar() {
 		vi.setVisible(true);
 
