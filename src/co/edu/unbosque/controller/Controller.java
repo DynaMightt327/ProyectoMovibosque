@@ -442,129 +442,107 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "pagar_reserva_admin": {
+			String tipoTransporte = null;
+			if (vai.getrTren().isSelected()) {
+				tipoTransporte = "Tren";
+			}
+			if (vai.getrBus().isSelected()) {
+				JOptionPane.showMessageDialog(vai, "Como administrativo solo puede reservar Tren");
+				break;
+			}
+			if (tipoTransporte == null) {
+				JOptionPane.showMessageDialog(vai, "Debe seleccionar el tren para poder reservar");
+				break;
+			}
 
-			    String tipoTransporte = null;
+			String ruta = null;
+			if (vai.getrUsaquen().isSelected()) {
+				ruta = "Usaquen - Chia";
+			}
+			if (vai.getrChia().isSelected()) {
+				ruta = "Chia - Usaquen";
+			}
+			if (ruta == null) {
+				JOptionPane.showMessageDialog(vai, "Debe seleccionar la ruta");
+				break;
+			}
+			String dia = (String) vai.getDia().getSelectedItem();
+			String diaSemana = (String) vai.getDiaSemana().getSelectedItem();
+			if (diaSemana == null || dia == null || diaSemana.equals("...") || dia.equals("...")) {
+				JOptionPane.showMessageDialog(vai, "Debe seleccionar la fecha de la reserva");
+				break;
+			}
+			String fecha = diaSemana + " " + dia;
+			if (horarioSeleccionado != null && !horarioSeleccionado.trim().equals("")) {
+				fecha = fecha + " - " + horarioSeleccionado;
+			}
+			if (!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
+				JOptionPane.showMessageDialog(vai, "No hay cupos disponibles para esa fecha y ruta");
+				break;
+			}
+			double costoBase = calcularCostoBase(adminActual.getFacultad(), 0);
+			double descuento = 0; 
+			double extra = adminActual.getAnnoServicio() * 500; 
+			double total = costoBase + extra;
+			vai.getPlata().setText("" + total);
 
-			    if (vai.getrTren().isSelected()) {
-			        tipoTransporte = "Tren";
-			    }
-
-			    if (vai.getrBus().isSelected()) {
-			        JOptionPane.showMessageDialog(vai,
-			                "Como administrativo solo puede reservar Tren");
-			        break;
-			    }
-
-			    if (tipoTransporte == null) {
-			        JOptionPane.showMessageDialog(vai,
-			                "Debe seleccionar el tren para poder reservar");
-			        break;
-			    }
-
-			    String ruta = null;
-
-			    if (vai.getrUsaquen().isSelected()) {
-			        ruta = "Usaquen - Chia";
-			    }
-			    if (vai.getrChia().isSelected()) {
-			        ruta = "Chia - Usaquen";
-			    }
-
-			    if (ruta == null) {
-			        JOptionPane.showMessageDialog(vai,
-			                "Debe seleccionar la ruta");
-			        break;
-			    }
-
-			   /* String dia = (String) vai.getDi.getSelectedItem();
-			    String diaSemana = (String) vai.getD.getSelectedItem();
-
-			    if (diaSemana == null || dia == null ||
-			        diaSemana.equals("...") || dia.equals("...")) {
-
-			        JOptionPane.showMessageDialog(vai,
-			                "Debe seleccionar la fecha de la reserva");
-			        break;
-			    }
-
-			    String fecha = diaSemana + " " + dia;
-			    if (horarioSeleccionado != null && !horarioSeleccionado.trim().equals("")) {
-			        fecha = fecha + " - " + horarioSeleccionado;
-			    }
-			    if (!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
-			        JOptionPane.showMessageDialog(vai,
-			                "No hay cupos disponibles para esa fecha y ruta");
-			        break;
-			    }
-			    double costoBase = calcularCostoBase(adminActual.getFacultad(), 0);
-			    double descuento = 0;
-			    double extra = adminActual.getAnnoServicio() * 500;
-			    double total = costoBase + extra;
-			    /*try {
-			        // vai.getPlata().setText("" + total);
-			    } catch (Exception exMostrar) {
-			        // Si no tienes campo, simplemente ignoras esto
-			    }
-
-			    int idReserva = rDAO.generarId();
-				Reserva nueva = new Reserva(idReserva, adminActual.getId(), adminActual.getRol(), tipoTransporte, ruta,
-						fecha, costoBase, descuento, total);
-			    rDAO.crear(nueva);
-				JOptionPane.showMessageDialog(vai, "Reserva creada con éxito\n" + "Número de reserva: " + idReserva
-						+ "\n" + "Total a pagar: " + total);
-			    horarioSeleccionado = null;
-			    break;*/
+			int idReserva = rDAO.generarId();
+			Reserva nueva = new Reserva(idReserva, adminActual.getId(), adminActual.getRol(), tipoTransporte, ruta,
+					fecha, costoBase, descuento, total);
+			rDAO.crear(nueva);
+			JOptionPane.showMessageDialog(vai, "Reserva creada con éxito\n" + "Número de reserva: " + idReserva + "\n"
+					+ "Total a pagar: " + total);
+			horarioSeleccionado = null;
+			break;
 		}
 		case "pagar_reserva_docente": {
 			String tipoTransporte = null;
-			if(vdi.getrBus().isSelected()) {
+			if (vdi.getrBus().isSelected()) {
 				tipoTransporte = "Bus";
 			}
-			if(vdi.getrTren().isSelected()) {
+			if (vdi.getrTren().isSelected()) {
 				tipoTransporte = "Tren";
 			}
-			if(tipoTransporte == null) {
+			if (tipoTransporte == null) {
 				JOptionPane.showMessageDialog(vdi, "Debe seleccionar un tipo de transporte");
 				break;
 			}
-			
+
 			String ruta = null;
-			if(vdi.getrUsaquen().isSelected()) {
+			if (vdi.getrUsaquen().isSelected()) {
 				ruta = "Usaquen - Chia";
 			}
-			if(vdi.getrChia().isSelected()) {
+			if (vdi.getrChia().isSelected()) {
 				ruta = "Chia - Usaquen";
 			}
-			if(ruta == null) {
+			if (ruta == null) {
 				JOptionPane.showMessageDialog(vdi, "Debe seleccionar la ruta");
 				break;
 			}
-			
-			String fecha = obtenerFecha();
-			if(fecha == null || fecha.trim().equals("")) {
+
+			String fecha = obtenerFechaDocente();
+			if (fecha == null || fecha.trim().equals("")) {
 				JOptionPane.showMessageDialog(vdi, "Debe seleccionar la fecha de la reserva");
 				break;
 			}
-			
-			if(!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
+			if (!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
 				JOptionPane.showMessageDialog(vdi, "No hay cupos disponibles");
 				break;
 			}
-			
 			double costoBase = calcularCostoBase(docenteActual.getFacultad(), 0);
 			double descuento = calcularDescuento(docenteActual.getRol());
 			double total = costoBase - descuento;
-			
-			if(total < 0) {
+			if (total < 0) {
 				total = 0;
 			}
-			
+			vdi.getPlata().setText("" + total);
 			int idReserva = rDAO.generarId();
-			Reserva nueva = new Reserva(idReserva, docenteActual.getId(), docenteActual.getRol(), tipoTransporte, ruta, fecha, costoBase, descuento, total);
+			Reserva nueva = new Reserva(idReserva, docenteActual.getId(), docenteActual.getRol(), tipoTransporte, ruta,
+					fecha, costoBase, descuento, total);
 			rDAO.crear(nueva);
-			JOptionPane.showMessageDialog(vdi, "Reserva creada con exito\nNumero de reserva: " + idReserva);
+			JOptionPane.showMessageDialog(vdi,
+					"Reserva creada con exito\nNumero de reserva: " + idReserva + "\nTotal a pagar: " + total);
 			break;
-			
 		}
 		case "cambio_rol": {
 			actualizarCamposPorRol();
@@ -1023,7 +1001,7 @@ public class Controller implements ActionListener {
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getPanelMiPerfil().setVisible(false);
 			vei.getPanelReserva().setVisible(true);
-			actulizarReservaEstudiante();
+			mostrarReservaEstudiante();
 			break;
 		}
 		case "ver_reserva_docente": {
@@ -1211,7 +1189,7 @@ public class Controller implements ActionListener {
 	}
 	
 
-	private void actualizarPorFacultad() {
+	public void actualizarPorFacultad() {
 		
 		vr.gettIngenieria().setVisible(false);
 		vr.gettMedicina().setVisible(false);
@@ -1468,7 +1446,7 @@ public class Controller implements ActionListener {
 	}
 	
 
-	private void actualizarCostoReservaEstudiante() {
+	public void actualizarCostoReservaEstudiante() {
 
 		boolean transporteSeleccionado = vei.getrBus().isSelected() || vei.getrTren().isSelected();
 		boolean rutaSeleccionada = vei.getrUsaquen().isSelected() || vei.getrChia().isSelected();
@@ -1515,6 +1493,34 @@ public class Controller implements ActionListener {
 		}
 
 		return 0;
+	}
+	public String obtenerFechaDocente() {
+		String dia = (String) vdi.getDia().getSelectedItem();
+		String mes = (String) vdi.getDiaSemana().getSelectedItem();
+		
+		if(dia == null) {
+			return "";
+		}
+		if(dia.equals("...") || mes.equals("...")) {
+			return "";
+		}
+		return dia + "/" + mes;
+		
+	}
+	
+	public void mostrarReservaEstudiante( ) {
+		ArrayList<Reserva> reservas = rDAO.listaPorUsuario(estudianteActual.getId());
+		if(reservas == null || reservas.size() == 0) {
+			JOptionPane.showMessageDialog(vei, "No tienes reservas creadas", "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		String texto = "";
+		for (Reserva r : reservas) {
+			texto += "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: "
+					+ r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar()
+					+ "\n-------------------------\n";
+		}
+		JOptionPane.showMessageDialog(vei, texto, "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 
