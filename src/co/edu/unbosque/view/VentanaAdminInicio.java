@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -90,8 +91,48 @@ public class VentanaAdminInicio extends JFrame {
 	private ButtonGroup grupoTransporte;
 	private ButtonGroup grupoRuta;
 	private JPanel calendario;
-	private JDateChooser calendar;
+	private JComboBox<String> diaSemana;
+	private JComboBox<String> dia;
 	private JTextField plata;
+	
+	private JLabel lunes;
+	private JLabel martes;
+	private JLabel miercoles;
+	private JLabel jueves;
+	private JLabel viernes;
+	
+	private JButton bMananaUno;
+	private JButton bMananaDos;
+	private JButton bMananaTres;
+	private JButton bMananaCuatro;
+	private JButton bMananaCinco;
+	private JButton bMananaSeis;
+	private JButton bMananaSiete;
+	private JButton bMananaOcho;
+	private JButton bTardeUno;
+	private JButton bTardeDos;
+	private JButton bTardeTres;
+	private JButton bTardeCuatro;
+	private JButton bTardeCinco;
+	private JButton bTardeSeis;
+	private JButton bTardeSiete;
+	private JButton bTardeOcho;
+	private JButton bTardeNueve;
+	private JButton bTardeDiez;
+	private JButton bTardeOnce;
+	private JButton bTardeDoce;
+	private JButton bTardeTrece;
+	private JButton bTardeCatorce;
+	private JButton bTardeQuince;
+	private JButton tMananaUno;
+	private JButton tMananaDos;
+	private JButton tMananaTres;
+	private JButton tMananaCuatro;
+	private JButton tTardeUno;
+	private JButton tTardeDos;
+	private JButton tTardeTres;
+	private JButton tTardeCuatro;
+
 	
 	//dinero
 	private JPanel panelPlata;
@@ -665,10 +706,23 @@ public class VentanaAdminInicio extends JFrame {
 		fecha.setFont(new Font("Arial", Font.BOLD, 15));
 		calendario.add(fecha);
 		
-		calendar = new JDateChooser();
-		calendar.setBounds(32, 48, 180, 30);
-		calendar.setBackground(Color.decode("#e0ebe0"));
-		calendario.add(calendar);
+		diaSemana = new JComboBox<String>(new String[] { "...", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" });
+		diaSemana.setBounds(40, 45, 100, 32);
+		diaSemana.setFont(new Font("Agency FB", Font.BOLD, 19));
+		diaSemana.setForeground(Color.decode("#111d15"));
+		diaSemana.setBackground(Color.decode("#e0ebe0"));
+		diaSemana.setBorder(null);
+		calendario.add(diaSemana);
+
+		dia = new JComboBox<String>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+				"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+				"30", "31" });
+		dia.setBounds(150, 45, 50, 32);
+		dia.setFont(new Font("Agency FB", Font.BOLD, 18));
+		dia.setForeground(Color.decode("#111d15"));
+		dia.setBackground(Color.decode("#e0ebe0"));
+		dia.setBorder(null);
+		calendario.add(dia);
 
 		panelRuta = new JPanel();
 		panelRuta.setLayout(null);
@@ -713,6 +767,321 @@ public class VentanaAdminInicio extends JFrame {
 		panelPlata.setVisible(false);
 		add(panelPlata);
 		
+		lunes = new JLabel("Lunes");
+		lunes.setBounds(30, 10, 250, 20);
+		lunes.setForeground(Color.BLACK);
+		lunes.setFont(new Font("Arial", Font.BOLD, 16));
+		panelRuta.add(lunes);
+		
+		bMananaUno = new JButton("7AM");
+		bMananaUno.setBounds(20, 30, 80, 25);
+		bMananaUno.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaUno.setForeground(Color.decode("#ffffff"));
+		bMananaUno.setBackground(Color.decode("#376445"));
+		bMananaUno.setBorderPainted(false);
+		bMananaUno.setFocusPainted(false);
+		panelRuta.add(bMananaUno);
+		
+		bTardeUno = new JButton("10AM");
+		bTardeUno.setBounds(80, 30, 80, 25);
+		bTardeUno.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeUno.setForeground(Color.decode("#ffffff"));
+		bTardeUno.setBackground(Color.decode("#376445"));
+		bTardeUno.setBorderPainted(false);
+		bTardeUno.setFocusPainted(false);
+		panelRuta.add(bTardeUno);
+		
+		martes = new JLabel("Martes");
+		martes.setBounds(30, 60, 250, 20);
+		martes.setForeground(Color.BLACK);
+		martes.setFont(new Font("Arial", Font.BOLD, 16));
+		panelRuta.add(martes);
+		
+		bMananaDos = new JButton("9AM");
+		bMananaDos.setBounds(20, 90, 80, 25);
+		bMananaDos.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaDos.setForeground(Color.decode("#ffffff"));
+		bMananaDos.setBackground(Color.decode("#376445"));
+		bMananaDos.setBorderPainted(false);
+		bMananaDos.setFocusPainted(false);
+		panelRuta.add(bMananaDos);
+		
+		bMananaCinco = new JButton("11AM");
+		bMananaCinco.setBounds(100, 90, 80, 25);
+		bMananaCinco.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaCinco.setForeground(Color.decode("#ffffff"));
+		bMananaCinco.setBackground(Color.decode("#376445"));
+		bMananaCinco.setBorderPainted(false);
+		bMananaCinco.setFocusPainted(false);
+		panelRuta.add(bMananaCinco);
+		
+		bTardeDos = new JButton("10AM");
+		bTardeDos.setBounds(180, 90, 80, 25);
+		bTardeDos.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeDos.setForeground(Color.decode("#ffffff"));
+		bTardeDos.setBackground(Color.decode("#376445"));
+		bTardeDos.setBorderPainted(false);
+		bTardeDos.setFocusPainted(false);
+		panelRuta.add(bTardeDos);
+		
+		bTardeOcho = new JButton("1PM");
+		bTardeOcho.setBounds(20, 120, 80, 25);
+		bTardeOcho.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeOcho.setForeground(Color.decode("#ffffff"));
+		bTardeOcho.setBackground(Color.decode("#376445"));
+		bTardeOcho.setBorderPainted(false);
+		bTardeOcho.setFocusPainted(false);
+		panelRuta.add(bTardeOcho);
+		
+		bTardeDiez = new JButton("3PM");
+		bTardeDiez.setBounds(100, 120, 80, 25);
+		bTardeDiez.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeDiez.setForeground(Color.decode("#ffffff"));
+		bTardeDiez.setBackground(Color.decode("#376445"));
+		bTardeDiez.setBorderPainted(false);
+		bTardeDiez.setFocusPainted(false);
+		panelRuta.add(bTardeDiez);
+		
+		bTardeTrece = new JButton("5PM");
+		bTardeTrece.setBounds(180, 120, 80, 25);
+		bTardeTrece.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeTrece.setForeground(Color.decode("#ffffff"));
+		bTardeTrece.setBackground(Color.decode("#376445"));
+		bTardeTrece.setBorderPainted(false);
+		bTardeTrece.setFocusPainted(false);
+		panelRuta.add(bTardeTrece);
+		
+		miercoles = new JLabel("Miercoles");
+		miercoles.setBounds(30, 150, 250, 20);
+		miercoles.setForeground(Color.BLACK);
+		miercoles.setFont(new Font("Arial", Font.BOLD, 16));
+		panelRuta.add(miercoles);
+		
+		bMananaTres = new JButton("9AM");
+		bMananaTres.setBounds(20, 180, 80, 25);
+		bMananaTres.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaTres.setForeground(Color.decode("#ffffff"));
+		bMananaTres.setBackground(Color.decode("#376445"));
+		bMananaTres.setBorderPainted(false);
+		bMananaTres.setFocusPainted(false);
+		panelRuta.add(bMananaTres);
+		
+		bMananaSiete = new JButton("12M");
+		bMananaSiete.setBounds(100, 180, 80, 25);
+		bMananaSiete.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaSiete.setForeground(Color.decode("#ffffff"));
+		bMananaSiete.setBackground(Color.decode("#376445"));
+		bMananaSiete.setBorderPainted(false);
+		bMananaSiete.setFocusPainted(false);
+		panelRuta.add(bMananaSiete);
+		
+		bTardeCinco = new JButton("11AM");
+		bTardeCinco.setBounds(180, 180, 80, 25);
+		bTardeCinco.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeCinco.setForeground(Color.decode("#ffffff"));
+		bTardeCinco.setBackground(Color.decode("#376445"));
+		bTardeCinco.setBorderPainted(false);
+		bTardeCinco.setFocusPainted(false);
+		panelRuta.add(bTardeCinco);
+		
+		bTardeSiete = new JButton("12M");
+		bTardeSiete.setBounds(20, 210, 80, 25);
+		bTardeSiete.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeSiete.setForeground(Color.decode("#ffffff"));
+		bTardeSiete.setBackground(Color.decode("#376445"));
+		bTardeSiete.setBorderPainted(false);
+		bTardeSiete.setFocusPainted(false);
+		panelRuta.add(bTardeSiete);
+		
+		bTardeCatorce = new JButton("5PM");
+		bTardeCatorce.setBounds(100, 210, 80, 25);
+		bTardeCatorce.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeCatorce.setForeground(Color.decode("#ffffff"));
+		bTardeCatorce.setBackground(Color.decode("#376445"));
+		bTardeCatorce.setBorderPainted(false);
+		bTardeCatorce.setFocusPainted(false);
+		panelRuta.add(bTardeCatorce);
+		
+		jueves = new JLabel("Jueves");
+		jueves.setBounds(30, 240, 250, 20);
+		jueves.setForeground(Color.BLACK);
+		jueves.setFont(new Font("Arial", Font.BOLD, 16));
+		panelRuta.add(jueves);
+		
+		bMananaCuatro = new JButton("9AM");
+		bMananaCuatro.setBounds(20, 270, 80, 25);
+		bMananaCuatro.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaCuatro.setForeground(Color.decode("#ffffff"));
+		bMananaCuatro.setBackground(Color.decode("#376445"));
+		bMananaCuatro.setBorderPainted(false);
+		bMananaCuatro.setFocusPainted(false);
+		panelRuta.add(bMananaCuatro);
+		
+		bMananaSeis = new JButton("11AM");
+		bMananaSeis.setBounds(100, 270, 80, 25);
+		bMananaSeis.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaSeis.setForeground(Color.decode("#ffffff"));
+		bMananaSeis.setBackground(Color.decode("#376445"));
+		bMananaSeis.setBorderPainted(false);
+		bMananaSeis.setFocusPainted(false);
+		panelRuta.add(bMananaSeis);
+		
+		bTardeTres = new JButton("10AM");
+		bTardeTres.setBounds(180, 270, 80, 25);
+		bTardeTres.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeTres.setForeground(Color.decode("#ffffff"));
+		bTardeTres.setBackground(Color.decode("#376445"));
+		bTardeTres.setBorderPainted(false);
+		bTardeTres.setFocusPainted(false);
+		panelRuta.add(bTardeTres);
+		
+		viernes = new JLabel("Viernes");
+		viernes.setBounds(30, 300, 250, 20);
+		viernes.setForeground(Color.BLACK);
+		viernes.setFont(new Font("Arial", Font.BOLD, 16));
+		panelRuta.add(viernes);
+
+		bMananaOcho = new JButton("1PM");
+		bMananaOcho.setBounds(20, 330, 80, 25);
+		bMananaOcho.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bMananaOcho.setForeground(Color.decode("#ffffff"));
+		bMananaOcho.setBackground(Color.decode("#376445"));
+		bMananaOcho.setBorderPainted(false);
+		bMananaOcho.setFocusPainted(false);
+		panelRuta.add(bMananaOcho);
+		
+		bTardeCuatro = new JButton("10AM");
+		bTardeCuatro.setBounds(100, 330, 80, 25);
+		bTardeCuatro.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeCuatro.setForeground(Color.decode("#ffffff"));
+		bTardeCuatro.setBackground(Color.decode("#376445"));
+		bTardeCuatro.setBorderPainted(false);
+		bTardeCuatro.setFocusPainted(false);
+		panelRuta.add(bTardeCuatro);
+		
+		bTardeSeis = new JButton("11AM");
+		bTardeSeis.setBounds(180, 330, 80, 25);
+		bTardeSeis.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeSeis.setForeground(Color.decode("#ffffff"));
+		bTardeSeis.setBackground(Color.decode("#376445"));
+		bTardeSeis.setBorderPainted(false);
+		bTardeSeis.setFocusPainted(false);
+		panelRuta.add(bTardeSeis);
+		
+		bTardeNueve = new JButton("1PM");
+		bTardeNueve.setBounds(260, 330, 80, 25);
+		bTardeNueve.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeNueve.setForeground(Color.decode("#ffffff"));
+		bTardeNueve.setBackground(Color.decode("#376445"));
+		bTardeNueve.setBorderPainted(false);
+		bTardeNueve.setFocusPainted(false);
+		panelRuta.add(bTardeNueve);
+		
+		bTardeOnce = new JButton("3PM");
+		bTardeOnce.setBounds(20, 360, 80, 25);
+		bTardeOnce.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeOnce.setForeground(Color.decode("#ffffff"));
+		bTardeOnce.setBackground(Color.decode("#376445"));
+		bTardeOnce.setBorderPainted(false);
+		bTardeOnce.setFocusPainted(false);
+		panelRuta.add(bTardeOnce);
+		
+		bTardeDoce = new JButton("4PM");
+		bTardeDoce.setBounds(100, 360, 80, 25);
+		bTardeDoce.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeDoce.setForeground(Color.decode("#ffffff"));
+		bTardeDoce.setBackground(Color.decode("#376445"));
+		bTardeDoce.setBorderPainted(false);
+		bTardeDoce.setFocusPainted(false);
+		panelRuta.add(bTardeDoce);
+		
+		bTardeQuince = new JButton("5PM");
+		bTardeQuince.setBounds(180, 360, 80, 25);
+		bTardeQuince.setFont(new Font("Agency FB", Font.BOLD, 20));
+		bTardeQuince.setForeground(Color.decode("#ffffff"));
+		bTardeQuince.setBackground(Color.decode("#376445"));
+		bTardeQuince.setBorderPainted(false);
+		bTardeQuince.setFocusPainted(false);
+		panelRuta.add(bTardeQuince);
+		
+		//======
+		
+		tMananaUno = new JButton("Martes mañana");
+		tMananaUno.setBounds(260, 20, 150, 25);
+		tMananaUno.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tMananaUno.setForeground(Color.decode("#ffffff"));
+		tMananaUno.setBackground(Color.decode("#376445"));
+		tMananaUno.setBorderPainted(false);
+		tMananaUno.setFocusPainted(false);
+		panelRuta.add(tMananaUno);
+		
+		tMananaDos = new JButton("Miercoles mañana");
+		tMananaDos.setBounds(260, 50, 150, 25);
+		tMananaDos.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tMananaDos.setForeground(Color.decode("#ffffff"));
+		tMananaDos.setBackground(Color.decode("#376445"));
+		tMananaDos.setBorderPainted(false);
+		tMananaDos.setFocusPainted(false);
+		panelRuta.add(tMananaDos);
+		
+		tMananaTres = new JButton("Jueves mañana");
+		tMananaTres.setBounds(260, 80, 150, 25);
+		tMananaTres.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tMananaTres.setForeground(Color.decode("#ffffff"));
+		tMananaTres.setBackground(Color.decode("#376445"));
+		tMananaTres.setBorderPainted(false);
+		tMananaTres.setFocusPainted(false);
+		panelRuta.add(tMananaTres);
+		
+		tMananaCuatro = new JButton("Viernes mañana");
+		tMananaCuatro.setBounds(260, 110, 150, 25);
+		tMananaCuatro.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tMananaCuatro.setForeground(Color.decode("#ffffff"));
+		tMananaCuatro.setBackground(Color.decode("#376445"));
+		tMananaCuatro.setBorderPainted(false);
+		tMananaCuatro.setFocusPainted(false);
+		panelRuta.add(tMananaCuatro);
+		
+		tTardeUno = new JButton("Martes tarde");
+		tTardeUno.setBounds(260, 140, 150, 25);
+		tTardeUno.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tTardeUno.setForeground(Color.decode("#ffffff"));
+		tTardeUno.setBackground(Color.decode("#376445"));
+		tTardeUno.setBorderPainted(false);
+		tTardeUno.setFocusPainted(false);
+		panelRuta.add(tTardeUno);
+		
+		tTardeDos = new JButton("Miercoles tarde");
+		tTardeDos.setBounds(260, 170, 150, 25);
+		tTardeDos.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tTardeDos.setForeground(Color.decode("#ffffff"));
+		tTardeDos.setBackground(Color.decode("#376445"));
+		tTardeDos.setBorderPainted(false);
+		tTardeDos.setFocusPainted(false);
+		panelRuta.add(tTardeDos);
+		
+		tTardeTres = new JButton("Jueves tarde");
+		tTardeTres.setBounds(260, 200, 150, 25);
+		tTardeTres.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tTardeTres.setForeground(Color.decode("#ffffff"));
+		tTardeTres.setBackground(Color.decode("#376445"));
+		tTardeTres.setBorderPainted(false);
+		tTardeTres.setFocusPainted(false);
+		panelRuta.add(tTardeTres);
+		
+		tTardeCuatro = new JButton("Viernes tarde");
+		tTardeCuatro.setBounds(260, 230, 150, 25);
+		tTardeCuatro.setFont(new Font("Agency FB", Font.BOLD, 20));
+		tTardeCuatro.setForeground(Color.decode("#ffffff"));
+		tTardeCuatro.setBackground(Color.decode("#376445"));
+		tTardeCuatro.setBorderPainted(false);
+		tTardeCuatro.setFocusPainted(false);
+		panelRuta.add(tTardeCuatro);
+		
+
+		
+		
+		// TODO DINERO RECOLECTADO
 		lDinero = new JLabel("Dinero recaudado");
 		lDinero.setBounds(55, 45, 250, 22);
 		lDinero.setForeground(Color.BLACK);
@@ -1248,14 +1617,6 @@ public class VentanaAdminInicio extends JFrame {
 		this.calendario = calendario;
 	}
 
-	public JDateChooser getCalendar() {
-		return calendar;
-	}
-
-	public void setCalendar(JDateChooser calendar) {
-		this.calendar = calendar;
-	}
-
 	public JTextField getPlata() {
 		return plata;
 	}
@@ -1366,6 +1727,326 @@ public class VentanaAdminInicio extends JFrame {
 
 	public void setAplausoTotal(JTextField aplausoTotal) {
 		this.aplausoTotal = aplausoTotal;
+	}
+
+	public JComboBox<String> getDiaSemana() {
+		return diaSemana;
+	}
+
+	public void setDiaSemana(JComboBox<String> diaSemana) {
+		this.diaSemana = diaSemana;
+	}
+
+	public JComboBox<String> getDia() {
+		return dia;
+	}
+
+	public void setDia(JComboBox<String> dia) {
+		this.dia = dia;
+	}
+
+	public JLabel getLunes() {
+		return lunes;
+	}
+
+	public void setLunes(JLabel lunes) {
+		this.lunes = lunes;
+	}
+
+	public JLabel getMartes() {
+		return martes;
+	}
+
+	public void setMartes(JLabel martes) {
+		this.martes = martes;
+	}
+
+	public JLabel getMiercoles() {
+		return miercoles;
+	}
+
+	public void setMiercoles(JLabel miercoles) {
+		this.miercoles = miercoles;
+	}
+
+	public JLabel getJueves() {
+		return jueves;
+	}
+
+	public void setJueves(JLabel jueves) {
+		this.jueves = jueves;
+	}
+
+	public JLabel getViernes() {
+		return viernes;
+	}
+
+	public void setViernes(JLabel viernes) {
+		this.viernes = viernes;
+	}
+
+	public JButton getbMananaUno() {
+		return bMananaUno;
+	}
+
+	public void setbMananaUno(JButton bMananaUno) {
+		this.bMananaUno = bMananaUno;
+	}
+
+	public JButton getbMananaDos() {
+		return bMananaDos;
+	}
+
+	public void setbMananaDos(JButton bMananaDos) {
+		this.bMananaDos = bMananaDos;
+	}
+
+	public JButton getbMananaTres() {
+		return bMananaTres;
+	}
+
+	public void setbMananaTres(JButton bMananaTres) {
+		this.bMananaTres = bMananaTres;
+	}
+
+	public JButton getbMananaCuatro() {
+		return bMananaCuatro;
+	}
+
+	public void setbMananaCuatro(JButton bMananaCuatro) {
+		this.bMananaCuatro = bMananaCuatro;
+	}
+
+	public JButton getbMananaCinco() {
+		return bMananaCinco;
+	}
+
+	public void setbMananaCinco(JButton bMananaCinco) {
+		this.bMananaCinco = bMananaCinco;
+	}
+
+	public JButton getbMananaSeis() {
+		return bMananaSeis;
+	}
+
+	public void setbMananaSeis(JButton bMananaSeis) {
+		this.bMananaSeis = bMananaSeis;
+	}
+
+	public JButton getbMananaSiete() {
+		return bMananaSiete;
+	}
+
+	public void setbMananaSiete(JButton bMananaSiete) {
+		this.bMananaSiete = bMananaSiete;
+	}
+
+	public JButton getbMananaOcho() {
+		return bMananaOcho;
+	}
+
+	public void setbMananaOcho(JButton bMananaOcho) {
+		this.bMananaOcho = bMananaOcho;
+	}
+
+	public JButton getbTardeUno() {
+		return bTardeUno;
+	}
+
+	public void setbTardeUno(JButton bTardeUno) {
+		this.bTardeUno = bTardeUno;
+	}
+
+	public JButton getbTardeDos() {
+		return bTardeDos;
+	}
+
+	public void setbTardeDos(JButton bTardeDos) {
+		this.bTardeDos = bTardeDos;
+	}
+
+	public JButton getbTardeTres() {
+		return bTardeTres;
+	}
+
+	public void setbTardeTres(JButton bTardeTres) {
+		this.bTardeTres = bTardeTres;
+	}
+
+	public JButton getbTardeCuatro() {
+		return bTardeCuatro;
+	}
+
+	public void setbTardeCuatro(JButton bTardeCuatro) {
+		this.bTardeCuatro = bTardeCuatro;
+	}
+
+	public JButton getbTardeCinco() {
+		return bTardeCinco;
+	}
+
+	public void setbTardeCinco(JButton bTardeCinco) {
+		this.bTardeCinco = bTardeCinco;
+	}
+
+	public JButton getbTardeSeis() {
+		return bTardeSeis;
+	}
+
+	public void setbTardeSeis(JButton bTardeSeis) {
+		this.bTardeSeis = bTardeSeis;
+	}
+
+	public JButton getbTardeSiete() {
+		return bTardeSiete;
+	}
+
+	public void setbTardeSiete(JButton bTardeSiete) {
+		this.bTardeSiete = bTardeSiete;
+	}
+
+	public JButton getbTardeOcho() {
+		return bTardeOcho;
+	}
+
+	public void setbTardeOcho(JButton bTardeOcho) {
+		this.bTardeOcho = bTardeOcho;
+	}
+
+	public JButton getbTardeNueve() {
+		return bTardeNueve;
+	}
+
+	public void setbTardeNueve(JButton bTardeNueve) {
+		this.bTardeNueve = bTardeNueve;
+	}
+
+	public JButton getbTardeDiez() {
+		return bTardeDiez;
+	}
+
+	public void setbTardeDiez(JButton bTardeDiez) {
+		this.bTardeDiez = bTardeDiez;
+	}
+
+	public JButton getbTardeOnce() {
+		return bTardeOnce;
+	}
+
+	public void setbTardeOnce(JButton bTardeOnce) {
+		this.bTardeOnce = bTardeOnce;
+	}
+
+	public JButton getbTardeDoce() {
+		return bTardeDoce;
+	}
+
+	public void setbTardeDoce(JButton bTardeDoce) {
+		this.bTardeDoce = bTardeDoce;
+	}
+
+	public JButton getbTardeTrece() {
+		return bTardeTrece;
+	}
+
+	public void setbTardeTrece(JButton bTardeTrece) {
+		this.bTardeTrece = bTardeTrece;
+	}
+
+	public JButton getbTardeCatorce() {
+		return bTardeCatorce;
+	}
+
+	public void setbTardeCatorce(JButton bTardeCatorce) {
+		this.bTardeCatorce = bTardeCatorce;
+	}
+
+	public JButton getbTardeQuince() {
+		return bTardeQuince;
+	}
+
+	public void setbTardeQuince(JButton bTardeQuince) {
+		this.bTardeQuince = bTardeQuince;
+	}
+
+	public JButton gettMananaUno() {
+		return tMananaUno;
+	}
+
+	public void settMananaUno(JButton tMananaUno) {
+		this.tMananaUno = tMananaUno;
+	}
+
+	public JButton gettMananaDos() {
+		return tMananaDos;
+	}
+
+	public void settMananaDos(JButton tMananaDos) {
+		this.tMananaDos = tMananaDos;
+	}
+
+	public JButton gettMananaTres() {
+		return tMananaTres;
+	}
+
+	public void settMananaTres(JButton tMananaTres) {
+		this.tMananaTres = tMananaTres;
+	}
+
+	public JButton gettMananaCuatro() {
+		return tMananaCuatro;
+	}
+
+	public void settMananaCuatro(JButton tMananaCuatro) {
+		this.tMananaCuatro = tMananaCuatro;
+	}
+
+	public JButton gettTardeUno() {
+		return tTardeUno;
+	}
+
+	public void settTardeUno(JButton tTardeUno) {
+		this.tTardeUno = tTardeUno;
+	}
+
+	public JButton gettTardeDos() {
+		return tTardeDos;
+	}
+
+	public void settTardeDos(JButton tTardeDos) {
+		this.tTardeDos = tTardeDos;
+	}
+
+	public JButton gettTardeTres() {
+		return tTardeTres;
+	}
+
+	public void settTardeTres(JButton tTardeTres) {
+		this.tTardeTres = tTardeTres;
+	}
+
+	public JButton gettTardeCuatro() {
+		return tTardeCuatro;
+	}
+
+	public void settTardeCuatro(JButton tTardeCuatro) {
+		this.tTardeCuatro = tTardeCuatro;
+	}
+
+	public JLabel getlDinero() {
+		return lDinero;
+	}
+
+	public void setlDinero(JLabel lDinero) {
+		this.lDinero = lDinero;
+	}
+
+	public JLabel getlAplauso() {
+		return lAplauso;
+	}
+
+	public void setlAplauso(JLabel lAplauso) {
+		this.lAplauso = lAplauso;
 	}
 	
 }
