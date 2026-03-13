@@ -25,6 +25,7 @@ public class VentanaAdminInicio extends JFrame {
 	private JLabel lMiReserva;
 	
 	private JTextArea tMensaje;
+	private JTextArea tReserva;
 	
 	private JPanel menuBar;
 	private JPanel panelPrincipal;
@@ -268,6 +269,12 @@ public class VentanaAdminInicio extends JFrame {
 		tMensaje.setBackground(Color.decode("#e0ebe0"));
 		tMensaje.setEditable(false);
 		panelUno.add(tMensaje);
+		
+		tReserva = new JTextArea();
+		tReserva.setBounds(9, 45, 256, 387);
+		tReserva.setBackground(Color.decode("#e0ebe0"));
+		tReserva.setEditable(false);
+		panelCuatro.add(tReserva);
 		
 		//BOTONES
 		ImageIcon imagenn = new ImageIcon(getClass().getResource("tren.png"));
@@ -2047,6 +2054,14 @@ public class VentanaAdminInicio extends JFrame {
 
 	public void setlAplauso(JLabel lAplauso) {
 		this.lAplauso = lAplauso;
+	}
+
+	public JTextArea gettReserva() {
+		return tReserva;
+	}
+
+	public void settReserva(JTextArea tReserva) {
+		this.tReserva = tReserva;
 	}
 	
 }

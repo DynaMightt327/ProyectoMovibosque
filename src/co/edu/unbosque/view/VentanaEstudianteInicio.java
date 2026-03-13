@@ -1973,4 +1973,13 @@ public class VentanaEstudianteInicio extends JFrame {
 		this.tTardeCuatro = tTardeCuatro;
 	}
 
+	public JTextArea gettReserva() {
+		return tReserva;
+	}
+
+	public void settReserva(JTextArea tReserva) {
+		this.tReserva = tReserva;
+	}
+	
+
 }

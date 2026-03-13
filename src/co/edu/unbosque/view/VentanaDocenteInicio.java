@@ -24,6 +24,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JLabel lMiReserva;
 
 	private JTextArea tMensaje;
+	private JTextArea tReserva;
 
 	private JPanel menuBar;
 	private JPanel panelPrincipal;
@@ -258,6 +259,12 @@ public class VentanaDocenteInicio extends JFrame {
 		tMensaje.setBackground(Color.decode("#e0ebe0"));
 		tMensaje.setEditable(false);
 		panelUno.add(tMensaje);
+		
+		tReserva = new JTextArea();
+		tReserva.setBounds(9, 45, 256, 387);
+		tReserva.setBackground(Color.decode("#e0ebe0"));
+		tReserva.setEditable(false);
+		panelCuatro.add(tReserva);
 
 		// BOTONES
 
@@ -1928,6 +1935,13 @@ public class VentanaDocenteInicio extends JFrame {
 	public void settTardeCuatro(JButton tTardeCuatro) {
 		this.tTardeCuatro = tTardeCuatro;
 	}
-	
+
+	public JTextArea gettReserva() {
+		return tReserva;
+	}
+
+	public void settReserva(JTextArea tReserva) {
+		this.tReserva = tReserva;
+	}
 	
 }
