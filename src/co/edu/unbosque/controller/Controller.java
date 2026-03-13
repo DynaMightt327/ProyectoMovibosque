@@ -1509,7 +1509,7 @@ public class Controller implements ActionListener {
 		}
 		String texto = "";
 		for (Reserva r : reserva) {
-			texto += "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: "
+			texto = texto + "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: "
 					+ r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar()
 					+ "\n-------------------------\n";
 		}
@@ -1526,7 +1526,7 @@ public class Controller implements ActionListener {
 		int aplausoTotal = 0;		
 		for (Reserva r : reserva) {
 			if (r.getTotalPagar() > 0) {
-				dineroTotal += r.getTotalPagar();
+				dineroTotal = dineroTotal + r.getTotalPagar();
 			}
 			if (r.getRol() != null && r.getRol().equalsIgnoreCase("Estudiante")) {
 
