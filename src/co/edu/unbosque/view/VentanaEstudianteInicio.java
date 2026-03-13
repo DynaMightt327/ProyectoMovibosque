@@ -16,6 +16,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class VentanaEstudianteInicio extends JFrame {
+	
+	//memuero
 
 	private JLabel titulo;
 	private JLabel mensaje;
