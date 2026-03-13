@@ -11,6 +11,7 @@ import javax.security.auth.login.CredentialException;
 import co.edu.unbosque.model.Administrativo;
 import co.edu.unbosque.model.Docente;
 import co.edu.unbosque.model.Estudiante;
+import co.edu.unbosque.model.Reserva;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
@@ -191,6 +192,9 @@ public class Controller implements ActionListener {
 		vai.getBus().addActionListener(this);
 		vai.getBus().setActionCommand("ver_rutas_bus_a");
 		
+		vei.getPagar().addActionListener(this);
+		vei.getPagar().setActionCommand("pagar_reserva_estudiante");
+		
 		vai.getFlechaDerechaUno().addActionListener(this);
 		vai.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren_a");
 		
@@ -266,8 +270,60 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "pagar_reserva_estudiante" : {
-			vei.getPagar().addActionListener(this);
-			vei.getPagar().setActionCommand("pagar_reserva_estudiante");
+			String tipoTransporte = null;
+			if(vei.getrBus().isSelected()) {
+				tipoTransporte = "Bus";
+			}
+			if(vei.getrTren().isSelected()) {
+				tipoTransporte = "Tren";
+			}
+			if(tipoTransporte == null) {
+				JOptionPane.showMessageDialog(vei, "Debe seleccionar un tipo de transporte");
+				break;
+			}
+			
+			String ruta = null;
+			if(vei.getrUsaquen().isSelected()) {
+				ruta = "Usaquen - Chia";
+			}
+			if(vei.getrChia().isSelected()) {
+				ruta = "Chia - Usaquen";
+			}
+			if(ruta == null) {
+				JOptionPane.showMessageDialog(vei, "Debe seleccionar la ruta");
+				break;
+			}
+			
+			String fecha = obtenerFecha();
+			if(fecha == null || fecha.trim().equals("")) {
+				JOptionPane.showMessageDialog(vei, "Debe seleccionar la fecha de la reserva");
+				break;
+			}
+			
+			if(!rDAO.hayCupo(tipoTransporte, ruta, fecha)) {
+				JOptionPane.showMessageDialog(vei, "No hay cupos disponibles");
+				break;
+			}
+			
+			double costoBase = calcularCostoBase(estudianteActual.getFacultad(), estudianteActual.getSemestre());
+			double descuento = calcularDescuento(estudianteActual.getRol());
+			double total = costoBase - descuento;
+			
+			if(total < 0) {
+				total = 0;
+			}
+			
+			if(estudianteActual.getFacultad().equalsIgnoreCase("Artes")) {
+				vei.getPlata().setText("Aplausos");
+			} else {
+				vei.getPlata().setText("" + total);
+			}
+			
+			int idReserva = rDAO.generarId();
+			Reserva nueva = new Reserva(idReserva, estudianteActual.getId(), estudianteActual.getRol(), tipoTransporte, ruta, fecha, costoBase, descuento, total);
+			rDAO.crear(nueva);
+			JOptionPane.showMessageDialog(vei, "Reserva creada con exito\nNumero de reserva: " + idReserva);
+			break;
 		}
 		case "cambio_rol": {
 			actualizarCamposPorRol();
@@ -654,6 +710,7 @@ public class Controller implements ActionListener {
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getPanelMiPerfil().setVisible(false);
 			vei.getPanelReserva().setVisible(true);
+			actulizarReservaEstudiante();
 			break;
 		}
 		case "ver_reserva_docente": {
@@ -1033,7 +1090,68 @@ public class Controller implements ActionListener {
 	public String obtenerFecha() {
 		
 		String dia = (String) vei.getDia().getSelectedItem();
-		String mes = (String) vei.getM
+		String mes = (String) vei.getDiaSemana().getSelectedItem();
+		
+		if(dia == null || mes == null) {
+			return "";
+		}
+		if(dia.equals("...") || mes.equals("...")) {
+			return "";
+		}
+		
+		return dia + "/" + mes;
+		
+	}
+	
+	public double calcularCostoBase(String facultad, int semestre) {
+		if(facultad == null) {
+			return 0;
+		}
+		if(facultad.equalsIgnoreCase("Ingenieria")) {
+			return 1000;
+		}
+		if(facultad.equalsIgnoreCase("Medicina")) {
+			return 2000;
+		}
+		if(facultad.equalsIgnoreCase("Artes")) {
+			return 0;
+		}
+		if(facultad.equalsIgnoreCase("Matematicas")) {
+			return semestre * 3000;
+		}
+		return 0;
+	}
+	
+	public double calcularDescuento(String rol) {
+		if(rol == null) {
+			return 0;
+		}
+		if(rol.equalsIgnoreCase("Estudiante")) {
+			return 100;
+		}
+		if(rol.equalsIgnoreCase("Docente")) {
+			return 50;
+		}
+		return 0;
+	}
+	
+	public void actulizarReservaEstudiante() {
+		ArrayList<Reserva> reserva = rDAO.listaPorUsuario(estudianteActual.getId());
+		
+		if(reserva == null || reserva.size() == 0) {
+			JOptionPane.showMessageDialog(vei, "No tiene reservas", "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		
+		String texto = "";
+		int i = 0;
+		while (i < reserva.size()) {
+			Reserva r = reserva.get(i);
+			texto = texto + "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: " + r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar() + "/n-------------------";
+			i = i++;
+		}
+		
+		JOptionPane.showMessageDialog(vei,texto, "Mis reservas", JOptionPane.INFORMATION_MESSAGE);
 		
 	}
 
