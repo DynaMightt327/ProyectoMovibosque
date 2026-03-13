@@ -56,6 +56,7 @@ public class VentanaEstudianteInicio extends JFrame {
 
 	// mi perfil
 	private JPanel panelMiPerfil;
+	private JPanel panelImagen;
 	private JLabel dato;
 	private JLabel nombre;
 	private JLabel apellido;
@@ -183,6 +184,18 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelMiPerfil.setBackground(Color.decode("#ffffff"));
 		panelMiPerfil.setVisible(false);
 		add(panelMiPerfil);
+		
+		panelImagen = new JPanel();
+		panelImagen.setLayout(null);
+		panelImagen.setBounds(170, 20, 330, 640);
+		panelImagen.setBackground(Color.decode("#ffffff"));
+		panelImagen.setVisible(false);
+		add(panelImagen);
+		
+		ImageIcon imageTita = new ImageIcon(getClass().getResource("titaestudiante.png"));
+		JLabel tita = new JLabel(imageTita);
+		tita.setBounds(0, 0, 330, 640);
+		panelImagen.add(tita);
 
 		// ===============
 
@@ -1981,6 +1994,14 @@ public class VentanaEstudianteInicio extends JFrame {
 
 	public void settReserva(JTextArea tReserva) {
 		this.tReserva = tReserva;
+	}
+
+	public JPanel getPanelImagen() {
+		return panelImagen;
+	}
+
+	public void setPanelImagen(JPanel panelImagen) {
+		this.panelImagen = panelImagen;
 	}
 	
 

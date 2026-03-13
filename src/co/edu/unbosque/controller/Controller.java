@@ -849,6 +849,8 @@ public class Controller implements ActionListener {
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getPanelMiPerfil().setVisible(true);
 			vei.getPanelReserva().setVisible(false);
+			vei.getPanelImagen().setVisible(true);
+			
 			break;
 		}
 		case "ver_perfil_docente": {
@@ -864,6 +866,7 @@ public class Controller implements ActionListener {
 			vdi.getHorarioRegresoBus().setVisible(false);
 			vdi.getPanelMiPerfil().setVisible(true);
 			vdi.getPanelReserva().setVisible(false);
+			vdi.getPanelImagen().setVisible(true);
 			break;
 		}
 		case "ver_perfil_admin": {
@@ -881,6 +884,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			vai.getPanelAplauso().setVisible(false);
 			vai.getPanelPlata().setVisible(false);
+			vai.getPanelImagen().setVisible(true);
 			break;
 		}
 		case "ver_rutas_tren_e": {
@@ -892,6 +896,7 @@ public class Controller implements ActionListener {
 				vei.getHorarioRegresoBus().setVisible(false);
 				vei.getPanelMiPerfil().setVisible(false);
 				vei.getPanelReserva().setVisible(false);
+				vei.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_rutas_tren_d": {
@@ -903,6 +908,7 @@ public class Controller implements ActionListener {
 			vdi.getHorarioRegresoBus().setVisible(false);
 			vdi.getPanelMiPerfil().setVisible(false);
 			vdi.getPanelReserva().setVisible(false);
+			vdi.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_rutas_tren_a": {
@@ -916,6 +922,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			vai.getPanelAplauso().setVisible(false);
 			vai.getPanelPlata().setVisible(false);
+			vai.getPanelImagen().setVisible(false);
 			break;
 		}
 	
@@ -929,6 +936,7 @@ public class Controller implements ActionListener {
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getPanelMiPerfil().setVisible(false);
 			vei.getPanelReserva().setVisible(false);
+			vei.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_rutas_bus_d": {
@@ -941,6 +949,7 @@ public class Controller implements ActionListener {
 			vdi.getHorarioRegresoBus().setVisible(false);
 			vdi.getPanelMiPerfil().setVisible(false);
 			vdi.getPanelReserva().setVisible(false);
+			vdi.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_rutas_bus_a": {
@@ -955,6 +964,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			vai.getPanelAplauso().setVisible(false);
 			vai.getPanelPlata().setVisible(false);
+			vai.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_principal_estudiante": {
@@ -967,6 +977,7 @@ public class Controller implements ActionListener {
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getPanelMiPerfil().setVisible(false);
 			vei.getPanelReserva().setVisible(false);
+			vei.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_principal_docente": {
@@ -979,6 +990,7 @@ public class Controller implements ActionListener {
 			vdi.getHorarioRegresoBus().setVisible(false);
 			vdi.getPanelMiPerfil().setVisible(false);
 			vdi.getPanelReserva().setVisible(false);
+			vdi.getPanelImagen().setVisible(false);
 			actualizarRecaudo();
 			break;
 		}
@@ -994,6 +1006,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			vai.getPanelAplauso().setVisible(false);
 			vai.getPanelPlata().setVisible(false);
+			vai.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_reserva_estudiante": {
@@ -1004,6 +1017,7 @@ public class Controller implements ActionListener {
 			vei.getHorarioRegresoBus().setVisible(false);
 			vei.getPanelMiPerfil().setVisible(false);
 			vei.getPanelReserva().setVisible(true);
+			vei.getPanelImagen().setVisible(false);
 			mostrarReservaEstudiante();
 			break;
 		}
@@ -1015,6 +1029,7 @@ public class Controller implements ActionListener {
 			vdi.getHorarioRegresoBus().setVisible(false);
 			vdi.getPanelMiPerfil().setVisible(false);
 			vdi.getPanelReserva().setVisible(true);
+			vdi.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_reserva_admin": {
@@ -1027,6 +1042,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(true);
 			vai.getPanelAplauso().setVisible(false);
 			vai.getPanelPlata().setVisible(false);
+			vai.getPanelImagen().setVisible(false);
 			break;
 		}
 		case "ver_dinero_viajes": {
@@ -1039,6 +1055,7 @@ public class Controller implements ActionListener {
 			vai.getPanelReserva().setVisible(false);
 			vai.getPanelAplauso().setVisible(true);
 			vai.getPanelPlata().setVisible(true);
+			vai.getPanelImagen().setVisible(false);
 			actualizarRecaudo();
 			break;
 		}
