@@ -69,7 +69,7 @@ public class VentanaRegistro extends JFrame {
 		this.getContentPane().setBackground(Color.decode("#1d5f3b"));
 
 		// --------- IMAGEN DE FONDO ---------
-		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("trenueb.png"));
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("registrar.png"));
 		background = new JLabel(backgroundImage);
 		background.setBounds(0, 0, 980, 680);
 		background.setLayout(null);
@@ -78,9 +78,9 @@ public class VentanaRegistro extends JFrame {
 		// ==PANEL==
 		panelCentral = new JPanel();
 		panelCentral.setLayout(null);
-		panelCentral.setBounds(20, 20, 490, 600);
-		// panelCentral.setBackground(Color.decode("#98bda0"));
-		panelCentral.setBackground(new Color(152, 189, 160, 180));
+		panelCentral.setBounds(41, 35, 444, 600);
+		panelCentral.setBackground(Color.decode("#98bda0"));
+		//panelCentral.setBackground(new Color(152, 189, 160, 180));
 		// panelCentral.setOpaque(false); -> por alguna razón, no me funciona bien? :|
 		background.add(panelCentral);
 
