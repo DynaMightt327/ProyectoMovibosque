@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.security.auth.login.CredentialException;
 
@@ -13,6 +14,7 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.persistence.AdministrativoDAO;
 import co.edu.unbosque.model.persistence.DocenteDAO;
 import co.edu.unbosque.model.persistence.EstudianteDAO;
+import co.edu.unbosque.model.persistence.ReservaDAO;
 import co.edu.unbosque.util.exception.CelException;
 import co.edu.unbosque.util.exception.ComboBoxException;
 import co.edu.unbosque.util.exception.EmailException;
@@ -43,6 +45,7 @@ public class Controller implements ActionListener {
 	private AdministrativoDAO aDAO;
 	private DocenteDAO dDAO;
 	private EstudianteDAO eDAO;
+	private ReservaDAO rDAO;
 
 	private Estudiante estudianteActual;
 	private Docente docenteActual;
@@ -61,6 +64,7 @@ public class Controller implements ActionListener {
 		aDAO = new AdministrativoDAO();
 		dDAO = new DocenteDAO();
 		eDAO = new EstudianteDAO();
+		rDAO = new ReservaDAO();
 
 		estudianteActual = new Estudiante();
 		docenteActual = new Docente();
@@ -260,6 +264,10 @@ public class Controller implements ActionListener {
 			vi.setVisible(false);
 			vr.setVisible(true);
 			break;
+		}
+		case "pagar_reserva_estudiante" : {
+			vei.getPagar().addActionListener(this);
+			vei.getPagar().setActionCommand("pagar_reserva_estudiante");
 		}
 		case "cambio_rol": {
 			actualizarCamposPorRol();
@@ -1020,6 +1028,13 @@ public class Controller implements ActionListener {
 		if (annoServicio < 1 || annoServicio > 30) {
 			throw new ExperienceException();
 		}
+	}
+	
+	public String obtenerFecha() {
+		
+		String dia = (String) vei.getDia().getSelectedItem();
+		String mes = (String) vei.getM
+		
 	}
 
 

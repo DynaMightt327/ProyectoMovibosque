@@ -16,9 +16,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.toedter.calendar.JCalendar;
-import com.toedter.calendar.JDateChooser;
-
 public class VentanaEstudianteInicio extends JFrame {
 
 	private JLabel titulo;
