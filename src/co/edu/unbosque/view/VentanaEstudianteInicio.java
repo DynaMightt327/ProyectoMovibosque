@@ -2013,6 +2013,14 @@ public class VentanaEstudianteInicio extends JFrame {
 	public void setPanelImagen(JPanel panelImagen) {
 		this.panelImagen = panelImagen;
 	}
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
+	public void setCancelar(JButton cancelar) {
+		this.cancelar = cancelar;
+	}
 	
 
 }
