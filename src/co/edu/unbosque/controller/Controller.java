@@ -3,6 +3,8 @@ package co.edu.unbosque.controller;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -75,6 +77,7 @@ public class Controller implements ActionListener {
 
 		asignarOyentes();
 		actualizarCamposPorRol();
+		exportarUsuario();
 
 	}
 
@@ -700,6 +703,7 @@ public class Controller implements ActionListener {
 					int annoServicio = Integer.parseInt(aniosTxt);
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
 							facultad, rol, annoServicio));
+					exportarUsuario();
 				}
 
 				JOptionPane.showMessageDialog(vr, "Cuenta creada exitosamente", "Registro completado",
@@ -1165,13 +1169,13 @@ public class Controller implements ActionListener {
 	}
 	
 	public void mostrarNombreEstudiante() {
-		vei.getTitulo().setText("¡Bienvenid@, " + estudianteActual.getNombre() + "!");
+		vei.getTitulo().setText("¡Bienvenido, " + estudianteActual.getNombre() + "!");
 	}
 	public void mostrarNombreDocente() {
-		vdi.getTitulo().setText("¡Bienvenid@, " + docenteActual.getNombre() + "!");
+		vdi.getTitulo().setText("¡Bienvenido, " + docenteActual.getNombre() + "!");
 	}
 	public void mostrarNombreAdmin() {
-		vai.getTitulo().setText("¡Bienvenid@, " + adminActual.getNombre() + "!");
+		vai.getTitulo().setText("¡Bienvenido, " + adminActual.getNombre() + "!");
 	}
 
 	public void actualizarPerfilEstudiante() {
@@ -1561,6 +1565,92 @@ public class Controller implements ActionListener {
 		vai.getAplausoTotal().setText(String.valueOf(aplausoTotal));
 
 	}
+	
+	public String limpiarArchivo(String valor) {
+		if(valor == null) {
+			return"";
+		}
+		if(valor.contains(",") || valor.contains("/n")) {
+			return "\"" + valor + "\"";
+		}
+		return valor;
+	}
+	
+	public void escribirTxt(File archivo, String contenido) {
+		try {
+			PrintWriter escritor = new PrintWriter(archivo);
+			escritor.println(contenido);
+			escritor.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void exportarEstudiante() {
+		ArrayList<Estudiante> estudiantes = eDAO.mostrarTodo();
+		if(estudiantes == null || estudiantes.isEmpty()) {
+			return;
+		}
+			File archivo = new File("Estudiante.txt");
+			String contenido = "";
+			
+			for (int i = 0; i < estudiantes.size(); i++) {
+				Estudiante est = estudiantes.get(i);
+				
+				contenido = contenido + "Nombre: " + est.getNombre() + "\nApellido: " + est.getApellido() + "\nCorreo: "
+						+ est.getCorreoInst() + "\nUsuario: " + est.getnUsuario() + "\nId: " + est.getId()
+						+ "\nTelefono: " + est.getTelefono() + "\nFacultad: " + est.getFacultad() + "\nCarrera: "
+						+ est.getCarrera() + "\nSemestre: " + est.getSemestre() + "\n-------------------------------\n";
+			
+			escribirTxt(archivo, contenido);
+			
+		}
+	}
+	
+	public void exportarDocente() {
+		ArrayList<Docente> docentes = dDAO.mostrarTodo();
+		if(docentes == null || docentes.isEmpty()) {
+			return;
+		}
+			File archivo = new File("Docente.txt");
+			
+			String contenido = "";
+			for (int i = 0; i < docentes.size(); i++) {
+				Docente doc = docentes.get(i);
+				
+				contenido = contenido + "Nombre: " + doc.getNombre() + "\nApellido: " + doc.getApellido() + "\nCorreo: "
+						+ doc.getCorreoInst() + "\nUsuario: " + doc.getnUsuario() + "\nId: " + doc.getId()
+						+ "\nTelefono: " + doc.getTelefono() + "\nFacultad: " + doc.getFacultad() + "\nNumero de materias: "
+						+ doc.getNumeroMateria() + "\n-------------------------------\n";
+			escribirTxt(archivo, contenido);
+		}
+	}
+	
+	public void exportarAdministrativo() {
+		ArrayList<Administrativo> admins = aDAO.mostrarTodo();
+		if(admins == null || admins.isEmpty()) {
+			return;
+		}
+		File archivo = new File("Administrativo.txt");
+		String contenido = "";
+		
+		for (int i = 0; i < admins.size(); i++) {
+			Administrativo ad = admins.get(i);
+			
+			contenido += "Nombre: " + ad.getNombre() + "\nApellido: " + ad.getApellido() + "\nCorreo: "
+					+ ad.getCorreoInst() + "\nUsuario: " + ad.getnUsuario() + "\nDocumento: " + ad.getId()
+					+ "\nTelefono: " + ad.getTelefono() + "\nFacultad: " + ad.getFacultad() + "\nAños servicio: " + ad.getAnnoServicio() + "\n------------------------------\n";  
+		}
+		escribirTxt(archivo, contenido);
+	}
+	
+	public void exportarUsuario() {
+		exportarAdministrativo();
+		exportarDocente();
+		exportarEstudiante();
+	}
+	
+	
 	public void iniciar() {
 		vi.setVisible(true);
 
