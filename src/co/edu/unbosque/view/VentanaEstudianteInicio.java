@@ -749,7 +749,7 @@ public class VentanaEstudianteInicio extends JFrame {
 
 		panelRuta = new JPanel();
 		panelRuta.setLayout(null);
-		panelRuta.setBounds(20, 180, 430, 410);
+		panelRuta.setBounds(20, 180, 445, 410);
 		panelRuta.setBackground(Color.decode("#99bc9f"));
 		panelReserva.add(panelRuta);
 
@@ -1032,7 +1032,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		//======
 		
 		tMananaUno = new JButton("Martes mañana");
-		tMananaUno.setBounds(260, 20, 150, 25);
+		tMananaUno.setBounds(275, 20, 150, 25);
 		tMananaUno.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tMananaUno.setForeground(Color.decode("#ffffff"));
 		tMananaUno.setBackground(Color.decode("#376445"));
@@ -1041,7 +1041,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tMananaUno);
 		
 		tMananaDos = new JButton("Miercoles mañana");
-		tMananaDos.setBounds(260, 50, 150, 25);
+		tMananaDos.setBounds(275, 50, 150, 25);
 		tMananaDos.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tMananaDos.setForeground(Color.decode("#ffffff"));
 		tMananaDos.setBackground(Color.decode("#376445"));
@@ -1050,7 +1050,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tMananaDos);
 		
 		tMananaTres = new JButton("Jueves mañana");
-		tMananaTres.setBounds(260, 80, 150, 25);
+		tMananaTres.setBounds(275, 80, 150, 25);
 		tMananaTres.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tMananaTres.setForeground(Color.decode("#ffffff"));
 		tMananaTres.setBackground(Color.decode("#376445"));
@@ -1059,7 +1059,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tMananaTres);
 		
 		tMananaCuatro = new JButton("Viernes mañana");
-		tMananaCuatro.setBounds(260, 110, 150, 25);
+		tMananaCuatro.setBounds(275, 110, 150, 25);
 		tMananaCuatro.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tMananaCuatro.setForeground(Color.decode("#ffffff"));
 		tMananaCuatro.setBackground(Color.decode("#376445"));
@@ -1068,7 +1068,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tMananaCuatro);
 		
 		tTardeUno = new JButton("Martes tarde");
-		tTardeUno.setBounds(260, 140, 150, 25);
+		tTardeUno.setBounds(275, 140, 150, 25);
 		tTardeUno.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tTardeUno.setForeground(Color.decode("#ffffff"));
 		tTardeUno.setBackground(Color.decode("#376445"));
@@ -1077,7 +1077,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tTardeUno);
 		
 		tTardeDos = new JButton("Miercoles tarde");
-		tTardeDos.setBounds(260, 170, 150, 25);
+		tTardeDos.setBounds(275, 170, 150, 25);
 		tTardeDos.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tTardeDos.setForeground(Color.decode("#ffffff"));
 		tTardeDos.setBackground(Color.decode("#376445"));
@@ -1086,7 +1086,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tTardeDos);
 		
 		tTardeTres = new JButton("Jueves tarde");
-		tTardeTres.setBounds(260, 200, 150, 25);
+		tTardeTres.setBounds(275, 200, 150, 25);
 		tTardeTres.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tTardeTres.setForeground(Color.decode("#ffffff"));
 		tTardeTres.setBackground(Color.decode("#376445"));
@@ -1095,7 +1095,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelRuta.add(tTardeTres);
 		
 		tTardeCuatro = new JButton("Viernes tarde");
-		tTardeCuatro.setBounds(260, 230, 150, 25);
+		tTardeCuatro.setBounds(275, 230, 150, 25);
 		tTardeCuatro.setFont(new Font("Agency FB", Font.BOLD, 20));
 		tTardeCuatro.setForeground(Color.decode("#ffffff"));
 		tTardeCuatro.setBackground(Color.decode("#376445"));
