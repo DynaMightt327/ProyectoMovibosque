@@ -54,6 +54,8 @@ public class VentanaAdminInicio extends JFrame {
 	private JButton flechaIzqDosBus;
 	
 	//mi perfil
+	private JButton cancelar;
+	private JButton verPersona;
 	private JPanel panelMiPerfil;
 	private JPanel panelImagen;
 	private JLabel dato;
@@ -242,6 +244,24 @@ public class VentanaAdminInicio extends JFrame {
 		panelCuatro.setBounds(660, 185, 274, 440);
 		panelCuatro.setBackground(Color.decode("#ffffff"));
 		panelPrincipal.add(panelCuatro);
+		
+		cancelar = new JButton("Cancelar reserva");
+		cancelar.setBounds(55, 390, 150, 35);
+		cancelar.setFont(new Font("Agency FB", Font.BOLD, 18));
+		cancelar.setForeground(Color.decode("#ffffff"));
+		cancelar.setBackground(Color.decode("#376445"));
+		cancelar.setBorderPainted(false);
+		cancelar.setFocusPainted(false);
+		panelCuatro.add(cancelar);
+	
+		verPersona = new JButton("Personas en reserva");
+		verPersona.setBounds(55, 335, 150, 35);
+		verPersona.setFont(new Font("Agency FB", Font.BOLD, 15));
+		verPersona.setForeground(Color.decode("#ffffff"));
+		verPersona.setBackground(Color.decode("#376445"));
+		verPersona.setBorderPainted(false);
+		verPersona.setFocusPainted(false);
+		panelCuatro.add(verPersona);
 		
 		//LABELS
 
@@ -2083,6 +2103,22 @@ public class VentanaAdminInicio extends JFrame {
 
 	public void setPanelImagen(JPanel panelImagen) {
 		this.panelImagen = panelImagen;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
+	public void setCancelar(JButton cancelar) {
+		this.cancelar = cancelar;
+	}
+
+	public JButton getVerPersona() {
+		return verPersona;
+	}
+
+	public void setVerPersona(JButton verPersona) {
+		this.verPersona = verPersona;
 	}
 	
 }

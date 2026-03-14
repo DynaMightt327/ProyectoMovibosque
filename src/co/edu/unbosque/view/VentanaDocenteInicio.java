@@ -26,6 +26,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JTextArea tMensaje;
 	private JTextArea tReserva;
 
+	private JButton verEstudiante;
 	private JPanel menuBar;
 	private JPanel panelPrincipal;
 	private JPanel panelSuperior;
@@ -74,6 +75,7 @@ public class VentanaDocenteInicio extends JFrame {
 	private JTextField tNumMateria;
 
 	// reservas
+	private JButton cancelar;
 	private JPanel panelReserva;
 	private JPanel panelRuta;
 	private JPanel infoCosto;
@@ -201,6 +203,7 @@ public class VentanaDocenteInicio extends JFrame {
 		panelReserva.setBackground(Color.decode("#ffffff"));
 		panelReserva.setVisible(false);
 		add(panelReserva);
+		
 
 		// ===============================
 		panelSuperior = new JPanel();
@@ -274,10 +277,28 @@ public class VentanaDocenteInicio extends JFrame {
 		panelUno.add(tMensaje);
 		
 		tReserva = new JTextArea();
-		tReserva.setBounds(9, 45, 256, 387);
+		tReserva.setBounds(9, 45, 256, 280);
 		tReserva.setBackground(Color.decode("#e0ebe0"));
 		tReserva.setEditable(false);
 		panelCuatro.add(tReserva);
+
+		cancelar = new JButton("Cancelar reserva");
+		cancelar.setBounds(55, 390, 150, 35);
+		cancelar.setFont(new Font("Agency FB", Font.BOLD, 18));
+		cancelar.setForeground(Color.decode("#ffffff"));
+		cancelar.setBackground(Color.decode("#376445"));
+		cancelar.setBorderPainted(false);
+		cancelar.setFocusPainted(false);
+		panelCuatro.add(cancelar);
+	
+		verEstudiante = new JButton("Estudiantes en reserva");
+		verEstudiante.setBounds(55, 335, 150, 35);
+		verEstudiante.setFont(new Font("Agency FB", Font.BOLD, 15));
+		verEstudiante.setForeground(Color.decode("#ffffff"));
+		verEstudiante.setBackground(Color.decode("#376445"));
+		verEstudiante.setBorderPainted(false);
+		verEstudiante.setFocusPainted(false);
+		panelCuatro.add(verEstudiante);
 
 		// BOTONES
 
@@ -1963,6 +1984,22 @@ public class VentanaDocenteInicio extends JFrame {
 
 	public void setPanelImagen(JPanel panelImagen) {
 		this.panelImagen = panelImagen;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
+	public void setCancelar(JButton cancelar) {
+		this.cancelar = cancelar;
+	}
+
+	public JButton getVerEstudiante() {
+		return verEstudiante;
+	}
+
+	public void setVerEstudiante(JButton verEstudiante) {
+		this.verEstudiante = verEstudiante;
 	}
 	
 	
