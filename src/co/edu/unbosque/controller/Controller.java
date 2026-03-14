@@ -765,9 +765,8 @@ public class Controller implements ActionListener {
 					int annoServicio = Integer.parseInt(aniosTxt);
 					aDAO.crear(new Administrativo(nombre, apellido, correoInst, nUsuario, id, telefono, contrasena,
 							facultad, rol, annoServicio));
-					exportarUsuario();
 				}
-
+				exportarUsuario();
 				JOptionPane.showMessageDialog(vr, "Cuenta creada exitosamente", "Registro completado",
 						JOptionPane.INFORMATION_MESSAGE);
 				limpiarCampos();
