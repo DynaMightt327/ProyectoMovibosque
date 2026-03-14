@@ -1165,13 +1165,13 @@ public class Controller implements ActionListener {
 	}
 	
 	public void mostrarNombreEstudiante() {
-		vei.getTitulo().setText("¡Bienvenido, " + estudianteActual.getNombre() + "!");
+		vei.getTitulo().setText("¡Bienvenid@, " + estudianteActual.getNombre() + "!");
 	}
 	public void mostrarNombreDocente() {
-		vdi.getTitulo().setText("¡Bienvenido, " + docenteActual.getNombre() + "!");
+		vdi.getTitulo().setText("¡Bienvenid@, " + docenteActual.getNombre() + "!");
 	}
 	public void mostrarNombreAdmin() {
-		vai.getTitulo().setText("¡Bienvenido, " + adminActual.getNombre() + "!");
+		vai.getTitulo().setText("¡Bienvenid@, " + adminActual.getNombre() + "!");
 	}
 
 	public void actualizarPerfilEstudiante() {

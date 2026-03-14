@@ -93,6 +93,7 @@ public class VentanaEstudianteInicio extends JFrame {
 	private JRadioButton rUsaquen;
 	private JRadioButton rChia;
 	private JButton pagar;
+	private JButton cancelar;
 	private ButtonGroup grupoTransporte;
 	private ButtonGroup grupoRuta;
 	private JPanel calendario;
@@ -278,7 +279,7 @@ public class VentanaEstudianteInicio extends JFrame {
 		panelUno.add(tMensaje);
 		
 		tReserva = new JTextArea();
-		tReserva.setBounds(9, 45, 256, 387);
+		tReserva.setBounds(9, 45, 256, 295);
 		tReserva.setBackground(Color.decode("#e0ebe0"));
 		tReserva.setEditable(false);
 		panelCuatro.add(tReserva);
@@ -781,6 +782,15 @@ public class VentanaEstudianteInicio extends JFrame {
 		pagar.setBorderPainted(false);
 		pagar.setFocusPainted(false);
 		panelReserva.add(pagar);
+		
+		cancelar = new JButton("Cancelar reserva");
+		cancelar.setBounds(55, 380, 150, 40);
+		cancelar.setFont(new Font("Agency FB", Font.BOLD, 18));
+		cancelar.setForeground(Color.decode("#ffffff"));
+		cancelar.setBackground(Color.decode("#376445"));
+		cancelar.setBorderPainted(false);
+		cancelar.setFocusPainted(false);
+		panelCuatro.add(cancelar);
 		
 		lunes = new JLabel("Lunes");
 		lunes.setBounds(30, 10, 250, 20);
