@@ -75,4 +75,13 @@ public class DocenteDAO implements DAO<Docente> {
 		}
 		return null;
 	}
+
+	public Docente buscarPorId(long id) {
+		for (Docente docente : listaDocentes) {
+			if (docente.getId() == id) {
+				return docente;
+			}
+		}
+		return null;
+	}
 }

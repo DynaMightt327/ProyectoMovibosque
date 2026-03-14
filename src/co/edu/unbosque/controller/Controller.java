@@ -88,10 +88,19 @@ public class Controller implements ActionListener {
 
 		vi.getIniciarSesion().addActionListener(this);
 		vi.getIniciarSesion().setActionCommand("boton_iniciar_sesion");
+		
+		vdi.getCancelar().addActionListener(this);
+		vdi.getCancelar().setActionCommand("cancelar_reserva_docente");
+		
+		vai.getCancelar().addActionListener(this);
+		vai.getCancelar().setActionCommand("cancelar_reserva_admin");
 
 		// ==VENTANA REGISTRO==
 		vr.getbVolver().addActionListener(this);
 		vr.getbVolver().setActionCommand("boton_volver_registrar");
+		
+		vei.getCancelar().addActionListener(this);
+		vei.getCancelar().setActionCommand("cancelar_reserva_estudiante");
 
 		vr.getbRegistrar().addActionListener(this);
 		vr.getbRegistrar().setActionCommand("boton_guardar_cuenta");
@@ -100,10 +109,10 @@ public class Controller implements ActionListener {
 		vr.gettFacultad().setActionCommand("cambio_facultad");
 		
 		vei.getrBus().addActionListener(this);
-		vei.getrBus().setActionCommand("actualizar_costo_estudiante");
+		vei.getrBus().setActionCommand("seleccionar_bus_estudiante");
 
 		vei.getrTren().addActionListener(this);
-		vei.getrTren().setActionCommand("actualizar_costo_estudiante");
+		vei.getrTren().setActionCommand("seleccionar_tren_estudiante");
 
 		vei.getrUsaquen().addActionListener(this);
 		vei.getrUsaquen().setActionCommand("actualizar_costo_estudiante");
@@ -137,6 +146,13 @@ public class Controller implements ActionListener {
 		vei.getbBus().setActionCommand("ver_rutas_bus_e");
 		vei.getBus().addActionListener(this);
 		vei.getBus().setActionCommand("ver_rutas_bus_e");
+		
+
+		vdi.getVerEstudiante().addActionListener(this);
+		vdi.getVerEstudiante().setActionCommand("ver_estudiantes_misma_reserva");
+
+		vai.getVerPersona().addActionListener(this);
+		vai.getVerPersona().setActionCommand("ver_personas_misma_reserva");
 
 		vei.getFlechaDerechaUno().addActionListener(this);
 		vei.getFlechaDerechaUno().setActionCommand("usar_flecha_derecha_tren_e");
@@ -387,6 +403,14 @@ public class Controller implements ActionListener {
 			vr.setVisible(true);
 			break;
 		}
+		case "ver_estudiantes_misma_reserva": {
+			verEstudiantesMismaReservaDocente();
+			break;
+		}
+		case "ver_personas_misma_reserva": {
+			verPersonasMismaReservaAdmin();
+			break;
+		}
 		case "pagar_reserva_estudiante" : {
 			String tipoTransporte = null;
 			if(vei.getrBus().isSelected()) {
@@ -443,6 +467,18 @@ public class Controller implements ActionListener {
 			mostrarReservaEstudiante();
 			actualizarCostoReservaEstudiante();
 			horarioSeleccionado = null;
+			break;
+		}
+		case "cancelar_reserva_estudiante": {
+			cancelarReservaEstudiante();
+			break;
+		}
+		case "cancelar_reserva_docente": {
+			cancelarReservaDocente();
+			break;
+		}
+		case "cancelar_reserva_admin": {
+			cancelarReservaAdmin();
 			break;
 		}
 		case "pagar_reserva_admin": {
@@ -553,10 +589,36 @@ public class Controller implements ActionListener {
 			break;
 
 		}
+		case "seleccionar_bus_estudiante": {
+			actualizarCostoReservaEstudiante();
+
+			vei.getTrenHorario().setVisible(false);
+			vei.getHorarioIda().setVisible(false);
+			vei.getHorarioRegreso().setVisible(false);
+
+			vei.getBusHorario().setVisible(true);
+			vei.getHorarioIdaBus().setVisible(true);
+			vei.getHorarioRegresoBus().setVisible(false);
+			break;
+		}
 		case "actualizar_costo_estudiante": {
 			actualizarCostoReservaEstudiante();
 			break;
 		}
+		case "seleccionar_tren_estudiante": {
+			actualizarCostoReservaEstudiante();
+
+			vei.getBusHorario().setVisible(false);
+			vei.getHorarioIdaBus().setVisible(false);
+			vei.getHorarioRegresoBus().setVisible(false);
+
+			vei.getTrenHorario().setVisible(true);
+			vei.getHorarioIda().setVisible(true);
+			vei.getHorarioRegreso().setVisible(false);
+
+			break;
+		}
+
 		case "seleccionar_horario": {
 
 			if (e.getSource() == vei.getbMananaUno()) {
@@ -564,7 +626,7 @@ public class Controller implements ActionListener {
 			} else if (e.getSource() == vei.getbMananaDos()) {
 				horarioSeleccionado = "9AM";
 			} else if (e.getSource() == vei.getbMananaTres()) {
-				horarioSeleccionado = "9AM"; // o lo que corresponda
+				horarioSeleccionado = "9AM"; 
 			} else if (e.getSource() == vei.getbMananaCuatro()) {
 				horarioSeleccionado = "9AM";
 			} else if (e.getSource() == vei.getbMananaCinco()) {
@@ -843,7 +905,6 @@ public class Controller implements ActionListener {
 		case "ver_perfil_estudiante": {
 
 			actualizarPerfilEstudiante();
-
 			vei.getPanelPrincipal().setVisible(false);
 			vei.getTrenHorario().setVisible(false);
 			vei.getBusHorario().setVisible(false);
@@ -892,83 +953,28 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "ver_rutas_tren_e": {
-				vei.getPanelPrincipal().setVisible(false);
-				vei.getTrenHorario().setVisible(true);
-				vei.getHorarioIda().setVisible(true);
-				vei.getHorarioRegreso().setVisible(false);
-				vei.getHorarioIdaBus().setVisible(false);
-				vei.getHorarioRegresoBus().setVisible(false);
-				vei.getPanelMiPerfil().setVisible(false);
-				vei.getPanelReserva().setVisible(false);
-				vei.getPanelImagen().setVisible(false);
+				mostrarSoloTrenEstudiante();
 			break;
 		}
 		case "ver_rutas_tren_d": {
-			vdi.getPanelPrincipal().setVisible(false);
-			vdi.getTrenHorario().setVisible(true);
-			vdi.getHorarioIda().setVisible(true);
-			vdi.getHorarioRegreso().setVisible(false);
-			vdi.getHorarioIdaBus().setVisible(false);
-			vdi.getHorarioRegresoBus().setVisible(false);
-			vdi.getPanelMiPerfil().setVisible(false);
-			vdi.getPanelReserva().setVisible(false);
-			vdi.getPanelImagen().setVisible(false);
+			mostrarSoloTrenDocente();
 			break;
 		}
 		case "ver_rutas_tren_a": {
-			vai.getPanelPrincipal().setVisible(false);
-			vai.getTrenHorario().setVisible(true);
-			vai.getHorarioIda().setVisible(true);
-			vai.getHorarioRegreso().setVisible(false);
-			vai.getHorarioIdaBus().setVisible(false);
-			vai.getHorarioRegresoBus().setVisible(false);
-			vai.getPanelMiPerfil().setVisible(false);
-			vai.getPanelReserva().setVisible(false);
-			vai.getPanelAplauso().setVisible(false);
-			vai.getPanelPlata().setVisible(false);
-			vai.getPanelImagen().setVisible(false);
+			mostrarSoloTrenAdmin();
 			break;
 		}
 	
 		case "ver_rutas_bus_e": {
-			vei.getPanelPrincipal().setVisible(false);
-			vei.getBusHorario().setVisible(true);
-			vei.getTrenHorario().setVisible(false);
-			vei.getHorarioIda().setVisible(false);
-			vei.getHorarioRegreso().setVisible(false);
-			vei.getHorarioIdaBus().setVisible(true);
-			vei.getHorarioRegresoBus().setVisible(false);
-			vei.getPanelMiPerfil().setVisible(false);
-			vei.getPanelReserva().setVisible(false);
-			vei.getPanelImagen().setVisible(false);
+			mostrarSoloBusEstudiante();
 			break;
 		}
 		case "ver_rutas_bus_d": {
-			vdi.getPanelPrincipal().setVisible(false);
-			vdi.getBusHorario().setVisible(true);
-			vdi.getTrenHorario().setVisible(false);
-			vdi.getHorarioIda().setVisible(false);
-			vdi.getHorarioRegreso().setVisible(false);
-			vdi.getHorarioIdaBus().setVisible(true);
-			vdi.getHorarioRegresoBus().setVisible(false);
-			vdi.getPanelMiPerfil().setVisible(false);
-			vdi.getPanelReserva().setVisible(false);
-			vdi.getPanelImagen().setVisible(false);
+			mostrarSoloBusDocente();
 			break;
 		}
 		case "ver_rutas_bus_a": {
-			vai.getPanelPrincipal().setVisible(false);
-			vai.getBusHorario().setVisible(true);
-			vai.getTrenHorario().setVisible(false);
-			vai.getHorarioIda().setVisible(false);
-			vai.getHorarioRegreso().setVisible(false);
-			vai.getHorarioIdaBus().setVisible(true);
-			vai.getHorarioRegresoBus().setVisible(false);
-			vai.getPanelMiPerfil().setVisible(false);
-			vai.getPanelReserva().setVisible(false);
-			vai.getPanelAplauso().setVisible(false);
-			vai.getPanelPlata().setVisible(false);
-			vai.getPanelImagen().setVisible(false);
+			mostrarSoloTrenAdmin();
 			break;
 		}
 		case "ver_principal_estudiante": {
@@ -1034,6 +1040,7 @@ public class Controller implements ActionListener {
 			vdi.getPanelMiPerfil().setVisible(false);
 			vdi.getPanelReserva().setVisible(true);
 			vdi.getPanelImagen().setVisible(false);
+			mostrarReservaDocente();
 			break;
 		}
 		case "ver_reserva_admin": {
@@ -1047,6 +1054,7 @@ public class Controller implements ActionListener {
 			vai.getPanelAplauso().setVisible(false);
 			vai.getPanelPlata().setVisible(false);
 			vai.getPanelImagen().setVisible(false);
+			mostrarReservaAdmin();
 			break;
 		}
 		case "ver_dinero_viajes": {
@@ -1537,7 +1545,37 @@ public class Controller implements ActionListener {
 		}
 		vei.gettReserva().setText(texto);
 	}
-	
+
+	public void mostrarReservaAdmin() {
+		ArrayList<Reserva> reservas = rDAO.listaPorUsuario(adminActual.getId());
+		if (reservas == null || reservas.size() == 0) {
+			vai.gettReserva().setText("No tienes reservas creadas.");
+			return;
+		}
+		String texto = "";
+		for (Reserva r : reservas) {
+			texto = texto + "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: "
+					+ r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar()
+					+ "\n-------------------------\n";
+		}
+		vai.gettReserva().setText(texto);
+	}
+	public void mostrarReservaDocente() {
+		ArrayList<Reserva> reservas = rDAO.listaPorUsuario(docenteActual.getId());
+
+		if (reservas == null || reservas.size() == 0) {
+			vdi.gettReserva().setText("No tienes reservas creadas.");
+			return;
+		}
+		String texto = "";
+		for (Reserva r : reservas) {
+			texto = texto + "Reserva #: " + r.getIdReserva() + "\nTransporte: " + r.getTipoTransporte() + "\nRuta: "
+					+ r.getRuta() + "\nFecha: " + r.getFecha() + "\nTotal: " + r.getTotalPagar()
+					+ "\n-------------------------\n";
+		}
+		vdi.gettReserva().setText(texto);
+	}
+
 	public void actualizarRecaudo() {
 		ArrayList<Reserva> reserva = rDAO.mostrarTodo();
 		
@@ -1650,6 +1688,294 @@ public class Controller implements ActionListener {
 		exportarEstudiante();
 	}
 	
+
+	public void verEstudiantesMismaReservaDocente() {
+		ArrayList<Reserva> reservasDocente = rDAO.listaPorUsuario(docenteActual.getId());
+
+		if (reservasDocente == null || reservasDocente.isEmpty()) {
+			JOptionPane.showMessageDialog(vdi, "No tienes reservas creadas.", "Estudiantes en mis reservas",
+					JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		ArrayList<Reserva> todasLasReservas = rDAO.mostrarTodo();
+		if (todasLasReservas == null) {
+			todasLasReservas = new ArrayList<Reserva>();
+		}
+		ArrayList<Long> idsEstudiantesAgregados = new ArrayList<Long>();
+		String texto = "";
+		for (int i = 0; i < reservasDocente.size(); i++) {
+			Reserva reservaDoc = reservasDocente.get(i);
+
+			for (int j = 0; j < todasLasReservas.size(); j++) {
+				Reserva r = todasLasReservas.get(j);
+				if (r.getRol() == null || !r.getRol().equalsIgnoreCase("Estudiante")) {
+					continue;
+				}
+
+				boolean mismoTransporte = r.getTipoTransporte() != null
+						&& r.getTipoTransporte().equalsIgnoreCase(reservaDoc.getTipoTransporte());
+
+				boolean mismaRuta = r.getRuta() != null && r.getRuta().equalsIgnoreCase(reservaDoc.getRuta());
+
+				boolean mismaFecha = r.getFecha() != null && r.getFecha().equalsIgnoreCase(reservaDoc.getFecha());
+
+				if (mismoTransporte && mismaRuta && mismaFecha) {
+
+					Estudiante est = eDAO.buscarPorId(r.getIdUsuario());
+					if (est == null) {
+						continue;
+					}
+					if (idsEstudiantesAgregados.contains(est.getId())) {
+						continue;
+					}
+					idsEstudiantesAgregados.add(est.getId());
+
+					texto = texto + "Nombre: " + est.getNombre() + " " + est.getApellido() + "\nCorreo: "
+							+ est.getCorreoInst() + "\nFacultad: " + est.getFacultad() + "\nCarrera: "
+							+ est.getCarrera() + "\nSemestre: " + est.getSemestre() + "\nReserva #: " + r.getIdReserva()
+							+ "\nRuta: " + r.getRuta() + "\nFecha: " + r.getFecha()
+							+ "\n--------------------------------\n";
+				}
+			}
+		}
+		if (texto.equals("")) {
+			texto = "No hay estudiantes con reservas en los mismos viajes que tú.";
+		}
+
+		JOptionPane.showMessageDialog(vdi, texto, "Estudiantes en mis reservas", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void verPersonasMismaReservaAdmin() {
+		ArrayList<Reserva> reservasAdmin = rDAO.listaPorUsuario(adminActual.getId());
+		if (reservasAdmin == null || reservasAdmin.isEmpty()) {
+			JOptionPane.showMessageDialog(vai, "No tienes reservas creadas.", "Personas en mis reservas",
+					JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		ArrayList<Reserva> todasLasReservas = rDAO.mostrarTodo();
+		if (todasLasReservas == null) {
+			todasLasReservas = new ArrayList<Reserva>();
+		}		
+		ArrayList<Long> idsEstudiantesAgregados = new ArrayList<Long>();
+		ArrayList<Long> idsDocentesAgregados = new ArrayList<Long>();
+
+		String texto = "";
+		for (int i = 0; i < reservasAdmin.size(); i++) {
+			Reserva reservaAdmin = reservasAdmin.get(i);
+
+			for (int j = 0; j < todasLasReservas.size(); j++) {
+				Reserva r = todasLasReservas.get(j);
+
+				if (r.getRol() == null) {
+					continue;
+				}
+				boolean mismoTransporte = r.getTipoTransporte() != null
+						&& r.getTipoTransporte().equalsIgnoreCase(reservaAdmin.getTipoTransporte());
+				boolean mismaRuta = r.getRuta() != null && r.getRuta().equalsIgnoreCase(reservaAdmin.getRuta());
+				boolean mismaFecha = r.getFecha() != null && r.getFecha().equalsIgnoreCase(reservaAdmin.getFecha());
+				if (!(mismoTransporte && mismaRuta && mismaFecha)) {
+					continue;
+				}
+				if (r.getRol().equalsIgnoreCase("Estudiante")) {
+					Estudiante est = eDAO.buscarPorId(r.getIdUsuario());
+					if (est != null && !idsEstudiantesAgregados.contains(est.getId())) {
+						idsEstudiantesAgregados.add(est.getId());
+						texto = texto + "[ESTUDIANTE]\n" + "Nombre: " + est.getNombre() + " " + est.getApellido()
+								+ "\nCorreo: " + est.getCorreoInst() + "\nFacultad: " + est.getFacultad()
+								+ "\nCarrera: " + est.getCarrera() + "\nSemestre: " + est.getSemestre()
+								+ "\nReserva #: " + r.getIdReserva() + "\nRuta: " + r.getRuta() + "\nFecha: "
+								+ r.getFecha() + "\n--------------------------------\n";
+					}
+				}
+				else if (r.getRol().equalsIgnoreCase("Docente")) {
+					Docente doc = dDAO.buscarPorId(r.getIdUsuario());
+					if (doc != null && !idsDocentesAgregados.contains(doc.getId())) {
+						idsDocentesAgregados.add(doc.getId());
+						texto = texto + "[DOCENTE]\n" + "Nombre: " + doc.getNombre() + " " + doc.getApellido()
+								+ "\nCorreo: " + doc.getCorreoInst() + "\nFacultad: " + doc.getFacultad()
+								+ "\nNúmero de materias: " + doc.getNumeroMateria() + "\nReserva #: " + r.getIdReserva()
+								+ "\nRuta: " + r.getRuta() + "\nFecha: " + r.getFecha()
+								+ "\n--------------------------------\n";
+					}
+				}
+			}
+		}
+
+		if (texto.equals("")) {
+			texto = "No hay estudiantes ni docentes con reservas en los mismos viajes que tú.";
+		}
+		JOptionPane.showMessageDialog(vai, texto, "Personas en mis reservas", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void mostrarSoloBusEstudiante() {
+		vei.getTrenHorario().setVisible(false);
+		vei.getHorarioIda().setVisible(false);
+		vei.getHorarioRegreso().setVisible(false);
+		vei.getBusHorario().setVisible(true);
+		vei.getHorarioIdaBus().setVisible(true);
+		vei.getHorarioRegresoBus().setVisible(false);
+	}
+	
+	public void mostrarSoloBusDocente() {
+		vdi.getTrenHorario().setVisible(false);
+		vdi.getHorarioIda().setVisible(false);
+		vdi.getHorarioRegreso().setVisible(false);
+		vdi.getBusHorario().setVisible(true);
+		vdi.getHorarioIdaBus().setVisible(true);
+		vdi.getHorarioRegresoBus().setVisible(false);
+	}
+
+	public void mostrarSoloBusAdmin() {
+		vai.getTrenHorario().setVisible(false);
+		vai.getHorarioIda().setVisible(false);
+		vai.getHorarioRegreso().setVisible(false);
+		vai.getBusHorario().setVisible(true);
+		vai.getHorarioIdaBus().setVisible(true);
+		vai.getHorarioRegresoBus().setVisible(false);
+	}
+	
+	public void mostrarSoloTrenEstudiante() {
+		vei.getBusHorario().setVisible(false);
+		vei.getHorarioIdaBus().setVisible(false);
+		vei.getHorarioRegresoBus().setVisible(false);
+		vei.getTrenHorario().setVisible(true);
+		vei.getHorarioIda().setVisible(true);
+		vei.getHorarioRegreso().setVisible(false);
+	}
+
+	public void mostrarSoloTrenDocente() {
+		vdi.getBusHorario().setVisible(false);
+		vdi.getHorarioIdaBus().setVisible(false);
+		vdi.getHorarioRegresoBus().setVisible(false);
+		vdi.getTrenHorario().setVisible(true);
+		vdi.getHorarioIda().setVisible(true);
+		vdi.getHorarioRegreso().setVisible(false);
+	}
+
+	public void mostrarSoloTrenAdmin() {
+		vai.getBusHorario().setVisible(false);
+		vai.getHorarioIdaBus().setVisible(false);
+		vai.getHorarioRegresoBus().setVisible(false);
+		vai.getTrenHorario().setVisible(true);
+		vai.getHorarioIda().setVisible(true);
+		vai.getHorarioRegreso().setVisible(false);
+	}
+	
+	public void cancelarReservaEstudiante() {
+		// Pedir ID al usuario
+		String idTxt = JOptionPane.showInputDialog(vei, "Ingrese el número de la reserva a cancelar:",
+				"Cancelar reserva", JOptionPane.QUESTION_MESSAGE);
+		if (idTxt == null || idTxt.trim().equals("")) {
+			return;
+		}
+
+		try {
+			int idReserva = Integer.parseInt(idTxt.trim());
+			ArrayList<Reserva> lista = rDAO.mostrarTodo();
+			int indexEncontrado = -1;
+			for (int i = 0; i < lista.size(); i++) {
+				Reserva r = lista.get(i);
+				if (r.getIdReserva() == idReserva && r.getIdUsuario() == estudianteActual.getId()) {
+					indexEncontrado = i;
+					break;
+				}
+			}
+			if (indexEncontrado == -1) {
+				JOptionPane.showMessageDialog(vei, "No existe una reserva con ese número o no pertenece a tu usuario.",
+						"Cancelar reserva", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			boolean eliminado = rDAO.eliminar(indexEncontrado);
+			if (eliminado) {
+				JOptionPane.showMessageDialog(vei, "Reserva cancelada exitosamente.", "Cancelar reserva",
+						JOptionPane.INFORMATION_MESSAGE);
+				mostrarReservaEstudiante();
+				actualizarRecaudo();
+			} else {
+				JOptionPane.showMessageDialog(vei, "No se pudo eliminar la reserva.", "Cancelar reserva",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(vei, "El número ingresado no es válido.", "Cancelar reserva",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	public void cancelarReservaDocente() {
+
+		String idTxt = JOptionPane.showInputDialog(vdi, "Ingrese el número de reserva que desea cancelar:",
+				"Cancelar reserva", JOptionPane.QUESTION_MESSAGE);
+		if (idTxt == null || idTxt.trim().equals("")) {
+			return;
+		}
+		try {
+			int idReserva = Integer.parseInt(idTxt.trim());
+
+			ArrayList<Reserva> lista = rDAO.mostrarTodo();
+			int indexEncontrado = -1;
+
+			for (int i = 0; i < lista.size(); i++) {
+				Reserva r = lista.get(i);
+				if (r.getIdReserva() == idReserva && r.getIdUsuario() == docenteActual.getId()) {
+					indexEncontrado = i;
+					break;
+				}
+			}
+			if (indexEncontrado == -1) {
+				JOptionPane.showMessageDialog(vdi, "No existe una reserva con ese número o no pertenece a su usuario.",
+						"Cancelar reserva", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			boolean eliminado = rDAO.eliminar(indexEncontrado);
+			if (eliminado) {
+				JOptionPane.showMessageDialog(vdi, "Reserva cancelada correctamente.", "Cancelar reserva",
+						JOptionPane.INFORMATION_MESSAGE);
+				actualizarRecaudo();
+			} else {
+				JOptionPane.showMessageDialog(vdi, "No se pudo cancelar la reserva.", "Cancelar reserva",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(vdi, "El número ingresado no es válido.", "Cancelar reserva",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	public void cancelarReservaAdmin() {
+		String idTxt = JOptionPane.showInputDialog(vai, "Ingrese el número de reserva que desea cancelar:",
+				"Cancelar reserva", JOptionPane.QUESTION_MESSAGE);
+		if (idTxt == null || idTxt.trim().equals("")) {
+			return;
+		}
+		try {
+			int idReserva = Integer.parseInt(idTxt.trim());
+			ArrayList<Reserva> lista = rDAO.mostrarTodo();
+			int indexEncontrado = -1;
+			for (int i = 0; i < lista.size(); i++) {
+				Reserva r = lista.get(i);
+				if (r.getIdReserva() == idReserva && r.getIdUsuario() == adminActual.getId()) {
+					indexEncontrado = i;
+					break;
+				}
+			}
+			if (indexEncontrado == -1) {
+				JOptionPane.showMessageDialog(vai, "No existe una reserva con ese número o no pertenece a su usuario.",
+						"Cancelar reserva", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			boolean eliminado = rDAO.eliminar(indexEncontrado);
+			if (eliminado) {
+				JOptionPane.showMessageDialog(vai, "Reserva cancelada correctamente.", "Cancelar reserva",
+						JOptionPane.INFORMATION_MESSAGE);
+				actualizarRecaudo();
+			} else {
+				JOptionPane.showMessageDialog(vai, "No se pudo cancelar la reserva.", "Cancelar reserva",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(vai, "El número ingresado no es válido.", "Cancelar reserva",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
 	
 	public void iniciar() {
 		vi.setVisible(true);
